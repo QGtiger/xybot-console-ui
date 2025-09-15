@@ -1,7 +1,19 @@
-export function Button() {
+import classNames from 'classnames';
+import './index.css';
+
+export interface ButtonProps {
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  type?: 'border' | 'text' | 'base' | 'primary' | 'danger' | 'secondary';
+}
+
+export function Button(props: ButtonProps) {
+  const { size = 'xl', type = 'secondary' } = props;
   return (
-    <div className="ui-bg-blue-500 ui-text-white ui-px-4 ui-py-2 ui-rounded">
+    <button
+      type="button"
+      className={classNames(' btn', `btn-${size}`, `btn-${type}`)}
+    >
       Click Me
-    </div>
+    </button>
   );
 }

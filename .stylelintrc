@@ -1,15 +1,24 @@
 {
   "extends": "@umijs/lint/dist/config/stylelint",
   "rules": {
-    "at-rule-no-unknown": [true, {
-      "ignoreAtRules": [
-        "tailwind",
-        "layer",
-        "apply",
-        "variants",
-        "responsive",
-        "screen"
-      ]
-    }]
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "layer",
+          "apply",
+          "variants",
+          "responsive",
+          "screen"
+        ]
+      }
+    ],
+    "custom-property-pattern": null,
+    "alpha-value-notation": null,
+    "custom-property-empty-line-before": null,
+    "rule-empty-line-before": null,
+    "hue-degree-notation": null,
+    "declaration-empty-line-before": null
   }
 }

@@ -5,5 +5,10 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('./src/tailwindcss-xybot-component.js')],
+  safelist: [
+    {
+      pattern: /^ui-btn-*/,
+    },
+  ],
 };

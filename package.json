@@ -58,7 +58,8 @@
     ]
   },
   "dependencies": {
-    "ahooks": "^3.9.5"
+    "ahooks": "^3.9.5",
+    "classnames": "^2.5.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",

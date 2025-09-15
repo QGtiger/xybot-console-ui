@@ -12,10 +12,17 @@ export const ThemeModel = createCustomModel(() => {
   return { theme, themeMode, setThemeMode };
 });
 
+function ThemeConsumer(props: PropsWithChildren) {
+  const { theme } = ThemeModel.useModel();
+  return <div className={`theme-${theme}`}>{props.children}</div>;
+}
+
 export function ThemeProvider(props: PropsWithChildren) {
   return (
     <ThemeModel.Provider>
-      <div className="xybot-ui">{props.children}</div>
+      <div className="xybot-ui ">
+        <ThemeConsumer>{props.children}</ThemeConsumer>
+      </div>
     </ThemeModel.Provider>
   );
 }
