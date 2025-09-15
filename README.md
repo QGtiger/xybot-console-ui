@@ -1,4 +1,4 @@
-# @xybot/consoleui
+# @xybot/ui
 
 [![NPM version](https://img.shields.io/npm/v/@xybot/consoleui.svg?style=flat)](https://npmjs.org/package/@xybot/consoleui)
 [![NPM downloads](http://img.shields.io/npm/dm/@xybot/consoleui.svg?style=flat)](https://npmjs.org/package/@xybot/consoleui)

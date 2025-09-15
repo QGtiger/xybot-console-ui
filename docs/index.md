@@ -1,6 +1,6 @@
 ---
 hero:
-  title: <b>@xybot/consoleui</b>
+  title: <b>@xybot/ui</b>
   description: xybot 组件库文档
 actions:
   - text: 开始使用

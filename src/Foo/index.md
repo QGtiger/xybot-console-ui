@@ -13,8 +13,10 @@ nav:
 This is an example component.
 
 ```jsx
-import { Foo } from '@xybot/consoleui';
-import '@xybot/consoleui/global.css'
+/**
+ * iframe: false
+ */
+import { Foo } from '@xybot/ui';
 
 export default () => <Foo title="Hello dumi!" />
 ```
