@@ -1,8 +1,8 @@
 import { useTheme } from 'ahooks';
 import { PropsWithChildren } from 'react';
-import { createCustomModel } from '../../common/createModel';
+import { createCustomModel } from '../utils';
 
-import '../../global.css';
+import '../global.css';
 
 export const ThemeModel = createCustomModel(() => {
   const { theme, themeMode, setThemeMode } = useTheme({

@@ -1,3 +1,3 @@
-export { default as Foo } from './Foo';
+export * from './ThemeProvider';
 
-export * from './components/ThemeProvider';
+export * from './Button';
