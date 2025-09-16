@@ -4,43 +4,41 @@ const plugin = require('tailwindcss/plugin');
 // 自定义 Tailwind 插件
 module.exports = plugin(
   // 插件主逻辑：添加组件和颜色
-  function ({ addComponents, theme, addBase, addUtilities }) {
-    // 1. 添加自定义颜色（供组件使用）
-    addBase({
-      '.theme-light': {
-        '--color-base-container': '#1e293b',
-        '--color-base-container-light': '#f8fafc',
-        '--color-success-base': '#10b981',
-      },
-
-      '.dark': {
-        '--color-base-container': '#1e293b',
-        '--color-base-container-light': '#f8fafc',
-        '--color-success-base': '#10b981',
-      },
-    });
-
-    // 2. 添加自定义组件
-    addComponents({
-      '.base-container': {
-        '@apply bg-[--color-base-container] text-white p-6 rounded-lg shadow-sm':
-          {},
-      },
-      '.base-container-light': {
-        '@apply bg-[--color-base-container-light] text-gray-800 p-6 rounded-lg shadow-sm':
-          {},
-      },
-      '.text-success-base': {
-        '@apply text-[--color-success-base]': {},
-      },
-    });
+  function ({ addComponents, theme, addBase, addUtilities, addVariant }) {
+    addVariant('not-disabled', '&:not(:disabled)');
   },
   // 插件主题配置（可选：允许用户在自己的 tailwind.config 中覆盖颜色）
   {
     theme: {
       extend: {
+        boxShadow: {
+          btnActiveShadow:
+            'var(--sds-size-depth-0) var(--sds-size-depth-100) var(--sds-size-depth-200) 0 var(--Effect-Shadow-Default, rgba(15, 17, 24, 0.10)) inset',
+          btnFocusVisibleShadow:
+            '0 0 4px 0 var(--Bg-Info-Tertiary, rgba(20, 116, 242, 0.25))',
+
+          baseBtnShadow:
+            '0 2px 4px -2px var(--Effect-Shadow-Default, rgba(15, 17, 24, 0.1))',
+        },
         // 这里定义的变量可以被用户在自己的配置中扩展/覆盖
         colors: {
+          borderBaseSecondary: 'var(--Border-Base-Secondary)',
+          effectInteractiveActivateCave:
+            'var(--Effect-Interactive-Activate-Cave)',
+          effectInteractiveHoverCave: 'var(--Effect-Interactive-Hover-Cave)',
+          effectInteractiveHoverConvex:
+            'var(--Effect-Interactive-Hover-Convex)',
+          effectShadowDefault: 'var(--Effect-Shadow-Default)',
+          borderInfoDefault: 'var(--Border-Info-Default)',
+          bgInfoTertiary: 'var(--Bg-Info-Tertiary)',
+          bgBaseContainer: 'var(--Bg-Base-Container)',
+          bgBaseSpotlight: 'var(--Bg-Base-Spotlight)',
+          bgPrimaryQuaternary: 'var(--Bg-Primary-Quaternary)',
+          bgFillTertiary: 'var(--Bg-Fill-Tertiary)',
+
+          textBaseDefault: 'var(--Text-Base-Default)',
+          textBaseInGrayDefault: 'var(--Text-Base-In-Gray-Default)',
+
           brand: {
             50: 'rgba(247, 63, 75, 0.05)',
             100: 'rgba(247, 63, 75, 0.1)',
@@ -52,6 +50,128 @@ module.exports = plugin(
             700: 'rgba(252, 173, 181, 1)',
             800: 'rgba(253, 208, 213, 1)',
             900: 'rgba(254, 231, 234, 1)',
+          },
+          white: {
+            0: 'rgba(255, 255, 255, 0)',
+            30: 'rgba(255, 255, 255, 0.03)',
+            50: 'rgba(255, 255, 255, 0.05)',
+            100: 'rgba(255, 255, 255, 0.1)',
+            150: 'rgba(255, 255, 255, 0.15)',
+            200: 'rgba(255, 255, 255, 0.2)',
+            250: 'rgba(255, 255, 255, 0.25)',
+            300: 'rgba(255, 255, 255, 0.3)',
+            400: 'rgba(255, 255, 255, 0.4)',
+            500: 'rgba(255, 255, 255, 0.5)',
+            600: 'rgba(255, 255, 255, 0.6)',
+            700: 'rgba(255, 255, 255, 0.7)',
+            800: 'rgba(255, 255, 255, 0.8)',
+            900: 'rgba(255, 255, 255, 0.9)',
+            1000: 'rgba(255, 255, 255, 1)',
+          },
+          black: {
+            0: 'rgba(0, 0, 0, 0)',
+            30: 'rgba(0, 0, 0, 0.03)',
+            50: 'rgba(0, 0, 0, 0.05)',
+            100: 'rgba(0, 0, 0, 0.1)',
+            150: 'rgba(0, 0, 0, 0.15)',
+            200: 'rgba(0, 0, 0, 0.2)',
+            250: 'rgba(0, 0, 0, 0.25)',
+            300: 'rgba(0, 0, 0, 0.3)',
+            400: 'rgba(0, 0, 0, 0.4)',
+            500: 'rgba(0, 0, 0, 0.5)',
+            600: 'rgba(0, 0, 0, 0.6)',
+            700: 'rgba(0, 0, 0, 0.7)',
+            800: 'rgba(0, 0, 0, 0.8)',
+            900: 'rgba(0, 0, 0, 0.9)',
+            1000: 'rgba(0, 0, 0, 1)',
+          },
+          gray: {
+            30: 'rgba(15, 17, 24, 0.03)',
+            50: 'rgba(15, 17, 24, 0.05)',
+            100: 'rgba(15, 17, 24, 0.1)',
+            150: 'rgba(15, 17, 24, 0.15)',
+            200: 'rgba(15, 17, 24, 0.2)',
+            250: 'rgba(15, 17, 24, 0.25)',
+            300: 'rgba(15, 17, 24, 0.3)',
+            400: 'rgba(15, 17, 24, 0.4)',
+            500: 'rgba(15, 17, 24, 0.5)',
+            600: 'rgba(15, 17, 24, 0.6)',
+            700: 'rgba(15, 17, 24, 0.7)',
+            800: 'rgba(15, 17, 24, 0.8)',
+            900: 'rgba(15, 17, 24, 0.9)',
+            1000: 'rgba(15, 17, 24, 1)',
+          },
+          pewter: {
+            100: 'rgba(249, 249, 251, 1)',
+            200: 'rgba(244, 244, 247, 1)',
+            300: 'rgba(236, 237, 241, 1)',
+            400: 'rgba(155, 157, 167, 1)',
+            500: 'rgba(131, 134, 145, 1)',
+            600: 'rgba(107, 110, 123, 1)',
+            700: 'rgba(85, 89, 100, 1)',
+            800: 'rgba(45, 46, 53, 1)',
+            900: 'rgba(37, 38, 43, 1)',
+            1000: 'rgba(32, 33, 39, 1)',
+          },
+          green: {
+            50: 'rgba(20, 174, 92, 0.05)',
+            100: 'rgba(20, 174, 92, 0.1)',
+            150: 'rgba(20, 174, 92, 0.15)',
+            250: 'rgba(20, 174, 92, 0.25)',
+            400: 'rgba(20, 174, 92, 0.4)',
+            500: 'rgba(20, 174, 92, 1)',
+            600: 'rgba(62, 206, 110, 1)',
+            700: 'rgba(151, 240, 181, 1)',
+            800: 'rgba(196, 245, 201, 1)',
+            900: 'rgba(235, 255, 238, 1)',
+          },
+          red: {
+            50: 'rgba(220, 40, 70, 0.05)',
+            100: 'rgba(220, 40, 70, 0.1)',
+            150: 'rgba(220, 40, 70, 0.15)',
+            250: 'rgba(220, 40, 70, 0.25)',
+            400: 'rgba(220, 40, 70, 0.4)',
+            500: 'rgba(220, 40, 70, 1)',
+            600: 'rgba(231, 71, 105, 1)',
+            700: 'rgba(240, 108, 128, 1)',
+            800: 'rgba(246, 162, 180, 1)',
+            900: 'rgba(253, 217, 224, 1)',
+          },
+          orange: {
+            50: 'rgba(236, 103, 31, 0.05)',
+            100: 'rgba(236, 103, 31, 0.1)',
+            150: 'rgba(236, 103, 31, 0.15)',
+            250: 'rgba(236, 103, 31, 0.25)',
+            400: 'rgba(236, 103, 31, 0.4)',
+            500: 'rgba(236, 103, 31, 1)',
+            600: 'rgba(251, 147, 86, 1)',
+            700: 'rgba(255, 189, 148, 1)',
+            800: 'rgba(253, 221, 208, 1)',
+            900: 'rgba(254, 239, 231, 1)',
+          },
+          blue: {
+            50: 'rgba(20, 116, 242, 0.05)',
+            100: 'rgba(20, 116, 242, 0.1)',
+            150: 'rgba(20, 116, 242, 0.15)',
+            250: 'rgba(20, 116, 242, 0.25)',
+            400: 'rgba(20, 116, 242, 0.4)',
+            500: 'rgba(20, 116, 242, 1)',
+            600: 'rgba(57, 139, 255, 1)',
+            700: 'rgba(96, 154, 255, 1)',
+            800: 'rgba(160, 193, 255, 1)',
+            900: 'rgba(236, 243, 255, 1)',
+          },
+          yellow: {
+            50: 'rgba(216, 151, 0, 0.05)',
+            100: 'rgba(216, 151, 0, 0.1)',
+            150: 'rgba(216, 151, 0, 0.15)',
+            250: 'rgba(216, 151, 0, 0.25)',
+            400: 'rgba(216, 151, 0, 0.4)',
+            500: 'rgba(216, 151, 0, 1)',
+            600: 'rgba(241, 185, 21, 1)',
+            700: 'rgba(247, 206, 83, 1)',
+            800: 'rgba(255, 241, 194, 1)',
+            900: 'rgba(255, 251, 235, 1)',
           },
         },
       },
