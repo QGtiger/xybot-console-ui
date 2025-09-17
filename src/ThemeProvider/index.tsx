@@ -1,20 +1,29 @@
-import { useTheme } from 'ahooks';
 import { PropsWithChildren, useEffect } from 'react';
 import { createCustomModel } from '../utils';
 
+import { useThemeMode } from 'antd-style';
 import classNames from 'classnames';
 import '../global.css';
 
 export const ThemeModel = createCustomModel(() => {
-  const { theme, themeMode, setThemeMode } = useTheme({
-    localStorageKey: 'xybot-console-ui-theme',
-  });
+  const { themeMode, setThemeMode, isDarkMode } = useThemeMode();
+
+  const theme = isDarkMode ? 'dark' : 'light';
+
+  console.log('theme', theme, themeMode, isDarkMode);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark');
   }, [theme]);
 
-  return { theme, themeMode, setThemeMode };
+  return {
+    isDarkMode,
+    theme,
+    themeMode,
+    setThemeMode,
+    getPopupContainer: () =>
+      (document.querySelector('.xybot-ui') as HTMLElement) || document.body,
+  };
 });
 
 export function ThemeProvider(

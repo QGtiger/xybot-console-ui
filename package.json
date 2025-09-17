@@ -60,7 +60,8 @@
   "dependencies": {
     "ahooks": "^3.9.5",
     "antd-style": "^3.7.1",
-    "classnames": "^2.5.1"
+    "classnames": "^2.5.1",
+    "rc-select": "^14.16.8"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
