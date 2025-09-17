@@ -3,6 +3,8 @@ import type { SiteThemeConfig } from 'dumi-theme-antd-style';
 
 const themeConfig: SiteThemeConfig = {};
 
+const repo = 'xybot-console-ui'; // 你的仓库名称
+
 export default defineConfig({
   outputPath: 'docs-dist',
   themeConfig: {
@@ -60,4 +62,7 @@ export default defineConfig({
       ],
     },
   },
+
+  base: process.env.NODE_ENV === 'production' ? `/${repo}/` : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? `/${repo}/` : '/',
 });
