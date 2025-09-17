@@ -6,13 +6,15 @@ export interface ButtonProps {
   type?: 'border' | 'text' | 'base' | 'primary' | 'danger' | 'secondary';
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export function Button(props: PropsWithChildren<ButtonProps>) {
-  const { size = 'xl', type = 'primary' } = props;
+  const { size = 'xl', type = 'primary', onClick } = props;
 
   return (
     <button
+      onClick={onClick}
       type="button"
       className={classNames(
         ' text-textBaseDefault border border-solid border-transparent inline-flex items-center justify-center transition-all outline-none leading-[20px] text-[13px] ',

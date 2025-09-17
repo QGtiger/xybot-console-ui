@@ -1,0 +1,107 @@
+import { Tag, ThemeModel } from '@xybot/ui';
+
+function PrefixIconDemo() {
+  return (
+    <svg
+      fillRule="evenodd"
+      viewBox="64 64 896 896"
+      focusable="false"
+      data-icon="close-circle"
+      width="1em"
+      height="1em"
+      fill="currentColor"
+    >
+      <path d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm0 76c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm128.01 198.83c.03 0 .05.01.09.06l45.02 45.01a.2.2 0 01.05.09.12.12 0 010 .07c0 .02-.01.04-.05.08L557.25 512l127.87 127.86a.27.27 0 01.05.06v.02a.12.12 0 010 .07c0 .03-.01.05-.05.09l-45.02 45.02a.2.2 0 01-.09.05.12.12 0 01-.07 0c-.02 0-.04-.01-.08-.05L512 557.25 384.14 685.12c-.04.04-.06.05-.08.05a.12.12 0 01-.07 0c-.03 0-.05-.01-.09-.05l-45.02-45.02a.2.2 0 01-.05-.09.12.12 0 010-.07c0-.02.01-.04.06-.08L466.75 512 338.88 384.14a.27.27 0 01-.05-.06l-.01-.02a.12.12 0 010-.07c0-.03.01-.05.05-.09l45.02-45.02a.2.2 0 01.09-.05.12.12 0 01.07 0c.02 0 .04.01.08.06L512 466.75l127.86-127.86c.04-.05.06-.06.08-.06a.12.12 0 01.07 0z"></path>
+    </svg>
+  );
+}
+
+export default () => {
+  const { isDarkMode } = ThemeModel.useModel();
+  return (
+    <div
+      style={{
+        display: 'flex',
+        gap: '20px',
+        flexDirection: 'column',
+        background: isDarkMode ? '#202127' : '#f4f4f7',
+        padding: '16px',
+      }}
+    >
+      {[
+        {
+          size: 'sm',
+          label: 'Small',
+        },
+        {
+          size: 'md',
+          label: 'Medium',
+        },
+        {
+          size: 'lg',
+          label: 'Large',
+        },
+      ].map((it) => {
+        return (
+          <div
+            key={it.size}
+            style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '8px',
+            }}
+          >
+            <span
+              style={{
+                width: 120,
+                textAlign: 'right',
+                fontSize: 12,
+                color: isDarkMode ? '#999' : '#666',
+              }}
+            >
+              {it.label} ({it.size})
+            </span>
+            {
+              ['default', 'link', 'danger'].map((preset) => {
+                return (
+                  <div
+                    key={preset}
+                    className="flex"
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '8px',
+                      alignItems: 'flex-start',
+                    }}
+                  >
+                    {[
+                      'border',
+                      'text',
+                      'textSecondary',
+                      'secondary',
+                      'primary',
+                    ].map((type) => (
+                      <Tag
+                        key={type}
+                        size={it.size as any}
+                        type={type as any}
+                        preset={preset as any}
+                        prefix={<PrefixIconDemo />}
+                        allowClose
+                        onClose={() => {
+                          console.log('close');
+                        }}
+                      >
+                        {type} {preset}
+                      </Tag>
+                    ))}
+                  </div>
+                );
+              }) /* IGNORE */
+            }
+          </div>
+        );
+      })}
+    </div>
+  );
+};

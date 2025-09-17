@@ -6,6 +6,60 @@ module.exports = plugin(
   // 插件主逻辑：添加组件和颜色
   function ({ addComponents, theme, addBase, addUtilities, addVariant }) {
     addVariant('not-disabled', '&:not(:disabled)');
+    addVariant('ihover', '&:not(:disabled):hover');
+    addVariant('ifocus', '&:not(:disabled):focus');
+    addVariant('ifocus-visible', '&:not(:disabled):focus-visible');
+    addVariant('iactive', '&:not(:disabled):active');
+
+    addUtilities({
+      // 定义一个"active时添加阴影"的工具类
+      '.btn-active-shadow': {
+        // 结合已定义的iactive变体（未禁用且active状态）
+        '@apply iactive:shadow-btnActiveShadow': {},
+      },
+
+      '.btn-hover-bluebg': {
+        '&:not(:disabled):hover': {
+          background:
+            'linear-gradient(0deg, var(--Effect-Interactive-Hover-Convex, rgba(255, 255, 255, 0.25)) 0%, var(--Effect-Interactive-Hover-Convex, rgba(255, 255, 255, 0.25)) 100%), var(--Bg-Info-Quaternary, #1474F2)',
+        },
+      },
+
+      '.tag-default-secondary': {
+        '&:not(:disabled):hover': {
+          background:
+            'linear-gradient(0deg, var(--Effect-Interactive-Hover-Cave, rgba(15, 17, 24, 0.03)) 0%, var(--Effect-Interactive-Hover-Cave, rgba(15, 17, 24, 0.03)) 100%), var(--Bg-Fill-Tertiary, rgba(15, 17, 24, 0.05))',
+        },
+      },
+
+      '.tag-link-secondary-hover': {
+        '&:not(:disabled):hover': {
+          background:
+            'linear-gradient(0deg, var(--Effect-Interactive-Hover-Cave, rgba(15, 17, 24, 0.03)) 0%, var(--Effect-Interactive-Hover-Cave, rgba(15, 17, 24, 0.03)) 100%), var(--Bg-Info-Secondary, rgba(20, 116, 242, 0.10))',
+        },
+      },
+
+      '.tag-secondary-danger-hover': {
+        '&:not(:disabled):hover': {
+          background:
+            'linear-gradient(0deg, var(--Effect-Interactive-Hover-Cave, rgba(15, 17, 24, 0.03)) 0%, var(--Effect-Interactive-Hover-Cave, rgba(15, 17, 24, 0.03)) 100%), var(--Bg-Primary-Secondary, rgba(247, 63, 75, 0.10))',
+        },
+      },
+
+      '.infoQuaternaryHover': {
+        '&:not(:disabled):hover': {
+          background:
+            'linear-gradient(0deg, var(--Effect-Interactive-Hover-Convex, rgba(255, 255, 255, 0.25)) 0%, var(--Effect-Interactive-Hover-Convex, rgba(255, 255, 255, 0.25)) 100%), var(--Bg-Info-Quaternary, #1474F2)',
+        },
+      },
+
+      '.primaryQuaternaryHover': {
+        '&:not(:disabled):hover': {
+          background:
+            'linear-gradient(0deg, var(--Effect-Interactive-Hover-Convex, rgba(255, 255, 255, 0.25)) 0%, var(--Effect-Interactive-Hover-Convex, rgba(255, 255, 255, 0.25)) 100%), var(--Bg-Primary-Quaternary, #F73F4B);',
+        },
+      },
+    });
   },
   // 插件主题配置（可选：允许用户在自己的 tailwind.config 中覆盖颜色）
   {
@@ -23,6 +77,13 @@ module.exports = plugin(
         // 这里定义的变量可以被用户在自己的配置中扩展/覆盖
         colors: {
           borderBaseSecondary: 'var(--Border-Base-Secondary)',
+          borderBaseQuaternary: 'var(--Border-Base-Quaternary)',
+
+          borderInfoSecondary: 'var(--Border-Info-Secondary)',
+
+          borderPrimaryDefault: 'var(--Border-Primary-Default)',
+          borderPrimarySecondary: 'var(--Border-Primary-Secondary)',
+
           effectInteractiveActivateCave:
             'var(--Effect-Interactive-Activate-Cave)',
           effectInteractiveHoverCave: 'var(--Effect-Interactive-Hover-Cave)',
@@ -30,14 +91,29 @@ module.exports = plugin(
             'var(--Effect-Interactive-Hover-Convex)',
           effectShadowDefault: 'var(--Effect-Shadow-Default)',
           borderInfoDefault: 'var(--Border-Info-Default)',
+
           bgInfoTertiary: 'var(--Bg-Info-Tertiary)',
+          bgInfoSecondary: 'var(--Bg-Info-Secondary)',
+          bgInfoQuaternary: 'var(--Bg-Info-Quaternary)',
+
           bgBaseContainer: 'var(--Bg-Base-Container)',
           bgBaseSpotlight: 'var(--Bg-Base-Spotlight)',
+
+          bgPrimarySecondary: 'var(--Bg-Primary-Secondary)',
           bgPrimaryQuaternary: 'var(--Bg-Primary-Quaternary)',
+
           bgFillTertiary: 'var(--Bg-Fill-Tertiary)',
 
           textBaseDefault: 'var(--Text-Base-Default)',
           textBaseInGrayDefault: 'var(--Text-Base-In-Gray-Default)',
+          textBaseSecondary: 'var(--Text-Base-Secondary)',
+          textBaseTertiary: 'var(--Text-Base-Tertiary)',
+
+          textInfoDefault: 'var(--Text-Info-Default)',
+          textInfoSecondary: 'var(--Text-Info-Secondary)',
+
+          textPrimaryDefault: 'var(--Text-Primary-Default)',
+          textPrimarySecondary: 'var(--Text-Primary-Secondary)',
 
           brand: {
             50: 'rgba(247, 63, 75, 0.05)',

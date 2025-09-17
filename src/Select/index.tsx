@@ -32,23 +32,23 @@ export function Select(props: SelectProps) {
       dropdownStyle={{
         zIndex: 1050,
       }}
+      animation="slide-up"
       getPopupContainer={getPopupContainer}
-      open
       optionRender={(item) => (
         <span style={{ color: 'red' }}>{item.value}</span>
       )}
+      open
       menuItemSelectedIcon={selectIcon}
       className="111"
       suffixIcon={selectIcon}
       placement="topLeft"
-    >
-      <RcSelect.Option value="1">
-        Jack Jack Jack Jack Jack Jack Jack Jack Jack Jack Jack
-      </RcSelect.Option>
-      <RcSelect.Option value="2">
-        Lucy Lucy Lucy Lucy Lucy Lucy Lucy Lucy Lucy Lucy
-      </RcSelect.Option>
-      <RcSelect.Option value="3">Jill</RcSelect.Option>
-    </RcSelect>
+      options={
+        Array.from({ length: 100 }).map((_, index) => ({
+          label: `选项${index + 1}`,
+          value: `option${index + 1}`,
+        })) as any
+      }
+      {...props}
+    ></RcSelect>
   );
 }

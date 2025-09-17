@@ -4,19 +4,40 @@
 
 :root {
   --Border-Base-Secondary: rgba(15, 17, 24, 0.1);
+  --Border-Base-Quaternary: rgba(15, 17, 24, 0.8);
+
+  --Border-Info-Secondary: rgba(20, 116, 242, 0.25);
+
+  --Border-Primary-Default: rgba(247, 63, 75, 1);
+  --Border-Primary-Secondary: rgba(247, 63, 75, 0.25);
+
   --Effect-Interactive-Activate-Cave: rgba(15, 17, 24, 0.05);
   --Effect-Interactive-Hover-Cave: rgba(15, 17, 24, 0.03);
   --Effect-Interactive-Hover-Convex: hsla(0, 0%, 100%, 0.25);
   --Effect-Shadow-Default: rgba(15, 17, 24, 0.1);
   --Border-Info-Default: rgba(20, 116, 242, 1);
+
   --Bg-Info-Tertiary: rgba(20, 116, 242, 0.25);
+  --Bg-Info-Secondary: rgba(20, 116, 242, 0.1);
+  --Bg-Info-Quaternary: rgba(20, 116, 242, 1);
+
   --Bg-Base-Container: rgba(255, 255, 255, 1);
   --Bg-Base-Spotlight: rgba(37, 38, 43, 1);
+
+  --Bg-Primary-Secondary: rgba(247, 63, 75, 0.1);
   --Bg-Primary-Quaternary: hsla(356, 92%, 61%, 1);
   --Bg-Fill-Tertiary: hsla(227, 23%, 8%, 0.05);
 
   --Text-Base-Default: rgba(15, 17, 24, 1);
   --Text-Base-In-Gray-Default: rgba(255, 255, 255, 1);
+  --Text-Base-Secondary: rgba(15, 17, 24, 0.7);
+  --Text-Base-Tertiary: rgba(15, 17, 24, 0.4);
+
+  --Text-Info-Default: rgba(20, 116, 242, 1);
+  --Text-Info-Secondary: rgba(20, 116, 242, 0.4);
+
+  --Text-Primary-Default: rgba(247, 63, 75, 1);
+  --Text-Primary-Secondary: rgba(247, 63, 75, 0.4);
 
   /* size */
   --sds-size-depth-0: 0;
@@ -37,19 +58,37 @@
 
 .dark {
   --Border-Base-Secondary: rgba(255, 255, 255, 0.1);
+  --Border-Base-Quaternary: rgba(255, 255, 255, 0.8);
+
+  --Border-Info-Secondary: rgba(20, 116, 242, 0.25);
+
   --Effect-Interactive-Activate-Cave: rgba(0, 0, 0, 0.25);
   --Effect-Interactive-Hover-Cave: rgba(0, 0, 0, 0.15);
   --Effect-Interactive-Hover-Convex: hsla(0, 0%, 0%, 0.2);
   --Effect-Shadow-Default: rgba(0, 0, 0, 0.3);
   --Border-Info-Default: rgba(20, 116, 242, 1);
+
+  --Bg-Info-Quaternary: rgba(57, 139, 255, 1);
+  --Bg-Info-Secondary: rgba(20, 116, 242, 0.25);
   --Bg-Info-Tertiary: rgba(20, 116, 242, 0.4);
+
   --Bg-Base-Container: rgba(45, 46, 53, 1);
   --Bg-Base-Spotlight: rgba(236, 237, 241, 1);
+
+  --Bg-Primary-Secondary: rgba(247, 63, 75, 0.25);
   --Bg-Primary-Quaternary: hsla(356, 100%, 67%, 1);
   --Bg-Fill-Tertiary: hsla(0, 0%, 0%, 0.15);
 
   --Text-Base-Default: rgba(255, 255, 255, 1);
   --Text-Base-In-Gray-Default: rgba(15, 17, 24, 1);
+  --Text-Base-Secondary: rgba(255, 255, 255, 0.5);
+  --Text-Base-Tertiary: rgba(255, 255, 255, 0.3);
+
+  --Text-Info-Default: rgba(57, 139, 255, 1);
+  --Text-Info-Secondary: rgba(20, 116, 242, 0.4);
+
+  --Text-Primary-Default: rgba(247, 63, 75, 1);
+  --Text-Primary-Secondary: rgba(247, 63, 75, 0.4);
 
   /* size */
   --sds-size-depth-0: 0;
