@@ -1,11 +1,14 @@
 import classNames from 'classnames';
+import { PropsWithChildren } from 'react';
 
 export interface ButtonProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   type?: 'border' | 'text' | 'base' | 'primary' | 'danger' | 'secondary';
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
 }
 
-export function Button(props: ButtonProps) {
+export function Button(props: PropsWithChildren<ButtonProps>) {
   const { size = 'xl', type = 'primary' } = props;
 
   return (
@@ -37,7 +40,9 @@ export function Button(props: ButtonProps) {
         }[type],
       )}
     >
-      Click Me
+      {props.prefix}
+      {props.children}
+      {props.suffix}
     </button>
   );
 }
