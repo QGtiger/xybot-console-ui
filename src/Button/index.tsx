@@ -30,13 +30,13 @@ export function Button(props: PropsWithChildren<ButtonProps>) {
           border:
             ' !border-borderBaseSecondary not-disabled:hover:bg-effectInteractiveHoverCave  ',
           text: ' not-disabled:hover:border-borderBaseSecondary not-disabled:hover:bg-effectInteractiveHoverCave  ',
-          base: ' bg-bgBaseContainer shadow-baseBtnShadow not-disabled:hover:border-borderBaseSecondary not-disabled:hover:bg-[#f8f8f8] not-disabled:active:bg-[#f3f3f3] ',
+          base: ' btn-base bg-bgBaseContainer shadow-baseBtnShadow not-disabled:hover:border-borderBaseSecondary   ',
           primary:
-            ' bg-bgBaseSpotlight text-textBaseInGrayDefault not-disabled:hover:bg-[#5c5c60] not-disabled:active:bg-[#24252a]  ',
+            ' btn-primary bg-bgBaseSpotlight text-textBaseInGrayDefault  ',
           danger:
-            ' bg-bgPrimaryQuaternary text-textBaseInGrayDefault not-disabled:hover:bg-[#e8777b]  not-disabled:active:bg-[#d54b4d] ',
+            ' btn-danger bg-bgPrimaryQuaternary text-textBaseInGrayDefault  ',
           secondary:
-            ' bg-bgFillTertiary not-disabled:hover:border-borderBaseSecondary not-disabled:hover:bg-[#c2c2c3] not-disabled:active:bg-[#bfbfbf]  ',
+            ' btn-secondary bg-bgFillTertiary not-disabled:hover:border-borderBaseSecondary  ',
         }[type],
       )}
     >

@@ -27,7 +27,7 @@ export default () => {
     <div
       style={{
         display: 'flex',
-        gap: '8px',
+        gap: '20px',
         flexDirection: 'column',
         background: isDarkMode ? '#202127' : '#f4f4f7',
         padding: '16px',
