@@ -17,47 +17,13 @@ module.exports = plugin(
         // 结合已定义的iactive变体（未禁用且active状态）
         '@apply iactive:shadow-btnActiveShadow': {},
       },
-
-      '.btn-hover-bluebg': {
-        '&:not(:disabled):hover': {
-          background:
-            'linear-gradient(0deg, var(--Effect-Interactive-Hover-Convex, rgba(255, 255, 255, 0.25)) 0%, var(--Effect-Interactive-Hover-Convex, rgba(255, 255, 255, 0.25)) 100%), var(--Bg-Info-Quaternary, #1474F2)',
-        },
+      '.btn-focus-visible': {
+        '@apply ifocus-visible:shadow-btnFocusVisibleShadow ifocus-visible:border-borderInfo-default':
+          {},
       },
 
-      '.tag-default-secondary': {
-        '&:not(:disabled):hover': {
-          background:
-            'linear-gradient(0deg, var(--Effect-Interactive-Hover-Cave, rgba(15, 17, 24, 0.03)) 0%, var(--Effect-Interactive-Hover-Cave, rgba(15, 17, 24, 0.03)) 100%), var(--Bg-Fill-Tertiary, rgba(15, 17, 24, 0.05))',
-        },
-      },
-
-      '.tag-link-secondary-hover': {
-        '&:not(:disabled):hover': {
-          background:
-            'linear-gradient(0deg, var(--Effect-Interactive-Hover-Cave, rgba(15, 17, 24, 0.03)) 0%, var(--Effect-Interactive-Hover-Cave, rgba(15, 17, 24, 0.03)) 100%), var(--Bg-Info-Secondary, rgba(20, 116, 242, 0.10))',
-        },
-      },
-
-      '.tag-secondary-danger-hover': {
-        '&:not(:disabled):hover': {
-          background:
-            'linear-gradient(0deg, var(--Effect-Interactive-Hover-Cave, rgba(15, 17, 24, 0.03)) 0%, var(--Effect-Interactive-Hover-Cave, rgba(15, 17, 24, 0.03)) 100%), var(--Bg-Primary-Secondary, rgba(247, 63, 75, 0.10))',
-        },
-      },
-
-      '.infoQuaternaryHover': {
-        '&:not(:disabled):hover': {
-          background:
-            'linear-gradient(0deg, var(--Effect-Interactive-Hover-Convex, rgba(255, 255, 255, 0.25)) 0%, var(--Effect-Interactive-Hover-Convex, rgba(255, 255, 255, 0.25)) 100%), var(--Bg-Info-Quaternary, #1474F2)',
-        },
-      },
-
-      '.primaryQuaternaryHover': {
-        '&:not(:disabled):hover': {
-          background:
-            'linear-gradient(0deg, var(--Effect-Interactive-Hover-Convex, rgba(255, 255, 255, 0.25)) 0%, var(--Effect-Interactive-Hover-Convex, rgba(255, 255, 255, 0.25)) 100%), var(--Bg-Primary-Quaternary, #F73F4B);',
-        },
+      '.btn-disabled': {
+        '@apply disabled:cursor-not-allowed disabled:opacity-50': {},
       },
     });
   },
@@ -65,55 +31,166 @@ module.exports = plugin(
   {
     theme: {
       extend: {
+        transitionDuration: {
+          DEFAULT: '200ms',
+        },
         boxShadow: {
           btnActiveShadow:
-            'var(--sds-size-depth-0) var(--sds-size-depth-100) var(--sds-size-depth-200) 0 var(--Effect-Shadow-Default, rgba(15, 17, 24, 0.10)) inset',
+            '0 4px 8px 0 var(--effect-shadow-default, rgba(15, 17, 24, 0.1)) inset',
           btnFocusVisibleShadow:
-            '0 0 4px 0 var(--Bg-Info-Tertiary, rgba(20, 116, 242, 0.25))',
+            '0 0 4px 0 var(--bg-info-quaternary, rgba(20, 116, 242, 0.25))',
 
           baseBtnShadow:
-            '0 2px 4px -2px var(--Effect-Shadow-Default, rgba(15, 17, 24, 0.1))',
+            '0 2px 4px -2px var(--effect-shadow-default, rgba(15, 17, 24, 0.1))',
         },
         // 这里定义的变量可以被用户在自己的配置中扩展/覆盖
         colors: {
-          borderBaseSecondary: 'var(--Border-Base-Secondary)',
-          borderBaseQuaternary: 'var(--Border-Base-Quaternary)',
-
-          borderInfoSecondary: 'var(--Border-Info-Secondary)',
-
-          borderPrimaryDefault: 'var(--Border-Primary-Default)',
-          borderPrimarySecondary: 'var(--Border-Primary-Secondary)',
-
-          effectInteractiveActivateCave:
-            'var(--Effect-Interactive-Activate-Cave)',
-          effectInteractiveHoverCave: 'var(--Effect-Interactive-Hover-Cave)',
-          effectInteractiveHoverConvex:
-            'var(--Effect-Interactive-Hover-Convex)',
-          effectShadowDefault: 'var(--Effect-Shadow-Default)',
-          borderInfoDefault: 'var(--Border-Info-Default)',
-
-          bgInfoTertiary: 'var(--Bg-Info-Tertiary)',
-          bgInfoSecondary: 'var(--Bg-Info-Secondary)',
-          bgInfoQuaternary: 'var(--Bg-Info-Quaternary)',
-
-          bgBaseContainer: 'var(--Bg-Base-Container)',
-          bgBaseSpotlight: 'var(--Bg-Base-Spotlight)',
-
-          bgPrimarySecondary: 'var(--Bg-Primary-Secondary)',
-          bgPrimaryQuaternary: 'var(--Bg-Primary-Quaternary)',
-
-          bgFillTertiary: 'var(--Bg-Fill-Tertiary)',
-
-          textBaseDefault: 'var(--Text-Base-Default)',
-          textBaseInGrayDefault: 'var(--Text-Base-In-Gray-Default)',
-          textBaseSecondary: 'var(--Text-Base-Secondary)',
-          textBaseTertiary: 'var(--Text-Base-Tertiary)',
-
-          textInfoDefault: 'var(--Text-Info-Default)',
-          textInfoSecondary: 'var(--Text-Info-Secondary)',
-
-          textPrimaryDefault: 'var(--Text-Primary-Default)',
-          textPrimarySecondary: 'var(--Text-Primary-Secondary)',
+          bgBase: {
+            container: 'var(--bg-base-container)',
+            containerSecondary: 'var(--bg-base-contianer-secondary)',
+            layout: 'var(--bg-base-layout)',
+            layoutSecondary: 'var(--bg-base-layout-secondary)',
+            spotlight: 'var(--bg-base-spotlight)',
+            spotlightSecondary: 'var(--bg-base-spotlight-secondary)',
+            mask: 'var(--bg-base-mask)',
+          },
+          bgFill: {
+            quinary: 'var(--bg-fill-quinary)',
+            quaternary: 'var(--bg-fill-quaternary)',
+            tertiary: 'var(--bg-fill-tertiary)',
+            secondary: 'var(--bg-fill-secondary)',
+            default: 'var(--bg-fill-default)',
+          },
+          bgPrimary: {
+            spotlight: 'var(--bg-primary-spotlight)',
+            spotlightSecondary: 'var(--bg-primary-spotlight-secondary)',
+            quaternary: 'var(--bg-primary-quaternary)',
+            tertiary: 'var(--bg-primary-tertiary)',
+            secondary: 'var(--bg-primary-secondary)',
+            default: 'var(--bg-primary-default)',
+          },
+          bgInfo: {
+            spotlight: 'var(--bg-info-spotlight)',
+            spotlightSecondary: 'var(--bg-info-spotlight-secondary)',
+            quaternary: 'var(--bg-info-quaternary)',
+            tertiary: 'var(--bg-info-tertiary)',
+            secondary: 'var(--bg-info-secondary)',
+            default: 'var(--bg-info-default)',
+          },
+          bgSuccess: {
+            spotlight: 'var(--bg-success-spotlight)',
+            spotlightSecondary: 'var(--bg-success-spotlight-secondary)',
+            quaternary: 'var(--bg-success-quaternary)',
+            tertiary: 'var(--bg-success-tertiary)',
+            secondary: 'var(--bg-success-secondary)',
+            default: 'var(--bg-success-default)',
+          },
+          bgWarning: {
+            spotlight: 'var(--bg-warning-spotlight)',
+            spotlightSecondary: 'var(--bg-warning-spotlight-secondary)',
+            quaternary: 'var(--bg-warning-quaternary)',
+            tertiary: 'var(--bg-warning-tertiary)',
+            secondary: 'var(--bg-warning-secondary)',
+            default: 'var(--bg-warning-default)',
+          },
+          bgError: {
+            spotlight: 'var(--bg-error-spotlight)',
+            spotlightSecondary: 'var(--bg-error-spotlight-secondary)',
+            quaternary: 'var(--bg-error-quaternary)',
+            tertiary: 'var(--bg-error-tertiary)',
+            secondary: 'var(--bg-error-secondary)',
+            default: 'var(--bg-error-default)',
+          },
+          textBase: {
+            default: 'var(--text-base-default)',
+            secondary: 'var(--text-base-secondary)',
+            tertiary: 'var(--text-base-tertiary)',
+            quaternary: 'var(--text-base-quaternary)',
+            inGrayDefault: 'var(--text-base-in-gray-default)',
+            inGraySecondary: 'var(--text-base-in-gray-secondary)',
+            inGrayTertiary: 'var(--text-base-in-gray-tertiary)',
+            inGrayDisable: 'var(--text-base-in-gray-disable)',
+            inColorDefault: 'var(--text-base-in-coloer-default)',
+            inColorSecondary: 'var(--text-base-in-coloer-secondary)',
+            inColorTertiary: 'var(--text-base-in-coloer-tertiary)',
+            inColorDisable: 'var(--text-base-in-coloer-disable)',
+          },
+          textPrimary: {
+            default: 'var(--text-primary-default)',
+            defaultHover: 'var(--text-primary-default-hover)',
+            secondary: 'var(--text-primary-secondary)',
+            tertiary: 'var(--text-primary-tertiary)',
+          },
+          textInfo: {
+            default: 'var(--text-info-default)',
+            defaultHover: 'var(--text-info-default-hover)',
+            secondary: 'var(--text-info-secondary)',
+            tertiary: 'var(--text-info-tertiary)',
+          },
+          textSuccess: {
+            default: 'var(--text-success-default)',
+            defaultHover: 'var(--text-success-default-hover)',
+            secondary: 'var(--text-success-secondary)',
+            tertiary: 'var(--text-success-tertiary)',
+          },
+          textWarning: {
+            default: 'var(--text-warning-default)',
+            defaultHover: 'var(--text-warning-default-hover)',
+            secondary: 'var(--text-warning-secondary)',
+            tertiary: 'var(--text-warning-tertiary)',
+          },
+          textError: {
+            default: 'var(--text-error-default)',
+            defaultHover: 'var(--text-error-default-hover)',
+            secondary: 'var(--text-error-secondary)',
+            tertiary: 'var(--text-error-tertiary)',
+          },
+          borderBase: {
+            default: 'var(--border-base-default)',
+            secondary: 'var(--border-base-secondary)',
+            tertiary: 'var(--border-base-tertiary)',
+            quaternary: 'var(--border-base-quaternary)',
+          },
+          borderSpecular: {
+            default: 'var(--border-specular-default)',
+            secondary: 'var(--border-specular-secondary)',
+            tertiary: 'var(--border-specular-tertiary)',
+            quaternary: 'var(--border-specular-quaternary)',
+          },
+          borderPrimary: {
+            default: 'var(--border-primary-default)',
+            secondary: 'var(--border-primary-secondary)',
+            tertiary: 'var(--border-primary-tertiary)',
+            quaternary: 'var(--border-primary-quaternary)',
+          },
+          borderInfo: {
+            default: 'var(--border-info-default)',
+            secondary: 'var(--border-info-secondary)',
+            tertiary: 'var(--border-info-tertiary)',
+            quaternary: 'var(--border-info-quaternary)',
+          },
+          borderSuccess: {
+            default: 'var(--border-success-default)',
+            secondary: 'var(--border-success-secondary)',
+            tertiary: 'var(--border-success-tertiary)',
+            quaternary: 'var(--border-success-quaternary)',
+          },
+          borderWarning: {
+            default: 'var(--border-warning-default)',
+            secondary: 'var(--border-warning-secondary)',
+            tertiary: 'var(--border-warning-tertiary)',
+            quaternary: 'var(--border-warning-quaternary)',
+          },
+          borderError: {
+            default: 'var(--border-error-default)',
+            secondary: 'var(--border-error-secondary)',
+            tertiary: 'var(--border-error-tertiary)',
+            quaternary: 'var(--border-error-quaternary)',
+          },
+          effectShadow: {
+            default: 'var(--effect-shadow-default)',
+            secondary: 'var(--effect-shadow-secondary)',
+          },
 
           brand: {
             50: 'rgba(247, 63, 75, 0.05)',

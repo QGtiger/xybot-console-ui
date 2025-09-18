@@ -47,6 +47,7 @@ export function Tag(props: PropsWithChildren<TagProps>) {
       type="button"
       className={classNames(
         ' inline-flex items-center border border-solid border-transparent outline-none transition-all ',
+        ' btn-disabled',
         {
           sm: ' px-0.5 rounded gap-0.5 leading-4 text-xs',
           md: ' px-1 rounded-md gap-0.5 leading-5 text-xs',
@@ -80,14 +81,14 @@ export function Tag(props: PropsWithChildren<TagProps>) {
             link: '  btn-active-shadow ',
             danger: ' btn-active-shadow',
           },
-        }[type][preset],
+        }[type]?.[preset],
 
         // 背景色
         {
           border: {
-            default: ' ihover:bg-effectInteractiveHoverCave',
-            link: ' ihover:bg-effectInteractiveHoverCave',
-            danger: ' ihover:bg-effectInteractiveHoverCave',
+            default: ' ihover:bg-bgFill-secondary',
+            link: ' ihover:bg-bgFill-secondary',
+            danger: ' ihover:bg-bgFill-secondary',
           },
           text: {
             default: ' ',
@@ -100,82 +101,79 @@ export function Tag(props: PropsWithChildren<TagProps>) {
             danger: '',
           },
           secondary: {
-            default: ' bg-bgFillTertiary tag-default-secondary ',
-            link: ' bg-bgInfoSecondary tag-link-secondary-hover',
-            danger: ' bg-bgPrimarySecondary tag-secondary-danger-hover',
+            default: ' bg-bgFill-secondary ihover:bg-bgFill-tertiary',
+            link: ' bg-bgInfo-secondary  ihover:bg-bgInfo-tertiary',
+            danger: ' bg-bgPrimary-secondary ihover:bg-bgPrimary-tertiary ',
           },
           primary: {
-            default: ' bg-bgBaseSpotlight btn-primary',
-            link: ' bg-bgInfoQuaternary infoQuaternaryHover ',
-            danger: ' bg-bgPrimaryQuaternary primaryQuaternaryHover',
+            default: ' bg-bgBase-spotlight ihover:bg-bgBase-spotlightSecondary',
+            link: ' bg-bgInfo-spotlight ihover:bg-bgInfo-spotlightSecondary ',
+            danger:
+              ' bg-bgPrimary-spotlight ihover:bg-bgPrimary-spotlightSecondary ',
           },
         }[type][preset],
 
         // 边框色
         {
           border: {
-            default:
-              ' border-borderBaseSecondary not-disabled:focus-visible:border-borderInfoDefault not-disabled:focus-visible:shadow-btnFocusVisibleShadow',
-            link: '  border-borderInfoSecondary not-disabled:focus-visible:border-borderInfoDefault not-disabled:focus-visible:shadow-btnFocusVisibleShadow',
-            danger:
-              ' border-borderPrimarySecondary not-disabled:focus-visible:border-borderInfoDefault not-disabled:focus-visible:shadow-btnFocusVisibleShadow',
+            default: ' !border-borderBase-secondary btn-focus-visible',
+            link: '  !border-borderInfo-secondary btn-focus-visible',
+            danger: ' !border-borderPrimary-secondary btn-focus-visible',
           },
           text: {
             default:
-              ' rounded-none  ihover:border-b-borderBaseQuaternary iactive:border-b-borderBaseQuaternary',
-            link: ' rounded-none  ihover:border-b-borderInfoDefault iactive:border-b-borderInfoDefault',
+              ' rounded-none  ihover:border-b-borderBase-quaternary iactive:border-b-borderBase-quaternary',
+            link: ' rounded-none  ihover:border-b-borderInfo-default iactive:border-b-borderInfo-default',
             danger:
-              ' rounded-none  ihover:border-b-borderPrimaryDefault iactive:border-b-borderPrimaryDefault',
+              ' rounded-none  ihover:border-b-borderPrimary-default iactive:border-b-borderPrimary-default',
           },
           textSecondary: {
             default:
-              ' rounded-none  ihover:border-b-borderBaseQuaternary iactive:border-b-borderBaseQuaternary',
-            link: 'rounded-none  ihover:border-b-borderInfoDefault iactive:border-b-borderInfoDefault',
+              ' rounded-none  ihover:border-b-borderBase-quaternary iactive:border-b-borderBase-quaternary',
+            link: 'rounded-none  ihover:border-b-borderInfo-default iactive:border-b-borderInfo-default',
             danger:
-              'rounded-none  ihover:border-b-borderPrimaryDefault iactive:border-b-borderPrimaryDefault',
+              'rounded-none  ihover:border-b-borderPrimary-default iactive:border-b-borderPrimary-default',
           },
           secondary: {
-            default:
-              ' border-borderBaseSecondary ifocus-visible:border-borderInfoDefault',
-            link: ' border-borderInfoSecondary ifocus-visible:border-borderInfoDefault',
-            danger:
-              ' border-borderPrimarySecondary ifocus-visible:border-borderInfoDefault',
+            default: ' ihover:border-borderBase-secondary btn-focus-visible',
+            link: ' ihover:border-borderInfo-secondary btn-focus-visible',
+            danger: ' ihover:border-borderPrimary-secondary btn-focus-visible',
           },
           primary: {
-            default: ' ifocus-visible:border-borderInfoDefault ',
-            link: ' ifocus-visible:border-borderInfoDefault',
-            danger: ' ifocus-visible:border-borderInfoDefault',
+            default: 'btn-focus-visible ',
+            link: ' btn-focus-visible',
+            danger: ' btn-focus-visible',
           },
-        }[type][preset],
+        }[type]?.[preset],
 
         // 文字颜色
         {
           border: {
-            default: ' text-textBaseSecondary',
-            link: 'text-textInfoDefault',
-            danger: ' text-textPrimaryDefault',
+            default: ' text-textBase-secondary',
+            link: 'text-textInfo-default',
+            danger: ' text-textPrimary-default',
           },
           text: {
-            default: ' text-textBaseDefault ',
-            link: ' text-textInfoDefault',
-            danger: 'text-textPrimaryDefault',
+            default: ' text-textBase-default ',
+            link: ' text-textInfo-default',
+            danger: 'text-textPrimary-default',
           },
           textSecondary: {
-            default: ' text-textBaseTertiary ',
-            link: ' text-textInfoSecondary',
-            danger: ' text-textPrimarySecondary',
+            default: ' text-textBase-tertiary ',
+            link: ' text-textInfo-secondary',
+            danger: ' text-textPrimary-secondary',
           },
           secondary: {
-            default: ' text-textBaseSecondary ',
-            link: ' text-textInfoDefault',
-            danger: 'text-textPrimaryDefault',
+            default: ' text-textBase-secondary ',
+            link: ' text-textInfo-default',
+            danger: 'text-textPrimary-default',
           },
           primary: {
-            default: ' text-textBaseInGrayDefault ',
+            default: ' text-textBase-inGrayDefault ',
             link: ' text-white-1000',
             danger: ' text-white-1000',
           },
-        }[type][preset],
+        }[type]?.[preset],
 
         {
           ' off ': disabled,
