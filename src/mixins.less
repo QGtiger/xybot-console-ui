@@ -1,0 +1,16 @@
+.textColor(@color, @hoverColor, @disableColor, @activeColor: @color) {
+  color: @color;
+
+  &:not(:disabled):hover {
+    color: @hoverColor;
+  }
+
+  &:not(:disabled):active {
+    color: @activeColor;
+  }
+
+  &:disabled {
+    color: @disableColor;
+    cursor: not-allowed;
+  }
+}

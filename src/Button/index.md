@@ -16,3 +16,11 @@ nav:
 [demo演示](https://www.figma.com/proto/krDLmYQcKVgL8ICib2dWt7/%E5%BD%B1%E5%88%80-OS25?node-id=40001516-65154&p=f&viewport=1448%2C132%2C0.53&t=SbghRo5ynRkDvLq7-0&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=40001568%3A43242&fuid=1272846533367774791)
 
 <code src="./example/demo1.tsx"></code>
+
+# Icon 按钮
+
+<code src="./example/demo2.tsx"></code>
+
+# Link 
+
+<code src="./example/demo3.tsx"></code>

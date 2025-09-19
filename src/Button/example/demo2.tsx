@@ -57,39 +57,32 @@ export default () => {
             icon={<PrefixIconDemo />}
             size={item.size as any}
             type="border"
-            onClick={() => {
-              console.log('click');
-            }}
-          >
-            Click Me
-          </Button>
-          <Button icon={<PrefixIconDemo />} size={item.size as any} type="text">
-            Click Me
-          </Button>
-          <Button icon={<PrefixIconDemo />} size={item.size as any} type="base">
-            Click Me
-          </Button>
+          ></Button>
+          <Button
+            icon={<PrefixIconDemo />}
+            size={item.size as any}
+            type="text"
+          ></Button>
+          <Button
+            icon={<PrefixIconDemo />}
+            size={item.size as any}
+            type="base"
+          ></Button>
           <Button
             icon={<PrefixIconDemo />}
             size={item.size as any}
             type="primary"
-          >
-            Click Me
-          </Button>
+          ></Button>
           <Button
             icon={<PrefixIconDemo />}
             size={item.size as any}
             type="danger"
-          >
-            Click Me
-          </Button>
+          ></Button>
           <Button
             icon={<PrefixIconDemo />}
             size={item.size as any}
             type="secondary"
-          >
-            Click Me
-          </Button>
+          ></Button>
         </div>
       ))}
     </div>

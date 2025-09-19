@@ -6,7 +6,7 @@ export type TagProps = {
   size?: 'sm' | 'md' | 'lg';
   type?: 'border' | 'text' | 'textSecondary' | 'secondary' | 'primary';
   preset?: 'default' | 'link' | 'danger';
-  prefix?: React.ReactNode;
+  icon?: React.ReactNode;
   allowClose?: boolean;
   onClose?: () => void;
   disabled?: boolean;
@@ -32,7 +32,7 @@ export function Tag(props: PropsWithChildren<TagProps>) {
     size = 'md',
     type = 'primary',
     preset = 'default',
-    prefix,
+    icon,
     allowClose,
     onClose,
     disabled,
@@ -180,7 +180,7 @@ export function Tag(props: PropsWithChildren<TagProps>) {
         },
       )}
     >
-      {prefix}
+      {icon}
       <span className=" line-clamp-1 break-all">{props.children}</span>
 
       {allowClose && (

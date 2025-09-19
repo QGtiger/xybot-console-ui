@@ -1,6 +1,9 @@
-/* @tailwind base; */
-@tailwind components;
-@tailwind utilities;
+button, [role="button"] {
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: none;
+}
 
 :root {
   /* new */
@@ -289,3 +292,137 @@
 
   --Space-250: 10px;
 }
+
+
+@bg-base-container: var(--bg-base-container);
+@bg-base-container-secondary: var(--bg-base-contianer-secondary);
+@bg-base-layout: var(--bg-base-layout);
+@bg-base-layout-secondary: var(--bg-base-layout-secondary);
+@bg-base-spotlight: var(--bg-base-spotlight);
+@bg-base-spotlight-secondary: var(--bg-base-spotlight-secondary);
+@bg-base-mask: var(--bg-base-mask);
+
+@bg-fill-quinary: var(--bg-fill-quinary);
+@bg-fill-quaternary: var(--bg-fill-quaternary);
+@bg-fill-tertiary: var(--bg-fill-tertiary);
+@bg-fill-secondary: var(--bg-fill-secondary);
+@bg-fill-default: var(--bg-fill-default);
+
+@bg-primary-spotlight: var(--bg-primary-spotlight);
+@bg-primary-spotlight-secondary: var(--bg-primary-spotlight-secondary);
+@bg-primary-quaternary: var(--bg-primary-quaternary);
+@bg-primary-tertiary: var(--bg-primary-tertiary);
+@bg-primary-secondary: var(--bg-primary-secondary);
+@bg-primary-default: var(--bg-primary-default);
+
+@bg-info-spotlight: var(--bg-info-spotlight);
+@bg-info-spotlight-secondary: var(--bg-info-spotlight-secondary);
+@bg-info-quaternary: var(--bg-info-quaternary);
+@bg-info-tertiary: var(--bg-info-tertiary);
+@bg-info-secondary: var(--bg-info-secondary);
+@bg-info-default: var(--bg-info-default);
+
+@bg-success-spotlight: var(--bg-success-spotlight);
+@bg-success-spotlight-secondary: var(--bg-success-spotlight-secondary);
+@bg-success-quaternary: var(--bg-success-quaternary);
+@bg-success-tertiary: var(--bg-success-tertiary);
+@bg-success-secondary: var(--bg-success-secondary);
+@bg-success-default: var(--bg-success-default);
+
+@bg-warning-spotlight: var(--bg-warning-spotlight);
+@bg-warning-spotlight-secondary: var(--bg-warning-spotlight-secondary);
+@bg-warning-quaternary: var(--bg-warning-quaternary);
+@bg-warning-tertiary: var(--bg-warning-tertiary);
+@bg-warning-secondary: var(--bg-warning-secondary);
+@bg-warning-default: var(--bg-warning-default);
+
+@bg-error-spotlight: var(--bg-error-spotlight);
+@bg-error-spotlight-secondary: var(--bg-error-spotlight-secondary);
+@bg-error-quaternary: var(--bg-error-quaternary);
+@bg-error-tertiary: var(--bg-error-tertiary);
+@bg-error-secondary: var(--bg-error-secondary);
+@bg-error-default: var(--bg-error-default);
+
+@text-base-default: var(--text-base-default);
+@text-base-secondary: var(--text-base-secondary);
+@text-base-tertiary: var(--text-base-tertiary);
+@text-base-quaternary: var(--text-base-quaternary);
+@text-base-in-gray-default: var(--text-base-in-gray-default);
+@text-base-in-gray-secondary: var(--text-base-in-gray-secondary);
+@text-base-in-gray-tertiary: var(--text-base-in-gray-tertiary);
+@text-base-in-gray-disable: var(--text-base-in-gray-disable);
+@text-base-in-coloer-default: var(--text-base-in-coloer-default);
+@text-base-in-coloer-secondary: var(--text-base-in-coloer-secondary);
+@text-base-in-coloer-tertiary: var(--text-base-in-coloer-tertiary);
+@text-base-in-coloer-disable: var(--text-base-in-coloer-disable);
+
+
+@text-primary-default: var(--text-primary-default);
+@text-primary-default-hover: var(--text-primary-default-hover);
+@text-primary-secondary: var(--text-primary-secondary);
+@text-primary-tertiary: var(--text-primary-tertiary);
+
+@text-info-default: var(--text-info-default);
+@text-info-default-hover: var(--text-info-default-hover);
+@text-info-secondary: var(--text-info-secondary);
+@text-info-tertiary: var(--text-info-tertiary);
+@text-info-disable: var(--text-info-disable);
+
+@text-success-default: var(--text-success-default);
+@text-success-default-hover: var(--text-success-default-hover);
+@text-success-secondary: var(--text-success-secondary);
+@text-success-tertiary: var(--text-success-tertiary);
+@text-success-disable: var(--text-success-disable);
+
+@text-warning-default: var(--text-warning-default);
+@text-warning-default-hover: var(--text-warning-default-hover);
+@text-warning-secondary: var(--text-warning-secondary);
+@text-warning-tertiary: var(--text-warning-tertiary);
+@text-warning-disable: var(--text-warning-disable);
+
+@text-error-default: var(--text-error-default);
+@text-error-default-hover: var(--text-error-default-hover);
+@text-error-secondary: var(--text-error-secondary);
+@text-error-tertiary: var(--text-error-tertiary);
+@text-error-disable: var(--text-error-disable);
+
+@border-base-default: var(--border-base-default);
+@border-base-secondary: var(--border-base-secondary);
+@border-base-tertiary: var(--border-base-tertiary);
+@border-base-quaternary: var(--border-base-quaternary);
+
+@border-specular-default: var(--border-specular-default);
+@border-specular-secondary: var(--border-specular-secondary);
+@border-specular-tertiary: var(--border-specular-tertiary);
+@border-specular-quaternary: var(--border-specular-quaternary);
+
+@border-primary-default: var(--border-primary-default);
+@border-primary-secondary: var(--border-primary-secondary);
+@border-primary-tertiary: var(--border-primary-tertiary);
+@border-primary-quaternary: var(--border-primary-quaternary);
+
+
+@border-info-default: var(--border-info-default);
+@border-info-secondary: var(--border-info-secondary);
+@border-info-tertiary: var(--border-info-tertiary);
+@border-info-quaternary: var(--border-info-quaternary);
+
+@border-success-default: var(--border-success-default);
+@border-success-secondary: var(--border-success-secondary);
+@border-success-tertiary: var(--border-success-tertiary);
+@border-success-quaternary: var(--border-success-quaternary);
+
+@border-warning-default: var(--border-warning-default);
+@border-warning-secondary: var(--border-warning-secondary);
+@border-warning-tertiary: var(--border-warning-tertiary);
+@border-warning-quaternary: var(--border-warning-quaternary);
+
+@border-error-default: var(--border-error-default);
+@border-error-secondary: var(--border-error-secondary);
+@border-error-tertiary: var(--border-error-tertiary);
+@border-error-quaternary: var(--border-error-quaternary);
+
+@effect-shadow-default: var(--effect-shadow-default);
+@effect-shadow-secondary: var(--effect-shadow-secondary);
+
+

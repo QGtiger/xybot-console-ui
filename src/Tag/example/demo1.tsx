@@ -86,7 +86,7 @@ export default () => {
                         size={it.size as any}
                         type={type as any}
                         preset={preset as any}
-                        prefix={<PrefixIconDemo />}
+                        icon={<PrefixIconDemo />}
                         allowClose
                         onClose={() => {
                           console.log('close');
