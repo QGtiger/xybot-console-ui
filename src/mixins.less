@@ -14,3 +14,16 @@
     cursor: not-allowed;
   }
 }
+
+// 修正后的写法
+.notDisabledHover(@hoverStyles) {
+  &:not(:disabled):hover {
+    @hoverStyles();
+  }
+}
+
+.notDisabledActive(@activeStyles) {
+  &:not(:disabled):active {
+    @activeStyles();
+  }
+}

@@ -62,7 +62,7 @@ export default () => {
               {it.label} ({it.size})
             </span>
             {
-              ['default', 'link', 'danger'].map((preset) => {
+              ['default', 'info', 'brand'].map((preset) => {
                 return (
                   <div
                     key={preset}
@@ -78,8 +78,8 @@ export default () => {
                       'border',
                       'text',
                       'textSecondary',
-                      'secondary',
-                      'primary',
+                      'fillSecondary',
+                      'fillPrimary',
                     ].map((type) => (
                       <Tag
                         key={type}
@@ -87,7 +87,7 @@ export default () => {
                         type={type as any}
                         preset={preset as any}
                         icon={<PrefixIconDemo />}
-                        allowClose
+                        closable
                         onClose={() => {
                           console.log('close');
                         }}
