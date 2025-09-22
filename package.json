@@ -13,6 +13,10 @@
     "./global.css": {
       "import": "./dist/global.css",
       "require": "./dist/global.css"
+    },
+    "./variables.less": {
+      "import": "./dist/variables.less",
+      "require": "./dist/variables.less"
     }
   },
   "module": "dist/index.js",
@@ -21,7 +25,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "father build && npm run build:css",
+    "build": "father build",
     "build:css": "postcss ./src/global.css -o ./dist/global.css",
     "build:watch": "father dev",
     "dev": "dumi dev",

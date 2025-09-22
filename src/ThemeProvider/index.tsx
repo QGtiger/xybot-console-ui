@@ -2,8 +2,6 @@ import { PropsWithChildren, useEffect } from 'react';
 import { createCustomModel } from '../utils';
 
 import { useThemeMode } from 'antd-style';
-import classNames from 'classnames';
-import '../global.css';
 
 export const ThemeModel = createCustomModel(() => {
   const { themeMode, setThemeMode, isDarkMode } = useThemeMode();
@@ -31,11 +29,5 @@ export function ThemeProvider(
     className?: string;
   }>,
 ) {
-  return (
-    <ThemeModel.Provider>
-      <div className={classNames('xybot-ui ', props.className)}>
-        {props.children}
-      </div>
-    </ThemeModel.Provider>
-  );
+  return <ThemeModel.Provider>{props.children}</ThemeModel.Provider>;
 }
