@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { PropsWithChildren } from 'react';
 
-import './link.less';
+import './index.less';
 
 type LinkType = 'default' | 'info' | 'secondary';
 
