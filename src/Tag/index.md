@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 2
 title: Tag 标签
 apiHeader: true
 group:

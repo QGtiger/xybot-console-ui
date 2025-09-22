@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 4
 title: Select 选择器
 apiHeader: true
 group:

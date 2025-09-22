@@ -1,35 +1,154 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.notInputDisabledHover(@rules) {
+  &:not(.ui-input-disabled):hover {
+    @rules();
+  }
+}
+
+.notInputDisabledActive(@rules) {
+  &:not(.ui-input-disabled):active {
+    @rules();
+  }
+}
+
+.notInputDisabledFocus(@rules) {
+  &:not(.ui-input-disabled):focus {
+    @rules();
+  }
+}
+
+.notInputDisabledFocusWithIn(@rules) {
+  &:not(.ui-input-disabled):focus-within {
+    @rules();
+  }
+}
+
 .ui-input {
-  &-out-of-range {
-    color: red;
+  box-shadow: none !important;
+  border-radius: 8px;
+  &-md {
+    padding: 4px 8px;
+  }
+  &-lg {
+    padding: 6px 10px;
+  }
+  &-xl {
+    padding: 8px 12px;
+  }
+  &-xxl {
+    padding: 10px 12px;
   }
 
-  &-affix-wrapper {
-    padding: 2px 8px;
-    overflow: hidden;
-    border: 1px solid lightgray;
-    border-radius: 2px;
-    width: 300px;
-
-    &:hover,
-    &:focus-within {
-      border-color: #000;
+  &-type {
+    &-border {
+      background: none;
+      border-color: @border-base-secondary;
+      .notInputDisabledHover({
+        border-color: @border-base-tertiary;
+        background-color: @bg-fill-default;
+      });
+      .notInputDisabledFocusWithIn({
+        border-color: @border-base-quaternary;
+        background-color: @bg-base-container;
+      });
+      .notInputDisabledFocus({
+        border-color: @border-info-default;
+        box-shadow: 0 0 4px 0 @bg-info-quaternary !important;
+      });
     }
 
-    input {
-      padding: 0;
-      border: none;
-      outline: none;
+    input::placeholder {
+      color: @text-base-tertiary;
     }
-  }
 
-  &-clear-icon {
-    padding: 0;
-    font-size: 12px;
-    background: none;
-    border: none;
+    &-borderless {
+      border-radius: 0;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      border-color: transparent !important;
+      background-color: transparent !important;
 
-    &-hidden {
-      display: none;
+      .notInputDisabledHover({
+        input::placeholder {
+          text-decoration: underline; /* 添加下划线 */
+          text-decoration-color: @text-base-tertiary; /* 下划线颜色（可选） */
+          text-decoration-thickness: 1px; /* 下划线粗细（可选） */
+          text-underline-offset: 2px; /* 下划线与文字的距离（可选） */
+        }
+      });
+
+      --underline-color: @border-base-quaternary;
+
+      &::after {
+        content: '';
+        /* 下划线样式 */
+        position: absolute;
+        bottom: 0;
+        left: 50%; /* 初始位置在中间 */
+        width: 0; /* 初始宽度为0 */
+        height: 1px;
+        background-color: var(--underline-color); /* 下划线颜色 */
+
+        /* 动画过渡效果 */
+        transition: all 0.2s ease;
+        transform-origin: center;
+      }
+
+      .notInputDisabledFocusWithIn({
+        &::after {
+          width: 100%; /* 展开到 full width */
+          left: 0; /* 回到左侧起点 */
+        }
+      });
+
+      .notInputDisabledFocus({
+        --underline-color: @border-info-default;
+        background-color: @bg-info-default;
+        &::after {
+          width: 100%; /* 展开到 full width */
+          left: 0; /* 回到左侧起点 */
+        }
+      });
+    }
+
+    &-filledsecondary {
+      background-color: @bg-fill-secondary;
+      border-color: transparent;
+
+      .notInputDisabledHover({
+        // box-shadow: inset 0 0 0 1px @border-base-tertiary !important;
+        background-color: @bg-fill-tertiary;
+        border-color: @border-base-tertiary
+      });
+
+      .notInputDisabledFocusWithIn({
+        border-color: @border-base-quaternary;
+        background-color: @bg-base-container;
+      });
+      .notInputDisabledFocus({
+        border-color: @border-info-default;
+        box-shadow: 0 0 4px 0 @bg-info-quaternary !important;
+      });
+    }
+
+    &-filledbase {
+      background-color: @bg-base-container;
+      border-color: transparent;
+      .notInputDisabledHover({
+        background-color: @bg-base-container-secondary;
+        border-color: transparent;
+      });
+
+      .notInputDisabledFocusWithIn({
+        border-color: @border-base-quaternary;
+        background-color: @bg-base-container;
+      });
+      .notInputDisabledFocus({
+        border-color: @border-info-default;
+        box-shadow: 0 0 4px 0 @bg-info-quaternary !important;
+      });
     }
   }
 }
