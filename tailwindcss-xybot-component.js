@@ -1,4 +1,5 @@
 // src/index.js
+// @ts-expect-error
 const plugin = require('tailwindcss/plugin');
 
 // 自定义 Tailwind 插件

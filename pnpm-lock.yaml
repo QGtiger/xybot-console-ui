@@ -23,15 +23,6 @@ importers:
       less:
         specifier: ^4.4.1
         version: 4.4.1
-      rc-input:
-        specifier: ^1.8.0
-        version: 1.8.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-select:
-        specifier: ^14.16.8
-        version: 14.16.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      rc-util:
-        specifier: ^5.44.4
-        version: 5.44.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@commitlint/cli':
         specifier: ^17.1.2
@@ -45,9 +36,6 @@ importers:
       '@types/react-dom':
         specifier: ^18.0.0
         version: 18.3.7(@types/react@18.3.24)
-      '@types/tailwindcss':
-        specifier: ^3.1.0
-        version: 3.1.0(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.5.1)(typescript@5.9.2))
       '@umijs/lint':
         specifier: ^4.0.0
         version: 4.4.12(eslint@8.57.1)(stylelint@14.16.1)(typescript@5.4.2)
@@ -100,7 +88,7 @@ importers:
         specifier: ^14.9.1
         version: 14.16.1
       tailwindcss:
-        specifier: '3'
+        specifier: ^3.4.17
         version: 3.4.17(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.5.1)(typescript@5.9.2))
 
 packages:
@@ -1807,10 +1795,6 @@ packages:
 
   '@types/stylis@4.2.5':
     resolution: {integrity: sha512-1Xve+NMN7FWjY14vLoY5tL3BVEQ/n42YLwaqJIPYhotZ9uBHt87VceMwWQpzmdEt2TNXIorIFG+YeCUUW7RInw==}
-
-  '@types/tailwindcss@3.1.0':
-    resolution: {integrity: sha512-JxPzrm609hzvF4nmOI3StLjbBEP3WWQxDDJESqR1nh94h7gyyy3XSl0hn5RBMJ9mPudlLjtaXs5YEBtLw7CnPA==}
-    deprecated: This is a stub types definition. tailwindcss provides its own type definitions, so you do not need this installed.
 
   '@types/unist@2.0.11':
     resolution: {integrity: sha512-CmBKiL6NNo/OqgmMn95Fk9Whlp2mtvIv+KNpQKN2F4SjvrEesubTRWGYSg+BnWZOnlCaSTU1sMpsBOzgbYhnsA==}
@@ -5546,8 +5530,8 @@ packages:
     peerDependencies:
       postcss: ^8.0.0
 
-  postcss-js@4.0.1:
-    resolution: {integrity: sha512-dDLF8pEO191hJMtlHFPRa8xsizHaM82MLfNkUHdUtVEV3tgTp5oj+8qbEqYM57SLfc74KSbw//4SeJma2LRVIw==}
+  postcss-js@4.1.0:
+    resolution: {integrity: sha512-oIAOTqgIo7q2EOwbhb8UalYePMvYoIeRY2YKntdpFQXNosSu3vLrniGgmH9OKs/qAkfoj5oB3le/7mINW1LCfw==}
     engines: {node: ^12 || ^14 || >= 16}
     peerDependencies:
       postcss: ^8.4.21
@@ -9291,12 +9275,6 @@ snapshots:
   '@types/semver@7.7.1': {}
 
   '@types/stylis@4.2.5': {}
-
-  '@types/tailwindcss@3.1.0(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.5.1)(typescript@5.9.2))':
-    dependencies:
-      tailwindcss: 3.4.17(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.5.1)(typescript@5.9.2))
-    transitivePeerDependencies:
-      - ts-node
 
   '@types/unist@2.0.11': {}
 
@@ -14210,7 +14188,7 @@ snapshots:
     dependencies:
       postcss: 8.5.6
 
-  postcss-js@4.0.1(postcss@8.5.6):
+  postcss-js@4.1.0(postcss@8.5.6):
     dependencies:
       camelcase-css: 2.0.1
       postcss: 8.5.6
@@ -15934,7 +15912,7 @@ snapshots:
       picocolors: 1.1.1
       postcss: 8.5.6
       postcss-import: 15.1.0(postcss@8.5.6)
-      postcss-js: 4.0.1(postcss@8.5.6)
+      postcss-js: 4.1.0(postcss@8.5.6)
       postcss-load-config: 4.0.2(postcss@8.5.6)(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.5.1)(typescript@5.9.2))
       postcss-nested: 6.2.0(postcss@8.5.6)
       postcss-selector-parser: 6.1.2

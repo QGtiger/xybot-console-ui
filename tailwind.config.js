@@ -4,6 +4,6 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require('./src/tailwindcss-xybot-component.js')],
+  plugins: [require('./tailwindcss-xybot-component.js')],
   safelist: [],
 };

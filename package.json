@@ -1,6 +1,6 @@
 {
   "name": "@xybot/ui",
-  "version": "0.0.1",
+  "version": "0.0.1_beta.1",
   "description": "xybot console ui",
   "homepage": "https://www.yingdao.com",
   "license": "MIT",
@@ -63,20 +63,15 @@
   },
   "dependencies": {
     "ahooks": "^3.9.5",
-    "antd": "^5.27.4",
     "antd-style": "^3.7.1",
     "classnames": "^2.5.1",
-    "less": "^4.4.1",
-    "rc-input": "^1.8.0",
-    "rc-select": "^14.16.8",
-    "rc-util": "^5.44.4"
+    "less": "^4.4.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "@types/tailwindcss": "^3.1.0",
     "@umijs/lint": "^4.0.0",
     "autoprefixer": "^10.4.21",
     "dumi": "^2.4.13",
@@ -94,9 +89,10 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "stylelint": "^14.9.1",
-    "tailwindcss": "3"
+    "tailwindcss": "^3.4.17"
   },
   "peerDependencies": {
+    "antd": "^5.27.4",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },
