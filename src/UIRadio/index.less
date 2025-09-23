@@ -28,16 +28,13 @@
       }
       &.ui-radio-disabled {
         .ui-radio-inner {
+          background-color: @bg-info-quaternary;
+          border-color: transparent;
+
           &::after {
             transform: scale(0.375)
           }
         }
-      }
-    }
-    .ui-radio-disabled {
-      .ui-radio-inner {
-        background-color: @bg-info-quaternary;
-        border-color: transparent;
       }
     }
   },
