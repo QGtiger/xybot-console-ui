@@ -1,6 +1,7 @@
 import { PropsWithChildren, useEffect } from 'react';
 import { createCustomModel } from '../utils';
 
+import { ConfigProvider } from 'antd';
 import { useThemeMode } from 'antd-style';
 
 export const ThemeModel = createCustomModel(() => {
@@ -29,5 +30,13 @@ export function ThemeProvider(
     className?: string;
   }>,
 ) {
-  return <ThemeModel.Provider>{props.children}</ThemeModel.Provider>;
+  return (
+    <ConfigProvider
+      wave={{
+        disabled: true,
+      }}
+    >
+      <ThemeModel.Provider>{props.children}</ThemeModel.Provider>
+    </ConfigProvider>
+  );
 }

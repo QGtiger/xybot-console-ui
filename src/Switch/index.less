@@ -1,0 +1,20 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.ui-switch {
+  border-radius: 6px;
+  box-shadow: none !important;
+
+  background-color: @bg-fill-tertiary;
+
+  &:not(.ui-switch-disabled):hover {
+    background-color: @bg-fill-quaternary;
+  }
+
+  &.ui-switch-checked {
+    background-color: @bg-info-spotlight;
+  }
+  .ui-switch-handle::before {
+    border-radius: 4px;
+  }
+}
