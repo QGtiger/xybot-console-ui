@@ -54,6 +54,21 @@
   }
 }
 
+.componentRulesWrapper(@componentName, @normalRules, @disabledRules, @hoverRules, @activeRules: @hoverRules) {
+  .ui-@{componentName}-wrapper {
+    @normalRules();
+    &.ui-@{componentName}-wrapper-disabled {
+      @disabledRules();
+    }
+    &:not(.ui-@{componentName}-wrapper-disabled):hover {
+      @hoverRules();
+    }
+    &:not(.ui-@{componentName}-wrapper-disabled):active {
+      @activeRules();
+    }
+  }
+}
+
 // 修正后的写法
 .notDisabledHover(@hoverStyles) {
   &:not(:disabled):hover {
