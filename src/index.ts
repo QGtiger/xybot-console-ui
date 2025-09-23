@@ -1,12 +1,14 @@
 export * from './ThemeProvider';
 
-export * from './Button';
-export * from './Input';
+export * from './UIButton';
+export * from './UIInput';
 
-export * from './Select';
-export * from './Tag';
+export * from './UISelect';
+export * from './UITag';
 
-export * from './Checkbox';
-export * from './Switch';
+export * from './UICheckbox';
+export * from './UISwitch';
 
-export * from './Link';
+export * from './UILink';
+
+export * from 'antd';

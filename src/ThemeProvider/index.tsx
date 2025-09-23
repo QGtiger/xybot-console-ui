@@ -20,8 +20,6 @@ export const ThemeModel = createCustomModel(() => {
     theme,
     themeMode,
     setThemeMode,
-    getPopupContainer: () =>
-      (document.querySelector('.xybot-ui') as HTMLElement) || document.body,
   };
 });
 
