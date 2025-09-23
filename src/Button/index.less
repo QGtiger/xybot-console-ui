@@ -1,0 +1,200 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.rotate {
+  animation: rotate-ani 1.6s infinite linear;
+}
+
+@keyframes rotate-ani {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.componentFocusVisible(btn, {
+  box-shadow: 0 0 4px 0 @bg-info-quaternary;
+  border-color: @border-info-default;
+  outline: none !important;
+});
+
+.typeComponent(@componentName, @typeClassName, @normalRules, @disabledRules, @hoverRules, @activeRules: @hoverRules) {
+  .ui-@{componentName} {
+    &-type-@{typeClassName} {
+      &:not(.ui-@{componentName}-disabled) {
+        @normalRules();
+      }
+      &.ui-@{componentName}-disabled {
+        @disabledRules();
+      }
+      &:not(:disabled):not(.ui-@{componentName}-disabled):hover {
+        @hoverRules();
+        color: var(--text-color);
+      }
+      &:not(.ui-@{componentName}-disabled):active {
+        @activeRules();
+      }
+    }
+  }
+}
+
+.componentRules(
+  btn,
+  {
+    --text-color: @text-base-default;
+    height: auto !important;
+    color: var(--text-color);
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 20px;
+
+    // background-clip: padding-box;
+    box-shadow: none;
+    background-color: transparent;
+
+    &-size {
+      &-xs {
+        border-radius: 6px;
+        padding: 0 6px;
+        gap: 2px;
+      }
+      &-sm {
+        border-radius: 8px;
+        padding: 2px 8px;
+        gap: 4px;
+      }
+      &-md {
+        border-radius: 8px;
+        padding: 4px 10px;
+        gap: 4px;
+      }
+      &-lg {
+        border-radius: 8px;
+        padding: 6px 12px;
+        gap: 6px;
+      }
+      &-xl {
+        border-radius: 8px;
+        padding: 8px 12px;
+        gap: 6px;
+      }
+    }
+  },
+  {
+    cursor: not-allowed;
+    opacity: 0.5 !important;
+    background: inherit;
+    color: @text-base-quaternary;
+    border-color: @border-base-default;
+  },
+  {
+  },
+  {
+    box-shadow: 0 4px 8px 0 var(--effect-shadow-default, rgba(15, 17, 24, 0.1)) inset;
+  }
+);
+
+.typeComponent(
+  btn,
+  border,
+  {
+    border-color: @border-base-secondary;
+  },
+  {
+  },
+  {
+    border-color: @border-base-secondary;
+    background-color: @bg-fill-secondary;
+  },
+  {
+  }
+);
+
+.typeComponent(
+  btn,
+  text,
+  {
+  },
+  {
+  },
+  {
+    border-color: @border-base-secondary;
+    background-color: @bg-fill-secondary;
+  },
+  {
+    background-color: @bg-fill-tertiary;
+  }
+);
+
+.typeComponent(
+  btn,
+  base,
+  {
+    background-color: @bg-base-container;
+    box-shadow: 0 2px 4px -2px var(--effect-shadow-default, rgba(15, 17, 24, 0.1));
+  },
+  {
+  },
+  {
+    border-color: @border-base-secondary;
+  },
+  {
+    background-color: @bg-base-layout;
+  }
+);
+
+.typeComponent(
+  btn,
+  primary,
+  {
+    background-color: @bg-base-spotlight;
+    --text-color: @text-base-in-gray-default;
+  },
+  {
+  },
+  {
+    background-color: @bg-base-spotlight-secondary;
+    border-color: transparent;
+  },
+  {
+    background-color: @bg-base-spotlight;
+  }
+);
+
+.typeComponent(
+  btn,
+  danger,
+  {
+    background-color: @bg-primary-spotlight;
+    --text-color: @text-base-in-coloer-default;
+  },
+  {
+  },
+  {
+    background-color: @bg-primary-spotlight-secondary;
+    border-color: transparent;
+  },
+  {
+    background-color: @bg-primary-spotlight;
+  }
+);
+
+.typeComponent(
+  btn,
+  secondary,
+  {
+    background-color: @bg-fill-secondary;
+    --text-color: @text-base-default;
+  },
+  {
+  },
+  {
+    background-color: @bg-fill-tertiary;
+    border-color: @border-base-secondary;
+  },
+  {
+    background-color: @bg-fill-quaternary;
+  }
+);

@@ -21,6 +21,24 @@
   }
 }
 
+.componentFocusVisible(@componentName, @rules) {
+  .ui-@{componentName} {
+    &:not(.ui-@{componentName}-disabled) {
+      &:focus-visible {
+        @rules();
+      }
+    }
+  }
+}
+
+.componentHover(@componentName, @rules) {
+  .ui-@{componentName} {
+    &:not(.ui-@{componentName}-disabled):hover {
+      @rules();
+    }
+  }
+}
+
 .componentRules(@componentName, @normalRules, @disabledRules, @hoverRules, @activeRules: @hoverRules) {
   .ui-@{componentName} {
     @normalRules();
