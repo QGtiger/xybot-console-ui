@@ -15,6 +15,27 @@
   }
 }
 
+.validHover(@notValidComponent, @rules) {
+  &:not(.ui-@{notValidComponent}-disabled):hover {
+    @rules();
+  }
+}
+
+.componentRules(@componentName, @normalRules, @disabledRules, @hoverRules, @activeRules: @hoverRules) {
+  .ui-@{componentName} {
+    @normalRules();
+    &.ui-@{componentName}-disabled {
+      @disabledRules();
+    }
+    &:not(.ui-@{componentName}-disabled):hover {
+      @hoverRules();
+    }
+    &:not(.ui-@{componentName}-disabled):active {
+      @activeRules();
+    }
+  }
+}
+
 // 修正后的写法
 .notDisabledHover(@hoverStyles) {
   &:not(:disabled):hover {

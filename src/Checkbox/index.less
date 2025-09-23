@@ -1,0 +1,49 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.componentRules(
+  checkbox,
+  {
+    &.ui-checkbox-checked {
+      .ui-checkbox-inner {
+        background-color: @bg-info-spotlight;
+      }
+    }
+    .ui-checkbox-inner{
+      border-color: @border-base-secondary;
+      &::after {
+        border-color: #ffffff;
+      }
+    }
+  },
+  {
+
+    .ui-checkbox-inner {
+      background-color: @bg-fill-secondary
+    }
+    &.ui-checkbox-checked {
+      .ui-checkbox-inner {
+        border-color: transparent;
+        background-color:  @bg-info-quaternary;
+      }
+    }
+  },
+  {
+    .ui-checkbox-inner {
+      border-color: @bg-info-spotlight-secondary;
+    }
+  }
+);
+
+// .ui-checkbox {
+//   .validHover(checkbox, {
+//     .ui-checkbox-inner {
+//       border-color: @bg-info-spotlight-secondary;
+//     }
+//   });
+//   &.ui-checkbox-checked {
+//     .ui-checkbox-inner {
+//       background-color: @bg-info-spotlight;
+//     }
+//   }
+// }
