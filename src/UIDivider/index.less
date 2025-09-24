@@ -1,0 +1,27 @@
+@import '../variables.less';
+
+.ui-divider {
+  &-preset {
+    &-light {
+      border-color: @border-base-default;
+    }
+    &-medium {
+      border-color: @border-base-secondary;
+    }
+    &-dark {
+      border-color: @border-base-tertiary;
+    }
+    &-blackhole {
+      border-color: @border-base-quaternary;
+      border-width: 2px;
+    }
+  }
+  &-size {
+    &-md {
+      border-width: 1px;
+    }
+    &-lg {
+      border-width: 2px;
+    }
+  }
+}

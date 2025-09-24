@@ -14,5 +14,6 @@ export * from './UILink';
 export * from './UIRadio';
 
 export * from './Modal';
+export * from './UIDivider';
 
 export * from 'antd';
