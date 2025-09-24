@@ -1,0 +1,308 @@
+button,
+[role='button'] {
+  cursor: pointer;
+  outline: none;
+  background: none;
+  border: none;
+}
+
+:root {
+  /* new */
+  --bg-base-container: rgba(255, 255, 255, 1);
+  --bg-base-contianer-secondary: rgba(249, 249, 251, 1);
+  --bg-base-layout: rgba(244, 244, 247, 1);
+  --bg-base-layout-secondary: rgba(236, 237, 241, 1);
+  --bg-base-spotlight: rgba(37, 38, 43, 1);
+  --bg-base-spotlight-secondary: rgba(85, 89, 100, 1);
+  --bg-base-mask: rgba(15, 17, 24, 0.8);
+
+  // 0924 替换 bg-fill => bg-fill-deep
+  --bg-fill-deep-quinary: rgba(15, 17, 24, 0.25);
+  --bg-fill-deep-quaternary: rgba(15, 17, 24, 0.15);
+  --bg-fill-deep-tertiary: rgba(15, 17, 24, 0.1);
+  --bg-fill-deep-secondary: rgba(15, 17, 24, 0.05);
+  --bg-fill-deep-default: rgba(15, 17, 24, 0.03);
+
+  --bg-fill-shallow-quinary: rgba(255, 255, 255, 0.9);
+  --bg-fill-shallow-quaternary: rgba(255, 255, 255, 0.6);
+  --bg-fill-shallow-tertiary: rgba(255, 255, 255, 0.4);
+  --bg-fill-shallow-secondary: rgba(255, 255, 255, 0.2);
+  --bg-fill-shallow-default: rgba(255, 255, 255, 0.1);
+
+  --bg-primary-spotlight: rgba(247, 63, 75, 1);
+  --bg-primary-spotlight-secondary: rgba(255, 88, 99, 1);
+  --bg-primary-quaternary: rgba(247, 63, 75, 0.25);
+  --bg-primary-tertiary: rgba(247, 63, 75, 0.15);
+  --bg-primary-secondary: rgba(247, 63, 75, 0.1);
+  --bg-primary-default: rgba(247, 63, 75, 0.05);
+
+  --bg-info-spotlight: rgba(20, 116, 242, 1);
+  --bg-info-spotlight-secondary: rgba(57, 139, 255, 1);
+  --bg-info-quaternary: rgba(20, 116, 242, 0.25);
+  --bg-info-tertiary: rgba(20, 116, 242, 0.15);
+  --bg-info-secondary: rgba(20, 116, 242, 0.1);
+  --bg-info-default: rgba(20, 116, 242, 0.05);
+
+  --bg-success-spotlight: rgba(20, 174, 92, 1);
+  --bg-success-spotlight-secondary: rgba(62, 206, 110, 1);
+  --bg-success-quaternary: rgba(20, 174, 92, 0.25);
+  --bg-success-tertiary: rgba(20, 174, 92, 0.15);
+  --bg-success-secondary: rgba(20, 174, 92, 0.1);
+  --bg-success-default: rgba(20, 174, 92, 0.05);
+
+  --bg-warning-spotlight: rgba(236, 103, 31, 1);
+  --bg-warning-spotlight-secondary: rgba(251, 147, 86, 1);
+  --bg-warning-quaternary: rgba(236, 103, 31, 0.25);
+  --bg-warning-tertiary: rgba(236, 103, 31, 0.15);
+  --bg-warning-secondary: rgba(236, 103, 31, 0.1);
+  --bg-warning-default: rgba(236, 103, 31, 0.05);
+
+  --bg-error-spotlight: rgba(220, 40, 70, 1);
+  --bg-error-spotlight-secondary: rgba(231, 71, 105, 1);
+  --bg-error-quaternary: rgba(220, 40, 70, 0.25);
+  --bg-error-tertiary: rgba(220, 40, 70, 0.15);
+  --bg-error-secondary: rgba(220, 40, 70, 0.1);
+  --bg-error-default: rgba(220, 40, 70, 0.05);
+
+  --text-base-default: rgba(15, 17, 24, 1);
+  --text-base-secondary: rgba(15, 17, 24, 0.7);
+  --text-base-tertiary: rgba(15, 17, 24, 0.4);
+  --text-base-quaternary: rgba(15, 17, 24, 0.25);
+  --text-base-in-gray-default: rgba(255, 255, 255, 1);
+  --text-base-in-gray-secondary: rgba(255, 255, 255, 0.7);
+  --text-base-in-gray-tertiary: rgba(255, 255, 255, 0.4);
+  --text-base-in-gray-disable: rgba(255, 255, 255, 0.25);
+  --text-base-in-coloer-default: rgba(255, 255, 255, 1);
+  --text-base-in-coloer-secondary: rgba(255, 255, 255, 0.7);
+  --text-base-in-coloer-tertiary: rgba(255, 255, 255, 0.4);
+  --text-base-in-coloer-disable: rgba(255, 255, 255, 0.25);
+
+  --text-primary-default: rgba(247, 63, 75, 1);
+  --text-primary-default-hover: rgba(255, 88, 99, 1);
+  --text-primary-secondary: rgba(247, 63, 75, 0.4);
+  --text-primary-tertiary: rgba(247, 63, 75, 0.25);
+
+  --text-info-default: rgba(20, 116, 242, 1);
+  --text-info-default-hover: rgba(57, 139, 255, 1);
+  --text-info-secondary: rgba(20, 116, 242, 0.4);
+  --text-info-tertiary: rgba(20, 116, 242, 0.25);
+
+  --text-success-default: rgba(20, 174, 92, 1);
+  --text-success-default-hover: rgba(62, 206, 110, 1);
+  --text-success-secondary: rgba(20, 174, 92, 0.4);
+  --text-success-tertiary: rgba(20, 174, 92, 0.25);
+
+  --text-warning-default: rgba(236, 103, 31, 1);
+  --text-warning-default-hover: rgba(251, 147, 86, 1);
+  --text-warning-secondary: rgba(236, 103, 31, 0.4);
+  --text-warning-tertiary: rgba(236, 103, 31, 0.25);
+
+  --text-error-default: rgba(220, 40, 70, 1);
+  --text-error-default-hover: rgba(231, 71, 105, 1);
+  --text-error-secondary: rgba(220, 40, 70, 0.4);
+  --text-error-tertiary: rgba(220, 40, 70, 0.25);
+
+  --border-base-default: rgba(15, 17, 24, 0.05);
+  --border-base-secondary: rgba(15, 17, 24, 0.1);
+  --border-base-tertiary: rgba(15, 17, 24, 0.15);
+  --border-base-quaternary: rgba(15, 17, 24, 0.8);
+
+  --border-specular-default: rgba(255, 255, 255, 0.1);
+  --border-specular-secondary: rgba(255, 255, 255, 0.4);
+  --border-specular-tertiary: rgba(255, 255, 255, 0.8);
+  --border-specular-quaternary: rgba(255, 255, 255, 1);
+
+  --border-primary-default: rgba(247, 63, 75, 1);
+  --border-primary-secondary: rgba(247, 63, 75, 0.25);
+  --border-primary-tertiary: rgba(247, 63, 75, 0.15);
+  --border-primary-quaternary: rgba(247, 63, 75, 0.1);
+
+  --border-info-default: rgba(20, 116, 242, 1);
+  --border-info-secondary: rgba(20, 116, 242, 0.25);
+  --border-info-tertiary: rgba(20, 116, 242, 0.15);
+  --border-info-quaternary: rgba(20, 116, 242, 0.1);
+
+  --border-success-default: rgba(20, 174, 92, 1);
+  --border-success-secondary: rgba(20, 174, 92, 0.25);
+  --border-success-tertiary: rgba(20, 174, 92, 0.15);
+  --border-success-quaternary: rgba(20, 174, 92, 0.1);
+
+  --border-warning-default: rgba(236, 103, 31, 1);
+  --border-warning-secondary: rgba(236, 103, 31, 0.25);
+  --border-warning-tertiary: rgba(236, 103, 31, 0.15);
+  --border-warning-quaternary: rgba(236, 103, 31, 0.1);
+
+  --border-error-default: rgba(220, 40, 70, 1);
+  --border-error-secondary: rgba(220, 40, 70, 0.25);
+  --border-error-tertiary: rgba(220, 40, 70, 0.15);
+  --border-error-quaternary: rgba(220, 40, 70, 0.1);
+
+  --effect-shadow-default: rgba(15, 17, 24, 0.1);
+  --effect-shadow-secondary: rgba(15, 17, 24, 0.05);
+
+  /* size */
+  --sds-size-depth-0: 0;
+  --sds-size-depth-100: 4px;
+  --sds-size-depth-200: 8px;
+
+  --sds-size-radius-100: 6px;
+  --sds-size-radius-200: 8px;
+
+  --sds-size-space-050: 2px;
+  --sds-size-space-100: 4px;
+  --sds-size-space-150: 6px;
+  --sds-size-space-200: 8px;
+  --sds-size-space-300: 12px;
+
+  --Space-250: 10px;
+}
+
+.dark {
+  /* new */
+  --bg-base-container: rgba(45, 46, 53, 1);
+  --bg-base-contianer-secondary: rgba(37, 38, 43, 1);
+  --bg-base-layout: rgba(32, 33, 39, 1);
+  --bg-base-layout-secondary: rgba(15, 17, 24, 1);
+  --bg-base-spotlight: rgba(236, 237, 241, 1);
+  --bg-base-spotlight-secondary: rgba(255, 255, 255, 1);
+  --bg-base-mask: rgba(0, 0, 0, 0.8);
+
+  --bg-fill-deep-quinary: rgba(0, 0, 0, 0.5);
+  --bg-fill-deep-quaternary: rgba(0, 0, 0, 0.4);
+  --bg-fill-deep-tertiary: rgba(0, 0, 0, 0.3);
+  --bg-fill-deep-secondary: rgba(0, 0, 0, 0.2);
+  --bg-fill-deep-default: rgba(0, 0, 0, 0.15);
+
+  --bg-fill-shallow-quinary: rgba(15, 17, 24, 0.7);
+  --bg-fill-shallow-quaternary: rgba(15, 17, 24, 0.5);
+  --bg-fill-shallow-tertiary: rgba(15, 17, 24, 0.35);
+  --bg-fill-shallow-secondary: rgba(15, 17, 24, 0.2);
+  --bg-fill-shallow-default: rgba(15, 17, 24, 0.1);
+
+  --bg-primary-spotlight: rgba(255, 88, 99, 1);
+  --bg-primary-spotlight-secondary: rgba(247, 63, 75, 1);
+  --bg-primary-quaternary: rgba(247, 63, 75, 0.5);
+  --bg-primary-tertiary: rgba(247, 63, 75, 0.35);
+  --bg-primary-secondary: rgba(247, 63, 75, 0.25);
+  --bg-primary-default: rgba(247, 63, 75, 0.1);
+
+  --bg-info-spotlight: rgba(57, 139, 255, 1);
+  --bg-info-spotlight-secondary: rgba(20, 116, 242, 1);
+  --bg-info-quaternary: rgba(20, 116, 242, 0.5);
+  --bg-info-tertiary: rgba(20, 116, 242, 0.35);
+  --bg-info-secondary: rgba(20, 116, 242, 0.25);
+  --bg-info-default: rgba(20, 116, 242, 0.1);
+
+  --bg-success-spotlight: rgba(62, 206, 110, 1);
+  --bg-success-spotlight-secondary: rgba(20, 174, 92, 1);
+  --bg-success-quaternary: rgba(20, 174, 92, 0.5);
+  --bg-success-tertiary: rgba(20, 174, 92, 0.35);
+  --bg-success-secondary: rgba(20, 174, 92, 0.25);
+  --bg-success-default: rgba(20, 174, 92, 0.1);
+
+  --bg-warning-spotlight: rgba(251, 147, 86, 1);
+  --bg-warning-spotlight-secondary: rgba(236, 103, 31, 1);
+  --bg-warning-quaternary: rgba(236, 103, 31, 0.5);
+  --bg-warning-tertiary: rgba(236, 103, 31, 0.35);
+  --bg-warning-secondary: rgba(236, 103, 31, 0.25);
+  --bg-warning-default: rgba(236, 103, 31, 0.1);
+
+  --bg-error-spotlight: rgba(231, 71, 105, 1);
+  --bg-error-spotlight-secondary: rgba(220, 40, 70, 1);
+  --bg-error-quaternary: rgba(220, 40, 70, 0.5);
+  --bg-error-tertiary: rgba(220, 40, 70, 0.35);
+  --bg-error-secondary: rgba(220, 40, 70, 0.25);
+  --bg-error-default: rgba(220, 40, 70, 0.1);
+
+  --text-base-default: rgba(255, 255, 255, 0.8);
+  --text-base-secondary: rgba(255, 255, 255, 0.5);
+  --text-base-tertiary: rgba(255, 255, 255, 0.3);
+  --text-base-quaternary: rgba(255, 255, 255, 0.15);
+  --text-base-in-gray-default: rgba(15, 17, 24, 1);
+  --text-base-in-gray-secondary: rgba(15, 17, 24, 0.7);
+  --text-base-in-gray-tertiary: rgba(15, 17, 24, 0.4);
+  --text-base-in-gray-disable: rgba(15, 17, 24, 0.25);
+  --text-base-in-coloer-default: rgba(255, 255, 255, 1);
+  --text-base-in-coloer-secondary: rgba(255, 255, 255, 0.7);
+  --text-base-in-coloer-tertiary: rgba(255, 255, 255, 0.4);
+  --text-base-in-coloer-disable: rgba(255, 255, 255, 0.25);
+
+  --text-primary-default: rgba(255, 88, 99, 1);
+  --text-primary-default-hover: rgba(247, 63, 75, 1);
+  --text-primary-secondary: rgba(247, 63, 75, 0.5);
+  --text-primary-tertiary: rgba(247, 63, 75, 0.35);
+
+  --text-info-default: rgba(57, 139, 255, 1);
+  --text-info-default-hover: rgba(20, 116, 242, 1);
+  --text-info-secondary: rgba(20, 116, 242, 0.5);
+  --text-info-tertiary: rgba(20, 116, 242, 0.35);
+
+  --text-success-default: rgba(62, 206, 110, 1);
+  --text-success-default-hover: rgba(20, 174, 92, 1);
+  --text-success-secondary: rgba(20, 174, 92, 0.5);
+  --text-success-tertiary: rgba(20, 174, 92, 0.35);
+
+  --text-warning-default: rgba(251, 147, 86, 1);
+  --text-warning-default-hover: rgba(236, 103, 31, 1);
+  --text-warning-secondary: rgba(236, 103, 31, 0.5);
+  --text-warning-tertiary: rgba(236, 103, 31, 0.35);
+
+  --text-error-default: rgba(231, 71, 105, 1);
+  --text-error-default-hover: rgba(220, 40, 70, 1);
+  --text-error-secondary: rgba(220, 40, 70, 0.5);
+  --text-error-tertiary: rgba(220, 40, 70, 0.35);
+
+  --border-base-default: rgba(255, 255, 255, 0.05);
+  --border-base-secondary: rgba(255, 255, 255, 0.1);
+  --border-base-tertiary: rgba(255, 255, 255, 0.15);
+  --border-base-quaternary: rgba(255, 255, 255, 0.8);
+
+  --border-specular-default: rgba(255, 255, 255, 0.03);
+  --border-specular-secondary: rgba(255, 255, 255, 0.1);
+  --border-specular-tertiary: rgba(255, 255, 255, 0.15);
+  --border-specular-quaternary: rgba(255, 255, 255, 0.2);
+
+  --border-primary-default: rgba(247, 63, 75, 1);
+  --border-primary-secondary: rgba(247, 63, 75, 0.25);
+  --border-primary-tertiary: rgba(247, 63, 75, 0.15);
+  --border-primary-quaternary: rgba(247, 63, 75, 0.1);
+
+  --border-info-default: rgba(20, 116, 242, 1);
+  --border-info-secondary: rgba(20, 116, 242, 0.25);
+  --border-info-tertiary: rgba(20, 116, 242, 0.15);
+  --border-info-quaternary: rgba(20, 116, 242, 0.1);
+
+  --border-success-default: rgba(20, 174, 92, 1);
+  --border-success-secondary: rgba(20, 174, 92, 0.25);
+  --border-success-tertiary: rgba(20, 174, 92, 0.15);
+  --border-success-quaternary: rgba(20, 174, 92, 0.1);
+
+  --border-warning-default: rgba(236, 103, 31, 1);
+  --border-warning-secondary: rgba(236, 103, 31, 0.25);
+  --border-warning-tertiary: rgba(236, 103, 31, 0.15);
+  --border-warning-quaternary: rgba(236, 103, 31, 0.1);
+
+  --border-error-default: rgba(220, 40, 70, 1);
+  --border-error-secondary: rgba(220, 40, 70, 0.25);
+  --border-error-tertiary: rgba(220, 40, 70, 0.15);
+  --border-error-quaternary: rgba(220, 40, 70, 0.1);
+
+  --effect-shadow-default: rgba(0, 0, 0, 0.3);
+  --effect-shadow-secondary: rgba(0, 0, 0, 0.15);
+
+  /* size */
+  --sds-size-depth-0: 0;
+  --sds-size-depth-100: 4px;
+  --sds-size-depth-200: 8px;
+
+  --sds-size-radius-100: 6px;
+  --sds-size-radius-200: 8px;
+
+  --sds-size-space-050: 2px;
+  --sds-size-space-100: 4px;
+  --sds-size-space-150: 6px;
+  --sds-size-space-200: 8px;
+  --sds-size-space-300: 12px;
+
+  --Space-250: 10px;
+}

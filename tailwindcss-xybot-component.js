@@ -55,12 +55,19 @@ module.exports = plugin(
             spotlightSecondary: 'var(--bg-base-spotlight-secondary)',
             mask: 'var(--bg-base-mask)',
           },
-          bgFill: {
-            quinary: 'var(--bg-fill-quinary)',
-            quaternary: 'var(--bg-fill-quaternary)',
-            tertiary: 'var(--bg-fill-tertiary)',
-            secondary: 'var(--bg-fill-secondary)',
-            default: 'var(--bg-fill-default)',
+          bgFillDeep: {
+            quinary: 'var(--bg-fill-deep-quinary)',
+            quaternary: 'var(--bg-fill-deep-quaternary)',
+            tertiary: 'var(--bg-fill-deep-tertiary)',
+            secondary: 'var(--bg-fill-deep-secondary)',
+            default: 'var(--bg-fill-deep-default)',
+          },
+          bgFillShallow: {
+            quinary: 'var(--bg-fill-shallow-quinary)',
+            quaternary: 'var(--bg-fill-shallow-quaternary)',
+            tertiary: 'var(--bg-fill-shallow-tertiary)',
+            secondary: 'var(--bg-fill-shallow-secondary)',
+            default: 'var(--bg-fill-shallow-default)',
           },
           bgPrimary: {
             spotlight: 'var(--bg-primary-spotlight)',

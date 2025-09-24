@@ -8,6 +8,8 @@ import { useMount } from 'ahooks';
 import { UIModalFunc, useUIModal } from '../Modal';
 import './index.less';
 
+import '../global.less';
+
 export const ThemeModel = createCustomModel((props: { modal: UIModalFunc }) => {
   const { themeMode, setThemeMode, isDarkMode } = useThemeMode();
 
