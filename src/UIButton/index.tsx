@@ -20,8 +20,8 @@ export type UIButtonProps = Omit<
   type?: UIButtonType;
 };
 
-const defaultSize = 'md';
-const defaultType = 'primary';
+const defaultSize = 'lg';
+const defaultType = 'danger';
 
 const defaultLoading = {
   icon: (
@@ -68,7 +68,6 @@ export function UIButton(props: UIButtonProps) {
     <AntdButton
       {...rest}
       type="default"
-      prefixCls="ui-btn"
       disabled={disabled}
       loading={mergeLoading}
       className={classNames(

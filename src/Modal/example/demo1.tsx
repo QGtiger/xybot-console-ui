@@ -1,0 +1,41 @@
+import { HomeOutlined } from '@ant-design/icons';
+import { Space, ThemeModel, UIButton, useUIModal } from '@xybot/ui';
+
+export default () => {
+  const { isDarkMode } = ThemeModel.useModel();
+  const { modal, modalHolder } = useUIModal();
+
+  return (
+    <div
+      className="flex"
+      style={{
+        display: 'flex',
+        gap: 16,
+        flexDirection: 'column',
+        padding: 16,
+        background: isDarkMode ? '#202127' : '#f4f4f7',
+        alignItems: 'flex-start',
+      }}
+    >
+      <Space>
+        <UIButton
+          onClick={() => {
+            modal({
+              title: '11',
+              content: 'content',
+              onCancel() {
+                console.log('cancel');
+              },
+              footer(originNode, { OkBtn }) {
+                return <OkBtn />;
+              },
+            });
+          }}
+          icon={<HomeOutlined />}
+          type="border"
+        ></UIButton>
+        {modalHolder}
+      </Space>
+    </div>
+  );
+};

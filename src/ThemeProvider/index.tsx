@@ -1,18 +1,17 @@
-import { PropsWithChildren, useEffect } from 'react';
+import { PropsWithChildren, useEffect, useMemo } from 'react';
 import { createCustomModel } from '../utils';
 
 import { ConfigProvider, message } from 'antd';
 import { useThemeMode } from 'antd-style';
 
 import { useMount } from 'ahooks';
+import { UIModalFunc, useUIModal } from '../Modal';
 import './index.less';
 
-export const ThemeModel = createCustomModel(() => {
+export const ThemeModel = createCustomModel((props: { modal: UIModalFunc }) => {
   const { themeMode, setThemeMode, isDarkMode } = useThemeMode();
 
   const theme = isDarkMode ? 'dark' : 'light';
-
-  console.log('theme', theme, themeMode, isDarkMode);
 
   useMount(() => {
     message.config({
@@ -29,6 +28,7 @@ export const ThemeModel = createCustomModel(() => {
     theme,
     themeMode,
     setThemeMode,
+    ...props,
   };
 });
 
@@ -37,6 +37,14 @@ export function ThemeProvider(
     className?: string;
   }>,
 ) {
+  const { modal, modalHolder } = useUIModal();
+
+  const memoValue = useMemo(() => {
+    return {
+      modal,
+    };
+  }, [modal]);
+
   return (
     <ConfigProvider
       wave={{
@@ -44,7 +52,10 @@ export function ThemeProvider(
       }}
       prefixCls="ui"
     >
-      <ThemeModel.Provider>{props.children}</ThemeModel.Provider>
+      <ThemeModel.Provider value={memoValue}>
+        {props.children}
+        {modalHolder}
+      </ThemeModel.Provider>
     </ConfigProvider>
   );
 }
