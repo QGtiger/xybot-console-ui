@@ -41,7 +41,6 @@
   btn,
   {
     --text-color: @text-base-default;
-    height: auto !important;
     color: var(--text-color);
     border: 1px solid transparent;
     display: inline-flex;
@@ -53,6 +52,11 @@
     // background-clip: padding-box;
     box-shadow: none;
     background-color: transparent;
+
+    &:not(.ui-btn-icon-only) {
+      height: auto !important;
+
+    }
 
     &-size {
       &-xs {
@@ -85,6 +89,35 @@
         gap: 6px;
         min-width: 36px;
       }
+    }
+
+    &.ui-btn-icon-only {
+      padding: 0;
+      &.ui-btn {
+        &-size {
+          &-xs {
+            width: 20px;
+            height: 20px;
+          }
+          &-sm {
+            width: 24px;
+            height: 24px;
+          }
+          &-md {
+            width: 28px;
+            height: 28px;
+          }
+          &-lg {
+            width: 32px;
+            height: 32px;
+          }
+          &-xl {
+            width: 36px;
+            height: 36px;
+          }
+        }
+      }
+
     }
   },
   {
