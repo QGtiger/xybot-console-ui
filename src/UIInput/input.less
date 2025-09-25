@@ -25,9 +25,22 @@
   }
 }
 
+textarea.ui-input {
+  .notInputDisabledFocus({
+    border-color: @border-base-quaternary !important;
+    background-color: @bg-base-container;
+    box-shadow: none !important;
+  });
+}
+
 .ui-input {
   box-shadow: none !important;
   border-radius: 8px;
+
+  .ui-input-number-input {
+    padding: 0;
+  }
+
   &-md {
     padding: 4px 8px;
   }
@@ -50,7 +63,7 @@
         background-color: @bg-fill-deep-default;
       });
       .notInputDisabledFocusWithIn({
-        border-color: @border-base-quaternary;
+        border-color: @border-base-quaternary !important;
         background-color: @bg-base-container;
       });
       .notInputDisabledFocus({

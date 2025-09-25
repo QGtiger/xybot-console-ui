@@ -1,5 +1,5 @@
 import { UserOutlined } from '@ant-design/icons';
-import { ThemeModel, UISelect } from '@xybot/ui';
+import { Select, ThemeModel, UISelect } from '@xybot/ui';
 
 export default () => {
   const { isDarkMode } = ThemeModel.useModel();
@@ -15,16 +15,79 @@ export default () => {
         background: isDarkMode ? '#202127' : '#f4f4f7',
       }}
     >
+      <Select
+        options={[
+          {
+            label: 'Option 1',
+            value: 'option1',
+          },
+          {
+            label: 'Option 2',
+            value: 'option2',
+          },
+        ]}
+      />
+      <Select
+        mode="multiple"
+        options={[
+          {
+            label: 'Option 1',
+            value: 'option1',
+          },
+          {
+            label: 'Option 2',
+            value: 'option2',
+          },
+        ]}
+      />
       <UISelect
         placeholder="border 请输入"
         type="border"
         prefix={<UserOutlined />}
+        size="xl"
+        options={[
+          {
+            label: 'Option 1',
+            value: 'option1',
+          },
+          {
+            label: 'Option 2',
+            value: 'option2',
+          },
+        ]}
+        mode="multiple"
+      />
+      <UISelect
+        placeholder="border 请输入"
+        type="border"
+        prefix={<UserOutlined />}
+        size="xl"
+        options={[
+          {
+            label: 'Option 1',
+            value: 'option1',
+          },
+          {
+            label: 'Option 2',
+            value: 'option2',
+          },
+        ]}
       />
       <UISelect
         placeholder="borderless 请输入"
         autoFocus
         type="borderless"
         prefix={<UserOutlined />}
+        options={[
+          {
+            label: 'Option 1',
+            value: 'option1',
+          },
+          {
+            label: 'Option 2',
+            value: 'option2',
+          },
+        ]}
       />
 
       <UISelect
@@ -32,6 +95,16 @@ export default () => {
         autoFocus
         type="filledsecondary"
         prefix={<UserOutlined />}
+        options={[
+          {
+            label: 'Option 1',
+            value: 'option1',
+          },
+          {
+            label: 'Option 2',
+            value: 'option2',
+          },
+        ]}
       />
 
       <UISelect
@@ -39,6 +112,16 @@ export default () => {
         autoFocus
         type="filledbase"
         prefix={<UserOutlined />}
+        options={[
+          {
+            label: 'Option 1',
+            value: 'option1',
+          },
+          {
+            label: 'Option 2',
+            value: 'option2',
+          },
+        ]}
       />
     </div>
   );
