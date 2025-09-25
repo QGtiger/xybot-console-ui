@@ -17,6 +17,7 @@ export default () => {
     >
       <Switch />
       <Switch disabled />
+      <Switch disabled checked />
       <Switch size="small" />
       <Switch size="small" disabled />
     </div>

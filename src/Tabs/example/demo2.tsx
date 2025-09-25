@@ -32,7 +32,7 @@ export default () => {
     >
       <Tabs size="small" items={items} type="card" />
       <Tabs size="middle" items={items} type="card" />
-      <Tabs size="large" items={items} type="editable-card" />
+      <Tabs size="large" items={items} type="editable-card" hideAdd />
     </div>
   );
 };
