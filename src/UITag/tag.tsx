@@ -11,7 +11,6 @@ export interface UITagProps
   icon?: React.ReactNode;
   closable?: boolean;
   onClose?: () => void;
-  disabled?: boolean;
 }
 
 const closeIcon = (
