@@ -1,4 +1,4 @@
-import { ThemeModel, UIRadio } from '@xybot/ui';
+import { Radio, ThemeModel } from '@xybot/ui';
 
 export default () => {
   const { isDarkMode } = ThemeModel.useModel();
@@ -14,7 +14,7 @@ export default () => {
         background: isDarkMode ? '#202127' : '#f4f4f7',
       }}
     >
-      <UIRadio.Group
+      <Radio.Group
         options={[
           {
             value: 'Apple',
@@ -25,12 +25,12 @@ export default () => {
             label: 'Pear',
           },
         ]}
-      ></UIRadio.Group>
-      <UIRadio>常规</UIRadio>
-      <UIRadio disabled>常规</UIRadio>
-      <UIRadio disabled checked>
+      ></Radio.Group>
+      <Radio>常规</Radio>
+      <Radio disabled>常规</Radio>
+      <Radio disabled checked>
         常规
-      </UIRadio>
+      </Radio>
     </div>
   );
 };
