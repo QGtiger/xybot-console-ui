@@ -1,6 +1,6 @@
 ---
-order: 8
-title: UIRadio 单选
+order: 5
+title: Switch 开关
 apiHeader: true
 group:
   title: 通用
@@ -9,9 +9,9 @@ nav:
   order: 4
 ---
 
-# UIRadio
+# Switch
 
-弹出一个下拉菜单给用户选择操作，用于代替原生的选择器，或者需要一个更优雅的多选器时。
+需要表示开关状态/两种状态之间的切换时；
 
 [demo演示](https://www.figma.com/proto/krDLmYQcKVgL8ICib2dWt7/%E5%BD%B1%E5%88%80-OS25?node-id=40001835-82332&p=f&viewport=1362%2C351%2C0.82&t=BmJU8ZGafJxd7e7f-0&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=40001911%3A21654&fuid=1272846533367774791)
 

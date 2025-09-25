@@ -1,6 +1,6 @@
 ---
 order: 6
-title: UICheckbox 多选框
+title: Checkbox 多选框
 apiHeader: true
 group:
   title: 通用
@@ -9,7 +9,7 @@ nav:
   order: 4
 ---
 
-# UICheckbox
+# Checkbox
 
 在一组可选项中进行多项选择时
 
