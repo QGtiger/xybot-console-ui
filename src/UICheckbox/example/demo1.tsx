@@ -1,4 +1,4 @@
-import { ThemeModel, UICheckbox } from '@xybot/ui';
+import { Checkbox, ThemeModel } from '@xybot/ui';
 
 export default () => {
   const { isDarkMode } = ThemeModel.useModel();
@@ -15,11 +15,11 @@ export default () => {
         alignItems: 'flex-start',
       }}
     >
-      <UICheckbox>常规</UICheckbox>
-      <UICheckbox checked disabled>
+      <Checkbox>常规</Checkbox>
+      <Checkbox checked disabled>
         默认选中
-      </UICheckbox>
-      <UICheckbox disabled>常规</UICheckbox>
+      </Checkbox>
+      <Checkbox disabled>常规</Checkbox>
     </div>
   );
 };
