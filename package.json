@@ -69,7 +69,8 @@
     "ahooks": "^3.9.5",
     "antd-style": "^3.7.1",
     "classnames": "^2.5.1",
-    "less": "^4.4.1"
+    "less": "^4.4.1",
+    "simplebar-react": "^3.3.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
