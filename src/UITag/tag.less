@@ -35,6 +35,13 @@
   });
 }
 
+.disabledRule(@Rules) {
+  &:disabled {
+    @Rules();
+    cursor: not-allowed;
+  }
+}
+
 .ui-tag {
   display: inline-flex;
   align-items: center;
@@ -82,17 +89,32 @@
       color: @text-base-secondary;
 
       .bgHoverAndActive(@bg-fill-deep-secondary, @bg-fill-deep-tertiary);
+
+      .disabledRule({
+        border-color: @border-base-default;
+        color: @text-base-quaternary;
+      });
     }
     &-info {
       border-color: @border-info-secondary;
       color: @text-info-default;
       .bgHoverAndActive(@bg-info-default, @bg-info-secondary);
+
+      .disabledRule({
+        border-color: @border-info-quaternary;
+        color: @text-info-tertiary;
+      });
     }
     &-brand {
       border-color: @border-primary-secondary;
       color: @text-primary-default;
 
       .bgHoverAndActive(@bg-primary-default, @bg-primary-secondary);
+
+      .disabledRule({
+        border-color: @border-primary-quaternary;
+        color: @text-primary-tertiary;
+      });
     }
   }
 
@@ -129,12 +151,22 @@
       .bgHoverAndActive(@bg-fill-deep-secondary, @bg-fill-deep-tertiary);
 
       .borderHoverColor(@border-base-secondary);
+
+      .disabledRule({
+        background-color: @bg-fill-deep-secondary;
+        color: @text-base-quaternary;
+      });
     }
     &-info {
       background: @bg-info-secondary;
       color: @text-info-default;
       .bgHoverAndActive(@bg-info-default, @bg-info-secondary);
       .borderHoverColor(@border-info-secondary);
+
+      .disabledRule({
+        background-color: @bg-info-secondary;
+        color: @text-info-tertiary
+      });
     }
     &-brand {
       background: @bg-primary-secondary;
@@ -142,6 +174,11 @@
 
       .bgHoverAndActive(@bg-primary-default, @bg-primary-secondary);
       .borderHoverColor(@border-primary-secondary);
+
+      .disabledRule({
+        background-color: @bg-primary-secondary;
+        color: @text-primary-tertiary;
+      });
     }
   }
 
@@ -151,15 +188,27 @@
       color: @text-base-in-gray-default;
 
       .bgMixins(@bg-base-spotlight, @bg-base-spotlight-secondary);
+
+      .disabledRule({
+        opacity: 0.5;
+      });
     }
     &-info {
       color: @text-base-in-coloer-default;
       .bgMixins(@bg-info-spotlight, @bg-info-spotlight-secondary);
+
+      .disabledRule({
+        opacity: 0.5;
+      });
     }
     &-brand {
       color: @text-base-in-coloer-default;
 
       .bgMixins(@bg-primary-spotlight, @bg-primary-spotlight-secondary);
+
+      .disabledRule({
+        opacity: 0.5;
+      });
     }
   }
 }

@@ -91,7 +91,6 @@ export default () => {
                         onClose={() => {
                           console.log('close');
                         }}
-                        disabled
                       >
                         {type} {preset}
                       </UITag>

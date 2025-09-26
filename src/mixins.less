@@ -15,26 +15,12 @@
   }
 }
 
-.validHover(@notValidComponent, @rules) {
-  &:not(.ui-@{notValidComponent}-disabled):hover {
-    @rules();
-  }
-}
-
 .componentFocusVisible(@componentName, @rules) {
   .ui-@{componentName} {
     &:not(.ui-@{componentName}-disabled) {
       &:focus-visible {
         @rules();
       }
-    }
-  }
-}
-
-.componentHover(@componentName, @rules) {
-  .ui-@{componentName} {
-    &:not(.ui-@{componentName}-disabled):hover {
-      @rules();
     }
   }
 }
