@@ -11,6 +11,8 @@ export * from './UILink';
 export * from './UIDivider';
 export * from './UIModal';
 
+export * from './UIMenu';
+
 export * from './ScrollArea';
 
 export * from 'antd';

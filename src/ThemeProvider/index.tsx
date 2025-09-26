@@ -58,6 +58,7 @@ export function ThemeProvider(
       theme={{
         token: {
           fontSize: 13,
+          colorText: 'var(--text-base-default)',
         },
       }}
       prefixCls="ui"

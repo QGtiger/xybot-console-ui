@@ -1,6 +1,6 @@
 ---
 order: 15
-title: Menu
+title: UIMenu
 group:
   title: 通用
 nav:
@@ -8,10 +8,6 @@ nav:
   order: 4
 ---
 
-# Menu
-
-底层实现采用 simple-bar
-
-[npm](https://www.npmjs.com/package/simplebar-react)
+# UIMenu
 
 <code src="./example/demo1.tsx"></code>
