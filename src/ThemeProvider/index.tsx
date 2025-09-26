@@ -2,7 +2,7 @@ import { PropsWithChildren, useEffect, useMemo } from 'react';
 import { createCustomModel } from '../utils';
 
 import { ConfigProvider, message } from 'antd';
-import { useThemeMode } from 'antd-style';
+import { useThemeMode, type ThemeMode } from 'antd-style';
 
 import { useMount } from 'ahooks';
 import { UIModalFunc, useUIModal } from '../Modal';
@@ -10,6 +10,8 @@ import './index.less';
 
 import '../global.less';
 import './tabs.less';
+
+export { ThemeMode };
 
 export const ThemeModel = createCustomModel((props: { modal: UIModalFunc }) => {
   const { themeMode, setThemeMode, isDarkMode } = useThemeMode();
@@ -52,6 +54,11 @@ export function ThemeProvider(
     <ConfigProvider
       wave={{
         disabled: true,
+      }}
+      theme={{
+        token: {
+          fontSize: 13,
+        },
       }}
       prefixCls="ui"
     >
