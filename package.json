@@ -66,6 +66,7 @@
     ]
   },
   "dependencies": {
+    "@tanstack/react-table": "^8.21.3",
     "ahooks": "^3.9.5",
     "antd-style": "^3.7.1",
     "classnames": "^2.5.1",
