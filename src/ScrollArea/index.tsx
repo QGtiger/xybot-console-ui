@@ -6,5 +6,14 @@ import './index.less';
 export type ScrollAreaProps = Parameters<typeof SimpleBar>[0];
 
 export function ScrollArea(props: ScrollAreaProps) {
-  return <SimpleBar {...props} />;
+  const { onScroll } = props;
+  return (
+    <SimpleBar
+      {...props}
+      scrollableNodeProps={{
+        onScroll,
+        ...props.scrollableNodeProps,
+      }}
+    />
+  );
 }

@@ -5,7 +5,7 @@ import { ConfigProvider, message } from 'antd';
 import { useThemeMode, type ThemeMode } from 'antd-style';
 
 import { useMount } from 'ahooks';
-import { UIModalFunc, useUIModal } from '../Modal';
+import { UIModalFunc, useUIModal } from '../UIModal';
 import './index.less';
 
 import '../global.less';
