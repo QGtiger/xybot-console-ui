@@ -5,7 +5,7 @@ import { ConfigProvider, message } from 'antd';
 import { useThemeMode, type ThemeMode } from 'antd-style';
 
 import { useMount } from 'ahooks';
-import { UIModalFunc, useUIModal } from '../UIModal';
+import { UIModalFns, useUIModal } from '../UIModal';
 import './index.less';
 
 import '../global.less';
@@ -13,7 +13,7 @@ import './tabs.less';
 
 export { ThemeMode };
 
-export const ThemeModel = createCustomModel((props: { modal: UIModalFunc }) => {
+export const ThemeModel = createCustomModel((props: { modal: UIModalFns }) => {
   const { themeMode, setThemeMode, isDarkMode } = useThemeMode();
 
   const theme = isDarkMode ? 'dark' : 'light';

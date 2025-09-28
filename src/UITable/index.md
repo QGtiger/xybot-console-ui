@@ -10,4 +10,4 @@ nav:
 
 # UITable
 
-<code src="./example/demo1.tsx"></code>
+<!-- <code src="./example/demo1.tsx"></code> -->

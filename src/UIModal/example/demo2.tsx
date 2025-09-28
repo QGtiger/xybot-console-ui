@@ -21,7 +21,7 @@ export default () => {
           onClick={() => {
             let secondsToGo = 5;
 
-            const instance = modal({
+            const instance = modal.confirm({
               title: 'This is a notification message',
               content: `This modal will be destroyed after ${secondsToGo} second.`,
             });

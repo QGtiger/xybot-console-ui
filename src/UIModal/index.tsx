@@ -25,6 +25,8 @@ const sizeWidthMap = {
 
 type ModalType = 'confirm' | 'info' | 'success' | 'error' | 'warning';
 
+export type UIModalFns = Record<ModalType, UIModalFunc>;
+
 export function useUIModal() {
   const [customModal, modalHolder] = Modal.useModal();
 
