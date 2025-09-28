@@ -2,7 +2,7 @@ import { Modal, ModalProps } from 'antd';
 import { ConfigUpdate, ModalFunc } from 'antd/es/modal/confirm';
 import { UIButton } from '../UIButton';
 
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import './index.less';
 
 export type UIModalFuncProps = Omit<Parameters<ModalFunc>[0], 'prefixCls'> & {
@@ -23,10 +23,15 @@ const sizeWidthMap = {
   xl: 720,
 };
 
+type ModalType = 'confirm' | 'info' | 'success' | 'error' | 'warning';
+
 export function useUIModal() {
   const [customModal, modalHolder] = Modal.useModal();
 
-  const modal = (config: UIModalFuncProps) => {
+  const getModalInvokeOptions = (
+    config: UIModalFuncProps,
+    close: () => void,
+  ) => {
     const {
       okText = '确认',
       cancelText = '取消',
@@ -35,12 +40,12 @@ export function useUIModal() {
       footer,
       size = 'md',
       width,
+      type = 'confirm',
     } = config;
 
     const mergeWidth = width || sizeWidthMap[size];
 
-    const modalIns = customModal.confirm({
-      icon: null,
+    return {
       ...config,
       width: mergeWidth,
       footer() {
@@ -50,7 +55,7 @@ export function useUIModal() {
         const OkBtn: FC = () => (
           <UIButton
             onClick={() => {
-              Promise.resolve(onOk?.()).then(modalIns.destroy);
+              Promise.resolve(onOk?.()).then(close);
             }}
           >
             {okText}
@@ -61,7 +66,7 @@ export function useUIModal() {
           <UIButton
             type="border"
             onClick={() => {
-              Promise.resolve(onCancel?.()).then(modalIns.destroy);
+              Promise.resolve(onCancel?.()).then(close);
             }}
           >
             {cancelText}
@@ -71,7 +76,7 @@ export function useUIModal() {
         const originNode = (
           <div className="ui-modal-footer">
             <OkBtn />
-            <CancelBtn />
+            {type === 'confirm' && <CancelBtn />}
           </div>
         );
 
@@ -84,9 +89,31 @@ export function useUIModal() {
 
         return originNode;
       },
-    });
-    return modalIns;
+    };
   };
+
+  const modal = useMemo(() => {
+    return (
+      ['confirm', 'info', 'success', 'error', 'warning'] as ModalType[]
+    ).reduce((acc, type) => {
+      // @ts-ignore
+      acc[type] = (config: UIModalFuncProps) => {
+        const modalRef = customModal[type](
+          getModalInvokeOptions(
+            {
+              ...config,
+              type,
+            },
+            () => {
+              modalRef.destroy();
+            },
+          ),
+        );
+        return modalRef;
+      };
+      return acc;
+    }, {} as Record<ModalType, UIModalFunc>);
+  }, [customModal]);
 
   return {
     modal,

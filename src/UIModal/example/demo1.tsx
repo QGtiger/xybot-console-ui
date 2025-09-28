@@ -20,14 +20,11 @@ export default () => {
       <Space>
         <UIButton
           onClick={() => {
-            modal({
+            modal.warning({
               title: '11',
               content: 'content',
               onCancel() {
                 console.log('cancel');
-              },
-              footer(originNode, { OkBtn }) {
-                return <OkBtn />;
               },
             });
           }}
