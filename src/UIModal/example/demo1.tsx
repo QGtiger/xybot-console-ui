@@ -1,5 +1,5 @@
 import { HomeOutlined } from '@ant-design/icons';
-import { Space, ThemeModel, UIButton, useUIModal } from '@xybot/ui';
+import { Space, ThemeModel, UIButton, UIModal, useUIModal } from '@xybot/ui';
 
 export default () => {
   const { isDarkMode } = ThemeModel.useModel();
@@ -31,6 +31,23 @@ export default () => {
           icon={<HomeOutlined />}
           type="border"
         ></UIButton>
+        <UIButton
+          onClick={() => {
+            UIModal.confirm({
+              title: '11',
+              content: 'content',
+              cancelText: 'cancancancale',
+              onCancel() {
+                console.log('cancel');
+              },
+            });
+          }}
+          icon={<HomeOutlined />}
+          type="border"
+        >
+          {' '}
+          静态方法{' '}
+        </UIButton>
         {modalHolder}
       </Space>
     </div>
