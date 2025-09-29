@@ -1,7 +1,5 @@
 import { UserOutlined } from '@ant-design/icons';
 import {
-  Input,
-  InputNumber,
   ThemeModel,
   UIInput,
   UIInputPassword,
@@ -22,12 +20,9 @@ export default () => {
         background: isDarkMode ? '#202127' : '#f4f4f7',
       }}
     >
-      <Input.Password placeholder="input password" />
       <UIInputPassword placeholder="ui input password" />
       <UIInputPassword type="borderless" placeholder="ui input password" />
-      <Input.TextArea />
       <UIInputTextArea placeholder="ui input text area" />
-      <InputNumber />
       <UIInput.Number variant="underlined" type="borderless" />
       <UIInput
         placeholder="border 请输入"

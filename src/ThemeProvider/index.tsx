@@ -1,7 +1,7 @@
 import { PropsWithChildren, useEffect, useMemo } from 'react';
 import { createCustomModel } from '../utils';
 
-import { ConfigProvider, message } from 'antd';
+import { ConfigProvider, ConfigProviderProps, message } from 'antd';
 import { useThemeMode, type ThemeMode } from 'antd-style';
 
 import { useMount } from 'ahooks';
@@ -38,9 +38,7 @@ export const ThemeModel = createCustomModel((props: { modal: UIModalFns }) => {
 });
 
 export function ThemeProvider(
-  props: PropsWithChildren<{
-    className?: string;
-  }>,
+  props: PropsWithChildren<Omit<ConfigProviderProps, 'prefixCls'>>,
 ) {
   const { modal, modalHolder } = useUIModal();
 
@@ -52,9 +50,6 @@ export function ThemeProvider(
 
   return (
     <ConfigProvider
-      wave={{
-        disabled: true,
-      }}
       theme={{
         token: {
           fontSize: 13,
@@ -62,6 +57,11 @@ export function ThemeProvider(
         },
       }}
       prefixCls="ui"
+      {...props}
+      wave={{
+        disabled: true,
+        ...props.wave,
+      }}
     >
       <ThemeModel.Provider value={memoValue}>
         {props.children}

@@ -16,6 +16,9 @@ export default () => {
       }}
     >
       <Checkbox>常规</Checkbox>
+      <Checkbox indeterminate disabled>
+        常规
+      </Checkbox>
       <Checkbox checked disabled>
         默认选中
       </Checkbox>

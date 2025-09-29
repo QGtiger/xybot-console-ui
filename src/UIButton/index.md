@@ -9,20 +9,20 @@ nav:
   order: 4
 ---
 
-
 # UIButton
 
 按钮组件，基于 Ant Design Button 封装。
 
 <code src="./example/demo1.tsx"></code>
+<code src="./example/demo2.tsx"></code>
 
 ## API
 
-| 名称 | 类型 | 默认值 | 描述 |
-| :--- | :--- | :--- | :--- |
-| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | 按钮尺寸 |
-| type | `'border' \| 'text' \| 'base' \| 'primary' \| 'danger' \| 'secondary'` | `'base'` | 按钮样式类型 |
-| ...其他属性 | `Omit<AntdButtonProps, 'type' \| 'size' \| 'variant' \| 'prefixCls'>` | - | 支持 Ant Design Button 的其他属性 |
+| 名称        | 类型                                                                   | 默认值   | 描述                              |
+| :---------- | :--------------------------------------------------------------------- | :------- | :-------------------------------- |
+| size        | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'`                                 | `'md'`   | 按钮尺寸                          |
+| type        | `'border' \| 'text' \| 'base' \| 'primary' \| 'danger' \| 'secondary'` | `'base'` | 按钮样式类型                      |
+| ...其他属性 | `Omit<AntdButtonProps, 'type' \| 'size' \| 'variant' \| 'prefixCls'>`  | -        | 支持 Ant Design Button 的其他属性 |
 
 ## 尺寸说明 (size)
 
