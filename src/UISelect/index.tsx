@@ -16,7 +16,7 @@ export interface UISelectProps
 
 export const UISelect = forwardRef<RefSelectProps, UISelectProps>(
   (props, ref) => {
-    const { type = 'md', size = 'lg', ...rest } = props;
+    const { type = 'border', size = 'lg', ...rest } = props;
     const selectRef = useRef<RefSelectProps>(null);
 
     useImperativeHandle(ref, () => selectRef.current as RefSelectProps);

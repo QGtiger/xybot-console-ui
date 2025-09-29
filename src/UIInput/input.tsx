@@ -10,15 +10,16 @@ import classNames from 'classnames';
 import { forwardRef } from 'react';
 import './input.less';
 
-type WrapperPropsWithCustom<T> = {
+type WrapperPropsWithCustom<T> = Omit<T, 'size'> & {
   type?: 'border' | 'borderless' | 'filledsecondary' | 'filledbase';
   size?: 'md' | 'lg' | 'xl' | 'xxl';
   className?: string;
-} & T;
+};
 
 function UIInputWrapper<WrapperRef, WrapperProps>(Componet: any) {
   return forwardRef<WrapperRef, WrapperPropsWithCustom<WrapperProps>>(
     (props, ref) => {
+      // @ts-expect-error
       const { type = 'border', size = 'lg', ...rest } = props;
       return (
         <Componet
@@ -26,6 +27,7 @@ function UIInputWrapper<WrapperRef, WrapperProps>(Componet: any) {
           {...rest}
           variant="outlined"
           className={classNames(
+            // @ts-expect-error
             props.className,
             'ui-input',
             `ui-input-${size}`,
