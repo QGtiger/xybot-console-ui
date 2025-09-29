@@ -15,4 +15,6 @@ export * from './UIMenu';
 
 export * from './ScrollArea';
 
+export * from './UITable';
+
 export * from 'antd';

@@ -1,0 +1,83 @@
+@import '../variables.less';
+
+.ui-table-scope-wrapper {
+  overflow: auto;
+  color: @text-base-secondary;
+  transition: all 0.2s ease-in-out;
+  --th: 36px;
+  --td-py: 16px;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    table-layout: auto;
+    &.ui-table-size {
+      &-md {
+        --th: 36px;
+      }
+      &-lg {
+        --th: 64px;
+      }
+    }
+
+    &.ui-table-hover {
+      &-withRadius {
+        tbody tr {
+          transition: all 0.2s ease-in-out;
+          border-radius: 8px;
+          overflow: hidden;
+          td:first-child {
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+          }
+          td:last-child {
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+          }
+          &:hover {
+            background-color: @bg-fill-deep-default;
+          }
+        }
+      }
+    }
+
+    thead {
+      tr {
+        height: 32px;
+        overflow: hidden;
+
+        th {
+          color: @text-base-tertiary;
+          font-weight: inherit;
+          padding: 0 var(--td-py);
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+          &:hover {
+            color: @text-base-secondary;
+          }
+        }
+      }
+    }
+    tbody {
+      tr {
+        height: var(--th);
+        overflow: hidden;
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: @border-base-default;
+        }
+        td {
+          padding: 0 var(--td-py);
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}

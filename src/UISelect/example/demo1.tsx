@@ -87,6 +87,7 @@ export default () => {
         autoFocus
         type="filledbase"
         prefix={<UserOutlined />}
+        size="md"
         options={[
           {
             label: 'Option 1',
