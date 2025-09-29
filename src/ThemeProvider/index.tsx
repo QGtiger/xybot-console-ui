@@ -11,9 +11,26 @@ import './index.less';
 import '../global.less';
 import './tabs.less';
 
+import { UIButtonProps } from '../UIButton';
+import type { UIInputProps } from '../UIInput/input';
+import { UILinkProps } from '../UILink';
+import type { UISelectProps } from '../UISelect';
+
 export { ThemeMode };
 
-export const ThemeModel = createCustomModel((props: { modal: UIModalFns }) => {
+export type ComponentConfig = {
+  uiSelect?: Partial<UISelectProps>;
+  uiInput?: Partial<UIInputProps>;
+  uiButton?: Partial<UIButtonProps>;
+  uiLink?: Partial<UILinkProps>;
+};
+
+type ThemeModelProps = {
+  modal: UIModalFns;
+  componentConfig?: ComponentConfig;
+};
+
+export const ThemeModel = createCustomModel((props: ThemeModelProps) => {
   const { themeMode, setThemeMode, isDarkMode } = useThemeMode();
 
   const theme = isDarkMode ? 'dark' : 'light';
@@ -38,29 +55,33 @@ export const ThemeModel = createCustomModel((props: { modal: UIModalFns }) => {
 });
 
 export function ThemeProvider(
-  props: PropsWithChildren<Omit<ConfigProviderProps, 'prefixCls'>>,
+  props: PropsWithChildren<Omit<ConfigProviderProps, 'prefixCls'>> &
+    Omit<ThemeModelProps, 'modal'>,
 ) {
   const { modal, modalHolder } = useUIModal();
 
   const memoValue = useMemo(() => {
     return {
+      ...props,
       modal,
     };
   }, [modal]);
 
   return (
     <ConfigProvider
-      theme={{
-        token: {
-          fontSize: 13,
-          colorText: 'var(--text-base-default)',
-        },
-      }}
       prefixCls="ui"
       {...props}
       wave={{
         disabled: true,
         ...props.wave,
+      }}
+      theme={{
+        ...props.theme,
+        token: {
+          fontSize: 13,
+          colorText: 'var(--text-base-default)',
+          ...props.theme?.token,
+        },
       }}
     >
       <ThemeModel.Provider value={memoValue}>
@@ -69,4 +90,9 @@ export function ThemeProvider(
       </ThemeModel.Provider>
     </ConfigProvider>
   );
+}
+
+export function useDefaultProps<T>(props: T, key: keyof ComponentConfig): T {
+  const { componentConfig } = ThemeModel.useModel();
+  return { ...componentConfig?.[key], ...props };
 }

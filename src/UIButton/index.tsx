@@ -1,6 +1,7 @@
 import { Button as AntdButton, ButtonProps as AntdButtonProps } from 'antd';
 import classNames from 'classnames';
 
+import { useDefaultProps } from '../ThemeProvider';
 import './index.less';
 
 type UIButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -51,7 +52,7 @@ export function UIButton(props: UIButtonProps) {
     disabled,
     loading,
     ...rest
-  } = props;
+  } = useDefaultProps(props, 'uiButton');
 
   const mergeLoading: UIButtonProps['loading'] = (() => {
     if (!loading) return false;

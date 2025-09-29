@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { PropsWithChildren } from 'react';
 
+import { useDefaultProps } from '../ThemeProvider';
 import './index.less';
 
 type LinkType = 'default' | 'info' | 'secondary';
@@ -11,7 +12,7 @@ export interface UILinkProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 export function UILink(props: PropsWithChildren<UILinkProps>) {
-  const { color = 'default', ...rest } = props;
+  const { color = 'default', ...rest } = useDefaultProps(props, 'uiLink');
 
   return (
     <button

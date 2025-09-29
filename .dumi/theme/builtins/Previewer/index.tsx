@@ -3,7 +3,16 @@ import { ThemeProvider } from '../../../../src';
 
 export default function Previewer(props: any) {
   return (
-    <ThemeProvider>
+    <ThemeProvider
+      componentConfig={{
+        uiSelect: {
+          type: 'filledbase',
+        },
+        uiInput: {
+          type: 'filledbase',
+        },
+      }}
+    >
       <OriginalPreview {...props} />
     </ThemeProvider>
   );

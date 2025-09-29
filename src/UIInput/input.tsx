@@ -8,6 +8,7 @@ import { PasswordProps } from 'antd/es/input/Password';
 import classNames from 'classnames';
 
 import { forwardRef } from 'react';
+import { useDefaultProps } from '../ThemeProvider';
 import './input.less';
 
 type WrapperPropsWithCustom<T> = Omit<T, 'size'> & {
@@ -16,11 +17,18 @@ type WrapperPropsWithCustom<T> = Omit<T, 'size'> & {
   className?: string;
 };
 
+export type UIInputProps = WrapperPropsWithCustom<AntdInputProps>;
+
 function UIInputWrapper<WrapperRef, WrapperProps>(Componet: any) {
   return forwardRef<WrapperRef, WrapperPropsWithCustom<WrapperProps>>(
     (props, ref) => {
-      // @ts-expect-error
-      const { type = 'border', size = 'lg', ...rest } = props;
+      const {
+        // @ts-expect-error
+        type = 'border',
+        // @ts-expect-error
+        size = 'lg',
+        ...rest
+      } = useDefaultProps(props, 'uiInput');
       return (
         <Componet
           ref={ref}

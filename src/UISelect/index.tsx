@@ -6,6 +6,7 @@ import {
 import classNames from 'classnames';
 
 import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { useDefaultProps } from '../ThemeProvider';
 import './index.less';
 
 export interface UISelectProps
@@ -16,7 +17,11 @@ export interface UISelectProps
 
 export const UISelect = forwardRef<RefSelectProps, UISelectProps>(
   (props, ref) => {
-    const { type = 'border', size = 'lg', ...rest } = props;
+    const {
+      type = 'border',
+      size = 'lg',
+      ...rest
+    } = useDefaultProps(props, 'uiSelect');
     const selectRef = useRef<RefSelectProps>(null);
 
     useImperativeHandle(ref, () => selectRef.current as RefSelectProps);

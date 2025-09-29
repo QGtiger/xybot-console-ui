@@ -17,7 +17,6 @@ export default () => {
     >
       <UISelect
         placeholder="border 请输入"
-        type="border"
         prefix={<UserOutlined />}
         size="xl"
         options={[
