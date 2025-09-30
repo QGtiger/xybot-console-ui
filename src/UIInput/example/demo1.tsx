@@ -20,6 +20,10 @@ export default () => {
         background: isDarkMode ? '#202127' : '#f4f4f7',
       }}
     >
+      <UIInput.Number size="md" placeholder="ui input number" />
+      <UIInput.Number size="lg" placeholder="ui input number" />
+      <UIInput.Number size="xl" placeholder="ui input number" />
+      <UIInput.Number size="xxl" placeholder="ui input number" />
       <UIInputPassword size="xxl" placeholder="ui input password" />
       <UIInputPassword type="borderless" placeholder="ui input password" />
       <UIInputTextArea placeholder="ui input text area" />
