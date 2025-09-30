@@ -9,6 +9,7 @@ export default () => {
     messageApi.open({
       type: 'info',
       content: 'This is a normal message',
+      duration: 1000,
     });
   };
 

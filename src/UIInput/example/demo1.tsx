@@ -1,6 +1,8 @@
 import { UserOutlined } from '@ant-design/icons';
 import {
+  Form,
   ThemeModel,
+  UIButton,
   UIInput,
   UIInputPassword,
   UIInputTextArea,
@@ -20,10 +22,30 @@ export default () => {
         background: isDarkMode ? '#202127' : '#f4f4f7',
       }}
     >
-      <UIInput.Number size="md" placeholder="ui input number" />
-      <UIInput.Number size="lg" placeholder="ui input number" />
-      <UIInput.Number size="xl" placeholder="ui input number" />
-      <UIInput.Number size="xxl" placeholder="ui input number" />
+      Form
+      <Form>
+        <Form.Item
+          label="用户名"
+          name="username"
+          required
+          rules={[{ required: true, message: '请输入用户名' }]}
+        >
+          <UIInput placeholder="请输入用户名" />
+        </Form.Item>
+        <Form.Item
+          label="密码"
+          name="password"
+          required
+          rules={[{ required: true, message: '请输入用户名' }]}
+        >
+          <UIInputPassword placeholder="请输入密码" />
+        </Form.Item>
+        <Form.Item>
+          <UIButton type="primary" htmlType="submit">
+            提交
+          </UIButton>
+        </Form.Item>
+      </Form>
       <UIInputPassword size="xxl" placeholder="ui input password" />
       <UIInputPassword type="borderless" placeholder="ui input password" />
       <UIInputTextArea placeholder="ui input text area" />
@@ -39,14 +61,12 @@ export default () => {
         type="borderless"
         prefix={<UserOutlined />}
       />
-
       <UIInput
         placeholder="filledsecondary 请输入"
         autoFocus
         type="filledsecondary"
         prefix={<UserOutlined />}
       />
-
       <UIInput
         placeholder="filledbase 请输入"
         autoFocus

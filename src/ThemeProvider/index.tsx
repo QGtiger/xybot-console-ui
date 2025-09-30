@@ -88,7 +88,13 @@ export function ThemeProvider(
         token: {
           fontSize: 13,
           colorText: 'var(--text-base-default)',
+
           ...props.theme?.token,
+        },
+        components: {
+          Form: {
+            colorError: 'var(--text-error-default)',
+          },
         },
       }}
     >

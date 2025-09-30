@@ -3,24 +3,20 @@
 
 .ui {
   &-message {
-    &-success {
-      .anticon {
-        color: @bg-success-spotlight !important;
-      }
-    }
-    &-error {
-      .anticon {
-        color: @bg-error-spotlight !important;
-      }
-    }
-    &-warning {
-      .anticon {
-        color: @bg-warning-spotlight !important;
-      }
-    }
-    &-info {
-      .anticon {
-        color: @bg-info-spotlight !important;
+    .ui-message-notice-wrapper {
+      .ui-message {
+        &-success > .anticon {
+          color: @bg-success-spotlight;
+        }
+        &-error > .anticon {
+          color: @bg-error-spotlight;
+        }
+        &-warning > .anticon {
+          color: @bg-warning-spotlight;
+        }
+        &-info > .anticon {
+          color: @bg-info-spotlight;
+        }
       }
     }
   }
