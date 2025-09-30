@@ -1,4 +1,10 @@
-import { PropsWithChildren, useEffect, useMemo } from 'react';
+import {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useEffect,
+  useMemo,
+} from 'react';
 import { createCustomModel } from '../utils';
 
 import { ConfigProvider, ConfigProviderProps, message } from 'antd';
@@ -29,6 +35,8 @@ type ThemeModelProps = {
   modal: UIModalFns;
   componentConfig?: ComponentConfig;
 };
+
+const ComponentConfigContext = createContext<ComponentConfig>({});
 
 export const ThemeModel = createCustomModel((props: ThemeModelProps) => {
   const { themeMode, setThemeMode, isDarkMode } = useThemeMode();
@@ -85,14 +93,16 @@ export function ThemeProvider(
       }}
     >
       <ThemeModel.Provider value={memoValue}>
-        {props.children}
-        {modalHolder}
+        <ComponentConfigContext.Provider value={props.componentConfig || {}}>
+          {props.children}
+          {modalHolder}
+        </ComponentConfigContext.Provider>
       </ThemeModel.Provider>
     </ConfigProvider>
   );
 }
 
 export function useDefaultProps<T>(props: T, key: keyof ComponentConfig): T {
-  const { componentConfig } = ThemeModel.useModel();
-  return { ...componentConfig?.[key], ...props };
+  const config = useContext(ComponentConfigContext);
+  return { ...config?.[key], ...props };
 }
