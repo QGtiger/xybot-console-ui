@@ -38,6 +38,22 @@ export const UISelect = forwardRef<RefSelectProps, UISelectProps>(
           `ui-select-size-${size}`,
           `ui-select-type-${type}`,
         )}
+        suffixIcon={
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            focusable="false"
+            data-icon="more"
+            width="1em"
+            height="4px"
+            stroke="currentColor"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            fill="none"
+          >
+            <path d="M1 0.5L4 3.5L7 0.5" />
+          </svg>
+        }
         menuItemSelectedIcon={
           <svg
             xmlns="http://www.w3.org/2000/svg"
