@@ -50,21 +50,16 @@ export default () => {
         background: isDarkMode ? '#202127' : '#f4f4f7',
       }}
     >
-      <div
-        style={{
-          background: isDarkMode ? '#2b2b30' : '#fff',
-          padding: 16,
-          borderRadius: 8,
-        }}
-      >
+      <div style={{}}>
         <UITable
           size="lg"
+          hoverType="withoutRadius"
           data={defaultData}
           columns={[
             {
               accessorKey: 'firstName',
               header: 'First Name',
-              size: 300,
+              size: 200,
             },
             {
               accessorKey: 'lastName',

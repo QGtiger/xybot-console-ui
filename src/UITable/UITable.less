@@ -4,13 +4,25 @@
   overflow: auto;
   color: @text-base-secondary;
   transition: all 0.2s ease-in-out;
+  padding: 8px 0;
+  background-color: @bg-base-container;
+  border-radius: 8px;
   --th: 36px;
   --td-py: 16px;
+  --border-width: 100%;
+  --border-left: 0;
+
+  &-withRadius {
+    padding: 8px;
+    --border-width: calc(100% - calc(var(--td-py) * 2));
+    --border-left: var(--td-py);
+  }
+
   table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
-    table-layout: auto;
+    table-layout: fixed;
     &.ui-table-size {
       &-md {
         --th: 36px;
@@ -23,9 +35,6 @@
     &.ui-table-hover {
       &-withRadius {
         tbody tr {
-          transition: all 0.2s ease-in-out;
-          border-radius: 8px;
-          overflow: hidden;
           td:first-child {
             border-top-left-radius: 8px;
             border-bottom-left-radius: 8px;
@@ -34,17 +43,14 @@
             border-top-right-radius: 8px;
             border-bottom-right-radius: 8px;
           }
-          &:hover {
-            background-color: @bg-fill-deep-default;
-          }
         }
       }
     }
 
     thead {
+      width: 100%;
       tr {
         height: 32px;
-        overflow: hidden;
 
         th {
           color: @text-base-tertiary;
@@ -52,6 +58,14 @@
           padding: 0 var(--td-py);
           cursor: pointer;
           transition: all 0.2s ease-in-out;
+
+          .header-content {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            word-break: keep-all;
+          }
+
           &:hover {
             color: @text-base-secondary;
           }
@@ -63,19 +77,27 @@
         height: var(--th);
         overflow: hidden;
         position: relative;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          background-color: @bg-fill-deep-default;
+        }
+
         &::after {
           content: '';
           position: absolute;
           bottom: -0;
-          left: 0;
-          width: 100%;
+          left: var(--border-left);
+          width: var(--border-width);
           height: 1px;
           background-color: @border-base-default;
         }
         td {
           padding: 0 var(--td-py);
-          text-overflow: ellipsis;
           overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          word-break: keep-all;
         }
       }
     }

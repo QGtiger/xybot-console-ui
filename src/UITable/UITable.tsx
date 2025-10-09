@@ -25,7 +25,12 @@ export function UITable<T>(props: UITableProps<T>) {
   });
 
   return (
-    <div className={classNames('ui-table-scope-wrapper')}>
+    <div
+      className={classNames(
+        'ui-table-scope-wrapper',
+        `ui-table-scope-wrapper-${hoverType}`,
+      )}
+    >
       <table
         className={classNames(
           'ui-table',
@@ -33,6 +38,15 @@ export function UITable<T>(props: UITableProps<T>) {
           `ui-table-hover-${hoverType}`,
         )}
       >
+        <colgroup>
+          {table.getAllColumns().map((column) => {
+            const size = column.getSize();
+            if (size === 150) {
+              return <col key={column.id} style={{ width: '100%' }} />;
+            }
+            return <col key={column.id} style={{ width: size }} />;
+          })}
+        </colgroup>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
