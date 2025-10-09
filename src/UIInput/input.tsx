@@ -41,6 +41,7 @@ function UIInputWrapper<WrapperRef, WrapperProps>(Componet: any) {
             `ui-input-${size}`,
             `ui-input-type-${type}`,
           )}
+          allowClear
         />
       );
     },
