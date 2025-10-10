@@ -1,0 +1,22 @@
+@import '../variables.less';
+
+.ui {
+  &-alert {
+    border: none;
+    &-success .ui-alert-icon {
+      color: @bg-success-spotlight;
+    }
+    &-info .ui-alert-icon {
+      color: @bg-info-spotlight;
+    }
+    &-warning .ui-alert-icon {
+      color: @bg-warning-spotlight;
+    }
+    &-error .ui-alert-icon {
+      color: @bg-error-spotlight;
+    }
+    &.ui-alert-secondary {
+      background-color: @bg-fill-deep-default;
+    }
+  }
+}

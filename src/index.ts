@@ -17,4 +17,6 @@ export * from './ScrollArea';
 
 export * from './UITable';
 
+export * from './UIAlert';
+
 export * from 'antd';

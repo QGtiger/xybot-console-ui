@@ -88,6 +88,10 @@ export function ThemeProvider(
         token: {
           fontSize: 13,
           colorText: 'var(--text-base-default)',
+          colorSuccessBg: 'var(--bg-success-default)',
+          colorInfoBg: 'var(--bg-info-default)',
+          colorWarningBg: 'var(--bg-warning-default)',
+          colorErrorBg: 'var(--bg-error-default)',
 
           ...props.theme?.token,
         },
