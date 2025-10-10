@@ -11,8 +11,19 @@ nav:
 
 # Switch
 
-需要表示开关状态/两种状态之间的切换时；
+基于 Ant Design Switch 组件开发，保持与原生组件完全兼容。
 
-[demo演示](https://www.figma.com/proto/krDLmYQcKVgL8ICib2dWt7/%E5%BD%B1%E5%88%80-OS25?node-id=40001835-82332&p=f&viewport=1362%2C351%2C0.82&t=BmJU8ZGafJxd7e7f-0&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=40001911%3A21654&fuid=1272846533367774791)
+## 使用方式
+
+直接使用 Ant Design Switch 组件的原有配置项，包括：
+
+- `size`: 控制复选框尺寸
+- `disabled`: 禁用状态
+- 以及其他所有 Ant Design Switch 支持的属性
+
+## 组件特性
+
+- 完全兼容 Ant Design Switch 的所有功能
+- 继承 Ant Design 的所有配置项和行为
 
 <code src="./example/demo1.tsx"></code>

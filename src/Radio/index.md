@@ -11,8 +11,19 @@ nav:
 
 # Radio
 
-弹出一个下拉菜单给用户选择操作，用于代替原生的选择器，或者需要一个更优雅的多选器时。
+基于 Ant Design Radio 组件开发，保持与原生组件完全兼容。
 
-[demo 演示](https://www.figma.com/proto/krDLmYQcKVgL8ICib2dWt7/%E5%BD%B1%E5%88%80-OS25?node-id=40001835-82332&p=f&viewport=1362%2C351%2C0.82&t=BmJU8ZGafJxd7e7f-0&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=40001911%3A21654&fuid=1272846533367774791)
+## 使用方式
+
+直接使用 Ant Design Radio 组件的原有配置项，包括：
+
+- `disabled`: 禁用状态
+- 以及其他所有 Ant Design Radio 支持的属性
+
+## 组件特性
+
+- 完全兼容 Ant Design Radio 的所有功能
+- 支持 RadioGroup 等高级使用方式
+- 继承 Ant Design 的所有配置项和行为
 
 <code src="./example/demo1.tsx"></code>

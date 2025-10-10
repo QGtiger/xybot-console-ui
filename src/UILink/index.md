@@ -9,10 +9,31 @@ nav:
   order: 4
 ---
 
-# UILink
+# UILink 组件说明
 
-文字按钮
+基于原生 `button` 元素自主实现的链接样式组件，独立于设计稿中的文字按钮。
 
-[demo演示](https://www.figma.com/proto/krDLmYQcKVgL8ICib2dWt7/%E5%BD%B1%E5%88%80-OS25?node-id=40001835-82332&p=f&viewport=1362%2C351%2C0.82&t=BmJU8ZGafJxd7e7f-0&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=40001911%3A21654&fuid=1272846533367774791)
+## 配置项
+
+### color
+
+- **类型**: `default` | `info` | `secondary`
+- **默认值**: `default`
+- **说明**: 控制链接的文字颜色
+- **样式对应**:
+  - `default`: 文字基础
+  - `info`: 文字强调
+  - `secondary`: 文字次要
+
+### disabled
+
+- **类型**: `boolean`
+- **默认值**: `false`
+- **说明**: 禁用状态
+
+### onClick
+
+- **类型**: `function`
+- **说明**: 点击事件处理函数
 
 <code src="./example/demo1.tsx"></code>

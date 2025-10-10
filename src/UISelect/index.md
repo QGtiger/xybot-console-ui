@@ -11,8 +11,30 @@ nav:
 
 # UISelect
 
-弹出一个下拉菜单给用户选择操作，用于代替原生的选择器，或者需要一个更优雅的多选器时。
+基于 Ant Design Select 组件进行了功能扩展，新增了以下配置项：
 
-[demo演示](https://www.figma.com/proto/krDLmYQcKVgL8ICib2dWt7/%E5%BD%B1%E5%88%80-OS25?node-id=40001835-82332&p=f&viewport=1362%2C351%2C0.82&t=BmJU8ZGafJxd7e7f-0&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=40001911%3A21654&fuid=1272846533367774791)
+## 新增配置项
+
+### 1. size
+
+- **类型**: `md` | `lg` | `xl` | `xxl`
+- **默认值**: `lg`
+- **说明**: 控制选择框的尺寸
+- **对应高度**:
+  - `md`: 28px
+  - `lg`: 32px
+  - `xl`: 36px
+  - `xxl`: 40px
+
+### 2. type
+
+- **类型**: `border` | `borderless` | `filledsecondary` | `filledbase`
+- **默认值**: `border`
+- **说明**: 控制选择框的视觉样式
+- **样式对应**:
+  - `border`: 线性基础
+  - `borderless`: 文字基础
+  - `filledsecondary`: 面型次要
+  - `filledbase`: 面型基础
 
 <code src="./example/demo1.tsx"></code>
