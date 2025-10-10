@@ -1,103 +1,117 @@
 @import '../variables.less';
 
-.ui-table-scope-wrapper {
-  overflow: auto;
-  color: @text-base-secondary;
-  transition: all 0.2s ease-in-out;
-  padding: 8px 0;
-  background-color: @bg-base-container;
-  border-radius: 8px;
-  --th: 36px;
-  --td-py: 16px;
-  --border-width: 100%;
-  --border-left: 0;
+.ui {
+  &-table {
+    &-wrapper {
+      background-color: @bg-base-container;
+      border-radius: 8px;
+      padding-top: 8px;
 
-  &-withRadius {
-    padding: 8px;
-    --border-width: calc(100% - calc(var(--td-py) * 2));
-    --border-left: var(--td-py);
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-    table-layout: fixed;
-    &.ui-table-size {
-      &-md {
-        --th: 36px;
+      table {
+        background-color: @bg-base-container;
       }
-      &-lg {
-        --th: 64px;
-      }
-    }
 
-    &.ui-table-hover {
-      &-withRadius {
-        tbody tr {
-          td:first-child {
-            border-top-left-radius: 8px;
-            border-bottom-left-radius: 8px;
-          }
-          td:last-child {
-            border-top-right-radius: 8px;
-            border-bottom-right-radius: 8px;
-          }
+      --th: 36px;
+      --td-py: 16px;
+      --border-width: 100%;
+      --border-left: 0;
+      --td-radius: 0;
+
+      td.ui-table-column-sort {
+        background: none;
+      }
+
+      .ui-table-pagination.ui-pagination {
+        margin: 8px 0;
+      }
+
+      .table-sort-icon {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        margin-top: 4px;
+        margin-left: 8px;
+        .arrow-down {
+          margin-top: -14px;
         }
       }
-    }
 
-    thead {
-      width: 100%;
-      tr {
-        height: 32px;
+      &.lg {
+        --th: 64px;
+      }
 
-        th {
-          color: @text-base-tertiary;
-          font-weight: inherit;
+      &.withRadius {
+        padding-inline: 8px;
+        --border-width: calc(100% - calc(var(--td-py) * 2));
+        --border-left: var(--td-py);
+        --td-radius: 8px;
+      }
+
+      .ui-table-thead {
+        & > tr > th {
           padding: 0 var(--td-py);
-          cursor: pointer;
-          transition: all 0.2s ease-in-out;
+          white-space: nowrap;
 
-          .header-content {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            word-break: keep-all;
-          }
+          font-weight: inherit;
+          color: @text-base-tertiary;
+          background-color: @bg-base-container;
+          border: none;
 
           &:hover {
             color: @text-base-secondary;
           }
+
+          &::before {
+            display: none;
+          }
+        }
+        tr {
+          height: 32px;
+        }
+
+        th.ui-table-column-sort {
+          background: none;
         }
       }
-    }
-    tbody {
-      tr {
-        height: var(--th);
-        overflow: hidden;
-        position: relative;
-        transition: all 0.2s ease-in-out;
 
-        &:hover {
-          background-color: @bg-fill-deep-default;
-        }
-
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: -0;
-          left: var(--border-left);
-          width: var(--border-width);
-          height: 1px;
-          background-color: @border-base-default;
-        }
-        td {
+      .ui-table-tbody {
+        & > tr > td {
           padding: 0 var(--td-py);
-          overflow: hidden;
           white-space: nowrap;
-          text-overflow: ellipsis;
-          word-break: keep-all;
+          border: none;
+
+          &:focus-within {
+            background-color: @bg-info-default;
+          }
+
+          &:first-child {
+            border-top-left-radius: var(--td-radius);
+            border-bottom-left-radius: var(--td-radius);
+          }
+          &:last-child {
+            border-top-right-radius: var(--td-radius);
+            border-bottom-right-radius: var(--td-radius);
+          }
+        }
+        tr {
+          height: var(--th);
+          position: relative;
+          transition: all 0.2s ease-in-out;
+          background-color: @bg-base-container;
+
+          &:hover {
+            background-color: @bg-fill-deep-default;
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -0;
+            left: var(--border-left);
+            width: var(--border-width);
+            height: 1px;
+            background-color: @border-base-default;
+          }
         }
       }
     }

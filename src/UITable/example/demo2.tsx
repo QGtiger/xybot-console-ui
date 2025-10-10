@@ -1,5 +1,5 @@
 import type { TableProps } from '@xybot/ui';
-import { Table } from '@xybot/ui';
+import { Space, Tag, ThemeModel, UIInput, UITable } from '@xybot/ui';
 import React from 'react';
 
 interface DataType {
@@ -16,44 +16,54 @@ const columns: TableProps<DataType>['columns'] = [
     dataIndex: 'name',
     key: 'name',
     render: (text) => <a>{text}</a>,
-    width: 300,
+    width: 100,
   },
   {
     title: 'Address',
     dataIndex: 'address',
     key: 'address',
-    ellipsis: true,
+    width: 200,
   },
-  // {
-  //   title: 'Tags',
-  //   key: 'tags',
-  //   dataIndex: 'tags',
-  //   render: (_, { tags }) => (
-  //     <>
-  //       {tags.map((tag) => {
-  //         let color = tag.length > 5 ? 'geekblue' : 'green';
-  //         if (tag === 'loser') {
-  //           color = 'volcano';
-  //         }
-  //         return (
-  //           <Tag color={color} key={tag}>
-  //             {tag.toUpperCase()}
-  //           </Tag>
-  //         );
-  //       })}
-  //     </>
-  //   ),
-  // },
-  // {
-  //   title: 'Action',
-  //   key: 'action',
-  //   render: (_, record) => (
-  //     <Space size="middle">
-  //       <a>Invite {record.name}</a>
-  //       <a>Delete</a>
-  //     </Space>
-  //   ),
-  // },
+  {
+    title: 'Age',
+    dataIndex: 'age',
+    key: 'age',
+    width: 320,
+    render() {
+      return <UIInput placeholder="请输入年龄" type="borderless" />;
+    },
+    sorter: (a, b) => a.age - b.age,
+  },
+  {
+    title: 'Tags',
+    key: 'tags',
+    dataIndex: 'tags',
+    render: (_, { tags }) => (
+      <>
+        {tags.map((tag) => {
+          let color = tag.length > 5 ? 'geekblue' : 'green';
+          if (tag === 'loser') {
+            color = 'volcano';
+          }
+          return (
+            <Tag color={color} key={tag}>
+              {tag.toUpperCase()}
+            </Tag>
+          );
+        })}
+      </>
+    ),
+  },
+  {
+    title: 'Action',
+    key: 'action',
+    render: (_, record) => (
+      <Space size="middle">
+        <a>Invite {record.name}</a>
+        <a>Delete</a>
+      </Space>
+    ),
+  },
 ];
 
 const data: DataType[] = [
@@ -80,8 +90,68 @@ const data: DataType[] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Table<DataType> columns={columns} dataSource={data} />
-);
+const App: React.FC = () => {
+  const { isDarkMode } = ThemeModel.useModel();
+  return (
+    <div
+      className="flex"
+      style={{
+        display: 'flex',
+        gap: 16,
+        flexDirection: 'column',
+        padding: 16,
+        background: isDarkMode ? '#202127' : '#f4f4f7',
+      }}
+    >
+      <UITable
+        columns={columns}
+        dataSource={data}
+        pagination={{
+          simple: {
+            readOnly: true,
+          },
+          pageSize: 2,
+        }}
+      />
+
+      <UITable
+        columns={columns}
+        dataSource={data}
+        size="lg"
+        pagination={{
+          simple: {
+            readOnly: true,
+          },
+          pageSize: 2,
+        }}
+      />
+
+      <UITable
+        columns={columns}
+        dataSource={data}
+        hoverType="withRadius"
+        pagination={{
+          simple: {
+            readOnly: true,
+          },
+          pageSize: 2,
+        }}
+      />
+
+      <UITable
+        columns={columns}
+        dataSource={data}
+        size="lg"
+        hoverType="withRadius"
+        pagination={{
+          simple: {
+            readOnly: true,
+          },
+          pageSize: 2,
+        }}
+      />
+    </div>
+  );
+};
 
 export default App;

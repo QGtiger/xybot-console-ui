@@ -10,8 +10,4 @@ nav:
 
 # UITable
 
-详细 columns 配置 请查看[官方文档](https://tanstack.com/table/latest/docs/guide/column-defs)
-
-<code src="./example/demo1.tsx"></code>
-
 <code src="./example/demo2.tsx"></code>

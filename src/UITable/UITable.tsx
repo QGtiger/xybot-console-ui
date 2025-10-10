@@ -1,95 +1,85 @@
-import {
-  ColumnDef,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from '@tanstack/react-table';
-
+import { Table, TableProps } from 'antd';
+import type { ColumnType } from 'antd/es/table';
 import classNames from 'classnames';
+import { useMemo } from 'react';
 import './UITable.less';
 
-type UITableProps<TData> = {
+type UITableProps = {
   size?: 'md' | 'lg';
   hoverType?: 'withRadius' | 'withoutRadius';
+} & Omit<TableProps<any>, 'size'>;
 
-  data: TData[];
-  columns: ColumnDef<TData, any>[];
-};
+const defaultSortIcon: ColumnType['sortIcon'] = ({ sortOrder }) => {
+  const colorMap = {
+    ascend: '#959699',
+    descend: '#959699',
+  };
 
-export function UITable<T>(props: UITableProps<T>) {
-  const { data, columns, size = 'md', hoverType = 'withRadius' } = props;
-  const table = useReactTable({
-    data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-  });
+  const isActive = sortOrder && colorMap[sortOrder];
+
+  if (isActive) {
+    colorMap[sortOrder] = '#1474F2';
+  }
 
   return (
-    <div
-      className={classNames(
-        'ui-table-scope-wrapper',
-        `ui-table-scope-wrapper-${hoverType}`,
-      )}
-    >
-      <table
-        className={classNames(
-          'ui-table',
-          `ui-table-size-${size}`,
-          `ui-table-hover-${hoverType}`,
-        )}
-      >
-        <colgroup>
-          {table.getAllColumns().map((column) => {
-            const size = column.getSize();
-            if (size === 150) {
-              return <col key={column.id} style={{ width: '100%' }} />;
-            }
-            return <col key={column.id} style={{ width: size }} />;
-          })}
-        </colgroup>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th
-                  key={header.id}
-                  // style={{ width: header.getSize() }}
-                  onClick={header.column.getToggleSortingHandler()}
-                >
-                  {header.isPlaceholder ? null : (
-                    <div className="header-content">
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext(),
-                      )}
-                      {/* {header.column.getCanSort() && (
-                          <span className="sort-indicator">
-                            {{
-                              asc: ' ↑',
-                              desc: ' ↓',
-                            }[header.column.getIsSorted()] ?? ' ↕'}
-                          </span>
-                        )} */}
-                    </div>
-                  )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id} className={row.getIsSelected() ? 'selected' : ''}>
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="table-sort-icon">
+      <div className="arrow-up">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+        >
+          <path
+            d="M9 7.5L6 4.5L3 7.5"
+            stroke={colorMap.ascend}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
+      <div className="arrow-down">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+        >
+          <path
+            d="M3 4.5L6 7.5L9 4.5"
+            stroke={colorMap.descend}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </div>
     </div>
+  );
+};
+
+export function UITable(props: UITableProps) {
+  const { size = 'md', hoverType = 'withoutRadius', columns, ...rest } = props;
+
+  const memoColumns = useMemo(() => {
+    return columns?.map((col) => {
+      if (col.sorter && !col.sortIcon) {
+        return {
+          ...col,
+          sortIcon: defaultSortIcon,
+        };
+      }
+      return col;
+    });
+  }, [columns]);
+
+  return (
+    <Table
+      {...rest}
+      columns={memoColumns}
+      rowHoverable={false}
+      className={classNames(size, hoverType, props.className)}
+    />
   );
 }
