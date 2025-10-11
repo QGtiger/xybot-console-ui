@@ -1,6 +1,20 @@
 @import '../variables.less';
 
 .ui-tabs {
+  &-segment {
+    display: block;
+    .ui-segmented {
+      &.ui-segmented-sm .ui-segmented-item-label {
+        min-height: 24px;
+        line-height: 24px;
+      }
+
+      .ui-segmented-group {
+        gap: 2px;
+      }
+    }
+  }
+
   .ui-tabs-tab {
     border: 1px solid transparent !important;
     color: @text-base-tertiary;

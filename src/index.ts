@@ -19,4 +19,6 @@ export * from './UITable';
 
 export * from './UIAlert';
 
+export * from './UITabs';
+
 export * from 'antd';

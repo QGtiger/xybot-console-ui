@@ -15,7 +15,7 @@ type UIButtonType =
 
 export type UIButtonProps = Omit<
   AntdButtonProps,
-  'type' | 'size' | 'variant' | 'prefixCls'
+  'type' | 'size' | 'variant' | 'prefixCls' | 'danger'
 > & {
   size?: UIButtonSize;
   type?: UIButtonType;

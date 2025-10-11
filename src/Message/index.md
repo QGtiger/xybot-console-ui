@@ -1,6 +1,6 @@
 ---
 order: 9
-title: Message
+title: message
 apiHeader: true
 group:
   title: 通用

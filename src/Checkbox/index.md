@@ -1,6 +1,6 @@
 ---
 order: 6
-title: Checkbox 多选框
+title: Checkbox
 apiHeader: true
 group:
   title: 通用

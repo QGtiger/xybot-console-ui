@@ -15,7 +15,6 @@ import { UIModalFns, useUIModal } from '../UIModal';
 import './index.less';
 
 import '../global.less';
-import './tabs.less';
 
 import { UIButtonProps } from '../UIButton';
 import type { UIInputProps } from '../UIInput/input';
@@ -98,6 +97,17 @@ export function ThemeProvider(
         components: {
           Form: {
             colorError: 'var(--text-error-default)',
+          },
+          Segmented: {
+            borderRadius: 8,
+            borderRadiusSM: 8,
+            borderRadiusXS: 8,
+            borderRadiusLG: 8,
+            itemColor: 'var(--text-base-tertiary)',
+            itemHoverColor: 'var(--text-base-secondary)',
+            itemHoverBg: 'transparent',
+            itemSelectedBg: 'var(--bg-base-container)',
+            trackBg: 'var(--bg-fill-deep-secondary)',
           },
         },
       }}

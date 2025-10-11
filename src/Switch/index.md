@@ -1,6 +1,6 @@
 ---
 order: 5
-title: Switch 开关
+title: Switch
 apiHeader: true
 group:
   title: 通用
