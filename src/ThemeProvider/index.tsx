@@ -7,21 +7,24 @@ import {
 } from 'react';
 import { createCustomModel } from '../utils';
 
-import { ConfigProvider, ConfigProviderProps, message } from 'antd';
-import { useThemeMode, type ThemeMode } from 'antd-style';
-
-import { useMount } from 'ahooks';
+import {
+  theme as AntdTheme,
+  ConfigProvider,
+  ConfigProviderProps,
+  message,
+} from 'antd';
 import { UIModalFns, useUIModal } from '../UIModal';
-import './index.less';
 
-import '../global.less';
-
+import type { ThemeMode, ThemeType } from 'ahooks/lib/useTheme';
 import { UIButtonProps } from '../UIButton';
 import type { UIInputProps } from '../UIInput/input';
 import { UILinkProps } from '../UILink';
 import type { UISelectProps } from '../UISelect';
 
-export { ThemeMode };
+import '../global.less';
+import './index.less';
+
+export { ThemeMode, ThemeType };
 
 export type ComponentConfig = {
   uiSelect?: Partial<UISelectProps>;
@@ -33,46 +36,68 @@ export type ComponentConfig = {
 type ThemeModelProps = {
   modal: UIModalFns;
   componentConfig?: ComponentConfig;
+  isDarkMode?: boolean;
 };
 
 const ComponentConfigContext = createContext<ComponentConfig>({});
 
+message.config({
+  prefixCls: 'ui-message',
+});
+
 export const ThemeModel = createCustomModel((props: ThemeModelProps) => {
-  const { themeMode, setThemeMode, isDarkMode } = useThemeMode();
+  return props;
+});
 
-  const theme = isDarkMode ? 'dark' : 'light';
+export function ThemeProvider(
+  props: PropsWithChildren<Omit<ConfigProviderProps, 'prefixCls' | 'theme'>> &
+    Omit<ThemeModelProps, 'modal'> & {
+      theme?: ThemeType;
+    },
+) {
+  const { theme = 'light' } = props;
+  const { modal, modalHolder } = useUIModal();
 
-  useMount(() => {
-    message.config({
-      prefixCls: 'ui-message',
-    });
-  });
+  const commonTheme = {
+    token: {
+      colorBgContainer: 'var(--bg-base-container)',
+
+      fontSize: 13,
+      colorText: 'var(--text-base-default)',
+      colorSuccessBg: 'var(--bg-success-default)',
+      colorInfoBg: 'var(--bg-info-default)',
+      colorWarningBg: 'var(--bg-warning-default)',
+      colorErrorBg: 'var(--bg-error-default)',
+    },
+    components: {
+      Form: {
+        colorError: 'var(--text-error-default)',
+      },
+      Segmented: {
+        borderRadius: 8,
+        borderRadiusSM: 8,
+        borderRadiusXS: 8,
+        borderRadiusLG: 8,
+        itemColor: 'var(--text-base-tertiary)',
+        itemHoverColor: 'var(--text-base-secondary)',
+        itemHoverBg: 'transparent',
+        itemSelectedBg: 'var(--bg-base-container)',
+        trackBg: 'var(--bg-fill-deep-secondary)',
+      },
+    },
+  };
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark');
   }, [theme]);
 
-  return {
-    isDarkMode,
-    theme,
-    themeMode,
-    setThemeMode,
-    ...props,
-  };
-});
-
-export function ThemeProvider(
-  props: PropsWithChildren<Omit<ConfigProviderProps, 'prefixCls'>> &
-    Omit<ThemeModelProps, 'modal'>,
-) {
-  const { modal, modalHolder } = useUIModal();
-
   const memoValue = useMemo(() => {
     return {
       ...props,
       modal,
+      isDarkMode: theme === 'dark',
     };
-  }, [modal]);
+  }, [modal, theme]);
 
   return (
     <ConfigProvider
@@ -83,33 +108,11 @@ export function ThemeProvider(
         ...props.wave,
       }}
       theme={{
-        ...props.theme,
-        token: {
-          fontSize: 13,
-          colorText: 'var(--text-base-default)',
-          colorSuccessBg: 'var(--bg-success-default)',
-          colorInfoBg: 'var(--bg-info-default)',
-          colorWarningBg: 'var(--bg-warning-default)',
-          colorErrorBg: 'var(--bg-error-default)',
-
-          ...props.theme?.token,
-        },
-        components: {
-          Form: {
-            colorError: 'var(--text-error-default)',
-          },
-          Segmented: {
-            borderRadius: 8,
-            borderRadiusSM: 8,
-            borderRadiusXS: 8,
-            borderRadiusLG: 8,
-            itemColor: 'var(--text-base-tertiary)',
-            itemHoverColor: 'var(--text-base-secondary)',
-            itemHoverBg: 'transparent',
-            itemSelectedBg: 'var(--bg-base-container)',
-            trackBg: 'var(--bg-fill-deep-secondary)',
-          },
-        },
+        ...commonTheme,
+        algorithm:
+          theme === 'dark'
+            ? AntdTheme.darkAlgorithm
+            : AntdTheme.defaultAlgorithm,
       }}
     >
       <ThemeModel.Provider value={memoValue}>
