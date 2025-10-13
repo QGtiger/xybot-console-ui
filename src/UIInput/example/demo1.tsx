@@ -62,7 +62,7 @@ export default () => {
           required
           rules={[{ required: true, message: '请输入TextArea' }]}
         >
-          <UIInput.TextArea />
+          <UIInput.TextArea autoSize />
         </Form.Item>
         <Form.Item
           label="密码"
@@ -86,6 +86,13 @@ export default () => {
         placeholder="ui input text area"
         showCount
         maxLength={20}
+        type="borderless"
+      />
+      <UIInputTextArea
+        placeholder="ui input text area"
+        showCount
+        maxLength={20}
+        type="filledsecondary"
       />
       <UIInput.Number variant="underlined" type="borderless" />
       <UIInput

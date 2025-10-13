@@ -7,6 +7,7 @@ import {
 import { PasswordProps } from 'antd/es/input/Password';
 import classNames from 'classnames';
 
+import { TextAreaProps } from 'antd/es/input';
 import { forwardRef } from 'react';
 import { useDefaultProps } from '../ThemeProvider';
 import './input.less';
@@ -58,6 +59,26 @@ export const UIInputPassword = UIInputWrapper<InputRef, PasswordProps>(
 
 export const UIInput = UIInputWrapper<InputRef, AntdInputProps>(AntdInput);
 
-export const UIInputTextArea = UIInputWrapper<InputRef, AntdInputProps>(
-  AntdInput.TextArea,
-);
+export const UIInputTextArea = forwardRef<
+  InputRef,
+  TextAreaProps & {
+    type?: UIInputProps['type'];
+  }
+>((props, ref) => {
+  const { type = 'border', ...rest } = useDefaultProps(props, 'uiInput');
+  return (
+    <AntdInput.TextArea
+      ref={ref}
+      {...rest}
+      variant="outlined"
+      autoSize
+      className={classNames(
+        props.className,
+        'ui-input',
+        `ui-input-textarea`,
+        `ui-input-type-${type}`,
+      )}
+      allowClear
+    />
+  );
+});
