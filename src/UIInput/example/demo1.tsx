@@ -82,9 +82,18 @@ export default () => {
       <UIInputPassword size="xxl" placeholder="ui input password" />
       <UIInputPassword type="borderless" placeholder="ui input password" />
       <UIInputPassword type="filledsecondary" placeholder="ui input password" />
-      <UIInputTextArea placeholder="ui input text area" />
+      <UIInputTextArea
+        placeholder="ui input text area"
+        showCount
+        maxLength={20}
+      />
       <UIInput.Number variant="underlined" type="borderless" />
-      <UIInput placeholder="border 请输入" type="border" />
+      <UIInput
+        placeholder="border 请输入"
+        type="border"
+        showCount
+        maxLength={20}
+      />
       <UIInput placeholder="borderless 请输入" autoFocus type="borderless" />
       <UIInput
         placeholder="filledsecondary 请输入"

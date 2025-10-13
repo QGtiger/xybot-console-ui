@@ -26,6 +26,7 @@ export default () => {
               onCancel() {
                 console.log('cancel');
               },
+              footer: null,
             });
           }}
           icon={<HomeOutlined />}

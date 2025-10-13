@@ -35,6 +35,10 @@ const ModalTypes: ModalType[] = [
 
 export type UIModalFns = Record<ModalType, UIModalFunc>;
 
+function isNoFooter(v: any) {
+  return v === null || v === false;
+}
+
 type UIModalStaticFunctions = Record<NonNullable<ModalType>, UIModalFunc>;
 
 function getModalInvokeOptions(config: UIModalFuncProps, close: () => void) {
@@ -54,47 +58,49 @@ function getModalInvokeOptions(config: UIModalFuncProps, close: () => void) {
   return {
     ...config,
     width: mergeWidth,
-    footer() {
-      if (typeof footer !== 'function' && footer !== undefined) {
-        return footer;
-      }
-      const OkBtn: FC = () => (
-        <UIButton
-          onClick={() => {
-            Promise.resolve(onOk?.()).then(close);
-          }}
-        >
-          {okText}
-        </UIButton>
-      );
+    footer: !isNoFooter(footer)
+      ? () => {
+          if (typeof footer !== 'function' && footer !== undefined) {
+            return footer;
+          }
+          const OkBtn: FC = () => (
+            <UIButton
+              onClick={() => {
+                Promise.resolve(onOk?.()).then(close);
+              }}
+            >
+              {okText}
+            </UIButton>
+          );
 
-      const CancelBtn = () => (
-        <UIButton
-          type="border"
-          onClick={() => {
-            Promise.resolve(onCancel?.()).then(close);
-          }}
-        >
-          {cancelText}
-        </UIButton>
-      );
+          const CancelBtn = () => (
+            <UIButton
+              type="border"
+              onClick={() => {
+                Promise.resolve(onCancel?.()).then(close);
+              }}
+            >
+              {cancelText}
+            </UIButton>
+          );
 
-      const originNode = (
-        <div className="ui-modal-footer">
-          <OkBtn />
-          {type === 'confirm' && <CancelBtn />}
-        </div>
-      );
+          const originNode = (
+            <div className="ui-modal-footer">
+              <OkBtn />
+              {type === 'confirm' && <CancelBtn />}
+            </div>
+          );
 
-      if (footer) {
-        return footer(originNode, {
-          OkBtn,
-          CancelBtn,
-        });
-      }
+          if (footer) {
+            return footer(originNode, {
+              OkBtn,
+              CancelBtn,
+            });
+          }
 
-      return originNode;
-    },
+          return originNode;
+        }
+      : footer,
   };
 }
 
@@ -145,34 +151,37 @@ function UIOriginModal(
 
   const mergeWidth = width || sizeWidthMap[size];
 
-  const mergedFooter = () => {
-    if (typeof footer !== 'function' && footer !== undefined) {
-      return footer;
-    }
-    const OkBtn: FC = () => <UIButton onClick={onOk}>{okText}</UIButton>;
+  const mergedFooter = !isNoFooter(footer)
+    ? () => {
+        if (typeof footer !== 'function' && footer !== undefined) {
+          return footer;
+        }
+        const OkBtn: FC = () => <UIButton onClick={onOk}>{okText}</UIButton>;
 
-    const CancelBtn = () => (
-      <UIButton type="border" onClick={onCancel}>
-        {cancelText}
-      </UIButton>
-    );
+        const CancelBtn = () => (
+          <UIButton type="border" onClick={onCancel}>
+            {cancelText}
+          </UIButton>
+        );
 
-    const originNode = (
-      <div className="ui-modal-footer">
-        <OkBtn />
-        <CancelBtn />
-      </div>
-    );
+        const originNode = (
+          <div className="ui-modal-footer">
+            <OkBtn />
+            <CancelBtn />
+          </div>
+        );
 
-    if (footer) {
-      return footer(originNode, {
-        OkBtn,
-        CancelBtn,
-      });
-    }
+        if (footer) {
+          return footer(originNode, {
+            OkBtn,
+            CancelBtn,
+          });
+        }
 
-    return originNode;
-  };
+        return originNode;
+      }
+    : footer;
+
   return <Modal {...props} footer={mergedFooter} width={mergeWidth} />;
 }
 
