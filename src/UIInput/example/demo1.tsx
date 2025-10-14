@@ -78,6 +78,7 @@ export default () => {
           </UIButton>
         </Form.Item>
       </Form>
+      <UIInput type="filledbase" size="sm" placeholder="请输入用户名" />
       <UIInput type="filledbase" placeholder="请输入用户名" />
       <UIInputPassword size="xxl" placeholder="ui input password" />
       <UIInputPassword type="borderless" placeholder="ui input password" />

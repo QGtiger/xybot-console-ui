@@ -58,7 +58,7 @@ export function ThemeProvider(
   const { theme = 'light' } = props;
   const { modal, modalHolder } = useUIModal();
 
-  const commonTheme = {
+  const commonTheme: ConfigProviderProps['theme'] = {
     token: {
       colorBgContainer: 'var(--bg-base-container)',
 
@@ -72,6 +72,8 @@ export function ThemeProvider(
     components: {
       Form: {
         colorError: 'var(--text-error-default)',
+        itemMarginBottom: 12,
+        labelColor: 'var(--text-base-secondary)',
       },
       Segmented: {
         borderRadius: 8,
@@ -83,6 +85,9 @@ export function ThemeProvider(
         itemHoverBg: 'transparent',
         itemSelectedBg: 'var(--bg-base-container)',
         trackBg: 'var(--bg-fill-deep-secondary)',
+      },
+      Input: {
+        colorTextPlaceholder: 'var(--text-base-tertiary)',
       },
     },
   };

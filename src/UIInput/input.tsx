@@ -14,7 +14,7 @@ import './input.less';
 
 type WrapperPropsWithCustom<T> = Omit<T, 'size'> & {
   type?: 'border' | 'borderless' | 'filledsecondary' | 'filledbase';
-  size?: 'md' | 'lg' | 'xl' | 'xxl';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   className?: string;
 };
 

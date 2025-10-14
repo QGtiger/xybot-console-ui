@@ -70,6 +70,18 @@ textarea.ui-input {
     }
   }
 
+  &-sm {
+    padding: 0px 6px;
+    height: 24px;
+    font-size: 12px;
+    .ui-input-number-input {
+      height: 22px;
+    }
+    input::placeholder {
+      font-size: 12px;
+    }
+  }
+
   &-md {
     padding: 0px 8px;
     height: 28px;
@@ -98,11 +110,6 @@ textarea.ui-input {
       height: 38px;
     }
   }
-
-  input::placeholder {
-    color: @text-base-tertiary;
-  }
-
   &-type {
     &-border {
       background: none;
@@ -120,7 +127,7 @@ textarea.ui-input {
         box-shadow: 0 0 4px 0 @bg-info-quaternary !important;
       });
       .statusError({
-        border-color: @border-error-default;
+        border-color: @border-error-default !important;
       });
     }
 
@@ -204,7 +211,7 @@ textarea.ui-input {
       });
 
       .statusError({
-        background: @border-error-secondary
+        background: @border-error-secondary !important;
       });
     }
 
@@ -226,7 +233,7 @@ textarea.ui-input {
       });
 
       .statusError({
-        background: @border-error-secondary
+        background: @border-error-secondary !important;
       });
     }
   }
