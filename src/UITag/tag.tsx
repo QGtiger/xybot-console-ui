@@ -45,6 +45,7 @@ export function UITag(props: PropsWithChildren<UITagProps>) {
   return (
     <button
       type="button"
+      {...rest}
       className={classNames(
         'ui-tag',
         `ui-tag-${size}`,
@@ -52,7 +53,6 @@ export function UITag(props: PropsWithChildren<UITagProps>) {
         `ui-tag-${type}-${preset}`,
         props.className,
       )}
-      {...rest}
     >
       <div className="preffix">{icon}</div>
       {props.children}
