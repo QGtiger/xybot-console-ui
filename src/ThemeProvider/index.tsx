@@ -61,7 +61,6 @@ export function ThemeProvider(
   const commonTheme: ConfigProviderProps['theme'] = {
     token: {
       colorBgContainer: 'var(--bg-base-container)',
-
       fontSize: 13,
       colorText: 'var(--text-base-default)',
       colorSuccessBg: 'var(--bg-success-default)',
@@ -69,7 +68,8 @@ export function ThemeProvider(
       colorWarningBg: 'var(--bg-warning-default)',
       colorErrorBg: 'var(--bg-error-default)',
 
-      colorBgBase: 'var(--bg-base-container)',
+      // 不能设置这个默认样式有问题
+      // colorBgBase: 'var(--bg-base-container)',
     },
     components: {
       Form: {

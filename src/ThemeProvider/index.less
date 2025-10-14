@@ -91,7 +91,11 @@
     color: @text-base-default;
   },
   {
-    color: @text-base-quaternary
+    color: @text-base-quaternary;
+    .ui-radio-disabled .ui-radio-inner {
+      background-color: @bg-fill-deep-secondary;
+      border-color: transparent;
+    }
   },
   {
     .ui-radio:not(.ui-radio-checked) {

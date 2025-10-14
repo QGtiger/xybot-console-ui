@@ -50,6 +50,7 @@ export function UITag(props: PropsWithChildren<UITagProps>) {
         `ui-tag-${size}`,
         `ui-tag-${type}`,
         `ui-tag-${type}-${preset}`,
+        props.className,
       )}
       {...rest}
     >
