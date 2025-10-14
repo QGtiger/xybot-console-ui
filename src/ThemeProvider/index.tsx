@@ -68,6 +68,8 @@ export function ThemeProvider(
       colorInfoBg: 'var(--bg-info-default)',
       colorWarningBg: 'var(--bg-warning-default)',
       colorErrorBg: 'var(--bg-error-default)',
+
+      colorBgBase: 'var(--bg-base-container)',
     },
     components: {
       Form: {
@@ -88,6 +90,9 @@ export function ThemeProvider(
       },
       Input: {
         colorTextPlaceholder: 'var(--text-base-tertiary)',
+      },
+      Modal: {
+        contentBg: 'var(--bg-base-container)',
       },
     },
   };
