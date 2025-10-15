@@ -6,15 +6,18 @@ import { FC, useMemo } from 'react';
 
 import './index.less';
 
-export type UIModalFuncProps = Omit<
-  Parameters<ModalFunc>[0],
-  'okButtonProps' | 'cancelButtonProps'
-> & {
+type CustomModalProps = {
   size?: 'sm' | 'md' | 'lg' | 'xl';
-} & {
+
   okButtonProps?: UIButtonProps;
   cancelButtonProps?: UIButtonProps;
 };
+
+export type UIModalFuncProps = Omit<
+  Parameters<ModalFunc>[0],
+  'okButtonProps' | 'cancelButtonProps'
+> &
+  CustomModalProps;
 
 export type UIModalFunc = (config: UIModalFuncProps) => {
   destroy: () => void;
@@ -45,7 +48,10 @@ function isNoFooter(v: any) {
   return v === null || v === false;
 }
 
-type UIModalStaticFunctions = Record<NonNullable<ModalType>, UIModalFunc>;
+export type UIModalStaticFunctions = Record<
+  NonNullable<ModalType>,
+  UIModalFunc
+>;
 
 function getModalInvokeOptions(config: UIModalFuncProps, close: () => void) {
   const {
@@ -147,9 +153,8 @@ export function useUIModal() {
 }
 
 function UIOriginModal(
-  props: ModalProps & {
-    size?: 'sm' | 'md' | 'lg' | 'xl';
-  },
+  props: Omit<ModalProps, 'okButtonProps' | 'cancelButtonProps'> &
+    CustomModalProps,
 ) {
   const {
     okText = '确认',
@@ -200,17 +205,27 @@ function UIOriginModal(
       }
     : footer;
 
-  return <Modal {...props} footer={mergedFooter} width={mergeWidth} />;
+  return (
+    <Modal
+      {...props}
+      footer={mergedFooter}
+      width={mergeWidth}
+      okButtonProps={{}}
+      cancelButtonProps={{}}
+    />
+  );
 }
+
+export const ModalRef = {
+  current: Modal as unknown as UIModalStaticFunctions,
+};
 
 export const UIModal = UIOriginModal as typeof UIOriginModal &
   UIModalStaticFunctions;
 
 ModalTypes.forEach((type) => {
-  // @ts-ignore
   UIModal[type] = (config: UIModalFuncProps) => {
-    const modalRef = Modal[type](
-      // @ts-expect-error 复写了 okButtonProps cancelButtonProps 属性
+    const modalRef = ModalRef.current[type](
       getModalInvokeOptions(
         {
           ...config,

@@ -9,6 +9,23 @@
   .ui-modal-content {
     border-radius: 12px;
     background-color: @bg-base-container;
+
+    box-shadow: 0 2px 4px -2px var(--effect-shadow-default);
+    border: 1px solid transparent !important;
+    background-clip: padding-box, border-box !important;
+    background-origin: padding-box, border-box !important;
+    background-image: linear-gradient(
+        to right,
+        var(--bg-base-container),
+        var(--bg-base-container)
+      ),
+      linear-gradient(
+        135deg,
+        var(--border-specular-quaternary) 0%,
+        var(--border-specular-default) 50%,
+        var(--border-specular-secondary) 100%
+      ) !important;
+
     .ui-modal-header {
       background: transparent;
     }

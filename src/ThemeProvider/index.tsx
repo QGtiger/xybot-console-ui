@@ -13,7 +13,7 @@ import {
   ConfigProviderProps,
   message,
 } from 'antd';
-import { UIModalFns, useUIModal } from '../UIModal';
+import { ModalRef, UIModalFns, useUIModal } from '../UIModal';
 
 import type { ThemeMode, ThemeType } from 'ahooks/lib/useTheme';
 import { UIButtonProps } from '../UIButton';
@@ -57,6 +57,8 @@ export function ThemeProvider(
 ) {
   const { theme = 'light' } = props;
   const { modal, modalHolder } = useUIModal();
+
+  ModalRef.current = modal;
 
   const commonTheme: ConfigProviderProps['theme'] = {
     token: {
