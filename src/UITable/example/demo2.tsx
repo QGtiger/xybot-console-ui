@@ -16,13 +16,12 @@ const columns: TableProps<DataType>['columns'] = [
     dataIndex: 'name',
     key: 'name',
     render: (text) => <a>{text}</a>,
-    width: 100,
+    width: 200,
   },
   {
     title: 'Address',
     dataIndex: 'address',
     key: 'address',
-    width: 200,
   },
   {
     title: 'Age',
@@ -30,7 +29,15 @@ const columns: TableProps<DataType>['columns'] = [
     key: 'age',
     width: 320,
     render() {
-      return <UIInput placeholder="请输入年龄" type="borderless" />;
+      return (
+        <UIInput
+          placeholder="请输入年龄"
+          type="borderless"
+          style={{
+            minWidth: 100,
+          }}
+        />
+      );
     },
     sorter: (a, b) => a.age - b.age,
   },
@@ -57,12 +64,14 @@ const columns: TableProps<DataType>['columns'] = [
   {
     title: 'Action',
     key: 'action',
+    width: 200,
     render: (_, record) => (
       <Space size="middle">
         <a>Invite {record.name}</a>
         <a>Delete</a>
       </Space>
     ),
+    fixed: 'right',
   },
 ];
 
@@ -112,6 +121,7 @@ const App: React.FC = () => {
           },
           pageSize: 2,
         }}
+        columnsResizeable
       />
 
       <UITable

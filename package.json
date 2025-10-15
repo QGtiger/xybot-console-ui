@@ -71,6 +71,7 @@
     "antd-style": "^3.7.1",
     "classnames": "^2.5.1",
     "less": "^4.4.1",
+    "react-resizable": "^3.0.5",
     "simplebar-react": "^3.3.2"
   },
   "devDependencies": {
@@ -78,6 +79,7 @@
     "@commitlint/config-conventional": "^17.1.0",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "@types/react-resizable": "^3.0.8",
     "@umijs/lint": "^4.0.0",
     "autoprefixer": "^10.4.21",
     "dumi": "^2.4.13",

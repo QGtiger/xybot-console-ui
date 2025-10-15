@@ -23,6 +23,7 @@ import type { UISelectProps } from '../UISelect';
 
 import '../global.less';
 import './index.less';
+import { darkTheme, lightTheme } from './theme';
 
 export { ThemeMode, ThemeType };
 
@@ -60,44 +61,7 @@ export function ThemeProvider(
 
   ModalRef.current = modal;
 
-  const commonTheme: ConfigProviderProps['theme'] = {
-    token: {
-      // colorBgContainer: 'var(--bg-base-container)',
-      fontSize: 13,
-      colorText: 'var(--text-base-default)',
-      colorSuccessBg: 'var(--bg-success-default)',
-      colorInfoBg: 'var(--bg-info-default)',
-      colorWarningBg: 'var(--bg-warning-default)',
-      colorErrorBg: 'var(--bg-error-default)',
-
-      // 不能设置这个默认样式有问题
-      // colorBgBase: 'var(--bg-base-container)',
-    },
-    components: {
-      Form: {
-        colorError: 'var(--text-error-default)',
-        itemMarginBottom: 12,
-        labelColor: 'var(--text-base-secondary)',
-      },
-      Segmented: {
-        borderRadius: 8,
-        borderRadiusSM: 8,
-        borderRadiusXS: 8,
-        borderRadiusLG: 8,
-        itemColor: 'var(--text-base-tertiary)',
-        itemHoverColor: 'var(--text-base-secondary)',
-        itemHoverBg: 'transparent',
-        itemSelectedBg: 'var(--bg-base-container)',
-        trackBg: 'var(--bg-fill-deep-secondary)',
-      },
-      Input: {
-        colorTextPlaceholder: 'var(--text-base-tertiary)',
-      },
-      Modal: {
-        contentBg: 'var(--bg-base-container)',
-      },
-    },
-  };
+  const commonTheme = theme === 'dark' ? darkTheme : lightTheme;
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark');

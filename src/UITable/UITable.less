@@ -1,7 +1,41 @@
 @import '../variables.less';
 
+.ui-drag-core {
+  --bg: transparent;
+  .drag-handle {
+    position: absolute;
+    right: 0px;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    cursor: col-resize;
+    z-index: 1;
+    user-select: none;
+
+    &.active {
+      --bg: @border-info-default;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background-color: var(--bg);
+      transform: translateX(-50%);
+    }
+  }
+
+  &:hover {
+    --bg: @bg-info-tertiary;
+  }
+}
+
 .ui {
   &-table {
+    overflow: auto;
     &-wrapper {
       background-color: @bg-base-container;
       border-radius: 8px;
@@ -79,6 +113,9 @@
           padding: 0 var(--td-py);
           white-space: nowrap;
           border: none;
+
+          overflow: hidden;
+          text-overflow: ellipsis;
 
           &:focus-within {
             background-color: @bg-info-default;

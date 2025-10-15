@@ -1,12 +1,15 @@
 import { Table, TableProps } from 'antd';
 import type { ColumnType } from 'antd/es/table';
 import classNames from 'classnames';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
+import { DragCore } from './DragCore';
 import './UITable.less';
 
 type UITableProps = {
   size?: 'md' | 'lg';
   hoverType?: 'withRadius' | 'withoutRadius';
+  columnsResizeable?: boolean;
+  minColumnWidth?: number;
 } & Omit<TableProps<any>, 'size'>;
 
 const defaultSortIcon: ColumnType['sortIcon'] = ({ sortOrder }) => {
@@ -59,20 +62,81 @@ const defaultSortIcon: ColumnType['sortIcon'] = ({ sortOrder }) => {
   );
 };
 
+const ResizableTitle = (props: any) => {
+  const { onMouseOffsetX, width, isResizeable = true, ...restProps } = props;
+  if (!width || !isResizeable) {
+    return <th {...restProps} />;
+  }
+
+  return (
+    <DragCore onMouseOffsetX={onMouseOffsetX}>
+      <th {...restProps} />
+    </DragCore>
+    // <Resizable
+    //   width={width}
+    //   height={0}
+    //   // onResize={onResize}
+    //   draggableOpts={{ enableUserSelectHack: false }}
+    // >
+    //   <th {...restProps} />
+    // </Resizable>
+  );
+};
+
 export function UITable(props: UITableProps) {
-  const { size = 'md', hoverType = 'withoutRadius', columns, ...rest } = props;
+  const {
+    size = 'md',
+    hoverType = 'withoutRadius',
+    columns,
+    columnsResizeable,
+    minColumnWidth = 80,
+    ...rest
+  } = props;
+
+  // 初始化列宽
+  const [colWidths, setColWidths] = useState(
+    () =>
+      columns?.map((col) => ({
+        width: col.width || 120,
+      })) || [],
+  );
+
+  const handleResize = (index: number) => (offsetNum: number) => {
+    if (!columnsResizeable) return;
+
+    const nextWidths = [...colWidths];
+    const t = nextWidths[index];
+    const width = Math.max(+t.width + offsetNum, minColumnWidth);
+    nextWidths[index] = { ...t, width };
+    setColWidths(nextWidths);
+  };
 
   const memoColumns = useMemo(() => {
-    return columns?.map((col) => {
-      if (col.sorter && !col.sortIcon) {
-        return {
-          ...col,
-          sortIcon: defaultSortIcon,
-        };
-      }
-      return col;
+    return columns?.map((col, index) => {
+      const width = colWidths[index]?.width;
+      return {
+        ...col,
+        width,
+        onHeaderCell: () => ({
+          width,
+          onMouseOffsetX: handleResize(index),
+          isResizeable: index !== (columns?.length || 0) - 1, // 最后一列不允许调整宽度
+        }),
+        ...(col.sorter && !col.sortIcon ? { sortIcon: defaultSortIcon } : {}),
+      };
     });
-  }, [columns]);
+  }, [columns, colWidths]);
+
+  const components = useMemo(() => {
+    if (columnsResizeable) {
+      return {
+        header: {
+          cell: ResizableTitle,
+        },
+      };
+    }
+    return {};
+  }, [columnsResizeable]);
 
   return (
     <Table
@@ -80,6 +144,8 @@ export function UITable(props: UITableProps) {
       columns={memoColumns}
       rowHoverable={false}
       className={classNames(size, hoverType, props.className)}
+      components={components}
+      tableLayout={columnsResizeable ? 'fixed' : 'auto'}
     />
   );
 }
