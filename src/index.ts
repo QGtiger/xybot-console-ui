@@ -21,4 +21,6 @@ export * from './UIAlert';
 
 export * from './UITabs';
 
+export * from './UIContainer';
+
 export * from 'antd';

@@ -62,7 +62,7 @@ export function ThemeProvider(
 
   const commonTheme: ConfigProviderProps['theme'] = {
     token: {
-      colorBgContainer: 'var(--bg-base-container)',
+      // colorBgContainer: 'var(--bg-base-container)',
       fontSize: 13,
       colorText: 'var(--text-base-default)',
       colorSuccessBg: 'var(--bg-success-default)',
