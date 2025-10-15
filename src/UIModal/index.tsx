@@ -1,13 +1,19 @@
 import { Modal, ModalProps } from 'antd';
 import { ConfigUpdate, ModalFunc } from 'antd/es/modal/confirm';
-import { UIButton } from '../UIButton';
+import { UIButton, UIButtonProps } from '../UIButton';
 
 import { FC, useMemo } from 'react';
 
 import './index.less';
 
-export type UIModalFuncProps = Parameters<ModalFunc>[0] & {
+export type UIModalFuncProps = Omit<
+  Parameters<ModalFunc>[0],
+  'okButtonProps' | 'cancelButtonProps'
+> & {
   size?: 'sm' | 'md' | 'lg' | 'xl';
+} & {
+  okButtonProps?: UIButtonProps;
+  cancelButtonProps?: UIButtonProps;
 };
 
 export type UIModalFunc = (config: UIModalFuncProps) => {
@@ -51,6 +57,8 @@ function getModalInvokeOptions(config: UIModalFuncProps, close: () => void) {
     size = 'md',
     width,
     type = 'confirm',
+    okButtonProps,
+    cancelButtonProps,
   } = config;
 
   const mergeWidth = width || sizeWidthMap[size];
@@ -68,6 +76,8 @@ function getModalInvokeOptions(config: UIModalFuncProps, close: () => void) {
               onClick={() => {
                 Promise.resolve(onOk?.()).then(close);
               }}
+              type="danger"
+              {...okButtonProps}
             >
               {okText}
             </UIButton>
@@ -79,6 +89,7 @@ function getModalInvokeOptions(config: UIModalFuncProps, close: () => void) {
               onClick={() => {
                 Promise.resolve(onCancel?.()).then(close);
               }}
+              {...cancelButtonProps}
             >
               {cancelText}
             </UIButton>
@@ -112,6 +123,7 @@ export function useUIModal() {
       // @ts-ignore
       acc[type] = (config: UIModalFuncProps) => {
         const modalRef = customModal[type](
+          // @ts-expect-error 复写了 okButtonProps cancelButtonProps 属性
           getModalInvokeOptions(
             {
               ...config,
@@ -147,6 +159,8 @@ function UIOriginModal(
     footer,
     size = 'md',
     width,
+    okButtonProps,
+    cancelButtonProps,
   } = props;
 
   const mergeWidth = width || sizeWidthMap[size];
@@ -156,10 +170,14 @@ function UIOriginModal(
         if (typeof footer !== 'function' && footer !== undefined) {
           return footer;
         }
-        const OkBtn: FC = () => <UIButton onClick={onOk}>{okText}</UIButton>;
+        const OkBtn: FC = () => (
+          <UIButton onClick={onOk} type="danger" {...okButtonProps}>
+            {okText}
+          </UIButton>
+        );
 
         const CancelBtn = () => (
-          <UIButton type="border" onClick={onCancel}>
+          <UIButton type="border" onClick={onCancel} {...cancelButtonProps}>
             {cancelText}
           </UIButton>
         );
@@ -192,6 +210,7 @@ ModalTypes.forEach((type) => {
   // @ts-ignore
   UIModal[type] = (config: UIModalFuncProps) => {
     const modalRef = Modal[type](
+      // @ts-expect-error 复写了 okButtonProps cancelButtonProps 属性
       getModalInvokeOptions(
         {
           ...config,

@@ -1,6 +1,7 @@
 import { UserOutlined } from '@ant-design/icons';
 import {
   Form,
+  Radio,
   ThemeModel,
   UIButton,
   UIInput,
@@ -71,6 +72,18 @@ export default () => {
           rules={[{ required: true, message: '请输入用户名' }]}
         >
           <UIInputPassword placeholder="请输入密码" />
+        </Form.Item>
+        <Form.Item
+          label="radio"
+          name="radio"
+          required
+          rules={[{ required: true, message: '请输入radio' }]}
+        >
+          <Radio.Group>
+            <Radio value="a">A</Radio>
+            <Radio value="b">B</Radio>
+            <Radio value="c">C</Radio>
+          </Radio.Group>
         </Form.Item>
         <Form.Item>
           <UIButton type="primary" htmlType="submit">
