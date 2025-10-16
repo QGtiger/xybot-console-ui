@@ -3,6 +3,10 @@ import { ThemeConfig } from 'antd';
 export const darkTheme: ThemeConfig = {
   token: {
     colorBgContainer: 'rgba(45, 46, 53, 1)',
+    colorBgElevated: 'rgba(45, 46, 53, 1)',
+    controlItemBgHover: 'rgba(0, 0, 0, 0.15)',
+    colorSplit: 'rgba(255, 255, 255, 0.2)',
+
     fontSize: 13,
     colorText: 'var(--text-base-default)',
     colorSuccessBg: 'var(--bg-success-default)',
@@ -41,6 +45,12 @@ export const darkTheme: ThemeConfig = {
 export const lightTheme: ThemeConfig = {
   token: {
     colorBgContainer: 'rgba(255, 255, 255, 1)',
+    colorBgElevated: 'rgba(255, 255, 255, 1)',
+    // 下拉菜单选中
+    controlItemBgHover: 'rgba(15, 17, 24, 0.03)',
+    // 分割线
+    colorSplit: 'rgba(15, 17, 24, 0.15)',
+
     fontSize: 13,
     colorText: 'var(--text-base-default)',
     colorSuccessBg: 'var(--bg-success-default)',

@@ -20,10 +20,12 @@ import { UIButtonProps } from '../UIButton';
 import type { UIInputProps } from '../UIInput/input';
 import { UILinkProps } from '../UILink';
 import type { UISelectProps } from '../UISelect';
+import { darkTheme, lightTheme } from './theme';
 
 import '../global.less';
 import './index.less';
-import { darkTheme, lightTheme } from './theme';
+
+import '../Dropdown/index.less';
 
 export { ThemeMode, ThemeType };
 
