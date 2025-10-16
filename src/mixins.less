@@ -1,3 +1,7 @@
+.ring(@color,@width: 1px, @inset: false) {
+  box-shadow: if(@inset, inset, ~'') 0 0 0 @width @color;
+}
+
 .textColor(@color, @hoverColor, @disableColor, @activeColor: @color) {
   color: @color;
 

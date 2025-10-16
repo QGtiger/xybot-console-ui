@@ -30,6 +30,7 @@ export default () => {
           },
         ]}
         mode="multiple"
+        open
       />
       <UISelect
         placeholder="border 请输入"

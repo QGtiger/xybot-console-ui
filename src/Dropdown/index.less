@@ -1,10 +1,12 @@
 @import '../variables.less';
+@import '../mixins.less';
 
 .ui-dropdown {
   .ui-dropdown-menu {
     background-color: @bg-base-container;
     border-radius: @radius-200;
     padding: @space-200;
+    .ring(@border-base-default, 1px, true);
 
     .ui-dropdown-menu-item {
       padding: 6px 8px;
