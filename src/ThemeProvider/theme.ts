@@ -6,9 +6,9 @@ export const darkTheme: ThemeConfig = {
     colorBgElevated: 'rgba(45, 46, 53, 1)',
     controlItemBgHover: 'rgba(0, 0, 0, 0.15)',
     colorSplit: 'rgba(255, 255, 255, 0.2)',
+    colorText: 'rgba(255, 255, 255, 0.8)',
 
     fontSize: 13,
-    colorText: 'var(--text-base-default)',
     colorSuccessBg: 'var(--bg-success-default)',
     colorInfoBg: 'var(--bg-info-default)',
     colorWarningBg: 'var(--bg-warning-default)',
@@ -50,9 +50,9 @@ export const lightTheme: ThemeConfig = {
     controlItemBgHover: 'rgba(15, 17, 24, 0.03)',
     // 分割线
     colorSplit: 'rgba(15, 17, 24, 0.15)',
+    colorText: 'rgba(15, 17, 24, 1)',
 
     fontSize: 13,
-    colorText: 'var(--text-base-default)',
     colorSuccessBg: 'var(--bg-success-default)',
     colorInfoBg: 'var(--bg-info-default)',
     colorWarningBg: 'var(--bg-warning-default)',

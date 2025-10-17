@@ -7,6 +7,7 @@ import {
   UIInput,
   UIInputPassword,
   UIInputTextArea,
+  UISelect,
 } from '@xybot/ui';
 
 export default () => {
@@ -25,6 +26,14 @@ export default () => {
     >
       Form
       <Form>
+        <Form.Item
+          label="select"
+          name="select"
+          required
+          rules={[{ required: true, message: '请输入select' }]}
+        >
+          <UISelect type="filledsecondary" placeholder="请输入select" />
+        </Form.Item>
         <Form.Item
           label="用户名"
           name="username"

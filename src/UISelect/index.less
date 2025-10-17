@@ -65,43 +65,60 @@
   height: 40px
 });
 
-.typeSelect(@typeClassName, @borderTypeRules, @borderTypeHoverRules, @borderTypeFocusRules) {
+.typeSelect(@typeClassName, @borderTypeRules, @borderTypeHoverRules, @borderTypeFocusRules, @errorRules: {}) {
   .ui-select {
     &.ui-select-type-@{typeClassName} {
       .ui-select-selector {
         @borderTypeRules();
       }
-    }
-  }
 
-  .ui-select:not(.ui-select-disabled) {
-    &.ui-select-type-@{typeClassName} {
-      &:hover {
-        .ui-select-selector {
-          @borderTypeHoverRules();
+      &:not(.ui-select-disabled):not(.ui-select-customize-input):not(
+          .ui-pagination-size-changer
+        ) {
+        &:hover {
+          .ui-select-selector {
+            @borderTypeHoverRules();
+          }
         }
       }
-    }
-  }
 
-  .ui-select.ui-select-focused:not(.ui-select-disabled) {
-    &.ui-select-type-@{typeClassName} {
-      .ui-select-selector {
-        @borderTypeFocusRules();
+      &.ui-select-focused:not(.ui-select-disabled):not(
+          .ui-select-customize-input
+        ):not(.ui-pagination-size-changer) {
+        .ui-select-selector {
+          @borderTypeFocusRules();
+        }
+      }
+
+      &.ui-select-status-error:not(.ui-select-disabled):not(
+          .ui-select-customize-input
+        ):not(.ui-pagination-size-changer) {
+        .ui-select-selector {
+          background: none;
+          @errorRules();
+        }
+        &:hover {
+          .ui-select-selector {
+            background: none;
+            @errorRules();
+          }
+        }
       }
     }
   }
 }
 
 .typeSelect(border, {
-  background: none !important;
-  border-color: @border-base-secondary !important;
+  background: none;
+  border-color: @border-base-secondary
 }, {
-  border-color: @border-base-tertiary !important;
-  background-color: @bg-fill-deep-default !important;
+  border-color: @border-base-tertiary;
+  background-color: @bg-fill-deep-default;
 }, {
-  border-color: @border-base-quaternary !important;
-  background-color: @bg-base-container !important;
+  border-color: @border-base-quaternary;
+  background-color: @bg-base-container;
+}, {
+  border-color: @border-error-default;
 });
 
 .typeSelect(borderless, {
@@ -134,26 +151,40 @@
     width: 100%; /* 展开到 full width */
     left: 0; /* 回到左侧起点 */
   }
+}, {
+  border-color: @border-error-default;
+  --underline-color: @border-error-default;
+
+  &::before {
+    width: 100%; /* 展开到 full width */
+    left: 0; /* 回到左侧起点 */
+  }
 });
 
 .typeSelect(filledsecondary, {
-  background-color: @bg-fill-deep-secondary !important;
-  border-color: transparent !important;
+  background-color: @bg-fill-deep-secondary;
+  border-color: transparent;
 }, {
-  background-color: @bg-fill-deep-tertiary !important;
-  border-color: @border-base-tertiary !important;
+  background-color: @bg-fill-deep-tertiary;
+  border-color: transparent;
 }, {
-  border-color: @border-base-quaternary !important;
-  background-color: @bg-base-container !important;
+  border-color: @border-base-quaternary;
+  background-color: @bg-base-container;
+}, {
+  background: @border-error-secondary;
+  border-color: transparent
 });
 
 .typeSelect(filledbase, {
-  background-color: @bg-base-container !important;
-  border-color: transparent !important;
+  background-color: @bg-base-container;
+  border-color: transparent;
 }, {
-  background-color: @bg-base-container-secondary !important;
-  border-color: transparent !important;
+  background-color: @bg-base-container-secondary;
+  border-color: transparent;
 }, {
-  border-color: @border-base-quaternary !important;
-  background-color: @bg-base-container !important;
+  border-color: @border-base-quaternary;
+  background-color: @bg-base-container;
+}, {
+  background: @border-error-secondary;
+  border-color: transparent
 });
