@@ -1,4 +1,4 @@
-import { Divider, DividerProps } from 'antd';
+import { ConfigProvider, Divider, DividerProps } from 'antd';
 import classNames from 'classnames';
 
 import './index.less';
@@ -12,14 +12,18 @@ export type UIDividerProps = Omit<DividerProps, 'prefixCls' | 'size'> & {
 export function UIDivider(props: UIDividerProps) {
   const { preset = 'medium', size = 'md' } = props;
   return (
-    <Divider
-      {...props}
-      size="middle"
-      className={classNames(
-        `ui-divider-preset-${preset}`,
-        `ui-divider-size-${size}`,
-        props.className,
-      )}
-    />
+    <ConfigProvider
+      theme={{
+        token: {
+          lineWidth: size === 'md' ? 1 : 2,
+        },
+      }}
+    >
+      <Divider
+        {...props}
+        size="middle"
+        className={classNames(`ui-divider-preset-${preset}`, props.className)}
+      />
+    </ConfigProvider>
   );
 }
