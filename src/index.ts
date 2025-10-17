@@ -23,4 +23,7 @@ export * from './UITabs';
 
 export * from './UIContainer';
 
+export * from './AvatarGroup';
+export * from './CustomModal';
+
 export * from 'antd';

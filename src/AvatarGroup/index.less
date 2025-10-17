@@ -1,0 +1,48 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.block-avatar-group-wrapper {
+  position: relative;
+  overflow: hidden;
+  .block-avatar-group-item {
+    background-position: center center;
+    background-size: cover;
+    border-radius: 50%;
+    border: 2px solid @bg-base-container-secondary;
+    background-repeat: no-repeat;
+
+    background-color: @bg-fill-deep-secondary;
+    position: relative;
+
+    &.merge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: @text-base-default;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  .block-avatar-group-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &.overflow {
+    .block-avatar-group-inner {
+      overflow: hidden;
+      mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 1) 75%,
+        transparent
+      );
+    }
+  }
+}
