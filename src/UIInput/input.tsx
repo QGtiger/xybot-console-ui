@@ -30,6 +30,7 @@ function UIInputWrapper<WrapperRef, WrapperProps>(Componet: any) {
         size = 'lg',
         ...rest
       } = useDefaultProps(props, 'uiInput');
+
       return (
         <Componet
           ref={ref}
@@ -42,7 +43,8 @@ function UIInputWrapper<WrapperRef, WrapperProps>(Componet: any) {
             `ui-input-${size}`,
             `ui-input-type-${type}`,
           )}
-          allowClear
+          // @ts-expect-error 通过取巧的方式 解决外层 样式问题
+          suffix={props.suffix || <></>}
         />
       );
     },
@@ -78,7 +80,6 @@ export const UIInputTextArea = forwardRef<
         `ui-input-textarea`,
         `ui-input-type-${type}`,
       )}
-      allowClear
     />
   );
 });
