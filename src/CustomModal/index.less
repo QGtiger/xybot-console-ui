@@ -1,0 +1,47 @@
+@import '../variables.less';
+
+.ui-custom-modal {
+  &-header {
+    padding: @space-600 @space-400;
+    display: flex;
+    gap: @space-200;
+    align-items: center;
+    border-bottom: 1px solide @border-base-default;
+    .logo {
+      display: flex;
+      width: 44px;
+      height: 44px;
+      justify-content: center;
+      align-items: center;
+      border-radius: @radius-200;
+      background-color: @bg-base-layout-secondary;
+      flex-shrink: 0;
+    }
+    .title-wrapper {
+      .title {
+        color: @text-base-default;
+        font-size: 14px;
+        font-weight: 520;
+        line-height: 20px;
+      }
+      .sub {
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        .sub-title {
+          color: @text-base-secondary;
+          font-weight: 330;
+          line-height: 20px;
+        }
+        .extra-toggle {
+          color: @text-info-default;
+          display: flex;
+          align-items: center;
+          gap: 2px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
