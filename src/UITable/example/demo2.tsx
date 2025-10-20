@@ -71,7 +71,6 @@ const columns: TableProps<DataType>['columns'] = [
         <a>Delete</a>
       </Space>
     ),
-    fixed: 'right',
   },
 ];
 
