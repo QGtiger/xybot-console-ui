@@ -2,7 +2,9 @@ import React from 'react';
 
 import { CloseOutlined } from '@ant-design/icons';
 import { useBoolean } from 'ahooks';
+import classNames from 'classnames';
 import { ThemeModel } from '../ThemeProvider';
+import { UIButton, UIButtonProps } from '../UIButton';
 import './index.less';
 
 export interface CustomModalContentProps {
@@ -11,12 +13,34 @@ export interface CustomModalContentProps {
     | React.ReactNode
     | ((toggleNode: React.ReactNode) => React.ReactNode);
   logo?: React.ReactNode;
+
+  isWithLogoWrapper?: boolean;
+  headerBorder?: boolean;
+  headerStyle?: React.CSSProperties;
   // extra
   extra?: React.ReactNode;
   closeable?: boolean;
   content?: React.ReactNode;
 
   rtRender?: (closeBtn: React.ReactNode) => React.ReactNode;
+  footer?:
+    | React.ReactNode
+    | ((
+        originNode: React.ReactNode,
+        extra: {
+          OkBtn: React.FC;
+          CancelBtn: React.FC;
+        },
+      ) => React.ReactNode);
+
+  okButtonProps?: UIButtonProps;
+  okText?: React.ReactNode;
+  cancelButtonProps?: UIButtonProps;
+  cancelText?: React.ReactNode;
+  onOk?: () => void | Promise<void>;
+  onCancel?: () => void | Promise<void>;
+
+  width?: number;
 }
 
 function CustomModalContent(
@@ -33,6 +57,16 @@ function CustomModalContent(
     closeable = true,
     onClose,
     rtRender = (t) => t,
+    isWithLogoWrapper = true,
+    headerBorder = true,
+    headerStyle,
+    footer,
+    okButtonProps,
+    okText = '确认',
+    cancelButtonProps,
+    cancelText = '取消',
+    onOk,
+    onCancel,
   } = props;
   const [showExtra, showExtraAction] = useBoolean(false);
 
@@ -68,10 +102,69 @@ function CustomModalContent(
     );
   };
 
+  const renderLogo = () => {
+    const logoNode = <div className="logo">{logo}</div>;
+    if (isWithLogoWrapper) {
+      return <div className="logo-wrapper">{logoNode}</div>;
+    }
+    return logoNode;
+  };
+
+  const renderFooter = () => {
+    if (footer === null) return null;
+    if (typeof footer !== 'function' && footer !== undefined) {
+      return footer;
+    }
+
+    const OkBtn = (
+      <UIButton
+        onClick={() => {
+          Promise.resolve(onOk?.()).then(onClose);
+        }}
+        type="danger"
+        {...okButtonProps}
+      >
+        {okText}
+      </UIButton>
+    );
+
+    const CancelBtn = (
+      <UIButton
+        type="border"
+        onClick={() => {
+          Promise.resolve(onCancel?.()).then(onClose);
+        }}
+        {...cancelButtonProps}
+      >
+        {cancelText}
+      </UIButton>
+    );
+
+    const originFooterNode = (
+      <div className="actions">
+        {OkBtn}
+        {CancelBtn}
+      </div>
+    );
+
+    if (footer) {
+      return footer(originFooterNode, {
+        OkBtn: () => OkBtn,
+        CancelBtn: () => CancelBtn,
+      });
+    }
+
+    return originFooterNode;
+  };
+
   return (
-    <div className="ui-custom-modal">
-      <div className="ui-custom-modal-header">
-        {logo && <div className="logo">{logo}</div>}
+    <div
+      className={classNames('ui-custom-modal', {
+        'header-border': headerBorder,
+      })}
+    >
+      <div className="ui-custom-modal-header" style={headerStyle}>
+        {renderLogo()}
         <div className="title-wrapper">
           <div className="title">{title}</div>
           <div className="sub">{renderSubTitle()}</div>
@@ -79,6 +172,10 @@ function CustomModalContent(
       </div>
       {showExtra && <div className="extra-content">{extra}</div>}
       <div className="ui-custom-modal-content">{content}</div>
+
+      {footer !== null && (
+        <div className="ui-custom-modal-footer">{renderFooter()}</div>
+      )}
 
       {closeable && (
         <div className="rt-cont">
@@ -114,6 +211,7 @@ export function useCustomModal() {
           }}
         />
       ),
+      width: props.width || 520,
     });
   };
 

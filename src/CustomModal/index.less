@@ -8,21 +8,28 @@
     }
   }
 
+  &.header-border {
+    .ui-custom-modal-header {
+      border-bottom: 1px solid @border-base-default;
+    }
+  }
+
   &-header {
     padding: @space-600 @space-400;
     display: flex;
     gap: @space-200;
     align-items: center;
-    border-bottom: 1px solide @border-base-default;
-    .logo {
+    .logo-wrapper {
       display: flex;
       width: 44px;
       height: 44px;
       justify-content: center;
       align-items: center;
       border-radius: @radius-200;
-      background-color: @bg-base-layout-secondary;
       flex-shrink: 0;
+      background-color: @bg-base-layout-secondary;
+    }
+    .logo {
     }
     .title-wrapper {
       .title {
@@ -49,6 +56,17 @@
           cursor: pointer;
         }
       }
+    }
+  }
+
+  &-footer {
+    padding: @space-400;
+    border-top: 1px solid @border-base-default;
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: @space-200;
     }
   }
 
