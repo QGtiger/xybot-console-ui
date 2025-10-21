@@ -38,7 +38,7 @@ export function ScrollContainer({
       )}
       style={{
         ...style,
-        //@ts-expect-error CSS变量
+        // @ts-ignore
         '--mask-h': `${indicatorHeight}px`,
         '--mask-bg': indicatorColor,
       }}
