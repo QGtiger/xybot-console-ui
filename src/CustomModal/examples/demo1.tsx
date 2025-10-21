@@ -1,8 +1,9 @@
 import { FormOutlined } from '@ant-design/icons';
-import { CustomModal, ThemeModel } from '@xybot/ui';
+import { ThemeModel, UIButton, useCustomModal } from '@xybot/ui';
 
 export default () => {
   const { isDarkMode } = ThemeModel.useModel();
+  const { showCustomModal } = useCustomModal();
 
   return (
     <div
@@ -16,31 +17,17 @@ export default () => {
         // alignItems: 'flex-start',
       }}
     >
-      <div
-        className=""
-        style={{
-          width: '100%',
-          background: '#fff',
+      <UIButton
+        onClick={() => {
+          showCustomModal({
+            title: '自定义 Modal 标题',
+            logo: <FormOutlined />,
+            extra: <div>额外信息</div>,
+          });
         }}
       >
-        <CustomModal
-          title="测试"
-          subTitle="这是一个测试"
-          logo={<FormOutlined />}
-          extra={
-            <div
-              style={{
-                padding: '10px 20px',
-                background: isDarkMode ? '#2c2c34' : '#f9f9fb',
-              }}
-            >
-              额外引导内容
-            </div>
-          }
-        >
-          主体内容
-        </CustomModal>
-      </div>
+        测试 CustomModal
+      </UIButton>
     </div>
   );
 };

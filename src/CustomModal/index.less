@@ -1,6 +1,13 @@
 @import '../variables.less';
 
 .ui-custom-modal {
+  position: relative;
+  &-wrapper {
+    .ui-modal-confirm-paragraph {
+      max-width: 100%;
+    }
+  }
+
   &-header {
     padding: @space-600 @space-400;
     display: flex;
@@ -42,6 +49,33 @@
           cursor: pointer;
         }
       }
+    }
+  }
+
+  .rt-cont {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    .act-btn {
+      font-size: 14px;
+      height: 28px;
+      width: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      cursor: pointer;
+      color: @text-base-secondary;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        background-color: @bg-base-layout-secondary;
+        color: @text-base-default;
+      }
+    }
+    .close-btn {
     }
   }
 }

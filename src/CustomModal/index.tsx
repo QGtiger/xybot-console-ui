@@ -1,9 +1,11 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 
+import { CloseOutlined } from '@ant-design/icons';
 import { useBoolean } from 'ahooks';
+import { ThemeModel } from '../ThemeProvider';
 import './index.less';
 
-export interface CustomModalProps {
+export interface CustomModalContentProps {
   title: React.ReactNode;
   subTitle?:
     | React.ReactNode
@@ -11,10 +13,27 @@ export interface CustomModalProps {
   logo?: React.ReactNode;
   // extra
   extra?: React.ReactNode;
+  closeable?: boolean;
+  content?: React.ReactNode;
+
+  rtRender?: (closeBtn: React.ReactNode) => React.ReactNode;
 }
 
-export function CustomModal(props: PropsWithChildren<CustomModalProps>) {
-  const { title, subTitle, logo, extra, children } = props;
+function CustomModalContent(
+  props: CustomModalContentProps & {
+    onClose: () => void;
+  },
+) {
+  const {
+    title,
+    subTitle,
+    logo,
+    extra,
+    content,
+    closeable = true,
+    onClose,
+    rtRender = (t) => t,
+  } = props;
   const [showExtra, showExtraAction] = useBoolean(false);
 
   const toggleNode = extra && (
@@ -38,7 +57,6 @@ export function CustomModal(props: PropsWithChildren<CustomModalProps>) {
   );
 
   const renderSubTitle = () => {
-    if (!subTitle) return null;
     if (typeof subTitle === 'function') {
       return subTitle(toggleNode);
     }
@@ -53,14 +71,51 @@ export function CustomModal(props: PropsWithChildren<CustomModalProps>) {
   return (
     <div className="ui-custom-modal">
       <div className="ui-custom-modal-header">
-        <div className="logo">{logo}</div>
+        {logo && <div className="logo">{logo}</div>}
         <div className="title-wrapper">
           <div className="title">{title}</div>
           <div className="sub">{renderSubTitle()}</div>
         </div>
       </div>
       {showExtra && <div className="extra-content">{extra}</div>}
-      <div className="ui-custom-modal-content">{children}</div>
+      <div className="ui-custom-modal-content">{content}</div>
+
+      {closeable && (
+        <div className="rt-cont">
+          {rtRender(
+            <div className="act-btn close-btn" onClick={onClose}>
+              <CloseOutlined />
+            </div>,
+          )}
+        </div>
+      )}
     </div>
   );
+}
+
+export function useCustomModal() {
+  const { modal } = ThemeModel.useModel();
+
+  const showCustomModal = (props: CustomModalContentProps) => {
+    const ins = modal.confirm({
+      icon: null,
+      footer: null,
+      styles: {
+        content: {
+          padding: 0,
+        },
+      },
+      className: 'ui-custom-modal-wrapper',
+      content: (
+        <CustomModalContent
+          {...props}
+          onClose={() => {
+            ins.destroy();
+          }}
+        />
+      ),
+    });
+  };
+
+  return { showCustomModal };
 }
