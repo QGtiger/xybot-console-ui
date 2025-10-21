@@ -1,4 +1,5 @@
 import SimpleBar from 'simplebar-react';
+// @ts-expect-error 引入css
 import 'simplebar-react/dist/simplebar.min.css';
 
 import './index.less';
