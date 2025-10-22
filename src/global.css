@@ -13,7 +13,7 @@ body {
 :root {
   /* new */
   --bg-base-container: rgba(255, 255, 255, 1);
-  --bg-base-contianer-secondary: rgba(249, 249, 251, 1);
+  --bg-base-container-secondary: rgba(249, 249, 251, 1);
   --bg-base-layout: rgba(244, 244, 247, 1);
   --bg-base-layout-secondary: rgba(236, 237, 241, 1);
   --bg-base-spotlight: rgba(37, 38, 43, 1);
@@ -164,7 +164,7 @@ body {
 .dark {
   /* new */
   --bg-base-container: rgba(45, 46, 53, 1);
-  --bg-base-contianer-secondary: rgba(37, 38, 43, 1);
+  --bg-base-container-secondary: rgba(37, 38, 43, 1);
   --bg-base-layout: rgba(32, 33, 39, 1);
   --bg-base-layout-secondary: rgba(15, 17, 24, 1);
   --bg-base-spotlight: rgba(236, 237, 241, 1);

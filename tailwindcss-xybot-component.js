@@ -35,20 +35,11 @@ module.exports = plugin(
         transitionDuration: {
           DEFAULT: '200ms',
         },
-        boxShadow: {
-          btnActiveShadow:
-            '0 4px 8px 0 var(--effect-shadow-default, rgba(15, 17, 24, 0.1)) inset',
-          btnFocusVisibleShadow:
-            '0 0 4px 0 var(--bg-info-quaternary, rgba(20, 116, 242, 0.25))',
-
-          baseBtnShadow:
-            '0 2px 4px -2px var(--effect-shadow-default, rgba(15, 17, 24, 0.1))',
-        },
         // 这里定义的变量可以被用户在自己的配置中扩展/覆盖
         colors: {
           bgBase: {
             container: 'var(--bg-base-container)',
-            containerSecondary: 'var(--bg-base-contianer-secondary)',
+            containerSecondary: 'var(--bg-base-container-secondary)',
             layout: 'var(--bg-base-layout)',
             layoutSecondary: 'var(--bg-base-layout-secondary)',
             spotlight: 'var(--bg-base-spotlight)',
