@@ -1,15 +1,21 @@
-import { Table, TableProps } from 'antd';
+import { ConfigProvider, Table, TableColumnType, TableProps } from 'antd';
 import type { ColumnType } from 'antd/es/table';
 import classNames from 'classnames';
 import { useMemo, useState } from 'react';
 import { DragCore } from './DragCore';
+
+import { CustomFilterIcon } from '../components/CustomFilterIcon';
+import { CustomFilterDropDown } from './components/CustomFilterDropDown';
+
 import './UITable.less';
 
-type UITableProps = {
+export type UITableProps = {
   size?: 'md' | 'lg';
   hoverType?: 'withRadius' | 'withoutRadius';
   columnsResizeable?: boolean;
   minColumnWidth?: number;
+  // 自定义 filter 会覆盖掉默认的 filter UI样式
+  customFilter?: boolean;
 } & Omit<TableProps<any>, 'size'>;
 
 const defaultSortIcon: ColumnType['sortIcon'] = ({ sortOrder }) => {
@@ -90,6 +96,7 @@ export function UITable(props: UITableProps) {
     columns,
     columnsResizeable,
     minColumnWidth = 80,
+    customFilter = true,
     ...rest
   } = props;
 
@@ -112,6 +119,20 @@ export function UITable(props: UITableProps) {
   };
 
   const memoColumns = useMemo(() => {
+    function getColumnSearchProps(col: TableColumnType): TableColumnType {
+      if (!customFilter || !col.filters?.length) return {};
+      return {
+        filterIcon(filtered: boolean) {
+          return (
+            <CustomFilterIcon
+              style={{ color: filtered ? '#1677ff' : undefined }}
+            />
+          );
+        },
+        filterDropdown: CustomFilterDropDown,
+      };
+    }
+
     return columns?.map((col, index) => {
       const width = colWidths[index]?.width;
       return {
@@ -123,9 +144,10 @@ export function UITable(props: UITableProps) {
           isResizeable: index !== (columns?.length || 0) - 1, // 最后一列不允许调整宽度
         }),
         ...(col.sorter && !col.sortIcon ? { sortIcon: defaultSortIcon } : {}),
+        ...getColumnSearchProps(col),
       };
     });
-  }, [columns, colWidths]);
+  }, [columns, colWidths, customFilter]);
 
   const components = useMemo(() => {
     if (columnsResizeable) {
@@ -139,13 +161,23 @@ export function UITable(props: UITableProps) {
   }, [columnsResizeable]);
 
   return (
-    <Table
-      {...rest}
-      columns={memoColumns}
-      rowHoverable={false}
-      className={classNames(size, hoverType, props.className)}
-      components={components}
-      tableLayout={columnsResizeable ? 'fixed' : 'auto'}
-    />
+    <ConfigProvider
+      theme={{
+        components: {
+          Table: {
+            headerFilterHoverBg: 'transparent',
+          },
+        },
+      }}
+    >
+      <Table
+        {...rest}
+        columns={memoColumns}
+        rowHoverable={false}
+        className={classNames(size, hoverType, props.className)}
+        components={components}
+        tableLayout={columnsResizeable ? 'fixed' : 'auto'}
+      />
+    </ConfigProvider>
   );
 }

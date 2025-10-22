@@ -17,6 +17,21 @@ const columns: TableProps<DataType>['columns'] = [
     key: 'name',
     render: (text) => <a>{text}</a>,
     width: 200,
+    filters: [
+      {
+        text: 'Joe',
+        value: 'Joe',
+      },
+      {
+        text: 'Category 1',
+        value: 'Category 1',
+      },
+      {
+        text: 'Category 2',
+        value: 'Category 2',
+      },
+    ],
+    onFilter: (value, record) => record.name.startsWith(value as string),
   },
   {
     title: 'Address',
@@ -40,6 +55,21 @@ const columns: TableProps<DataType>['columns'] = [
       );
     },
     sorter: (a, b) => a.age - b.age,
+    filters: [
+      {
+        text: 'Joe',
+        value: 'Joe',
+      },
+      {
+        text: 'Category 1',
+        value: 'Category 1',
+      },
+      {
+        text: 'Category 2',
+        value: 'Category 2',
+      },
+    ],
+    onFilter: (value, record) => record.name.startsWith(value as string),
   },
   {
     title: 'Tags',

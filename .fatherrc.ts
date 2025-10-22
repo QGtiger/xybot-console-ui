@@ -5,4 +5,7 @@ export default defineConfig({
   esm: { output: 'dist' },
   // cjs: { output: 'dist' },
   // umd: { output: 'dist' },
+  alias: {
+    '@': './src',
+  },
 });
