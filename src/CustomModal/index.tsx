@@ -30,6 +30,7 @@ export interface CustomModalContentProps {
         extra: {
           OkBtn: React.FC;
           CancelBtn: React.FC;
+          close: () => void;
         },
       ) => React.ReactNode);
 
@@ -151,6 +152,7 @@ function CustomModalContent(
       return footer(originFooterNode, {
         OkBtn: () => OkBtn,
         CancelBtn: () => CancelBtn,
+        close: onClose,
       });
     }
 
@@ -213,6 +215,7 @@ export function useCustomModal() {
       ),
       width: props.width || 520,
     });
+    return ins;
   };
 
   return { showCustomModal };
