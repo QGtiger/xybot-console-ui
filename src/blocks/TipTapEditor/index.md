@@ -1,5 +1,6 @@
 ---
 title: TipTapEditor
+apiHeader: true
 group:
   title: 通用
 ---

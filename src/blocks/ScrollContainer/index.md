@@ -1,5 +1,6 @@
 ---
 title: ScrollContainer
+apiHeader: true
 group:
   title: 通用
 ---

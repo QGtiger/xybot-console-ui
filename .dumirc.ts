@@ -71,7 +71,8 @@ export default defineConfig({
       // 映射 blocks 目录
       { type: 'blocks', dir: 'src/blocks' },
       // 你原有的 components 目录映射可以保留
-      { type: 'components', dir: 'src' },
+      { type: 'components', dir: 'src/components' },
+      { type: 'hooks', dir: 'src/hooks' },
     ],
   },
 });

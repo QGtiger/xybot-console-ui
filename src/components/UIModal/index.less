@@ -1,0 +1,56 @@
+@import '../../variables.less';
+
+.ui-modal {
+  .ui-modal-confirm-btns {
+    .ui-btn {
+      min-width: 72px;
+    }
+  }
+  .ui-modal-content {
+    border-radius: 12px;
+    background-color: @bg-base-container;
+
+    box-shadow: @drop-shadow-200;
+    border: 1px solid transparent !important;
+    background-clip: padding-box, border-box !important;
+    background-origin: padding-box, border-box !important;
+    background-image: linear-gradient(
+        to right,
+        var(--bg-base-container),
+        var(--bg-base-container)
+      ),
+      linear-gradient(
+        135deg,
+        var(--border-specular-quaternary) 0%,
+        var(--border-specular-default) 50%,
+        var(--border-specular-secondary) 100%
+      ) !important;
+
+    .ui-modal-header {
+      background: transparent;
+    }
+  }
+
+  &-confirm {
+    &-success {
+      .ui-modal-confirm-body > .anticon {
+        color: @bg-success-spotlight;
+      }
+    }
+    &-error {
+      .ui-modal-confirm-body > .anticon {
+        color: @bg-error-spotlight !important;
+      }
+    }
+    &-warning {
+      .ui-modal-confirm-body > .anticon {
+        color: @bg-warning-spotlight !important;
+      }
+    }
+    &-info {
+      .ui-modal-confirm-body > .anticon {
+        color: @bg-info-spotlight !important;
+      }
+    }
+  }
+}

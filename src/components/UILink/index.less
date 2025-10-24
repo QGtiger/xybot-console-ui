@@ -1,0 +1,20 @@
+@import '../../variables.less';
+@import '../../mixins.less';
+
+.ui-link {
+  font-size: 13px;
+  line-height: 20px;
+  transition: all 0.2s ease-in-out;
+
+  &-default {
+    .textColor(@text-base-default, @text-base-secondary, @text-base-quaternary);
+  }
+
+  &-info {
+    .textColor(@text-info-default, @text-info-default-hover, @text-info-tertiary);
+  }
+
+  &-secondary {
+    .textColor(@text-base-secondary, @text-base-default, @text-base-quaternary);
+  }
+}

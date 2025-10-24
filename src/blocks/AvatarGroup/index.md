@@ -1,5 +1,6 @@
 ---
 title: AvatarGroup
+apiHeader: true
 group:
   title: 通用
 ---
