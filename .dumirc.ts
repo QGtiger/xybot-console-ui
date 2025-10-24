@@ -65,4 +65,13 @@ export default defineConfig({
 
   base: process.env.NODE_ENV === 'production' ? `/${repo}/` : '/',
   publicPath: process.env.NODE_ENV === 'production' ? `/${repo}/` : '/',
+
+  resolve: {
+    atomDirs: [
+      // 映射 blocks 目录
+      { type: 'blocks', dir: 'src/blocks' },
+      // 你原有的 components 目录映射可以保留
+      { type: 'components', dir: 'src' },
+    ],
+  },
 });

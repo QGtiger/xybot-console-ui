@@ -1,0 +1,34 @@
+@import '../../variables.less';
+
+.ui-scroll-container {
+  overflow: auto;
+  height: 100%;
+  &-wrapper {
+    position: relative;
+    --mask-h: 10px;
+    --mask-bg: @bg-fill-deep-secondary;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: var(--mask-h);
+      z-index: 100;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        var(--mask-bg),
+        rgba(15, 17, 24, 0)
+      );
+      transition: opacity 0.3s;
+      opacity: 0;
+    }
+
+    &.showIndicator {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

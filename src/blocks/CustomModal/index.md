@@ -1,8 +1,7 @@
 ---
-order: 2
-title: useCustomModal
+title: CustomModal
 group:
-  title: 区块
+  title: 通用
 ---
 
 ## useCustomModal 自定义弹窗

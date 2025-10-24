@@ -1,8 +1,7 @@
 ---
-order: 1
 title: AvatarGroup
 group:
-  title: 区块
+  title: 通用
 ---
 
 ## AvatarGroup

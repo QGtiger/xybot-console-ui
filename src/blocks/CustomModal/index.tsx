@@ -1,10 +1,10 @@
 import React from 'react';
 
+import { ThemeModel } from '@/ThemeProvider';
+import { UIButton, UIButtonProps } from '@/UIButton';
 import { CloseOutlined } from '@ant-design/icons';
 import { useBoolean } from 'ahooks';
 import classNames from 'classnames';
-import { ThemeModel } from '../ThemeProvider';
-import { UIButton, UIButtonProps } from '../UIButton';
 import './index.less';
 
 export interface CustomModalContentProps {
