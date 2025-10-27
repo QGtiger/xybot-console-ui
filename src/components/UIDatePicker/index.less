@@ -1,0 +1,141 @@
+@import '../../variables.less';
+
+.sizeDatePicker(@size, @sizeRules) {
+  .ui-date-picker-size-@{size} {
+    @sizeRules();
+  }
+}
+
+.sizeDatePicker(sm, {
+  padding: 0px 6px;
+  height: 24px
+});
+
+.sizeDatePicker(md, {
+  padding: 0px 8px !important;
+  height: 28px
+});
+
+.sizeDatePicker(lg, {
+  padding: 0px 10px !important;
+  height: 32px
+});
+
+.sizeDatePicker(xl, {
+  padding: 0px 12px !important;
+  height: 36px
+});
+
+.sizeDatePicker(xxl, {
+  padding: 0px 12px !important;
+  height: 40px
+});
+
+.typeDatePicker(@typeClassName, @normalRules, @disabledRules, @hoverRules, @focusRules, @errorRules: {}) {
+  .ui-date-picker-type-@{typeClassName} {
+    @normalRules();
+
+    &.ui-picker-disabled {
+      @disabledRules();
+    }
+
+    &:not(.ui-picker-disabled) {
+      &:hover {
+        @hoverRules();
+      }
+
+      &.ui-picker-focused {
+        @focusRules();
+      }
+    }
+  }
+}
+
+.typeDatePicker(border, {
+  background: none;
+  border-color: @border-base-secondary
+}, {}, {
+  border-color: @border-base-tertiary;
+  background-color: @bg-fill-deep-default;
+}, {
+
+  border-color: @border-base-quaternary;
+  background-color: @bg-base-container;
+});
+
+.typeDatePicker(borderless, {
+  border-radius: 0;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+
+  --underline-color: @border-base-quaternary;
+
+  &::before {
+    content: '';
+    /* 下划线样式 */
+    position: absolute;
+    bottom: 0px;
+    left: 50%; /* 初始位置在中间 */
+    width: 0; /* 初始宽度为0 */
+    height: 1px;
+    background-color: var(--underline-color); /* 下划线颜色 */
+
+    /* 动画过渡效果 */
+    transition: all 0.2s ease;
+    transform-origin: center;
+  }
+}, {},  {
+
+}, {
+  &::before {
+    width: 100%; /* 展开到 full width */
+    left: 0; /* 回到左侧起点 */
+  }
+}, {
+  border-color: @border-error-default;
+  --underline-color: @border-error-default;
+
+  &::before {
+    width: 100%; /* 展开到 full width */
+    left: 0; /* 回到左侧起点 */
+  }
+});
+
+.typeDatePicker(filledsecondary, {
+  background-color: @bg-fill-deep-secondary;
+  border-color: transparent;
+},{}, {
+  background-color: @bg-fill-deep-tertiary;
+  border-color: transparent;
+}, {
+  border-color: @border-base-quaternary;
+  background-color: @bg-base-container;
+}, {
+  background: @border-error-secondary;
+  border-color: transparent
+});
+
+.typeDatePicker(filledbase, {
+  background-color: @bg-base-container;
+  border-color: transparent;
+}, {}, {
+  background-color: @bg-base-container-secondary;
+  border-color: transparent;
+}, {
+  border-color: @border-base-quaternary;
+  background-color: @bg-base-container;
+}, {
+  background: @border-error-secondary;
+  border-color: transparent
+});
+
+.ui-date-picker {
+  box-shadow: none !important;
+  border-radius: 8px;
+
+  .ui-picker-active-bar {
+    display: none;
+  }
+}

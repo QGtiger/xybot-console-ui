@@ -5,3 +5,5 @@ export * from './ScrollContainer';
 export * from './TipTapEditor';
 
 export * from './ScrollArea';
+
+export * from './CommentList';
