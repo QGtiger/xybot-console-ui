@@ -10,6 +10,7 @@ export interface UITagProps
   preset?: 'default' | 'info' | 'brand';
   icon?: React.ReactNode;
   closable?: boolean;
+  focus?: boolean;
   onClose?: () => void;
 }
 
@@ -35,6 +36,7 @@ export function UITag(props: PropsWithChildren<UITagProps>) {
     type = 'border',
     preset = 'default',
     closable = false,
+    focus,
     ...rest
   } = props;
 
@@ -51,10 +53,11 @@ export function UITag(props: PropsWithChildren<UITagProps>) {
         `ui-tag-${size}`,
         `ui-tag-${type}`,
         `ui-tag-${type}-${preset}`,
+        { focus },
         props.className,
       )}
     >
-      <div className="preffix">{icon}</div>
+      {icon && <div className="preffix">{icon}</div>}
       {props.children}
       {closable && (
         <span

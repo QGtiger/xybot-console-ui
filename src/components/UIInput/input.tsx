@@ -73,7 +73,6 @@ export const UIInputTextArea = forwardRef<
       ref={ref}
       {...rest}
       variant="outlined"
-      autoSize
       className={classNames(
         props.className,
         'ui-input',

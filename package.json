@@ -67,7 +67,13 @@
   },
   "dependencies": {
     "@tanstack/react-table": "^8.21.3",
+    "@tiptap/extension-color": "^3.7.2",
+    "@tiptap/extension-font-family": "^3.7.2",
+    "@tiptap/extension-placeholder": "^3.7.2",
+    "@tiptap/extension-text-style": "^3.7.2",
+    "@tiptap/pm": "^3.7.2",
     "@tiptap/react": "^3.7.2",
+    "@tiptap/starter-kit": "^3.7.2",
     "ahooks": "^3.9.5",
     "antd-style": "^3.7.1",
     "classnames": "^2.5.1",
