@@ -64,6 +64,7 @@ export default () => {
             onClick={() => {
               console.log('click');
             }}
+            iconPosition="end"
           >
             Click Me
           </UIButton>

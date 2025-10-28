@@ -6,4 +6,4 @@ export * from './TipTapEditor';
 
 export * from './ScrollArea';
 
-export * from './CommentList';
+export * from './CommentTree';
