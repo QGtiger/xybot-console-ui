@@ -1,6 +1,6 @@
 import { useSize } from 'ahooks';
 import classNames from 'classnames';
-import React, { useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import './index.less';
 
 // 单个头像配置项
@@ -16,6 +16,8 @@ export interface AvatarGroupProps {
   indent?: number; // 缩进距离，默认-8px（重叠效果）
   avatarSize?: number; // 头像大小，默认40px
   mergeTextFormatter?: (count: number) => React.ReactNode; // 合并文本格式化函数
+  // 显示布局方式，默认不固定
+  fixed?: 'left' | 'right';
 }
 
 export const AvatarGroup: React.FC<AvatarGroupProps> = ({
@@ -24,6 +26,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
   indent = -8,
   avatarSize = 40,
   mergeTextFormatter = (count) => `${count}`,
+  fixed,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
@@ -36,6 +39,10 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
   })();
 
   console.log('isOverflow', isOverflow);
+
+  const memoFixed = useMemo(() => {
+    return isOverflow ? 'left' : fixed;
+  }, [fixed, isOverflow]);
 
   if (!avatarList.length) return null;
 
@@ -59,9 +66,14 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
             width: avatarSize,
             height: avatarSize,
             borderWidth: borderWidth,
+            opacity: 0,
+            visibility: 'hidden',
           }}
         ></div>
-        <div className={classNames('block-avatar-group-list')} ref={listRef}>
+        <div
+          className={classNames('block-avatar-group-list', memoFixed)}
+          ref={listRef}
+        >
           {avatarList.map((avatar, index) => (
             <div
               key={index}

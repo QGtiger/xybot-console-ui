@@ -18,5 +18,6 @@ group:
 | indent             | `number`                             | 缩进距离           | No       | `-8`    |
 | avatarSize         | `number`                             | 头像大小           | No       | `40`    |
 | mergeTextFormatter | `(count: number) => React.ReactNode` | 合并文本格式化函数 | No       | -       |
+| fixed              | `'left' \| 'right'`                  | 布局方向           | No       | `left`  |
 
 <code src="./examples/demo1.tsx"></code>
