@@ -12,8 +12,7 @@ export default () => {
         padding: '16px',
       }}
     >
-      <span className="iconfont icon-Airplay-sm"></span>
-      <TipTapEditor />
+      <TipTapEditor hiddenMenu />
     </div>
   );
 };

@@ -1,54 +1,60 @@
 import Placeholder from '@tiptap/extension-placeholder';
 import { TextStyleKit } from '@tiptap/extension-text-style';
-import { EditorContent, useEditor } from '@tiptap/react';
+import { EditorEvents, EditorProvider } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 
+import classNames from 'classnames';
+import { EditorMenu, EditorMenuProps } from './EditorMenu';
 import './index.less';
 
 export interface TipTapEditorProps {
   className?: string;
+  wrapperClassName?: string;
   placeholder?: string;
-  onChange?: (content: string) => void;
+  onChange?: (
+    props: EditorEvents['update'] & {
+      html: string;
+    },
+  ) => void;
+
+  hiddenMenu?: boolean;
+  menuProps?: EditorMenuProps;
 }
 
 export function TipTapEditor(props: TipTapEditorProps) {
-  const { className, placeholder = '请输入内容...', onChange } = props;
-  const editor = useEditor({
-    extensions: [
-      StarterKit,
-      TextStyleKit,
-      Placeholder.configure({
-        placeholder: placeholder,
-      }),
-    ],
-    content: '',
-    onUpdate: ({ editor }) => {
-      const html = editor.getHTML();
-      console.log('Editor content updated:', html);
-      console.log('Editor JSON content:', editor.getJSON());
-      onChange?.(html);
-    },
-  });
-
-  if (!editor) {
-    return null;
-  }
+  const {
+    className,
+    placeholder = '请输入内容...',
+    menuProps,
+    onChange,
+    hiddenMenu,
+    wrapperClassName,
+  } = props;
 
   return (
-    <div className="editor-container">
-      <button
-        type="button"
-        onClick={() => {
-          console.log('toggling bold');
-          // editor.chain().focus().toggleBold().run();
-          editor.chain().focus().setFontSize('28px').run();
+    <div className={classNames('tiptap-editor', wrapperClassName)}>
+      <EditorProvider
+        slotBefore={hiddenMenu ? null : <EditorMenu {...menuProps} />}
+        extensions={[
+          StarterKit,
+          TextStyleKit,
+          Placeholder.configure({
+            placeholder: placeholder,
+          }),
+        ]}
+        editorProps={{
+          attributes: {
+            class: `tiptap-editor-content ${className || ''}`,
+          },
         }}
-      >
-        22
-      </button>
-      <EditorContent editor={editor} />
-      {/* <FloatingMenu editor={editor}>This is the floating menu</FloatingMenu>
-      <BubbleMenu editor={editor}>This is the bubble menu</BubbleMenu> */}
+        onUpdate={(p) => {
+          const html = p.editor.getHTML();
+          onChange?.({
+            ...p,
+            html,
+          });
+        }}
+      ></EditorProvider>
     </div>
   );
 }

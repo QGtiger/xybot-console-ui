@@ -7,6 +7,7 @@
   background-color: @bg-fill-deep-default;
   flex-wrap: wrap;
   gap: @space-100;
+  border-radius: @radius-150;
 
   .menu-item {
     width: 24px;
@@ -15,12 +16,16 @@
     line-height: 24px;
     border-radius: @radius-150;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     &:hover {
       background-color: @bg-fill-deep-secondary;
     }
 
     &.active {
-      background-color: @bg-fill-deep-tertiary;
+      color: @text-info-default;
     }
   }
 }
