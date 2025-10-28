@@ -1,6 +1,6 @@
 import { DownOutlined, SettingOutlined } from '@ant-design/icons';
+import { Dropdown, DropDownItem, Space } from '@xybot/ui';
 import type { MenuProps } from 'antd';
-import { Dropdown, Space } from 'antd';
 import React from 'react';
 
 const items: MenuProps['items'] = [
@@ -31,14 +31,17 @@ const items: MenuProps['items'] = [
 ];
 
 const App: React.FC = () => (
-  <Dropdown menu={{ items }} trigger={['click']}>
-    <a onClick={(e) => e.preventDefault()}>
-      <Space>
-        Hover me
-        <DownOutlined />
-      </Space>
-    </a>
-  </Dropdown>
+  <div className="">
+    <DropDownItem>DropDownItem</DropDownItem>
+    <Dropdown menu={{ items }} trigger={['click']} open>
+      <a onClick={(e) => e.preventDefault()}>
+        <Space>
+          Hover me
+          <DownOutlined />
+        </Space>
+      </a>
+    </Dropdown>
+  </div>
 );
 
 export default App;

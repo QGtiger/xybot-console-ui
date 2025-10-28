@@ -1,0 +1,26 @@
+@import '../../../variables.less';
+
+.editor-menu {
+  display: flex;
+  align-items: center;
+  padding: @space-100;
+  background-color: @bg-fill-deep-default;
+  flex-wrap: wrap;
+  gap: @space-100;
+
+  .menu-item {
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    border-radius: @radius-150;
+
+    &:hover {
+      background-color: @bg-fill-deep-secondary;
+    }
+
+    &.active {
+      background-color: @bg-fill-deep-tertiary;
+    }
+  }
+}

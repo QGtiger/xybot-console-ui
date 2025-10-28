@@ -22,10 +22,10 @@ import { UILinkProps } from '../UILink';
 import type { UISelectProps } from '../UISelect';
 import { darkTheme, lightTheme } from './theme';
 
-import './index.less';
-
+import '@/common/iconfont/iconfont.css';
 import '../../global.less';
 import '../Dropdown/index.less';
+import './index.less';
 
 export { ThemeMode, ThemeType };
 
