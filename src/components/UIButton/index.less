@@ -11,6 +11,12 @@
   }
 }
 
+.notDisabled(@rules) {
+  &:not(:disabled):not(.ui-btn-disabled) {
+    @rules();
+  }
+}
+
 .componentFocusVisible(btn, {
   box-shadow: 0 0 4px 0 @bg-info-quaternary;
   border-color: @border-info-default;
@@ -37,6 +43,30 @@
   }
 }
 
+// TODO 为了解决 一些样式 手 伸不进去， 复写 ui-btn-primary 的样式
+.ui-btn.ui-btn-primary {
+  border-color: transparent;
+  background-color: @bg-base-spotlight;
+  --text-color: @text-base-in-gray-default;
+  border-radius: 6px;
+  &:disabled {
+    background-color: @bg-base-spotlight;
+    opacity: 0.5;
+    color: @text-base-in-gray-default;
+  }
+
+  .notDisabled({
+    &:hover {
+      background-color: @bg-base-spotlight-secondary;
+      border-color: transparent;
+
+    }
+    &:active {
+      box-shadow: 0 4px 8px 0 var(--effect-shadow-default, rgba(15, 17, 24, 0.1)) inset;
+    }
+  });
+}
+
 .componentRules(
   btn,
   {
@@ -52,10 +82,7 @@
     box-shadow: none;
     background-color: transparent;
 
-    // &:not(.ui-btn-icon-only) {
-    //   height: auto !important;
 
-    // }
 
     &-size {
       &-xs {

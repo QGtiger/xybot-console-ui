@@ -6,6 +6,8 @@ import './index.less';
 interface CommonDatePickerProps {
   type?: 'border' | 'borderless' | 'filledsecondary' | 'filledbase';
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  className?: string;
+  classNames?: any;
 }
 
 type GetDatePickerProps<T> = Omit<T, 'size' | 'variant' | 'type'> &
@@ -15,11 +17,16 @@ function CommonPickerWrapper<T extends CommonDatePickerProps>(
   PickerComponent: any,
 ): FC<T> {
   return (props) => {
-    const { type = 'border', size = 'lg', ...rest } = props;
+    const { type = 'border', size = 'lg', className, ...rest } = props;
     return (
       <PickerComponent
         {...rest}
-        className={`ui-date-picker ui-date-picker-size-${size} ui-date-picker-type-${type}`}
+        className={`ui-date-picker ui-date-picker-size-${size} ui-date-picker-type-${type} ${className}`}
+        classNames={{
+          popup: {
+            root: 'ui-date-picker-dropdown',
+          },
+        }}
       />
     );
   };

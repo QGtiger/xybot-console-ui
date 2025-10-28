@@ -1,10 +1,4 @@
-import {
-  DatePicker,
-  Input,
-  ThemeModel,
-  UIDatePicker,
-  UIInput,
-} from '@xybot/ui';
+import { ThemeModel, UIDatePicker } from '@xybot/ui';
 
 export default () => {
   const { isDarkMode } = ThemeModel.useModel();
@@ -21,19 +15,6 @@ export default () => {
         alignItems: 'flex-start',
       }}
     >
-      <DatePicker disabled />
-      <DatePicker />
-      <UIDatePicker type="filledbase" />
-      <DatePicker.MonthPicker />
-      <DatePicker.QuarterPicker />
-      <DatePicker.RangePicker />
-      <DatePicker.TimePicker />
-      <DatePicker.WeekPicker />
-      <DatePicker.YearPicker />
-      <Input variant="borderless" placeholder="普通输入框" />
-
-      <UIInput type="border" />
-
       <UIDatePicker type="border" />
       <UIDatePicker type="borderless" />
       <UIDatePicker type="filledsecondary" />

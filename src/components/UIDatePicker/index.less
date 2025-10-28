@@ -1,4 +1,5 @@
 @import '../../variables.less';
+@import '../../mixins.less';
 
 .sizeDatePicker(@size, @sizeRules) {
   .ui-date-picker-size-@{size} {
@@ -131,11 +132,89 @@
   border-color: transparent
 });
 
+.notDisabled(@rules) {
+  &:not(.ui-picker-cell-disabled) {
+    @rules();
+  }
+}
+
 .ui-date-picker {
   box-shadow: none !important;
   border-radius: 8px;
 
   .ui-picker-active-bar {
     display: none;
+  }
+
+  &-dropdown {
+    .ui-picker-cell {
+      // .ui-picker-cell-inner {
+      //   box-sizing: content-box;
+      //   border: 1px solid transparent;
+      // }
+      &.ui-picker-cell-today {
+        .ui-picker-cell-inner {
+          &::before {
+            display: none;
+          }
+          &::after {
+            position: absolute;
+            content: '';
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: @bg-info-spotlight;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0px;
+          }
+        }
+      }
+      &.ui-picker-cell-selected {
+        &:not(.ui-picker-cell-disabled) {
+          .ui-picker-cell-inner {
+            background-color: @bg-info-tertiary;
+            .ring(@border-info-tertiary, 1px, true);
+            border-radius: 6px;
+            color: @text-base-default;
+          }
+        }
+      }
+
+      &.ui-picker-cell-in-range {
+        .notDisabled(
+          {
+            &::before {
+              background-color: @bg-info-default
+            }
+          }
+        );
+      }
+
+      // &.ui-picker-cell-range-start {
+      //   .notDisabled(
+      //     {
+      //       .ui-picker-cell-inner {
+      //         background-color: @bg-info-tertiary;
+
+      //       }
+      //     }
+      //   );
+      // }
+    }
+
+    .ui-picker-time-panel {
+      .ui-picker-time-panel-cell {
+        &.ui-picker-time-panel-cell-selected {
+          .ui-picker-time-panel-cell-inner {
+            background-color: @bg-info-tertiary;
+            .ring(@bg-info-secondary, 1px, true);
+            // border: 1px solid @border-info-tertiary;
+            border-radius: 6px;
+            color: @text-base-default;
+          }
+        }
+      }
+    }
   }
 }
