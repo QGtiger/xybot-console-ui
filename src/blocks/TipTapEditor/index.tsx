@@ -18,6 +18,7 @@ import { EditorMenu, EditorMenuProps } from './EditorMenu';
 
 import './index.less';
 
+import { TipTapEmoji } from './extensions';
 import './highlight-theme.less';
 import './highlight.less';
 
@@ -57,8 +58,6 @@ export function TipTapEditor(props: TipTapEditorProps) {
     editorProviderProps,
   } = props;
 
-  console.log(11);
-
   return (
     <div className={classNames('tiptap-editor', wrapperClassName)}>
       <EditorProvider
@@ -78,6 +77,7 @@ export function TipTapEditor(props: TipTapEditorProps) {
               class: 'hljs',
             },
           }),
+          TipTapEmoji(),
         ]}
         editorProps={{
           attributes: {
