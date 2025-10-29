@@ -67,6 +67,7 @@
   },
   "dependencies": {
     "@tanstack/react-table": "^8.21.3",
+    "@tiptap/extension-code-block-lowlight": "^3.9.0",
     "@tiptap/extension-color": "^3.7.2",
     "@tiptap/extension-font-family": "^3.7.2",
     "@tiptap/extension-placeholder": "^3.7.2",
@@ -78,7 +79,9 @@
     "antd-style": "^3.7.1",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.18",
+    "highlight.js": "^11.11.1",
     "less": "^4.4.1",
+    "lowlight": "^3.3.0",
     "react-resizable": "^3.0.5",
     "simplebar-react": "^3.3.2"
   },
