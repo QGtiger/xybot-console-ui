@@ -1,5 +1,5 @@
 import IconFont from '@/common/IconFont';
-import { type Editor, useCurrentEditor, useEditorState } from '@tiptap/react';
+import { useCurrentEditor, useEditorState, type Editor } from '@tiptap/react';
 import classNames from 'classnames';
 import { FC, HTMLAttributes } from 'react';
 
@@ -12,6 +12,7 @@ export type EditorMenuItems =
   | 'code'
   | 'link'
   | 'image';
+
 const allItems: EditorMenuItems[] = [
   'bold',
   'italic',

@@ -19,6 +19,7 @@ import { EditorMenu, EditorMenuProps } from './EditorMenu';
 import './index.less';
 
 import { TipTapEmoji } from './extensions';
+import { LinkExtension } from './extensions/link';
 import './highlight-theme.less';
 import './highlight.less';
 
@@ -64,7 +65,10 @@ export function TipTapEditor(props: TipTapEditorProps) {
         {...editorProviderProps}
         slotBefore={hiddenMenu ? null : <EditorMenu {...menuProps} />}
         extensions={[
-          StarterKit.configure({}),
+          StarterKit.configure({
+            // 需要配置 link 扩展，否则和自定义的 link 冲突
+            link: false,
+          }),
           TextStyleKit,
           Placeholder.configure({
             placeholder: placeholder,
@@ -78,6 +82,9 @@ export function TipTapEditor(props: TipTapEditorProps) {
             },
           }),
           TipTapEmoji(),
+          LinkExtension({
+            openOnClick: !editable,
+          }),
         ]}
         editorProps={{
           attributes: {

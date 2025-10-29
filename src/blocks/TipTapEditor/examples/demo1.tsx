@@ -12,7 +12,7 @@ export default () => {
         padding: '16px',
       }}
     >
-      <TipTapEditor hiddenMenu onChange={console.log} />
+      <TipTapEditor onChange={console.log} />
     </div>
   );
 };
