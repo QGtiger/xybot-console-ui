@@ -5,6 +5,7 @@ export default () => {
     <CommentTree<{ id: number }>
       onReplay={async (ot, y) => {
         console.log(ot, y);
+        throw new Error('Failed to post comment');
       }}
       items={[
         {

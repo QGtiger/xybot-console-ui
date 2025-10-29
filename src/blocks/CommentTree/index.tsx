@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useRef } from 'react';
 
-import IconFont from '@/common/IconFont';
+import { BackOutlineIcon } from '@/common/icons/BackOutlineIcon';
+import { MessageOutlineIcon } from '@/common/icons/MessageOutlineIcon';
 import { UIButton, UILink } from '@/components';
 import { formatRelativeTime } from '@/utils/date';
 import { useBoolean, useRequest } from 'ahooks';
@@ -99,15 +100,27 @@ function CommentItem<E>(props: { item: CommentItemType<E> }) {
               className="reply-btn"
               onClick={isReplyAction.toggle}
             >
-              <IconFont type="a-Messagecircle-md" />
-              回复
+              {isReply ? (
+                <BackOutlineIcon
+                  style={{
+                    marginTop: '-2px',
+                  }}
+                />
+              ) : (
+                <MessageOutlineIcon />
+              )}
+              {isReply ? '取消回复' : '回复'}
             </UILink>
           </div>
           {isReply && (
             <CommentEditor
               send={async (t) => {
-                await onReplay?.(props.item, t);
-                isReplyAction.setFalse();
+                await onReplay?.(props.item, t).then(
+                  () => {
+                    isReplyAction.setFalse();
+                  },
+                  () => {},
+                );
               }}
             />
           )}

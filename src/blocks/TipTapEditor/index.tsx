@@ -50,7 +50,7 @@ export function TipTapEditor(props: TipTapEditorProps) {
         {...editorProviderProps}
         slotBefore={hiddenMenu ? null : <EditorMenu {...menuProps} />}
         extensions={[
-          StarterKit,
+          StarterKit.configure({}),
           TextStyleKit,
           Placeholder.configure({
             placeholder: placeholder,
