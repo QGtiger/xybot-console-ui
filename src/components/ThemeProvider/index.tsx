@@ -5,7 +5,6 @@ import {
   useEffect,
   useMemo,
 } from 'react';
-import { createCustomModel } from '../../utils';
 
 import {
   theme as AntdTheme,
@@ -22,8 +21,11 @@ import { UILinkProps } from '../UILink';
 import type { UISelectProps } from '../UISelect';
 import { darkTheme, lightTheme } from './theme';
 
+import { createCustomModel } from '@/utils/model';
+
 import '@/common/iconfont/iconfont.css';
 import '../../global.less';
+import '../../styles.css';
 import '../Dropdown/index.less';
 import './index.less';
 

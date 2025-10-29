@@ -1,0 +1,39 @@
+.fixed {
+    position: fixed
+}
+.absolute {
+    position: absolute
+}
+.relative {
+    position: relative
+}
+.inline {
+    display: inline
+}
+.flex {
+    display: flex
+}
+.contents {
+    display: contents
+}
+.hidden {
+    display: none
+}
+.border {
+    border-width: 1px
+}
+.p-0 {
+    padding: 0px
+}
+.p-1 {
+    padding: 0.25rem
+}
+.italic {
+    font-style: italic
+}
+.underline {
+    text-decoration-line: underline
+}
+.filter {
+    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
+}
