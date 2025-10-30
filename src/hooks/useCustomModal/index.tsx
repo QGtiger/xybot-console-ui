@@ -188,7 +188,12 @@ function CustomModalContent(
       {closeable && (
         <div className="rt-cont">
           {rtRender(
-            <div className="act-btn close-btn" onClick={onClose}>
+            <div
+              className="act-btn close-btn"
+              onClick={() => {
+                Promise.resolve(onCancel?.()).then(onClose);
+              }}
+            >
               <CloseOutlined />
             </div>,
           )}

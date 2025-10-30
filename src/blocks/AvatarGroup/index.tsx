@@ -1,6 +1,7 @@
 import { useSize } from 'ahooks';
 import classNames from 'classnames';
 import React, { useMemo, useRef } from 'react';
+import { UIAvatar } from '../UIAvatar';
 import './index.less';
 
 // 单个头像配置项
@@ -59,48 +60,41 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
           width: isOverflow ? `calc(100% - ${avatarSize}px)` : 'auto',
         }}
       >
-        <div
-          className="block-avatar-group-item"
+        <UIAvatar
+          size={avatarSize}
+          borderWidth={borderWidth}
           style={{
-            marginLeft: 0,
-            width: avatarSize,
-            height: avatarSize,
-            borderWidth: borderWidth,
             opacity: 0,
             visibility: 'hidden',
           }}
-        ></div>
+        />
         <div
           className={classNames('block-avatar-group-list', memoFixed)}
           ref={listRef}
         >
-          {avatarList.map((avatar, index) => (
-            <div
-              key={index}
-              className="block-avatar-group-item"
-              style={{
-                marginLeft: index === 0 ? 0 : indent,
-                width: avatarSize,
-                height: avatarSize,
-                borderWidth: borderWidth,
-                backgroundImage: `url(${avatar.src})`,
-              }}
-              title={avatar.name}
-            ></div>
-          ))}
+          {avatarList.map((avatar, index) => {
+            return (
+              <UIAvatar
+                key={index}
+                {...avatar}
+                size={avatarSize}
+                borderWidth={borderWidth}
+                style={{
+                  marginLeft: index === 0 ? 0 : indent,
+                }}
+              />
+            );
+          })}
         </div>
       </div>
       {isOverflow && (
-        <div
+        <UIAvatar
           className="block-avatar-group-item merge"
-          style={{
-            width: avatarSize,
-            height: avatarSize,
-            borderWidth: borderWidth,
-          }}
+          size={avatarSize}
+          borderWidth={borderWidth}
         >
           {mergeTextFormatter(avatarList.length)}
-        </div>
+        </UIAvatar>
       )}
     </div>
   );
