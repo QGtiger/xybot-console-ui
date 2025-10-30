@@ -87,7 +87,7 @@ export function LinkPopoverContent({
       <Form
         form={form}
         layout="vertical"
-        className="mt-4"
+        className="mt-2"
         colon={false}
         initialValues={{
           url,

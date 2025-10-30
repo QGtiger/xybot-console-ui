@@ -5,6 +5,7 @@ import { FC, HTMLAttributes } from 'react';
 
 import { useBoolean } from 'ahooks';
 import { Popover } from 'antd';
+import { ImagePopoverContent } from './components/ImagePopoverContent';
 import { LinkPopoverContent } from './components/LinkPopoverContent';
 import './index.less';
 
@@ -143,15 +144,23 @@ const MenuItemsMap: Record<EditorMenuItems, FC<{ editor: Editor }>> = {
   },
   image: function Image() {
     return (
-      <MenuItem
-        iconType={MenuItemIconMap.image}
-        onClick={() => {
-          // const url = window.prompt('Enter image URL');
-          // if (url) {
-          //   editor.chain().focus().setImage({ src: url }).run();
-          // }
-        }}
-      />
+      <Popover
+        content={<ImagePopoverContent />}
+        trigger={['click']}
+        arrow={false}
+        placement="bottomLeft"
+        destroyOnHidden
+      >
+        <MenuItem
+          iconType={MenuItemIconMap.image}
+          onClick={() => {
+            // const url = window.prompt('Enter image URL');
+            // if (url) {
+            //   editor.chain().focus().setImage({ src: url }).run();
+            // }
+          }}
+        />
+      </Popover>
     );
   },
 };
