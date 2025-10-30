@@ -3,7 +3,9 @@ import { useCurrentEditor, useEditorState, type Editor } from '@tiptap/react';
 import classNames from 'classnames';
 import { FC, HTMLAttributes } from 'react';
 
+import { useBoolean } from 'ahooks';
 import { Popover } from 'antd';
+import { LinkPopoverContent } from './components/LinkPopoverContent';
 import './index.less';
 
 export type EditorMenuItems =
@@ -112,12 +114,23 @@ const MenuItemsMap: Record<EditorMenuItems, FC<{ editor: Editor }>> = {
   },
   link: function Link({ editor }) {
     const isActive = useEditorStateByActiveKey('link', editor);
+    const [open, setOpen] = useBoolean();
     return (
       <Popover
-        content={<div className="flex p-1">222</div>}
+        content={
+          <LinkPopoverContent
+            isActive={isActive}
+            iconType={MenuItemIconMap.link}
+            editor={editor}
+            close={setOpen.setFalse}
+          />
+        }
         trigger={['click']}
         arrow={false}
         placement="bottomLeft"
+        onOpenChange={setOpen.set}
+        open={open}
+        destroyOnHidden
       >
         <MenuItem
           className={classNames({
