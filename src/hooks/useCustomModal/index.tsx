@@ -110,6 +110,7 @@ function CustomModalContent(
   };
 
   const renderLogo = () => {
+    if (!logo) return null;
     const logoNode = <div className="logo">{logo}</div>;
     if (isWithLogoWrapper) {
       return <div className="logo-wrapper">{logoNode}</div>;
