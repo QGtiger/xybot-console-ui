@@ -1,6 +1,12 @@
 @import '../../variables.less';
 
 .ui-tabs {
+  &.hide-tab-line {
+    .ui-tabs-nav::before {
+      display: none;
+    }
+  }
+
   &-segment {
     display: block;
     .ui-segmented {
