@@ -1,10 +1,10 @@
 import { computePosition } from '@floating-ui/dom';
-import { EmojiOptions } from '@tiptap/extension-emoji';
+import type { EmojiOptions } from '@tiptap/extension-emoji';
 import { ReactRenderer } from '@tiptap/react';
 
 import { EmojiList } from './EmojiList';
 
-export default {
+export const EmojiSuggestion: EmojiOptions['suggestion'] = {
   items: ({ editor, query }) => {
     return editor.storage.emoji.emojis
       .filter(({ shortcodes, tags }) => {
@@ -79,4 +79,4 @@ export default {
       },
     };
   },
-} as EmojiOptions['suggestion'];
+};

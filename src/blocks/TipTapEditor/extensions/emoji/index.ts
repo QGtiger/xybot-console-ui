@@ -1,5 +1,5 @@
 import Emoji, { gitHubEmojis } from '@tiptap/extension-emoji';
-import suggestion from './suggestion';
+import { EmojiSuggestion } from './suggestion';
 
 // https://tiptap.dev/docs/editor/extensions/nodes/emoji
 
@@ -8,6 +8,6 @@ export function TipTapEmoji(): any {
     emojis: gitHubEmojis,
     // 启用表情符号
     enableEmoticons: true,
-    suggestion,
+    suggestion: EmojiSuggestion,
   });
 }

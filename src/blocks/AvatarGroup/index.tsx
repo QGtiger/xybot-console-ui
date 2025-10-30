@@ -13,6 +13,7 @@ export interface AvatarItem {
 // 头像组配置项
 export interface AvatarGroupProps {
   avatarList: AvatarItem[]; // 头像列表
+  borderColor?: string; // 边框颜色，默认白色
   borderWidth?: number; // 边框宽度，默认0
   indent?: number; // 缩进距离，默认-8px（重叠效果）
   avatarSize?: number; // 头像大小，默认40px
@@ -23,6 +24,7 @@ export interface AvatarGroupProps {
 
 export const AvatarGroup: React.FC<AvatarGroupProps> = ({
   avatarList = [],
+  borderColor,
   borderWidth = 4,
   indent = -8,
   avatarSize = 40,
@@ -63,6 +65,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
         <UIAvatar
           size={avatarSize}
           borderWidth={borderWidth}
+          borderColor={borderColor}
           style={{
             opacity: 0,
             visibility: 'hidden',
@@ -79,6 +82,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
                 {...avatar}
                 size={avatarSize}
                 borderWidth={borderWidth}
+                borderColor={borderColor}
                 style={{
                   marginLeft: index === 0 ? 0 : indent,
                 }}
@@ -92,6 +96,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
           className="block-avatar-group-item merge"
           size={avatarSize}
           borderWidth={borderWidth}
+          borderColor={borderColor}
         >
           {mergeTextFormatter(avatarList.length)}
         </UIAvatar>
