@@ -15,8 +15,9 @@ export interface CustomModalContentProps {
   logo?: React.ReactNode;
 
   isWithLogoWrapper?: boolean;
-  headerBorder?: boolean;
   headerStyle?: React.CSSProperties;
+  footerStyle?: React.CSSProperties;
+
   // extra
   extra?: React.ReactNode;
   closeable?: boolean;
@@ -59,8 +60,8 @@ function CustomModalContent(
     onClose,
     rtRender = (t) => t,
     isWithLogoWrapper = true,
-    headerBorder = true,
     headerStyle,
+    footerStyle,
     footer,
     okButtonProps,
     okText = '确认',
@@ -167,11 +168,7 @@ function CustomModalContent(
   };
 
   return (
-    <div
-      className={classNames('ui-custom-modal', {
-        'header-border': headerBorder,
-      })}
-    >
+    <div className={classNames('ui-custom-modal')}>
       <div className="ui-custom-modal-header" style={headerStyle}>
         {renderLogo()}
         <div className="title-wrapper">
@@ -183,7 +180,9 @@ function CustomModalContent(
       <div className="ui-custom-modal-content">{content}</div>
 
       {footer !== null && (
-        <div className="ui-custom-modal-footer">{renderFooter()}</div>
+        <div className="ui-custom-modal-footer" style={footerStyle}>
+          {renderFooter()}
+        </div>
       )}
 
       {closeable && (
