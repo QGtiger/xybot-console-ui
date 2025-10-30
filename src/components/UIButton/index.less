@@ -24,6 +24,10 @@
 });
 
 .typeComponent(@componentName, @typeClassName, @normalRules, @disabledRules, @hoverRules, @activeRules: @hoverRules) {
+  .hoverRulesInner() {
+    @hoverRules();
+    color: var(--text-color);
+  }
   .ui-@{componentName} {
     &-type-@{typeClassName} {
       &:not(.ui-@{componentName}-disabled) {
@@ -32,13 +36,19 @@
       &.ui-@{componentName}-disabled {
         @disabledRules();
       }
-      &:not(:disabled):not(.ui-@{componentName}-disabled):hover {
-        @hoverRules();
-        color: var(--text-color);
-      }
-      &:not(.ui-@{componentName}-disabled):active {
-        @activeRules();
-      }
+
+      .notDisabled({
+        &:active {
+          .hoverRulesInner();
+          @activeRules();
+        }
+      });
+
+      .notDisabled({
+        &:hover {
+          .hoverRulesInner()
+        }
+      });
     }
   }
 }
