@@ -1,4 +1,4 @@
-import IconFont from '@/common/IconFont';
+import { IconFont } from '@/common';
 import { UITabs, UITabsProps } from '@/components';
 import { useReactive } from 'ahooks';
 

@@ -1,8 +1,8 @@
-import IconFont from '@/common/IconFont';
 import { useCurrentEditor, useEditorState, type Editor } from '@tiptap/react';
 import classNames from 'classnames';
 import { FC, HTMLAttributes } from 'react';
 
+import { IconFont } from '@/common';
 import { useBoolean } from 'ahooks';
 import { Popover } from 'antd';
 import { ImagePopoverContent } from './components/ImagePopoverContent';

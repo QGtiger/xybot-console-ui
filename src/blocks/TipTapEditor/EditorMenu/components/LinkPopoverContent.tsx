@@ -1,4 +1,4 @@
-import IconFont from '@/common/IconFont';
+import { IconFont } from '@/common';
 import { UIButton, UIInput } from '@/components';
 import { type Editor } from '@tiptap/react';
 
