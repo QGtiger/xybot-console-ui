@@ -5,7 +5,7 @@ import './index.less';
 
 export interface UITabsProps extends Omit<TabsProps, 'type'> {
   type?: 'line' | 'card' | 'editable-card' | 'segment';
-  hiddeTabLine?: boolean;
+  hideTabLine?: boolean;
 
   segmentedProps?: Omit<
     React.ComponentProps<typeof Segmented>,
@@ -14,7 +14,7 @@ export interface UITabsProps extends Omit<TabsProps, 'type'> {
 }
 
 export function UITabs(props: UITabsProps) {
-  const { type, hiddeTabLine, ...rest } = props;
+  const { type, hideTabLine, ...rest } = props;
   if (type === 'segment') {
     return (
       <Tabs
@@ -52,7 +52,7 @@ export function UITabs(props: UITabsProps) {
   return (
     <Tabs
       {...rest}
-      className={classNames(rest.className, { 'hide-tab-line': hiddeTabLine })}
+      className={classNames(rest.className, { 'hide-tab-line': hideTabLine })}
       type={type}
     />
   );

@@ -37,7 +37,7 @@ export default () => {
         padding: '16px',
       }}
     >
-      <UITabs hiddeTabLine size="small" items={items} />
+      <UITabs hideTabLine size="small" items={items} />
       <UITabs size="middle" items={items} />
       <UITabs size="large" items={items} />
 
