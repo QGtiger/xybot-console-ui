@@ -1,5 +1,4 @@
-import { ThemeModel } from '@xybot/ui';
-import { UIAvatar } from '..';
+import { ThemeModel, UIAvatar } from '@xybot/ui';
 
 export default () => {
   const { isDarkMode } = ThemeModel.useModel();

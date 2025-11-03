@@ -9,6 +9,8 @@ group:
 
 :::info
 卓越中心业务侧孵化的 的弹窗组件
+当前 useCustomModal 的上下文是最顶层的。 采用的 modal 是通过 ThemeModal 导出的。
+可以采用 useCustomModalWithHolder hooks 获取当前 contextholder
 :::
 
 | 属性名            | 类型                                                                                                                   | 必填 | 说明                                       |

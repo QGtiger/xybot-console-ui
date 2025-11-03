@@ -7,3 +7,5 @@ export * from './TipTapEditor';
 export * from './ScrollArea';
 
 export * from './CommentTree';
+
+export * from './UIAvatar';
