@@ -4,6 +4,7 @@ import { ThemeModel } from '@/components/ThemeProvider';
 import { UIButton, UIButtonProps } from '@/components/UIButton';
 import { CloseOutlined } from '@ant-design/icons';
 import { useBoolean } from 'ahooks';
+import { Modal } from 'antd';
 import classNames from 'classnames';
 import './index.less';
 
@@ -230,4 +231,33 @@ export function useCustomModal() {
   };
 
   return { showCustomModal };
+}
+
+export function useCustomModalWithHolder() {
+  const [modal, contextHolder] = Modal.useModal();
+
+  const showCustomModal = (props: CustomModalContentProps) => {
+    const ins = modal.confirm({
+      icon: null,
+      footer: null,
+      styles: {
+        content: {
+          padding: 0,
+        },
+      },
+      className: 'ui-custom-modal-wrapper',
+      content: (
+        <CustomModalContent
+          {...props}
+          onClose={() => {
+            ins.destroy();
+          }}
+        />
+      ),
+      width: props.width || 520,
+    });
+    return ins;
+  };
+
+  return { showCustomModal, contextHolder };
 }

@@ -51,6 +51,8 @@ export function UIButton(props: UIButtonProps) {
     size = defaultSize,
     disabled,
     loading,
+    // 默认关闭
+    autoInsertSpace = false,
     ...rest
   } = useDefaultProps(props, 'uiButton');
 
@@ -71,6 +73,7 @@ export function UIButton(props: UIButtonProps) {
       type="default"
       disabled={disabled}
       loading={mergeLoading}
+      autoInsertSpace={autoInsertSpace}
       className={classNames(
         `ui-btn ui-btn-size-${size} ui-btn-type-${type}`,
         props.className,

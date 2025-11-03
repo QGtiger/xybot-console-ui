@@ -15,14 +15,21 @@ export default () => {
         alignItems: 'flex-start',
       }}
     >
+      <Checkbox></Checkbox>
       <Checkbox>常规</Checkbox>
-      <Checkbox indeterminate disabled>
+      <Checkbox checked indeterminate disabled>
         常规
       </Checkbox>
       <Checkbox checked disabled>
         默认选中
       </Checkbox>
       <Checkbox disabled>常规</Checkbox>
+
+      <Checkbox.Group>
+        <Checkbox value="A">选项A</Checkbox>
+        <Checkbox value="B">选项B</Checkbox>
+        <Checkbox value="C">选项C</Checkbox>
+      </Checkbox.Group>
     </div>
   );
 };

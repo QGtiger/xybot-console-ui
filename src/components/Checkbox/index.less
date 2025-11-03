@@ -1,0 +1,72 @@
+@import '../../variables.less';
+
+.checkboxRules(@rules) {
+  .ui-checkbox-inner {
+    @rules();
+  }
+}
+
+.checkboxCheckedRules(@rules) {
+  .ui-checkbox-checked:not(.ui-checkbox-disabled) {
+    .ui-checkbox-inner {
+      @rules();
+    }
+  }
+}
+
+.ui-checkbox-wrapper {
+  .checkboxRules(
+    {
+      border-color: @border-base-secondary;
+      width: 14px;
+      height: 14px;
+      &::after {
+        border-color: #ffffff;
+        inset-inline-start: 22%
+      }
+    }
+  );
+
+  .ui-checkbox-indeterminate {
+    .ui-checkbox-inner {
+      background-color: @bg-info-spotlight;
+      border-color: transparent;
+      &::after {
+        height: 1px;
+        background-color: #ffffff;
+        inset-inline-start: 50%;
+      }
+    }
+  }
+
+  &:not(.ui-checkbox-wrapper-disabled) {
+    .checkboxCheckedRules({
+      background-color: @bg-info-spotlight;
+    });
+
+    &:hover {
+      .checkboxRules({
+        border-color: @border-base-tertiary;
+        background-color: @bg-base-container-secondary;
+      });
+
+      .checkboxCheckedRules({
+        background-color: @bg-info-spotlight-secondary;
+      });
+    }
+  }
+
+  &.ui-checkbox-wrapper-disabled {
+    .checkboxRules({
+      background-color: @bg-fill-deep-secondary;
+      border-color: transparent;
+      color: @text-base-quaternary;
+    });
+
+    .ui-checkbox-checked {
+      .ui-checkbox-inner {
+        background-color: @bg-info-quaternary;
+      }
+    }
+  }
+}
