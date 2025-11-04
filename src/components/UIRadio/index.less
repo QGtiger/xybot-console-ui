@@ -1,0 +1,59 @@
+@import '../../variables.less';
+
+.radioRules(@rules) {
+  .ui-radio-inner {
+    @rules();
+  }
+}
+
+.radioCheckedRules(@rules) {
+  .ui-radio-checked:not(.ui-radio-disabled) {
+    .ui-radio-inner {
+      @rules();
+    }
+  }
+}
+
+.ui-radio-wrapper {
+  .radioRules(
+    {
+      background-color: @bg-base-container;
+      border-color: @border-base-secondary;
+    }
+  );
+
+  &:not(.ui-radio-wrapper-disabled) {
+    .radioCheckedRules({
+      background-color: @bg-info-spotlight;
+    });
+
+    .radioCheckedRules({
+      border-color: transparent
+    });
+
+    &:hover {
+      .radioRules({
+        border-color: @border-base-tertiary;
+        background-color: @bg-base-container-secondary;
+      });
+
+      .radioCheckedRules({
+        // background-color: @bg-info-spotlight-secondary;
+      });
+    }
+  }
+
+  &.ui-radio-wrapper-disabled {
+    .radioRules({
+      background-color: @bg-fill-deep-secondary;
+      border-color: transparent;
+      color: @text-base-quaternary;
+    });
+
+    .ui-radio-checked {
+      .ui-radio-inner {
+        background-color: @bg-info-quaternary;
+      }
+    }
+  }
+}

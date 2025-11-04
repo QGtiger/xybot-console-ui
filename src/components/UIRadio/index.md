@@ -1,11 +1,11 @@
 ---
-title: Radio
+title: UIRadio
 apiHeader: true
 group:
   title: 通用
 ---
 
-# Radio
+# UIRadio
 
 基于 Ant Design Radio 组件开发，保持与原生组件完全兼容。
 
