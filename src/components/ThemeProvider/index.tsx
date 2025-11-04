@@ -26,7 +26,6 @@ import { createCustomModel } from '@/utils/model';
 import '@/common/iconfont/iconfont.css';
 import '../../global.less';
 import '../../styles.css';
-import '../Checkbox/index.less';
 import '../Dropdown/index.less';
 import './index.less';
 

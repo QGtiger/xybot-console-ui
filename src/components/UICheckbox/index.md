@@ -1,11 +1,11 @@
 ---
-title: Checkbox
+title: UICheckbox
 apiHeader: true
 group:
   title: 通用
 ---
 
-# Checkbox
+# UICheckbox
 
 基于 Ant Design Checkbox 组件开发，保持与原生组件完全兼容。
 
