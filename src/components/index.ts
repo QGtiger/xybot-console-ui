@@ -4,6 +4,7 @@ export * from './UICheckbox';
 export * from './UIDropdown';
 
 export * from './UIRadio';
+export * from './UISwitch';
 
 export * from './UIButton';
 export * from './UIInput';

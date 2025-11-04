@@ -1,4 +1,4 @@
-import { Switch, ThemeModel } from '@xybot/ui';
+import { ThemeModel, UISwitch } from '@xybot/ui';
 
 export default () => {
   const { isDarkMode } = ThemeModel.useModel();
@@ -15,11 +15,11 @@ export default () => {
         alignItems: 'flex-start',
       }}
     >
-      <Switch />
-      <Switch disabled />
-      <Switch disabled checked />
-      <Switch size="small" />
-      <Switch size="small" disabled />
+      <UISwitch />
+      <UISwitch disabled />
+      <UISwitch disabled checked />
+      <UISwitch size="small" />
+      <UISwitch size="small" disabled />
     </div>
   );
 };

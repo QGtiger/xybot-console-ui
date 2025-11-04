@@ -1,0 +1,25 @@
+@import '../../variables.less';
+
+// switch
+
+.ui-switch {
+  border-radius: 6px;
+  box-shadow: none !important;
+
+  background-color: @bg-fill-deep-tertiary;
+
+  &:not(.ui-switch-disabled):hover {
+    background-color: @bg-fill-deep-quaternary;
+  }
+
+  &.ui-switch-checked {
+    background-color: @bg-info-spotlight;
+    .ui-switch-handle::before {
+      background-color: @text-base-in-coloer-default;
+    }
+  }
+  .ui-switch-handle::before {
+    border-radius: 4px;
+    background-color: @bg-base-container;
+  }
+}

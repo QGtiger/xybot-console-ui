@@ -1,11 +1,11 @@
 ---
-title: Switch
+title: UISwitch
 apiHeader: true
 group:
   title: 通用
 ---
 
-# Switch
+# UISwitch
 
 基于 Ant Design Switch 组件开发，保持与原生组件完全兼容。
 
