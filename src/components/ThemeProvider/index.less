@@ -5,39 +5,3 @@
   min-height: 24px;
   line-height: 24px;
 }
-
-.ui {
-  &-message {
-    color: @text-base-default;
-    .ui-message-notice-wrapper {
-      .ui-message {
-        &-success > .anticon {
-          color: @bg-success-spotlight;
-        }
-        &-error > .anticon {
-          color: @bg-error-spotlight;
-        }
-        &-warning > .anticon {
-          color: @bg-warning-spotlight;
-        }
-        &-info > .anticon {
-          color: @bg-info-spotlight;
-        }
-      }
-
-      .ui-message-notice-content {
-        background-color: @bg-base-container;
-      }
-    }
-  }
-
-  &-tooltip {
-    .ui-tooltip-inner {
-      border-radius: 8px;
-      background-color: @bg-base-mask;
-    }
-    .ui-tooltip-arrow::before {
-      background-color: @bg-base-mask;
-    }
-  }
-}

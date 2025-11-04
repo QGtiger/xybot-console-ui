@@ -6,6 +6,8 @@ export * from './UIDropdown';
 export * from './UIRadio';
 export * from './UISwitch';
 
+export * from './UIMessage';
+
 export * from './UIButton';
 export * from './UIInput';
 
@@ -28,3 +30,5 @@ export * from './UITabs';
 export * from './UIContainer';
 
 export * from './UIDatePicker';
+
+export * from './UITooltip';

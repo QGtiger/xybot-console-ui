@@ -1,0 +1,27 @@
+@import '../../variables.less';
+
+.ui {
+  &-message {
+    color: @text-base-default;
+    .ui-message-notice-wrapper {
+      .ui-message {
+        &-success > .anticon {
+          color: @bg-success-spotlight;
+        }
+        &-error > .anticon {
+          color: @bg-error-spotlight;
+        }
+        &-warning > .anticon {
+          color: @bg-warning-spotlight;
+        }
+        &-info > .anticon {
+          color: @bg-info-spotlight;
+        }
+      }
+
+      .ui-message-notice-content {
+        background-color: @bg-base-container;
+      }
+    }
+  }
+}

@@ -1,34 +1,35 @@
-import { message, Space, ThemeModel, UIButton } from '@xybot/ui';
+import { message, Space, ThemeModel, UIButton, UIMessage } from '@xybot/ui';
 
 export default () => {
-  const [messageApi, contextHolder] = message.useMessage();
-
   const { isDarkMode } = ThemeModel.useModel();
 
   const normal = () => {
-    messageApi.open({
-      type: 'info',
-      content: 'This is a normal message',
-      duration: 1000,
+    // messageApi.open({
+    //   type: 'info',
+    //   content: 'This is a normal message',
+    //   duration: 1000,
+    // });
+
+    UIMessage.info('This is a success message from UIMessage', 2, () => {
+      message.success('This is a success message', 10000);
     });
   };
 
   const success = () => {
-    messageApi.open({
-      type: 'success',
+    UIMessage.success({
       content: 'This is a success message',
     });
   };
 
   const error = () => {
-    messageApi.open({
+    UIMessage.error({
       type: 'error',
       content: 'This is an error message',
     });
   };
 
   const warning = () => {
-    messageApi.open({
+    UIMessage.warning({
       type: 'warning',
       content: 'This is a warning message',
     });
@@ -46,7 +47,6 @@ export default () => {
         alignItems: 'flex-start',
       }}
     >
-      {contextHolder}
       <Space>
         <UIButton type="border" onClick={normal}>
           default

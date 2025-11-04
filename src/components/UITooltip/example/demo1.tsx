@@ -1,5 +1,5 @@
 import { HomeOutlined } from '@ant-design/icons';
-import { Space, ThemeModel, Tooltip, UIButton } from '@xybot/ui';
+import { Space, ThemeModel, UIButton, UITooltip } from '@xybot/ui';
 
 export default () => {
   const { isDarkMode } = ThemeModel.useModel();
@@ -17,12 +17,12 @@ export default () => {
       }}
     >
       <Space>
-        <Tooltip title={<div>进入社区</div>}>
+        <UITooltip title={<div>进入社区</div>} open>
           <UIButton icon={<HomeOutlined />} type="border"></UIButton>
-        </Tooltip>
-        <Tooltip title={<div>进入编辑</div>}>
+        </UITooltip>
+        <UITooltip title={<div>进入编辑</div>}>
           <UIButton icon={<HomeOutlined />} type="border"></UIButton>
-        </Tooltip>
+        </UITooltip>
       </Space>
     </div>
   );

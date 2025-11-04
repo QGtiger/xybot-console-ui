@@ -26,6 +26,7 @@ import { createCustomModel } from '@/utils/model';
 import '@/common/iconfont/iconfont.css';
 import '../../global.less';
 import '../../styles.css';
+import { MessageInsRef } from '../UIMessage';
 import './index.less';
 
 export { ThemeMode, ThemeType };
@@ -45,10 +46,6 @@ type ThemeModelProps = {
 
 const ComponentConfigContext = createContext<ComponentConfig>({});
 
-message.config({
-  prefixCls: 'ui-message',
-});
-
 export const ThemeModel = createCustomModel((props: ThemeModelProps) => {
   return props;
 });
@@ -61,9 +58,13 @@ export function ThemeProvider(
     },
 ) {
   const { theme = 'light', isUseAntdTheme } = props;
+  const [messageApi, messsageApiHolder] = message.useMessage({
+    prefixCls: 'ui-message',
+  });
   const { modal, modalHolder } = useUIModal();
 
   ModalRef.current = modal;
+  MessageInsRef.current = messageApi;
 
   const commonTheme = theme === 'dark' ? darkTheme : lightTheme;
 
@@ -106,6 +107,7 @@ export function ThemeProvider(
         <ComponentConfigContext.Provider value={props.componentConfig || {}}>
           {props.children}
           {modalHolder}
+          {messsageApiHolder}
         </ComponentConfigContext.Provider>
       </ThemeModel.Provider>
     </ConfigProvider>
