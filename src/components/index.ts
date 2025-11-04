@@ -1,6 +1,7 @@
 export * from './ThemeProvider';
 
 export * from './UICheckbox';
+export * from './UIDropdown';
 
 export * from './UIButton';
 export * from './UIInput';
