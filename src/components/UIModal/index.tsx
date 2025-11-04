@@ -1,4 +1,4 @@
-import { Modal, ModalProps } from 'antd';
+import { ConfigProvider, Modal, ModalProps } from 'antd';
 import { ConfigUpdate, ModalFunc } from 'antd/es/modal/confirm';
 import { UIButton, UIButtonProps } from '../UIButton';
 
@@ -71,6 +71,7 @@ function getModalInvokeOptions(config: UIModalFuncProps, close: () => void) {
 
   return {
     ...config,
+    prefixCls: 'ui-modal',
     width: mergeWidth,
     footer: !isNoFooter(footer)
       ? () => {
@@ -102,7 +103,7 @@ function getModalInvokeOptions(config: UIModalFuncProps, close: () => void) {
           );
 
           const originNode = (
-            <div className="ui-modal-footer">
+            <div className="flex justify-end gap-1">
               <OkBtn />
               {type === 'confirm' && <CancelBtn />}
             </div>
@@ -188,7 +189,7 @@ function UIOriginModal(
         );
 
         const originNode = (
-          <div className="ui-modal-footer">
+          <div className="flex justify-end gap-2">
             <OkBtn />
             <CancelBtn />
           </div>
@@ -206,13 +207,15 @@ function UIOriginModal(
     : footer;
 
   return (
-    <Modal
-      {...props}
-      footer={mergedFooter}
-      width={mergeWidth}
-      okButtonProps={{}}
-      cancelButtonProps={{}}
-    />
+    <ConfigProvider prefixCls="ui">
+      <Modal
+        {...props}
+        footer={mergedFooter}
+        width={mergeWidth}
+        okButtonProps={{}}
+        cancelButtonProps={{}}
+      />
+    </ConfigProvider>
   );
 }
 

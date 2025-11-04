@@ -16,6 +16,7 @@ export function UIMenu(props: UIMenuProps) {
 
   return (
     <ConfigProvider
+      prefixCls="ui"
       theme={{
         components: {
           Menu: {
