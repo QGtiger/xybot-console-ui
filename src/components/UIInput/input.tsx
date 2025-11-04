@@ -10,61 +10,62 @@ import { PasswordProps } from 'antd/es/input/Password';
 import classNames from 'classnames';
 
 import { TextAreaProps } from 'antd/es/input';
-import { forwardRef } from 'react';
+import { FC, forwardRef } from 'react';
 import { useDefaultProps } from '../ThemeProvider';
 import './input.less';
 
-type WrapperPropsWithCustom<T> = Omit<T, 'size'> & {
+type CommonInputProps = {
   type?: 'border' | 'borderless' | 'filledsecondary' | 'filledbase';
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-  className?: string;
 };
 
-export type UIInputProps = WrapperPropsWithCustom<AntdInputProps>;
+type GetInputProps<T> = Omit<T, 'size' | 'variant' | 'type'> & CommonInputProps;
 
-function UIInputWrapper<WrapperRef, WrapperProps>(Componet: any) {
-  return forwardRef<WrapperRef, WrapperPropsWithCustom<WrapperProps>>(
-    (props, ref) => {
-      const {
-        // @ts-expect-error
-        type = 'border',
-        // @ts-expect-error
-        size = 'lg',
-        ...rest
-      } = useDefaultProps(props, 'uiInput');
+function UIInputWrapper<WrapperRef, WrapperProps extends CommonInputProps>(
+  Componet: any,
+) {
+  return forwardRef<WrapperRef, WrapperProps>((props, ref) => {
+    const {
+      type = 'border',
+      size = 'lg',
+      ...rest
+    } = useDefaultProps(props, 'uiInput');
 
-      return (
-        <ConfigProvider prefixCls="ui">
-          <Componet
-            ref={ref}
-            {...rest}
-            variant="outlined"
-            // prefixCls="ui-input"
-            className={classNames(
-              // @ts-expect-error
-              props.className,
-              'ui-input',
-              `ui-input-${size}`,
-              `ui-input-type-${type}`,
-            )}
-            // @ts-expect-error 通过取巧的方式 解决外层 样式问题
-            suffix={props.suffix || <></>}
-          />
-        </ConfigProvider>
-      );
-    },
-  );
+    return (
+      <ConfigProvider prefixCls="ui">
+        <Componet
+          ref={ref}
+          {...rest}
+          variant="outlined"
+          // prefixCls="ui-input"
+          className={classNames(
+            // @ts-expect-error
+            props.className,
+            'ui-input',
+            `ui-input-${size}`,
+            `ui-input-type-${type}`,
+          )}
+          // @ts-expect-error 通过取巧的方式 解决外层 样式问题
+          suffix={props.suffix || <></>}
+        />
+      </ConfigProvider>
+    );
+  });
 }
 
-export const UIInputNumber = UIInputWrapper<InputRef, AntdInputNumberProps>(
-  InputNumber,
-);
+export type UIInputNumberProps = GetInputProps<AntdInputNumberProps>;
+export const UIInputNumber: FC<UIInputNumberProps> = UIInputWrapper<
+  InputRef,
+  UIInputNumberProps
+>(InputNumber);
 
-export const UIInputPassword = UIInputWrapper<InputRef, PasswordProps>(
+export type UIInputPasswordProps = GetInputProps<PasswordProps>;
+export const UIInputPassword = UIInputWrapper<InputRef, UIInputPasswordProps>(
   AntdInput.Password,
 );
 
-export const UIInput = UIInputWrapper<InputRef, AntdInputProps>(AntdInput);
+export type UIInputProps = GetInputProps<AntdInputProps>;
+export const UIInput = UIInputWrapper<InputRef, UIInputProps>(AntdInput);
 
 export const UIInputTextArea = forwardRef<
   InputRef,
