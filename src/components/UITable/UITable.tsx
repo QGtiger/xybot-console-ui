@@ -162,6 +162,7 @@ export function UITable(props: UITableProps) {
 
   return (
     <ConfigProvider
+      prefixCls="ui"
       theme={{
         components: {
           Table: {
