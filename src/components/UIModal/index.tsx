@@ -1,4 +1,4 @@
-import { ConfigProvider, Modal, ModalProps } from 'antd';
+import { Modal, ModalProps } from 'antd';
 import { ConfigUpdate, ModalFunc } from 'antd/es/modal/confirm';
 import { UIButton, UIButtonProps } from '../UIButton';
 
@@ -207,15 +207,14 @@ function UIOriginModal(
     : footer;
 
   return (
-    <ConfigProvider prefixCls="ui">
-      <Modal
-        {...props}
-        footer={mergedFooter}
-        width={mergeWidth}
-        okButtonProps={{}}
-        cancelButtonProps={{}}
-      />
-    </ConfigProvider>
+    <Modal
+      {...props}
+      prefixCls="ui-modal"
+      footer={mergedFooter}
+      width={mergeWidth}
+      okButtonProps={{}}
+      cancelButtonProps={{}}
+    />
   );
 }
 

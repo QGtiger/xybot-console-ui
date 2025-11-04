@@ -20,6 +20,11 @@ export interface AvatarGroupProps {
   mergeTextFormatter?: (count: number) => React.ReactNode; // 合并文本格式化函数
   // 显示布局方式，默认不固定
   fixed?: 'left' | 'right';
+  renderAvatar?: (
+    originNode: React.ReactNode,
+    avatar: AvatarItem,
+    index: number,
+  ) => React.ReactNode; // 自定义头像渲染函数
 }
 
 export const AvatarGroup: React.FC<AvatarGroupProps> = ({
@@ -30,6 +35,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
   avatarSize = 40,
   mergeTextFormatter = (count) => `${count}`,
   fixed,
+  renderAvatar = (v) => v,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
@@ -76,7 +82,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
           ref={listRef}
         >
           {avatarList.map((avatar, index) => {
-            return (
+            return renderAvatar(
               <UIAvatar
                 key={index}
                 {...avatar}
@@ -86,7 +92,9 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
                 style={{
                   marginLeft: index === 0 ? 0 : indent,
                 }}
-              />
+              />,
+              avatar,
+              index,
             );
           })}
         </div>

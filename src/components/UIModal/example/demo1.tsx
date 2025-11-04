@@ -40,7 +40,7 @@ export default () => {
         ></UIButton>
         <UIButton
           onClick={() => {
-            UIModal.error({
+            UIModal.info({
               title: '11',
               content: 'content',
               cancelText: 'cancancancale',
