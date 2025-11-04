@@ -1,5 +1,35 @@
 import { ThemeConfig } from 'antd';
 
+const commonComponetsTokens: ThemeConfig['components'] = {
+  Form: {
+    colorError: 'var(--text-error-default)',
+    itemMarginBottom: 12,
+    labelColor: 'var(--text-base-secondary)',
+  },
+  Segmented: {
+    borderRadius: 8,
+    borderRadiusSM: 8,
+    borderRadiusXS: 8,
+    borderRadiusLG: 8,
+    itemColor: 'var(--text-base-tertiary)',
+    itemHoverColor: 'var(--text-base-secondary)',
+    itemHoverBg: 'transparent',
+    itemSelectedBg: 'var(--bg-base-container)',
+    trackBg: 'var(--bg-fill-deep-secondary)',
+  },
+  Input: {
+    colorTextPlaceholder: 'var(--text-base-tertiary)',
+  },
+  Modal: {
+    contentBg: 'var(--bg-base-container)',
+  },
+
+  Table: {},
+  Tabs: {
+    itemActiveColor: 'inherit',
+  },
+};
+
 export const darkTheme: ThemeConfig = {
   token: {
     colorBgContainer: 'rgba(45, 46, 53, 1)',
@@ -14,32 +44,7 @@ export const darkTheme: ThemeConfig = {
     colorWarningBg: 'var(--bg-warning-default)',
     colorErrorBg: 'var(--bg-error-default)',
   },
-  components: {
-    Form: {
-      colorError: 'var(--text-error-default)',
-      itemMarginBottom: 12,
-      labelColor: 'var(--text-base-secondary)',
-    },
-    Segmented: {
-      borderRadius: 8,
-      borderRadiusSM: 8,
-      borderRadiusXS: 8,
-      borderRadiusLG: 8,
-      itemColor: 'var(--text-base-tertiary)',
-      itemHoverColor: 'var(--text-base-secondary)',
-      itemHoverBg: 'transparent',
-      itemSelectedBg: 'var(--bg-base-container)',
-      trackBg: 'var(--bg-fill-deep-secondary)',
-    },
-    Input: {
-      colorTextPlaceholder: 'var(--text-base-tertiary)',
-    },
-    Modal: {
-      contentBg: 'var(--bg-base-container)',
-    },
-
-    Table: {},
-  },
+  components: commonComponetsTokens,
 };
 
 export const lightTheme: ThemeConfig = {
@@ -58,30 +63,5 @@ export const lightTheme: ThemeConfig = {
     colorWarningBg: 'var(--bg-warning-default)',
     colorErrorBg: 'var(--bg-error-default)',
   },
-  components: {
-    Form: {
-      colorError: 'var(--text-error-default)',
-      itemMarginBottom: 12,
-      labelColor: 'var(--text-base-secondary)',
-    },
-    Segmented: {
-      borderRadius: 8,
-      borderRadiusSM: 8,
-      borderRadiusXS: 8,
-      borderRadiusLG: 8,
-      itemColor: 'var(--text-base-tertiary)',
-      itemHoverColor: 'var(--text-base-secondary)',
-      itemHoverBg: 'transparent',
-      itemSelectedBg: 'var(--bg-base-container)',
-      trackBg: 'var(--bg-fill-deep-secondary)',
-    },
-    Input: {
-      colorTextPlaceholder: 'var(--text-base-tertiary)',
-    },
-    Modal: {
-      contentBg: 'var(--bg-base-container)',
-    },
-
-    Table: {},
-  },
+  components: commonComponetsTokens,
 };

@@ -70,6 +70,7 @@ export function UIButton(props: UIButtonProps) {
   return (
     <AntdButton
       {...rest}
+      prefixCls="ui-btn"
       type="default"
       disabled={disabled}
       loading={mergeLoading}

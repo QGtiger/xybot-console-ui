@@ -52,6 +52,7 @@ export function UITabs(props: UITabsProps) {
   return (
     <Tabs
       {...rest}
+      prefixCls="ui-tabs"
       className={classNames(rest.className, { 'hide-tab-line': hideTabLine })}
       type={type}
     />

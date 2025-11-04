@@ -59,9 +59,10 @@ export function ThemeProvider(
   props: PropsWithChildren<Omit<ConfigProviderProps, 'prefixCls' | 'theme'>> &
     Omit<ThemeModelProps, 'modal'> & {
       theme?: ThemeType;
+      isUseAntdTheme?: boolean;
     },
 ) {
-  const { theme = 'light' } = props;
+  const { theme = 'light', isUseAntdTheme } = props;
   const { modal, modalHolder } = useUIModal();
 
   ModalRef.current = modal;
@@ -82,19 +83,26 @@ export function ThemeProvider(
 
   return (
     <ConfigProvider
-      prefixCls="ui"
       {...props}
-      wave={{
-        disabled: true,
-        ...props.wave,
-      }}
-      theme={{
-        ...commonTheme,
-        algorithm:
-          theme === 'dark'
-            ? AntdTheme.darkAlgorithm
-            : AntdTheme.defaultAlgorithm,
-      }}
+      wave={
+        isUseAntdTheme
+          ? {}
+          : {
+              disabled: true,
+              ...props.wave,
+            }
+      }
+      theme={
+        isUseAntdTheme
+          ? {}
+          : {
+              ...commonTheme,
+              algorithm:
+                theme === 'dark'
+                  ? AntdTheme.darkAlgorithm
+                  : AntdTheme.defaultAlgorithm,
+            }
+      }
     >
       <ThemeModel.Provider value={memoValue}>
         <ComponentConfigContext.Provider value={props.componentConfig || {}}>
