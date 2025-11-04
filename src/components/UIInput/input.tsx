@@ -1,6 +1,8 @@
 import {
   Input as AntdInput,
+  InputNumberProps as AntdInputNumberProps,
   InputProps as AntdInputProps,
+  ConfigProvider,
   InputNumber,
   InputRef,
 } from 'antd';
@@ -32,26 +34,29 @@ function UIInputWrapper<WrapperRef, WrapperProps>(Componet: any) {
       } = useDefaultProps(props, 'uiInput');
 
       return (
-        <Componet
-          ref={ref}
-          {...rest}
-          variant="outlined"
-          className={classNames(
-            // @ts-expect-error
-            props.className,
-            'ui-input',
-            `ui-input-${size}`,
-            `ui-input-type-${type}`,
-          )}
-          // @ts-expect-error 通过取巧的方式 解决外层 样式问题
-          suffix={props.suffix || <></>}
-        />
+        <ConfigProvider prefixCls="ui">
+          <Componet
+            ref={ref}
+            {...rest}
+            variant="outlined"
+            // prefixCls="ui-input"
+            className={classNames(
+              // @ts-expect-error
+              props.className,
+              'ui-input',
+              `ui-input-${size}`,
+              `ui-input-type-${type}`,
+            )}
+            // @ts-expect-error 通过取巧的方式 解决外层 样式问题
+            suffix={props.suffix || <></>}
+          />
+        </ConfigProvider>
       );
     },
   );
 }
 
-export const UIInputNumber = UIInputWrapper<InputRef, AntdInputProps>(
+export const UIInputNumber = UIInputWrapper<InputRef, AntdInputNumberProps>(
   InputNumber,
 );
 

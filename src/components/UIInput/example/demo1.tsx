@@ -117,7 +117,7 @@ export default () => {
         maxLength={20}
         type="filledsecondary"
       />
-      <UIInput.Number variant="underlined" type="borderless" />
+      <UIInput.Number variant="underlined" type="borderless" controls={false} />
       <UIInput
         placeholder="border 请输入"
         type="border"
