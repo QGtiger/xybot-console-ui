@@ -21,6 +21,7 @@ function CommonPickerWrapper<T extends CommonDatePickerProps>(
     return (
       <PickerComponent
         {...rest}
+        prefixCls="ui-picker"
         className={`ui-date-picker ui-date-picker-size-${size} ui-date-picker-type-${type} ${className}`}
         classNames={{
           popup: {
