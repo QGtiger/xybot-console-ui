@@ -16,6 +16,9 @@ export interface CustomModalContentProps {
   logo?: React.ReactNode;
 
   isWithLogoWrapper?: boolean;
+  headerClassName?: string;
+  contentClassName?: string;
+  footerClassName?: string;
   headerStyle?: React.CSSProperties;
   footerStyle?: React.CSSProperties;
 
@@ -70,6 +73,9 @@ function CustomModalContent(
     cancelText = '取消',
     onOk,
     onCancel,
+    headerClassName,
+    contentClassName,
+    footerClassName,
   } = props;
   const [showExtra, showExtraAction] = useBoolean(false);
 
@@ -170,7 +176,10 @@ function CustomModalContent(
 
   return (
     <div className={classNames('ui-custom-modal')}>
-      <div className="ui-custom-modal-header" style={headerStyle}>
+      <div
+        className={classNames('ui-custom-modal-header', headerClassName)}
+        style={headerStyle}
+      >
         {renderLogo()}
         <div className="title-wrapper">
           <div className="title">{title}</div>
@@ -178,10 +187,15 @@ function CustomModalContent(
         </div>
       </div>
       {showExtra && <div className="extra-content">{extra}</div>}
-      <div className="ui-custom-modal-content">{content}</div>
+      <div className={classNames('ui-custom-modal-content', contentClassName)}>
+        {content}
+      </div>
 
       {footer !== null && (
-        <div className="ui-custom-modal-footer" style={footerStyle}>
+        <div
+          className={classNames('ui-custom-modal-footer', footerClassName)}
+          style={footerStyle}
+        >
           {renderFooter()}
         </div>
       )}
