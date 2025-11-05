@@ -58,6 +58,7 @@ export function ThemeProvider(
     },
 ) {
   const { theme = 'light', isUseAntdTheme } = props;
+
   const [messageApi, messsageApiHolder] = message.useMessage({
     prefixCls: 'ui-message',
   });

@@ -7,14 +7,10 @@ type MessageMethods = {
   success: TypeOpen;
   error: TypeOpen;
   warning: TypeOpen;
+  destroy: (key?: React.Key) => void;
 };
 
-const MessageTypes: Array<keyof MessageMethods> = [
-  'info',
-  'success',
-  'error',
-  'warning',
-] as const;
+const MessageTypes = ['info', 'success', 'error', 'warning'] as const;
 
 export const MessageInsRef = {
   current: null as unknown as MessageInstance,
