@@ -177,7 +177,7 @@ export function UITable(props: UITableProps) {
         rowHoverable={false}
         className={classNames(size, hoverType, props.className)}
         components={components}
-        tableLayout={columnsResizeable ? 'fixed' : 'auto'}
+        tableLayout={columnsResizeable ? 'fixed' : undefined}
       />
     </ConfigProvider>
   );

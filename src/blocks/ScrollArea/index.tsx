@@ -1,19 +1,18 @@
 import SimpleBar from 'simplebar-react';
 import 'simplebar-react/dist/simplebar.min.css';
 
+import { forwardRef } from 'react';
 import './index.less';
 
-export type ScrollAreaProps = Parameters<typeof SimpleBar>[0];
-
-export function ScrollArea(props: ScrollAreaProps) {
-  const { onScroll } = props;
+export const ScrollArea: typeof SimpleBar = forwardRef((props, ref) => {
   return (
     <SimpleBar
       {...props}
+      ref={ref}
       scrollableNodeProps={{
-        onScroll,
+        onScroll: props.onScroll,
         ...props.scrollableNodeProps,
       }}
     />
   );
-}
+});
