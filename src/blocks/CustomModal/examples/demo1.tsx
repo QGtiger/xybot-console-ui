@@ -29,7 +29,14 @@ export default () => {
           UIMessage.success('弹窗已关闭');
         }}
       >
-        222
+        <div
+          className=""
+          style={{
+            height: '100vh',
+          }}
+        >
+          ui-modal-content
+        </div>
       </CustomModal>
     </div>
   );

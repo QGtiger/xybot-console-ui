@@ -23,6 +23,7 @@ export function CustomModal(props: CustomModalProps) {
         },
       }}
       className="ui-custom-modal-wrapper"
+      prefixCls="ui-modal"
     >
       <CustomModalContent
         content={children}
