@@ -49,7 +49,7 @@ export interface CustomModalContentProps {
   width?: number;
 }
 
-function CustomModalContent(
+export function CustomModalContent(
   props: CustomModalContentProps & {
     onClose: () => void;
   },
@@ -106,6 +106,7 @@ function CustomModalContent(
   );
 
   const renderSubTitle = () => {
+    if (!subTitle) return toggleNode;
     if (typeof subTitle === 'function') {
       return subTitle(toggleNode);
     }

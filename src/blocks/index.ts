@@ -9,3 +9,5 @@ export * from './ScrollArea';
 export * from './CommentTree';
 
 export * from './UIAvatar';
+
+export * from './CustomModal';
