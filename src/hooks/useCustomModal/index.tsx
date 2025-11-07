@@ -16,7 +16,7 @@ export type ControlContentProps = {
     CancelBtn: React.FC;
     close: () => void;
   };
-  setFooter: (rn: React.ReactNode) => React.ReactNode;
+  setFooter: (rn: React.ReactNode) => void;
 };
 
 export interface CustomModalContentProps {

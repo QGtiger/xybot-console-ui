@@ -4,6 +4,7 @@ import { useSafeState } from 'ahooks';
 export default function App() {
   const [count, setCOunt] = useSafeState(30);
 
+  // @ts-expect-error
   window.setCount = setCOunt;
   return (
     <div>
