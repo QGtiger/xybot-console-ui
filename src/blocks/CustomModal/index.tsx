@@ -29,7 +29,7 @@ export function CustomModal(props: CustomModalProps) {
         content={children}
         {...customModalProps}
         onClose={() => {
-          customModalProps.onCancel?.();
+          // 让onOK onCancel 去做逻辑
         }}
       />
     </Modal>

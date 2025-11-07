@@ -31,6 +31,9 @@
 .hidden {
     display: none
 }
+.h-16 {
+    height: 4rem
+}
 .w-1 {
     width: 0.25rem
 }
@@ -45,6 +48,9 @@
 }
 .flex-shrink-0 {
     flex-shrink: 0
+}
+.flex-col {
+    flex-direction: column
 }
 .items-center {
     align-items: center

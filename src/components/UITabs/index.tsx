@@ -1,4 +1,4 @@
-import { ConfigProvider, Segmented, Tabs, TabsProps } from 'antd';
+import { Segmented, Tabs, TabsProps } from 'antd';
 
 import classNames from 'classnames';
 import './index.less';
@@ -51,12 +51,11 @@ export function UITabs(props: UITabsProps) {
     );
   }
   return (
-    <ConfigProvider prefixCls="ui">
-      <Tabs
-        {...rest}
-        className={classNames(rest.className, { 'hide-tab-line': hideTabLine })}
-        type={type}
-      />
-    </ConfigProvider>
+    <Tabs
+      {...rest}
+      className={classNames(rest.className, { 'hide-tab-line': hideTabLine })}
+      type={type}
+      prefixCls="ui-tabs"
+    />
   );
 }

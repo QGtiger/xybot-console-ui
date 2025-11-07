@@ -162,7 +162,6 @@ export function UITable(props: UITableProps) {
 
   return (
     <ConfigProvider
-      prefixCls="ui"
       theme={{
         components: {
           Table: {
@@ -178,6 +177,7 @@ export function UITable(props: UITableProps) {
         className={classNames(size, hoverType, props.className)}
         components={components}
         tableLayout={columnsResizeable ? 'fixed' : undefined}
+        prefixCls="ui-table"
       />
     </ConfigProvider>
   );

@@ -16,7 +16,6 @@ export function UIMenu(props: UIMenuProps) {
 
   return (
     <ConfigProvider
-      prefixCls="ui"
       theme={{
         components: {
           Menu: {
@@ -31,7 +30,7 @@ export function UIMenu(props: UIMenuProps) {
         },
       }}
     >
-      <Menu {...rest} inlineIndent={10} mode="inline" />
+      <Menu {...rest} inlineIndent={10} mode="inline" prefixCls="ui-menu" />
     </ConfigProvider>
   );
 }

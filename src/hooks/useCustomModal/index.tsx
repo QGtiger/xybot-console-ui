@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
+import { ScrollArea } from '@/blocks';
 import { ThemeModel } from '@/components/ThemeProvider';
 import { UIButton, UIButtonProps } from '@/components/UIButton';
 import { CloseOutlined } from '@ant-design/icons';
-import { useBoolean } from 'ahooks';
+import { useBoolean, useSize } from 'ahooks';
 import { Modal } from 'antd';
 import classNames from 'classnames';
 import './index.less';
@@ -78,6 +79,10 @@ export function CustomModalContent(
     footerClassName,
   } = props;
   const [showExtra, showExtraAction] = useBoolean(false);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
+  const headerSize = useSize(headerRef);
+  const footerSize = useSize(footerRef);
 
   const toggleNode = extra && (
     <div className="extra-toggle" onClick={() => showExtraAction.toggle()}>
@@ -176,10 +181,20 @@ export function CustomModalContent(
   };
 
   return (
-    <div className={classNames('ui-custom-modal')}>
+    <div
+      className={classNames('ui-custom-modal flex flex-col ')}
+      style={{
+        // @ts-expect-error
+        '--fh': (footerSize?.height || 0) + (headerSize?.height || 0) || 0,
+      }}
+    >
       <div
-        className={classNames('ui-custom-modal-header', headerClassName)}
+        className={classNames(
+          'ui-custom-modal-header flex-shrink-0',
+          headerClassName,
+        )}
         style={headerStyle}
+        ref={headerRef}
       >
         {renderLogo()}
         <div className="title-wrapper">
@@ -187,15 +202,23 @@ export function CustomModalContent(
           <div className="sub">{renderSubTitle()}</div>
         </div>
       </div>
-      {showExtra && <div className="extra-content">{extra}</div>}
-      <div className={classNames('ui-custom-modal-content', contentClassName)}>
-        {content}
-      </div>
+      <ScrollArea className=" ui-custom-modal-scroll-area">
+        {showExtra && <div className="extra-content">{extra}</div>}
+        <div
+          className={classNames('ui-custom-modal-content', contentClassName)}
+        >
+          {content}
+        </div>
+      </ScrollArea>
 
       {footer !== null && (
         <div
-          className={classNames('ui-custom-modal-footer', footerClassName)}
+          className={classNames(
+            'ui-custom-modal-footer flex-shrink-0',
+            footerClassName,
+          )}
           style={footerStyle}
+          ref={footerRef}
         >
           {renderFooter()}
         </div>
