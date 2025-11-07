@@ -30,6 +30,7 @@ export default () => {
           },
         ]}
         mode="multiple"
+        suffixIcon={null}
       />
       <UISelect
         placeholder="border 请输入"

@@ -39,7 +39,6 @@ export function UIAvatar(props: UIAvatarProps) {
         borderColor,
         ...rest.style,
         ...customStyle,
-        fontSize: 'inherit',
       }}
       size={size}
     >

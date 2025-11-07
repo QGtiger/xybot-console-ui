@@ -31,7 +31,6 @@ export const UISelect = forwardRef<RefSelectProps, UISelectProps>(
         allowClear
         prefixCls="ui-select"
         ref={selectRef}
-        {...rest}
         className={classNames(
           props.className,
           'ui-select',
@@ -71,6 +70,7 @@ export const UISelect = forwardRef<RefSelectProps, UISelectProps>(
             <path d="M10 3L4.5 8.5L2 6" />
           </svg>
         }
+        {...rest}
       />
     );
   },
