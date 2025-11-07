@@ -2,6 +2,7 @@ import { useBoolean } from 'ahooks';
 import classNames from 'classnames';
 
 import { HTMLAttributes, PropsWithChildren } from 'react';
+import { ScrollArea } from '../ScrollArea';
 import './index.less';
 
 export type ScrollContainerProps = {
@@ -43,13 +44,13 @@ export function ScrollContainer({
         '--mask-bg': indicatorColor,
       }}
     >
-      <div
+      <ScrollArea
         {...restProps}
         className={classNames('ui-scroll-container')}
         onScroll={handleScroll}
       >
         {children}
-      </div>
+      </ScrollArea>
     </div>
   );
 }
