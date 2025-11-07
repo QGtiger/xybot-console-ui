@@ -40,12 +40,14 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const containerSize = useSize(containerRef);
-  const isOverflow = (() => {
-    if (!containerSize || !listRef.current) return false;
+  const listSize = useSize(listRef);
+
+  const isOverflow = useMemo(() => {
+    if (!containerSize || !listSize) return false;
     const containerWidth = containerSize.width;
-    const listWidth = listRef.current.offsetWidth;
+    const listWidth = listSize.width;
     return listWidth > containerWidth;
-  })();
+  }, [containerSize?.width, listSize?.width]);
 
   console.log('isOverflow', isOverflow);
 

@@ -1,5 +1,11 @@
 import { FormOutlined } from '@ant-design/icons';
-import { ThemeModel, UIButton, useCustomModal } from '@xybot/ui';
+import {
+  ControlContentProps,
+  ThemeModel,
+  UIButton,
+  useCustomModal,
+} from '@xybot/ui';
+import { useLayoutEffect } from 'react';
 
 const Card = ({ step, title, description }: any) => {
   return (
@@ -87,6 +93,22 @@ const ExtraContainer = () => {
   );
 };
 
+function ControlContent({ setFooter }: ControlContentProps) {
+  useLayoutEffect(() => {
+    setFooter(222);
+  });
+  return (
+    <div
+      className=""
+      style={{
+        height: '500px',
+      }}
+    >
+      测试 CustomModal
+    </div>
+  );
+}
+
 export default () => {
   const { isDarkMode } = ThemeModel.useModel();
   const { showCustomModal } = useCustomModal();
@@ -109,7 +131,9 @@ export default () => {
             title: '自定义 Modal 标题',
             logo: <FormOutlined />,
             extra: <ExtraContainer />,
-            content: ' 测试 CustomModal 内容',
+            content: (props) => {
+              return <ControlContent {...props} />;
+            },
             okButtonProps: {
               type: 'primary',
             },

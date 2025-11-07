@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 
 import { ScrollArea } from '@/blocks';
 import { ThemeModel } from '@/components/ThemeProvider';
@@ -8,6 +8,16 @@ import { useBoolean, useSize } from 'ahooks';
 import { Modal } from 'antd';
 import classNames from 'classnames';
 import './index.less';
+
+export type ControlContentProps = {
+  originFooterNode: React.ReactNode;
+  extra: {
+    OkBtn: React.FC;
+    CancelBtn: React.FC;
+    close: () => void;
+  };
+  setFooter: (rn: React.ReactNode) => React.ReactNode;
+};
 
 export interface CustomModalContentProps {
   title: React.ReactNode;
@@ -26,7 +36,7 @@ export interface CustomModalContentProps {
   // extra
   extra?: React.ReactNode;
   closeable?: boolean;
-  content?: React.ReactNode;
+  content?: React.ReactNode | ((opts: ControlContentProps) => React.ReactNode);
 
   rtRender?: (closeBtn: React.ReactNode) => React.ReactNode;
   footer?:
@@ -79,10 +89,13 @@ export function CustomModalContent(
     footerClassName,
   } = props;
   const [showExtra, showExtraAction] = useBoolean(false);
+  const [footerNode, setFooterNode] = useState<React.ReactNode>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLDivElement>(null);
+  const extraRef = useRef<HTMLDivElement>(null);
   const headerSize = useSize(headerRef);
   const footerSize = useSize(footerRef);
+  const extraSize = useSize(extraRef);
 
   const toggleNode = extra && (
     <div className="extra-toggle" onClick={() => showExtraAction.toggle()}>
@@ -132,60 +145,99 @@ export function CustomModalContent(
     return logoNode;
   };
 
+  const OkBtn = (
+    <UIButton
+      onClick={() => {
+        Promise.resolve(onOk?.()).then(onClose);
+      }}
+      type="danger"
+      {...okButtonProps}
+    >
+      {okText}
+    </UIButton>
+  );
+
+  const CancelBtn = (
+    <UIButton
+      type="border"
+      onClick={() => {
+        Promise.resolve(onCancel?.()).then(onClose);
+      }}
+      {...cancelButtonProps}
+    >
+      {cancelText}
+    </UIButton>
+  );
+
+  const originFooterNode = (
+    <div className="actions">
+      {OkBtn}
+      {CancelBtn}
+    </div>
+  );
+
   const renderFooter = () => {
     if (footer === null) return null;
     if (typeof footer !== 'function' && footer !== undefined) {
       return footer;
     }
 
-    const OkBtn = (
-      <UIButton
-        onClick={() => {
-          Promise.resolve(onOk?.()).then(onClose);
-        }}
-        type="danger"
-        {...okButtonProps}
-      >
-        {okText}
-      </UIButton>
-    );
+    const fn = footer || ((n) => n);
 
-    const CancelBtn = (
-      <UIButton
-        type="border"
-        onClick={() => {
-          Promise.resolve(onCancel?.()).then(onClose);
-        }}
-        {...cancelButtonProps}
-      >
-        {cancelText}
-      </UIButton>
-    );
+    return fn(originFooterNode, {
+      OkBtn: () => OkBtn,
+      CancelBtn: () => CancelBtn,
+      close: onClose,
+    });
+  };
 
-    const originFooterNode = (
-      <div className="actions">
-        {OkBtn}
-        {CancelBtn}
-      </div>
-    );
-
-    if (footer) {
-      return footer(originFooterNode, {
-        OkBtn: () => OkBtn,
-        CancelBtn: () => CancelBtn,
-        close: onClose,
+  const modalContent = useMemo(() => {
+    console.log('renderContent', content);
+    if (typeof content === 'function') {
+      return content({
+        originFooterNode,
+        extra: {
+          OkBtn: () => OkBtn,
+          CancelBtn: () => CancelBtn,
+          close: onClose,
+        },
+        setFooter(footerNode) {
+          setFooterNode(footerNode);
+        },
       });
     }
+    return content;
+  }, [content]);
 
-    return originFooterNode;
-  };
+  // const renderContent = () => {
+  //   console.log('renderContent', content);
+  //   if (typeof content === 'function') {
+  //     return content({
+  //       originFooterNode,
+  //       extra: {
+  //         OkBtn: () => OkBtn,
+  //         CancelBtn: () => CancelBtn,
+  //         close: onClose,
+  //       },
+  //       setFooter(footerNode) {
+  //         setFooterNode(footerNode);
+  //       },
+  //     });
+  //   }
+  //   return content;
+  // };
+
+  const fNode = footerNode || renderFooter();
 
   return (
     <div
       className={classNames('ui-custom-modal flex flex-col ')}
       style={{
         // @ts-expect-error
-        '--fh': (footerSize?.height || 0) + (headerSize?.height || 0) || 0,
+        '--fh':
+          (footerSize?.height || 0) +
+            (headerSize?.height || 0) +
+            (extraSize?.height || 0) || 0,
       }}
     >
       <div
@@ -202,16 +254,20 @@ export function CustomModalContent(
           <div className="sub">{renderSubTitle()}</div>
         </div>
       </div>
+      {showExtra && (
+        <div className="extra-content" ref={extraRef}>
+          {extra}
+        </div>
+      )}
       <ScrollArea className=" ui-custom-modal-scroll-area">
-        {showExtra && <div className="extra-content">{extra}</div>}
         <div
           className={classNames('ui-custom-modal-content', contentClassName)}
         >
-          {content}
+          {modalContent}
         </div>
       </ScrollArea>
 
-      {footer !== null && (
+      {fNode && (
         <div
           className={classNames(
             'ui-custom-modal-footer flex-shrink-0',
@@ -220,7 +276,7 @@ export function CustomModalContent(
           style={footerStyle}
           ref={footerRef}
         >
-          {renderFooter()}
+          {fNode}
         </div>
       )}
 

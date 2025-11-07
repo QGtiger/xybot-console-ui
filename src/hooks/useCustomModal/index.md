@@ -13,6 +13,14 @@ group:
 可以采用 useCustomModalWithHolder hooks 获取当前 contextholder
 :::
 
+:::warning
+由于 hooks 的版本 content 和 footer 渲染逻辑是完全解耦的，但是在业务侧，存在 footer 渲染受控于 content.
+导致可能需要 自己手写 footer，这样就会影响到 弹窗的滚动逻辑-。-
+
+所以提供了 content function, 详细使用可以简单看 demo。
+注意 📢。 setFooter 记得放到 useLayoutEffect 里面好了。
+:::
+
 | 属性名            | 类型                                                                                                                   | 必填 | 说明                                       |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------ |
 | title             | React.ReactNode                                                                                                        | 是   | 弹窗标题                                   |

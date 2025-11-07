@@ -1,10 +1,14 @@
 import { AvatarGroup } from '@xybot/ui';
+import { useSafeState } from 'ahooks';
 
 export default function App() {
+  const [count, setCOunt] = useSafeState(30);
+
+  window.setCount = setCOunt;
   return (
     <div>
       <AvatarGroup
-        avatarList={Array.from({ length: 30 }).map((_, index) => ({
+        avatarList={Array.from({ length: count }).map((_, index) => ({
           src: `https://api.dicebear.com/7.x/miniavs/svg?seed=3`,
           name: `User ${index + 1}`,
         }))}
