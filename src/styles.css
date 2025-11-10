@@ -10,6 +10,18 @@
 .relative {
     position: relative
 }
+.my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem
+}
+.my-1 {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem
+}
+.mx-2 {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem
+}
 .mt-2 {
     margin-top: 0.5rem
 }
@@ -31,6 +43,15 @@
 .hidden {
     display: none
 }
+.h-\[1px\] {
+    height: 1px
+}
+.max-h-\[300px\] {
+    max-height: 300px
+}
+.max-h-\[100px\] {
+    max-height: 100px
+}
 .w-1 {
     width: 0.25rem
 }
@@ -39,6 +60,12 @@
 }
 .w-60 {
     width: 15rem
+}
+.w-full {
+    width: 100%
+}
+.w-\[320px\] {
+    width: 320px
 }
 .flex-1 {
     flex: 1 1 0%
@@ -64,8 +91,17 @@
 .border {
     border-width: 1px
 }
+.border-black-300 {
+    border-color: rgba(0, 0, 0, 0.3)
+}
+.bg-borderBase-default {
+    background-color: var(--border-base-default)
+}
 .p-0 {
     padding: 0px
+}
+.p-1\.5 {
+    padding: 0.375rem
 }
 .px-2 {
     padding-left: 0.5rem;

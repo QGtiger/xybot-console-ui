@@ -1,5 +1,5 @@
-import { DownOutlined, SettingOutlined } from '@ant-design/icons';
-import { DropDownItem, Space, UIDropdown } from '@xybot/ui';
+import { SettingOutlined } from '@ant-design/icons';
+import { DropDownItem, UIButton, UIDropdown } from '@xybot/ui';
 import type { MenuProps } from 'antd';
 import React from 'react';
 
@@ -32,14 +32,16 @@ const items: MenuProps['items'] = [
 
 const App: React.FC = () => (
   <div className="">
-    <DropDownItem>DropDownItem</DropDownItem>
-    <UIDropdown menu={{ items }} trigger={['click']} open>
-      <a onClick={(e) => e.preventDefault()}>
-        <Space>
-          Hover me
-          <DownOutlined />
-        </Space>
-      </a>
+    <UIDropdown
+      menu={{ items }}
+      trigger={['click']}
+      placement="bottomRight"
+      footer={<DropDownItem>Footer Area</DropDownItem>}
+      open
+      width={200}
+      maxHeight={100}
+    >
+      <UIButton>测试</UIButton>
     </UIDropdown>
   </div>
 );
