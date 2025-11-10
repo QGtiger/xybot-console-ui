@@ -22,6 +22,8 @@ type ProviderProps<E = any> = {
   renderAvatar?: (item: CommentItemType<E>) => React.ReactNode;
   renderContent?: (content: any) => React.ReactNode;
 
+  formatTime?: (time: number) => React.ReactNode;
+
   onReplay?: (
     item: CommentItemType<E>,
     replyContent: ContentType,
@@ -62,8 +64,12 @@ function CommentItem<E>(props: { item: CommentItemType<E> }) {
   const { avatar, title, time, name, content, children } = props.item;
   const [isReply, isReplyAction] = useBoolean(false);
 
-  const { onReplay, renderAvatar, renderContent } =
-    useContext(CommentTreeContext);
+  const {
+    onReplay,
+    renderAvatar,
+    renderContent,
+    formatTime = formatRelativeTime,
+  } = useContext(CommentTreeContext);
 
   return (
     <div className="comment-item-wrapper">
@@ -80,7 +86,7 @@ function CommentItem<E>(props: { item: CommentItemType<E> }) {
         <div className="right">
           <div className="t">
             <div className="title">{title}</div>
-            <div className="time">{formatRelativeTime(time)}</div>
+            <div className="time">{formatTime(time)}</div>
           </div>
           <div className="comment-content">
             {renderContent ? (
@@ -162,7 +168,6 @@ export type CommentTreeProps<E> = {
 } & ProviderProps<E>;
 
 export function CommentTree<E>(props: CommentTreeProps<E>) {
-  console.log(props);
   const { items } = props;
   return (
     <div className="comment-tree-wrapper">

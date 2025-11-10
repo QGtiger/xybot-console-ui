@@ -10,7 +10,7 @@ export type UIDropdownProps = OmitPrefixCls<DropdownProps> & {
 };
 
 export function UIDropdown(props: UIDropdownProps) {
-  const { popupRender } = props;
+  const { popupRender, footer } = props;
 
   return (
     <Dropdown
@@ -34,8 +34,12 @@ export function UIDropdown(props: UIDropdownProps) {
             >
               {menu}
             </ScrollArea>
-            <div className="h-[1px] bg-borderBase-default my-1 mx-2"></div>
-            <div>{props.footer}</div>
+            {footer && (
+              <>
+                <div className="h-[1px] bg-borderBase-default my-1 mx-2"></div>
+                <div>{props.footer}</div>
+              </>
+            )}
           </div>
         );
       }}
