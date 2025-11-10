@@ -32,3 +32,5 @@ export * from './UIContainer';
 export * from './UIDatePicker';
 
 export * from './UITooltip';
+
+export * from './UIPopover';

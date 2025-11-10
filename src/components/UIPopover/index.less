@@ -1,0 +1,16 @@
+@import '../../variables.less';
+@import '../../mixins.less';
+
+.ui-popover {
+  .ui-popover-inner {
+    border-radius: @radius-300;
+    box-shadow: 0 0 0 1px @border-base-secondary,
+      0 8px 16px -4px var(--effect-shadow-default);
+  }
+  .ui-popover-arrow::before {
+  }
+  .ui-popover-arrow::after {
+    box-shadow: 0 0 0 1px @border-base-secondary,
+      0 8px 16px -4px var(--effect-shadow-default);
+  }
+}
