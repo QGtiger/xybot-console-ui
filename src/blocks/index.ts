@@ -11,3 +11,5 @@ export * from './CommentTree';
 export * from './UIAvatar';
 
 export * from './CustomModal';
+
+export * from './CustomAvatar';

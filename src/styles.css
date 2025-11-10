@@ -82,17 +82,29 @@
 .justify-end {
     justify-content: flex-end
 }
+.justify-center {
+    justify-content: center
+}
 .gap-1 {
     gap: 0.25rem
 }
 .gap-2 {
     gap: 0.5rem
 }
+.rounded-full {
+    border-radius: 9999px
+}
 .border {
     border-width: 1px
 }
+.border-solid {
+    border-style: solid
+}
 .border-black-300 {
     border-color: rgba(0, 0, 0, 0.3)
+}
+.border-borderBase-default {
+    border-color: var(--border-base-default)
 }
 .bg-borderBase-default {
     background-color: var(--border-base-default)

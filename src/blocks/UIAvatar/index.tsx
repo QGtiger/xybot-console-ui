@@ -8,7 +8,6 @@ export type UIAvatarProps = Omit<AvatarProps, 'size'> & {
   borderColor?: string;
   name?: string;
   type?: 'user' | 'app';
-  width?: number;
   size?: number;
 };
 
