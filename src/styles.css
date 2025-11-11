@@ -10,17 +10,13 @@
 .relative {
     position: relative
 }
-.my-4 {
-    margin-top: 1rem;
-    margin-bottom: 1rem
+.mx-2 {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem
 }
 .my-1 {
     margin-top: 0.25rem;
     margin-bottom: 0.25rem
-}
-.mx-2 {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem
 }
 .mt-2 {
     margin-top: 0.5rem
@@ -46,12 +42,6 @@
 .h-\[1px\] {
     height: 1px
 }
-.max-h-\[300px\] {
-    max-height: 300px
-}
-.max-h-\[100px\] {
-    max-height: 100px
-}
 .w-1 {
     width: 0.25rem
 }
@@ -63,9 +53,6 @@
 }
 .w-full {
     width: 100%
-}
-.w-\[320px\] {
-    width: 320px
 }
 .flex-1 {
     flex: 1 1 0%
@@ -99,9 +86,6 @@
 }
 .border-solid {
     border-style: solid
-}
-.border-black-300 {
-    border-color: rgba(0, 0, 0, 0.3)
 }
 .border-borderBase-default {
     border-color: var(--border-base-default)

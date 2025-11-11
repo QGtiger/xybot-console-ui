@@ -40,7 +40,12 @@ const App: React.FC = () => (
       open
       width={200}
       maxHeight={100}
+      useCustomStyle
     >
+      <UIButton>测试</UIButton>
+    </UIDropdown>
+
+    <UIDropdown menu={{ items }} trigger={['click']} placement="bottomRight">
       <UIButton>测试</UIButton>
     </UIDropdown>
   </div>

@@ -2,40 +2,72 @@
 @import '../../mixins.less';
 
 .ui-dropdown {
-  .ui-dropdown-menu-wrapper {
-    background-color: @bg-base-container;
-    border-radius: @radius-200;
-    box-shadow: @drop-shadow-200;
-    box-sizing: border-box;
+  &.ui-dropdown-custom-style {
+    .ui-dropdown-menu-wrapper {
+      background-color: @bg-base-container;
+      border-radius: @radius-200;
+      box-shadow: @drop-shadow-200;
+      box-sizing: border-box;
 
-    border: 1px solid @border-base-secondary !important;
-    background-clip: padding-box, border-box !important;
-    background-origin: padding-box, border-box !important;
-    background-image: linear-gradient(
-        to right,
-        var(--bg-base-container),
-        var(--bg-base-container)
-      ),
-      linear-gradient(
-        135deg,
-        var(--border-specular-quaternary) 0%,
-        var(--border-specular-default) 50%,
-        var(--border-specular-secondary) 100%
-      ) !important;
+      border: 1px solid @border-base-secondary !important;
+      background-clip: padding-box, border-box !important;
+      background-origin: padding-box, border-box !important;
+      background-image: linear-gradient(
+          to right,
+          var(--bg-base-container),
+          var(--bg-base-container)
+        ),
+        linear-gradient(
+          135deg,
+          var(--border-specular-quaternary) 0%,
+          var(--border-specular-default) 50%,
+          var(--border-specular-secondary) 100%
+        ) !important;
 
-    .ui-dropdown-menu-item {
-      padding: 6px 8px;
-      border-radius: @radius-150;
+      .ui-dropdown-menu-item {
+        padding: 6px 8px;
+        border-radius: @radius-150;
+      }
+
+      .ui-dropdown-menu {
+        box-shadow: none;
+        background-color: transparent;
+        padding: 0;
+
+        .ui-dropdown-menu-item-divider {
+          background-color: @border-base-default;
+          margin: 4px 8px;
+        }
+      }
     }
   }
-  .ui-dropdown-menu {
-    box-shadow: none;
-    background-color: transparent;
-    padding: 0;
 
-    .ui-dropdown-menu-item-divider {
-      background-color: @border-base-default;
-      margin: 4px 8px;
+  &.ui-dropdown-default-style {
+    .ui-dropdown-menu {
+      background-color: @bg-base-container;
+      border-radius: @radius-200;
+      padding: @space-200;
+      box-shadow: @drop-shadow-200;
+
+      border: 1px solid @border-base-secondary !important;
+      background-clip: padding-box, border-box !important;
+      background-origin: padding-box, border-box !important;
+      background-image: linear-gradient(
+          to right,
+          var(--bg-base-container),
+          var(--bg-base-container)
+        ),
+        linear-gradient(
+          135deg,
+          var(--border-specular-quaternary) 0%,
+          var(--border-specular-default) 50%,
+          var(--border-specular-secondary) 100%
+        ) !important;
+
+      .ui-dropdown-menu-item {
+        padding: 6px 8px;
+        border-radius: @radius-150;
+      }
     }
   }
 }
