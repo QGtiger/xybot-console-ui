@@ -20,6 +20,7 @@ export const UISelect = forwardRef<RefSelectProps, UISelectProps>(
     const {
       type = 'border',
       size = 'lg',
+      className,
       ...rest
     } = useDefaultProps(props, 'uiSelect');
     const selectRef = useRef<RefSelectProps>(null);
@@ -32,7 +33,7 @@ export const UISelect = forwardRef<RefSelectProps, UISelectProps>(
         prefixCls="ui-select"
         ref={selectRef}
         className={classNames(
-          props.className,
+          className,
           'ui-select',
           `ui-select-size-${size}`,
           `ui-select-type-${type}`,
