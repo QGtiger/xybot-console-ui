@@ -19,6 +19,7 @@ import { EditorMenu, EditorMenuProps } from './EditorMenu';
 import './index.less';
 
 import { TipTapEmoji } from './extensions';
+import CustomNode from './extensions/CustomNode';
 import { LinkExtension } from './extensions/link';
 import './highlight-theme.less';
 import './highlight.less';
@@ -85,6 +86,7 @@ export function TipTapEditor(props: TipTapEditorProps) {
           LinkExtension({
             openOnClick: !editable,
           }),
+          CustomNode,
         ]}
         editorProps={{
           attributes: {

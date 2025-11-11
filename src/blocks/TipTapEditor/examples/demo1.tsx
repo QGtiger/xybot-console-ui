@@ -12,7 +12,10 @@ export default () => {
         padding: '16px',
       }}
     >
-      <TipTapEditor onChange={console.log} />
+      <TipTapEditor
+        onChange={console.log}
+        content='<react-component count="0"></react-component>'
+      />
     </div>
   );
 };

@@ -43,6 +43,8 @@ export const darkTheme: ThemeConfig = {
     colorInfoBg: 'var(--bg-info-default)',
     colorWarningBg: 'var(--bg-warning-default)',
     colorErrorBg: 'var(--bg-error-default)',
+
+    colorTextPlaceholder: 'var(--text-base-tertiary)',
   },
   components: commonComponetsTokens,
 };
@@ -62,6 +64,8 @@ export const lightTheme: ThemeConfig = {
     colorInfoBg: 'var(--bg-info-default)',
     colorWarningBg: 'var(--bg-warning-default)',
     colorErrorBg: 'var(--bg-error-default)',
+
+    colorTextPlaceholder: 'var(--text-base-tertiary)',
   },
   components: commonComponetsTokens,
 };

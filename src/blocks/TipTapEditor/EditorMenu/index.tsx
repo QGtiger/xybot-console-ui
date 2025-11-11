@@ -8,6 +8,7 @@ import { Popover } from 'antd';
 import { ImagePopoverContent } from './components/ImagePopoverContent';
 import { LinkPopoverContent } from './components/LinkPopoverContent';
 import './index.less';
+import { MenuModel, MenuModelProps } from './model';
 
 export type EditorMenuItems =
   | 'bold'
@@ -172,18 +173,20 @@ function EditorMenuItem(props: { type: EditorMenuItems }) {
   return <M editor={editorContentValue.editor} />;
 }
 
-export interface EditorMenuProps {
+export type EditorMenuProps = {
   items?: EditorMenuItems[];
-}
+} & MenuModelProps;
 
 export function EditorMenu(props: EditorMenuProps) {
   const { items = allItems } = props;
 
   return (
-    <div className="editor-menu">
-      {items.map((item) => (
-        <EditorMenuItem key={item} type={item} />
-      ))}
-    </div>
+    <MenuModel.Provider value={props}>
+      <div className="editor-menu">
+        {items.map((item) => (
+          <EditorMenuItem key={item} type={item} />
+        ))}
+      </div>
+    </MenuModel.Provider>
   );
 }

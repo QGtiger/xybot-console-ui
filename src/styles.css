@@ -24,6 +24,15 @@
 .mt-4 {
     margin-top: 1rem
 }
+.-mt-10 {
+    margin-top: -2.5rem
+}
+.-mt-5 {
+    margin-top: -1.25rem
+}
+.-mt-2 {
+    margin-top: -0.5rem
+}
 .block {
     display: block
 }
@@ -42,6 +51,15 @@
 .h-\[1px\] {
     height: 1px
 }
+.h-\[200px\] {
+    height: 200px
+}
+.h-full {
+    height: 100%
+}
+.h-\[160px\] {
+    height: 160px
+}
 .w-1 {
     width: 0.25rem
 }
@@ -53,6 +71,15 @@
 }
 .w-full {
     width: 100%
+}
+.w-\[300px\] {
+    width: 300px
+}
+.w-\[480px\] {
+    width: 480px
+}
+.w-\[400px\] {
+    width: 400px
 }
 .flex-1 {
     flex: 1 1 0%
@@ -90,14 +117,17 @@
 .border-solid {
     border-style: solid
 }
-.border-none {
-    border-style: none
-}
 .border-borderBase-default {
     border-color: var(--border-base-default)
 }
 .bg-borderBase-default {
     background-color: var(--border-base-default)
+}
+.bg-transparent {
+    background-color: transparent
+}
+.bg-bgBase-containerSecondary {
+    background-color: var(--bg-base-container-secondary)
 }
 .p-0 {
     padding: 0px
@@ -117,8 +147,20 @@
     font-size: 0.75rem !important;
     line-height: 1rem !important
 }
+.text-\[30px\] {
+    font-size: 30px
+}
+.font-\[450\] {
+    font-weight: 450
+}
 .italic {
     font-style: italic
+}
+.text-textBase-tertiary {
+    color: var(--text-base-tertiary)
+}
+.text-textBase-secondary {
+    color: var(--text-base-secondary)
 }
 .underline {
     text-decoration-line: underline
