@@ -31,7 +31,7 @@ export function UIAvatar(props: UIAvatarProps) {
   return (
     <Avatar
       {...rest}
-      className={classNames(className)}
+      className={classNames('border-0 ', className)}
       style={{
         backgroundClip: 'content-box',
         borderWidth,

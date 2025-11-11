@@ -84,8 +84,14 @@
 .border {
     border-width: 1px
 }
+.border-0 {
+    border-width: 0px
+}
 .border-solid {
     border-style: solid
+}
+.border-none {
+    border-style: none
 }
 .border-borderBase-default {
     border-color: var(--border-base-default)
@@ -106,10 +112,6 @@
 .py-1 {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem
-}
-.text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem
 }
 .\!text-xs {
     font-size: 0.75rem !important;
