@@ -10,11 +10,13 @@ export default function App() {
     <div>
       <AvatarGroup
         avatarList={Array.from({ length: count }).map((_, index) => ({
-          src: `https://api.dicebear.com/7.x/miniavs/svg?seed=3`,
-          name: `User ${index + 1}`,
+          // src: `https://api.dicebear.com/7.x/miniavs/svg?seed=3`,
+          name: `U`,
         }))}
         indent={-12}
         borderWidth={4}
+        borderColor="#fff"
+        className=" !text-xs"
       />
       <AvatarGroup
         avatarList={Array.from({ length: 7 }).map((_, index) => ({

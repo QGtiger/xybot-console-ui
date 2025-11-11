@@ -6,7 +6,7 @@ import './index.less';
 
 // 单个头像配置项
 export interface AvatarItem {
-  src: string; // 头像图片地址
+  src?: string; // 头像图片地址
   name?: string; // 头像名称（用于alt和title）
 }
 
@@ -25,6 +25,7 @@ export interface AvatarGroupProps {
     avatar: AvatarItem,
     index: number,
   ) => React.ReactNode; // 自定义头像渲染函数
+  className?: string; // 头像额外的类名
 }
 
 export const AvatarGroup: React.FC<AvatarGroupProps> = ({
@@ -36,6 +37,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
   mergeTextFormatter = (count) => `${count}`,
   fixed,
   renderAvatar = (v) => v,
+  className,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
@@ -78,6 +80,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
             opacity: 0,
             visibility: 'hidden',
           }}
+          className={className}
         />
         <div
           className={classNames('block-avatar-group-list', memoFixed)}
@@ -94,6 +97,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
                 style={{
                   marginLeft: index === 0 ? 0 : indent,
                 }}
+                className={className}
               />,
               avatar,
               index,
@@ -103,7 +107,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = ({
       </div>
       {isOverflow && (
         <UIAvatar
-          className="block-avatar-group-item merge"
+          className={classNames('block-avatar-group-item merge', className)}
           size={avatarSize}
           borderWidth={borderWidth}
           borderColor={borderColor}

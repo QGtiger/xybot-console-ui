@@ -107,6 +107,14 @@
     padding-top: 0.25rem;
     padding-bottom: 0.25rem
 }
+.text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem
+}
+.\!text-xs {
+    font-size: 0.75rem !important;
+    line-height: 1rem !important
+}
 .italic {
     font-style: italic
 }
