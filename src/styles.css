@@ -18,20 +18,20 @@
     margin-top: 0.25rem;
     margin-bottom: 0.25rem
 }
+.-mt-2 {
+    margin-top: -0.5rem
+}
+.mt-1 {
+    margin-top: 0.25rem
+}
 .mt-2 {
     margin-top: 0.5rem
 }
 .mt-4 {
     margin-top: 1rem
 }
-.-mt-10 {
-    margin-top: -2.5rem
-}
-.-mt-5 {
-    margin-top: -1.25rem
-}
-.-mt-2 {
-    margin-top: -0.5rem
+.box-border {
+    box-sizing: border-box
 }
 .block {
     display: block
@@ -48,17 +48,14 @@
 .hidden {
     display: none
 }
+.h-\[160px\] {
+    height: 160px
+}
 .h-\[1px\] {
     height: 1px
 }
-.h-\[200px\] {
-    height: 200px
-}
 .h-full {
     height: 100%
-}
-.h-\[160px\] {
-    height: 160px
 }
 .w-1 {
     width: 0.25rem
@@ -69,17 +66,11 @@
 .w-60 {
     width: 15rem
 }
+.w-\[360px\] {
+    width: 360px
+}
 .w-full {
     width: 100%
-}
-.w-\[300px\] {
-    width: 300px
-}
-.w-\[480px\] {
-    width: 480px
-}
-.w-\[400px\] {
-    width: 400px
 }
 .flex-1 {
     flex: 1 1 0%
@@ -89,6 +80,9 @@
 }
 .flex-col {
     flex-direction: column
+}
+.items-start {
+    align-items: flex-start
 }
 .items-center {
     align-items: center
@@ -108,6 +102,9 @@
 .rounded-full {
     border-radius: 9999px
 }
+.rounded-md {
+    border-radius: 0.375rem
+}
 .border {
     border-width: 1px
 }
@@ -120,20 +117,20 @@
 .border-borderBase-default {
     border-color: var(--border-base-default)
 }
+.border-borderBase-secondary {
+    border-color: var(--border-base-secondary)
+}
 .bg-borderBase-default {
     background-color: var(--border-base-default)
-}
-.bg-transparent {
-    background-color: transparent
-}
-.bg-bgBase-containerSecondary {
-    background-color: var(--bg-base-container-secondary)
 }
 .p-0 {
     padding: 0px
 }
 .p-1\.5 {
     padding: 0.375rem
+}
+.p-2 {
+    padding: 0.5rem
 }
 .px-2 {
     padding-left: 0.5rem;
@@ -150,17 +147,27 @@
 .text-\[30px\] {
     font-size: 30px
 }
+.text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem
+}
 .font-\[450\] {
     font-weight: 450
 }
 .italic {
     font-style: italic
 }
+.text-textBase-secondary {
+    color: var(--text-base-secondary)
+}
 .text-textBase-tertiary {
     color: var(--text-base-tertiary)
 }
-.text-textBase-secondary {
-    color: var(--text-base-secondary)
+.text-textError-default {
+    color: var(--text-error-default)
+}
+.text-textSuccess-default {
+    color: var(--text-success-default)
 }
 .underline {
     text-decoration-line: underline

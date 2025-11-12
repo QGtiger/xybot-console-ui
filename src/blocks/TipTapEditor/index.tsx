@@ -20,6 +20,11 @@ import './index.less';
 
 import { TipTapEmoji } from './extensions';
 import CustomNode from './extensions/CustomNode';
+import ImagePasteExtension from './extensions/ImagePasteExtension';
+import ImageUploadNode, {
+  ImageUploadNodeOptions,
+} from './extensions/ImageUploadNode';
+import { addFile } from './extensions/ImageUploadNode/fileManage';
 import { LinkExtension } from './extensions/link';
 import './highlight-theme.less';
 import './highlight.less';
@@ -29,7 +34,7 @@ const lowlight = createLowlight(all);
 
 export type ContentType = string;
 
-export interface TipTapEditorProps {
+export type TipTapEditorProps = {
   className?: string;
   wrapperClassName?: string;
   placeholder?: string;
@@ -45,7 +50,7 @@ export interface TipTapEditorProps {
   menuProps?: EditorMenuProps;
 
   editorProviderProps?: EditorProviderProps;
-}
+} & ImageUploadNodeOptions;
 
 export function TipTapEditor(props: TipTapEditorProps) {
   const {
@@ -58,6 +63,7 @@ export function TipTapEditor(props: TipTapEditorProps) {
     content,
     editable = true,
     editorProviderProps,
+    onUploadImage,
   } = props;
 
   return (
@@ -69,6 +75,7 @@ export function TipTapEditor(props: TipTapEditorProps) {
           StarterKit.configure({
             // 需要配置 link 扩展，否则和自定义的 link 冲突
             link: false,
+            codeBlock: false,
           }),
           TextStyleKit,
           Placeholder.configure({
@@ -87,6 +94,27 @@ export function TipTapEditor(props: TipTapEditorProps) {
             openOnClick: !editable,
           }),
           CustomNode,
+          ImageUploadNode.configure({
+            onUploadImage,
+          }),
+          ImagePasteExtension.configure({
+            handlePasteImage: (view, file) => {
+              const { state, dispatch } = view;
+              const { selection } = state;
+              const { from, to } = selection;
+
+              // 插入图片节点
+              const node = state.schema.nodes.ImageUploadNode.create({
+                fileId: addFile(file), // 可以根据需要设置 fileId
+              });
+
+              const transaction = state.tr.replaceRangeWith(from, to, node);
+              dispatch(transaction);
+
+              // 这里可以调用上传接口，上传成功后更新节点的 src 属性为正式的 URL
+              return true;
+            },
+          }),
         ]}
         editorProps={{
           attributes: {

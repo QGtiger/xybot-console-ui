@@ -36,16 +36,17 @@ const MenuItemIconMap: Record<EditorMenuItems, string> = {
   image: 'Image-sm',
 };
 
-function MenuItem(
-  props: HTMLAttributes<HTMLButtonElement> & { iconType: string },
-) {
+function MenuItem({
+  iconType,
+  ...restProps
+}: HTMLAttributes<HTMLButtonElement> & { iconType: string }) {
   return (
     <button
       type="button"
-      {...props}
-      className={classNames('menu-item', props.className)}
+      {...restProps}
+      className={classNames('menu-item', restProps.className)}
     >
-      <IconFont type={props.iconType} />
+      <IconFont type={iconType} />
     </button>
   );
 }
@@ -144,13 +145,16 @@ const MenuItemsMap: Record<EditorMenuItems, FC<{ editor: Editor }>> = {
     );
   },
   image: function Image() {
+    const [open, openAction] = useBoolean();
     return (
       <Popover
-        content={<ImagePopoverContent />}
+        content={<ImagePopoverContent close={openAction.setFalse} />}
         trigger={['click']}
         arrow={false}
         placement="bottomLeft"
         destroyOnHidden
+        open={open}
+        onOpenChange={openAction.set}
       >
         <MenuItem
           iconType={MenuItemIconMap.image}

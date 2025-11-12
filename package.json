@@ -1,6 +1,6 @@
 {
   "name": "@xybot/ui",
-  "version": "0.0.1-beta.68",
+  "version": "0.0.1-beta.69",
   "description": "xybot console ui",
   "homepage": "https://www.yingdao.com",
   "license": "MIT",
@@ -87,6 +87,8 @@
     "highlight.js": "^11.11.1",
     "less": "^4.4.1",
     "lowlight": "^3.3.0",
+    "prosemirror-state": "^1.4.4",
+    "prosemirror-view": "^1.41.3",
     "react-resizable": "^3.0.5",
     "simplebar-react": "^3.3.2"
   },

@@ -26,3 +26,27 @@ export function createCustomModel<
 
   return { Provider, useModel };
 }
+
+export async function uploadFile(config: {
+  file: File;
+  name: string;
+  uploadUrl?: string;
+}): Promise<string> {
+  const { uploadUrl = 'https://console.yingdao.com/gw-api/upload/file' } =
+    config;
+
+  const formData = new FormData();
+  formData.append('file', config.file);
+  formData.append('filename', config.name);
+
+  return fetch(uploadUrl, {
+    headers: {
+      domain: 'front-gw.yingdao.com',
+      ContentType: 'multipart/form-data',
+    },
+    method: 'POST',
+    body: formData,
+  })
+    .then((r) => r.json())
+    .then((r) => r.data.readUrl);
+}

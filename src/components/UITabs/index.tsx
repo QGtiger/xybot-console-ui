@@ -14,7 +14,7 @@ export interface UITabsProps extends Omit<TabsProps, 'type'> {
 }
 
 export function UITabs(props: UITabsProps) {
-  const { type, hideTabLine, ...rest } = props;
+  const { type, hideTabLine, segmentedProps, ...rest } = props;
   if (type === 'segment') {
     return (
       <Tabs
@@ -34,7 +34,7 @@ export function UITabs(props: UITabsProps) {
           // 返回Segmented组件替代默认标签栏
           return (
             <Segmented
-              {...props.segmentedProps}
+              {...segmentedProps}
               prefixCls="ui-segmented"
               size={props.size}
               options={options}

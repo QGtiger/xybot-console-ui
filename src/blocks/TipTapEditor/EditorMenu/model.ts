@@ -8,7 +8,7 @@ export type MenuModelProps = {
       onSuccess?: (url: string) => void;
       onError?: (error: Error) => void;
     },
-  ) => Promise<{ url: string }>;
+  ) => Promise<string>;
 };
 
 export const MenuModel = createCustomModel((props: MenuModelProps) => {
