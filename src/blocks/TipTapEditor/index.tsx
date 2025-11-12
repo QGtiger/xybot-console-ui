@@ -96,6 +96,7 @@ export function TipTapEditor(props: TipTapEditorProps) {
           CustomNode,
           ImageUploadNode.configure({
             onUploadImage,
+            editable,
           }),
           ImagePasteExtension.configure({
             handlePasteImage: (view, file) => {
@@ -138,3 +139,5 @@ export function TipTapEditor(props: TipTapEditorProps) {
 export function TipTapEditorViewer({ content }: { content: ContentType }) {
   return <TipTapEditor hiddenMenu content={content} editable={false} />;
 }
+
+export * from '@tiptap/react';

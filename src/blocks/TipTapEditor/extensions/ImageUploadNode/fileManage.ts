@@ -13,6 +13,10 @@ class FileManager {
   deleteFile(id: string) {
     this.files.delete(id);
   }
+
+  clear() {
+    this.files.clear();
+  }
 }
 
 export function generateUniqueId(): string {

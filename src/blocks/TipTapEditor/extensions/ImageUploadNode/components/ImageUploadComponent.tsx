@@ -7,8 +7,10 @@ import { NodeViewWrapper, type ReactNodeViewProps } from '@tiptap/react';
 import { useReactive } from 'ahooks';
 import { Progress, ProgressProps } from 'antd';
 import { useEffect } from 'react';
-import { fileManager, removeFile } from './fileManage';
-import { UploadImageType } from './type';
+import { fileManager, removeFile } from '../fileManage';
+import { UploadImageType } from '../type';
+import { ResizableImage } from './resizable-image';
+import { showPreviewImage } from './utils';
 
 const twoColors: ProgressProps['strokeColor'] = {
   '0%': 'var(--bg-base-spotlight)',
@@ -102,17 +104,50 @@ function UploadImageProgress({
 export function ImageUploadComponent(
   props: ReactNodeViewProps & {
     uploadImage: UploadImageType;
+    editable: boolean;
   },
 ) {
-  const { uploadImage } = props;
-  const { fileId, src } = props.node.attrs;
+  const { uploadImage, editable } = props;
+  const { fileId, src, width = 400, height = 300 } = props.node.attrs;
 
   const file = fileManager.getFile(fileId!);
 
   return (
-    <NodeViewWrapper className="image-upload-node">
+    <NodeViewWrapper className="">
       {src ? (
-        <img data-drag-handle className="w-full" src={props.node.attrs.src} />
+        <div className="inline-block" data-drag-handle>
+          {editable ? (
+            <ResizableImage
+              src={src}
+              initialHeight={height}
+              initialWidth={width}
+              onResize={(w, h) => {
+                props.updateAttributes({
+                  width: w,
+                  height: h,
+                });
+              }}
+            />
+          ) : (
+            <div
+              className=" cursor-pointer"
+              style={{
+                width: `${width}px`,
+                height: `${height}px`,
+              }}
+              onClick={() => {
+                showPreviewImage(src);
+              }}
+            >
+              <img
+                src={src}
+                alt={''}
+                className=" object-contain pointer-events-none w-full h-full"
+                draggable={false}
+              />
+            </div>
+          )}
+        </div>
       ) : (
         <UploadImageProgress
           onSuc={(url) => {

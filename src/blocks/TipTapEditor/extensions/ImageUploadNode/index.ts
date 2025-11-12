@@ -1,12 +1,13 @@
 import { Command, mergeAttributes, Node } from '@tiptap/core';
 import { ReactNodeViewRenderer } from '@tiptap/react';
 import React from 'react';
-import { fileManager } from './fileManage';
-import { ImageUploadComponent } from './ImageUploadComponent';
+import { ImageUploadComponent } from './components/ImageUploadComponent';
+import { addFile } from './fileManage';
 import { UploadImageType } from './type';
 
 export interface ImageUploadNodeOptions {
   onUploadImage?: UploadImageType;
+  editable?: boolean;
 }
 
 declare module '@tiptap/core' {
@@ -31,6 +32,7 @@ export default Node.create<ImageUploadNodeOptions>({
       onUploadImage() {
         console.error('onUploadImage not implemented');
       },
+      editable: true,
     };
   },
 
@@ -40,10 +42,10 @@ export default Node.create<ImageUploadNodeOptions>({
         default: null,
       },
       width: {
-        default: null,
+        default: undefined,
       },
       height: {
-        default: null,
+        default: undefined,
       },
       fileId: {
         default: null,
@@ -68,6 +70,7 @@ export default Node.create<ImageUploadNodeOptions>({
       React.createElement(ImageUploadComponent, {
         ...props,
         uploadImage: this.options.onUploadImage!,
+        editable: this.options.editable!,
       }),
     );
   },
@@ -88,12 +91,10 @@ export default Node.create<ImageUploadNodeOptions>({
       addImageUploadNodeWithFile:
         (file) =>
         ({ commands }) => {
-          const nodeId = `image-upload-${Date.now()}-${Math.random()}`;
-          fileManager.setFile(nodeId, file);
           return commands.insertContent({
             type: this.name,
             attrs: {
-              fileId: nodeId,
+              fileId: addFile(file),
             },
           });
         },

@@ -40,6 +40,10 @@ const ImagePasteExtension = Extension.create<ImagePasteOptions>({
       new Plugin({
         props: {
           handlePaste: (view: EditorView, event: ClipboardEvent) => {
+            // 检查编辑器是否可编辑
+            if (!view.editable) {
+              return false;
+            }
             const items = Array.from(event.clipboardData?.items || []);
 
             for (const item of items) {
@@ -64,6 +68,10 @@ const ImagePasteExtension = Extension.create<ImagePasteOptions>({
         new Plugin({
           props: {
             handleDrop: (view: EditorView, event: DragEvent) => {
+              // 检查编辑器是否可编辑
+              if (!view.editable) {
+                return false;
+              }
               const files = Array.from(event.dataTransfer?.files || []);
               const imageFiles = files.filter((file) =>
                 file.type.startsWith('image/'),
