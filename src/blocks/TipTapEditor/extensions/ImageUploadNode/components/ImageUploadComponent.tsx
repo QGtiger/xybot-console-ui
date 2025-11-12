@@ -69,7 +69,7 @@ function UploadImageProgress({
   }, [file]);
 
   return (
-    <div className=" box-border items-start flex gap-2 p-2 border w-full border-solid border-borderBase-secondary rounded-md">
+    <div className=" box-border items-center flex gap-2 p-2 border w-full border-solid border-borderBase-secondary rounded-md">
       <div className="mt-1">{icon}</div>
       {file ? (
         <div className="flex flex-col w-full ">
@@ -94,7 +94,7 @@ function UploadImageProgress({
         </div>
       ) : (
         <div className=" flex flex-col w-full ">
-          <div className=" text-textBase-secondary text-xs">未选择文件</div>
+          <div className=" text-textBase-secondary text-xs">图片上传错误</div>
         </div>
       )}
     </div>

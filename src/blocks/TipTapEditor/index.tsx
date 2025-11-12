@@ -52,6 +52,26 @@ export type TipTapEditorProps = {
   editorProviderProps?: EditorProviderProps;
 } & ImageUploadNodeOptions;
 
+// 工具函数：检查是否有未完成的图片
+function checkPendingImages(doc: any): boolean {
+  let hasPending = false;
+
+  doc.descendants((node: any) => {
+    if (node.type.name === 'ImageUploadNode') {
+      const { src } = node.attrs;
+
+      // 如果处于上传中状态，或者有 fileId 但没有 src
+      if (!src) {
+        hasPending = true;
+        return false; // 停止遍历
+      }
+    }
+    return true;
+  });
+
+  return hasPending;
+}
+
 export function TipTapEditor(props: TipTapEditorProps) {
   const {
     className,
@@ -124,10 +144,13 @@ export function TipTapEditor(props: TipTapEditorProps) {
         }}
         onUpdate={(p) => {
           const html = p.editor.getHTML();
-          onChange?.({
-            ...p,
-            html,
-          });
+
+          if (!checkPendingImages(p.editor.state.doc)) {
+            onChange?.({
+              ...p,
+              html,
+            });
+          }
         }}
         content={content}
         editable={editable}
