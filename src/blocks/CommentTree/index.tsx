@@ -6,7 +6,7 @@ import { UIButton, UILink } from '@/components';
 import { formatRelativeTime } from '@/utils/date';
 import { useBoolean, useRequest } from 'ahooks';
 import { Avatar } from 'antd';
-import { ContentType, TipTapEditor } from '../TipTapEditor';
+import { ContentType, TipTapEditor, TipTapEditorProps } from '../TipTapEditor';
 import './index.less';
 
 type CommentItemType<E> = {
@@ -24,6 +24,8 @@ type ProviderProps<E = any> = {
 
   formatTime?: (time: number) => React.ReactNode;
 
+  editorProps?: TipTapEditorProps;
+
   onReplay?: (
     item: CommentItemType<E>,
     replyContent: ContentType,
@@ -33,6 +35,7 @@ type ProviderProps<E = any> = {
 const CommentTreeContext = createContext<ProviderProps<object>>({});
 
 function CommentEditor({ send }: { send(t: ContentType): Promise<void> }) {
+  const { editorProps } = useContext(CommentTreeContext);
   const tRef = useRef<ContentType>('');
   const { runAsync, loading } = useRequest(
     () => {
@@ -45,6 +48,7 @@ function CommentEditor({ send }: { send(t: ContentType): Promise<void> }) {
   return (
     <div className="comment-editor-wrapper">
       <TipTapEditor
+        {...editorProps}
         hiddenMenu
         className="comment-editor"
         onChange={(e) => {
