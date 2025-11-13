@@ -69,7 +69,7 @@ function UploadImageProgress({
   }, [file]);
 
   return (
-    <div className=" box-border items-center flex gap-2 p-2 border w-full border-solid border-borderBase-secondary rounded-md">
+    <div className=" my-2 box-border items-center flex gap-2 p-2 border w-full border-solid border-borderBase-secondary rounded-md">
       <div className="mt-1">{icon}</div>
       {file ? (
         <div className="flex flex-col w-full ">
