@@ -1,6 +1,7 @@
 import React, { useMemo, useRef, useState } from 'react';
 
 import { ScrollArea } from '@/blocks';
+import { UIModalFuncProps } from '@/components';
 import { ThemeModel } from '@/components/ThemeProvider';
 import { UIButton, UIButtonProps } from '@/components/UIButton';
 import { CloseOutlined } from '@ant-design/icons';
@@ -58,6 +59,11 @@ export interface CustomModalContentProps {
   onCancel?: () => void | Promise<void>;
 
   width?: number;
+
+  originalMoalProps?: Omit<
+    UIModalFuncProps,
+    'content' | 'width' | 'icon' | 'footer' | 'styles' | 'className'
+  >;
 }
 
 export function CustomModalContent(
@@ -320,6 +326,7 @@ export function useCustomModal() {
         />
       ),
       width: props.width || 520,
+      ...props.originalMoalProps,
     });
     return ins;
   };
