@@ -34,6 +34,11 @@ export default () => {
       <UIDatePicker.RangePicker type="borderless" />
       <UIDatePicker.RangePicker type="filledsecondary" />
       <UIDatePicker.RangePicker type="filledbase" />
+
+      <UIDatePicker.TimePicker type="border" />
+      <UIDatePicker.TimePicker type="borderless" />
+      <UIDatePicker.TimePicker type="filledsecondary" />
+      <UIDatePicker.TimePicker type="filledbase" />
     </div>
   );
 };
