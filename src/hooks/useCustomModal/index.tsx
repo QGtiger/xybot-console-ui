@@ -243,7 +243,7 @@ export function CustomModalContent(
         '--fh':
           (footerSize?.height || 0) +
             (headerSize?.height || 0) +
-            (extraSize?.height || 0) || 0,
+            (showExtra ? extraSize?.height || 0 : 0) || 0,
       }}
     >
       <div

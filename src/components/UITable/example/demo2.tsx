@@ -163,6 +163,7 @@ const App: React.FC = () => {
           },
           pageSize: 2,
         }}
+        loading
       />
 
       <UITable

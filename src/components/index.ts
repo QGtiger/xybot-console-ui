@@ -34,3 +34,5 @@ export * from './UIDatePicker';
 export * from './UITooltip';
 
 export * from './UIPopover';
+
+export * from './UISpin';

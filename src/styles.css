@@ -55,6 +55,12 @@
 .mt-4 {
     margin-top: 1rem
 }
+.mb-8 {
+    margin-bottom: 2rem
+}
+.mb-2 {
+    margin-bottom: 0.5rem
+}
 .box-border {
     box-sizing: border-box
 }
@@ -88,6 +94,24 @@
 .h-full {
     height: 100%
 }
+.h-10 {
+    height: 2.5rem
+}
+.\!h-10 {
+    height: 2.5rem !important
+}
+.\!h-\[12px\] {
+    height: 12px !important
+}
+.\!h-\[30px\] {
+    height: 30px !important
+}
+.\!h-\[100px\] {
+    height: 100px !important
+}
+.h-4 {
+    height: 1rem
+}
 .w-1 {
     width: 0.25rem
 }
@@ -105,6 +129,24 @@
 }
 .w-full {
     width: 100%
+}
+.w-10 {
+    width: 2.5rem
+}
+.\!w-10 {
+    width: 2.5rem !important
+}
+.\!w-\[12px\] {
+    width: 12px !important
+}
+.\!w-\[30px\] {
+    width: 30px !important
+}
+.\!w-\[100px\] {
+    width: 100px !important
+}
+.w-4 {
+    width: 1rem
 }
 .flex-1 {
     flex: 1 1 0%
@@ -147,6 +189,9 @@
 }
 .gap-2 {
     gap: 0.5rem
+}
+.gap-8 {
+    gap: 2rem
 }
 .whitespace-nowrap {
     white-space: nowrap
