@@ -1,10 +1,16 @@
-import { Editor, ThemeModel, TipTapEditor, uploadFile } from '@xybot/ui';
+import {
+  Editor,
+  ThemeModel,
+  TipTapEditor,
+  UIButton,
+  uploadFile,
+} from '@xybot/ui';
 import { useRef } from 'react';
 
 const content = `"<p>"</p><react-component count="0"></react-component><p>"</p><image-upload-node src="https://winrobot-pub-a.oss-cn-hangzhou.aliyuncs.com/static/1111.png" width="109" height="75" editable="true"></image-upload-node><p></p><p>""</p>"`;
 
 export default () => {
-  const { isDarkMode } = ThemeModel.useModel();
+  const { isDarkMode, modal } = ThemeModel.useModel();
 
   const editorRef = useRef<Editor | null>(null);
 
@@ -18,6 +24,18 @@ export default () => {
         padding: '16px',
       }}
     >
+      <UIButton
+        onClick={() => {
+          modal.confirm({
+            title: '测试',
+            content: (
+              <TipTapEditor editable={false} hiddenMenu content={content} />
+            ),
+          });
+        }}
+      >
+        测试弹窗
+      </UIButton>
       <TipTapEditor
         editorProviderProps={{
           onCreate(props) {

@@ -16,6 +16,7 @@ function ImagePreviewer({ src, close }: { src: string; close: () => void }) {
             close();
           }
         },
+        zIndex: 2000,
       }}
     />
   );

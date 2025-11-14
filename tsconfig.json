@@ -6,6 +6,7 @@
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "baseUrl": "./",
+    "resolveJsonModule": true,
     "paths": {
       "@@/*": [".dumi/tmp/*"],
       "@/*": ["src/*"],
