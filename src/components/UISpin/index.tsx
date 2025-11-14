@@ -1,18 +1,12 @@
-import {
-  DotLottieReact,
-  DotLottieReactProps,
-} from '@lottiefiles/dotlottie-react';
 import { Spin, SpinProps } from 'antd';
-import brandDarkLottie from './assets/primary-dark.lottie?inline';
-import brandLottie from './assets/primary.lottie?inline';
-import primaryDarkLottie from './assets/secondary-dark.lottie?inline';
-import primaryLottie from './assets/secondary.lottie?inline';
+import Lottie, { LottieComponentProps } from 'lottie-react';
+
+import BrandDarkJson from './assets/brand-dark.json';
+import BrandJson from './assets/brand.json';
+import PrimaryDarkJson from './assets/primary-dark.json';
+import PrimaryJson from './assets/primary.json';
 
 import './index.less';
-
-export function setSpinDefaultIndicator() {
-  Spin.setDefaultIndicator(<DotLottieReact src={brandLottie} loop autoplay />);
-}
 
 export type UISpinProps = Omit<OmitPrefixCls<SpinProps>, 'size' | 'percent'> &
   UIDotLoadingType & {
@@ -21,27 +15,44 @@ export type UISpinProps = Omit<OmitPrefixCls<SpinProps>, 'size' | 'percent'> &
 
 export type UIDotLoadingType = {
   type?: 'brand' | 'brankDark' | 'primary' | 'primaryDark';
+  size?: 'xs' | 'sm' | 'md' | 'lg';
 };
 
-export function UIDotLoading(props: UIDotLoadingType & DotLottieReactProps) {
-  const { type = 'brand', ...rest } = props;
+const sizeMap: Record<NonNullable<UISpinProps['size']>, number> = {
+  xs: 12,
+  sm: 16,
+  md: 20,
+  lg: 24,
+};
+
+export function UIDotLoading(
+  props: UIDotLoadingType &
+    Omit<LottieComponentProps, 'size' | 'animationData'>,
+) {
+  const { type = 'brand', size = 'md', ...rest } = props;
 
   const getSrcByType = (type: UISpinProps['type']) => {
     switch (type) {
       case 'brand':
-        return brandLottie;
+        return BrandJson;
       case 'primary':
-        return primaryLottie;
+        return PrimaryJson;
       case 'brankDark':
-        return brandDarkLottie;
+        return BrandDarkJson;
       case 'primaryDark':
-        return primaryDarkLottie;
+        return PrimaryDarkJson;
       default:
-        return primaryLottie;
+        return PrimaryJson;
     }
   };
 
-  return <DotLottieReact src={getSrcByType(type)} loop autoplay {...rest} />;
+  return (
+    <Lottie {...rest} size={sizeMap[size]} animationData={getSrcByType(type)} />
+  );
+}
+
+export function setSpinDefaultIndicator() {
+  Spin.setDefaultIndicator(<UIDotLoading type="brand" size="md" />);
 }
 
 export function UISpin(props: UISpinProps) {
@@ -49,7 +60,7 @@ export function UISpin(props: UISpinProps) {
 
   return (
     <Spin
-      indicator={<UIDotLoading className={size} />}
+      indicator={<UIDotLoading size={size} className={size} />}
       prefixCls="ui-spin"
       {...rest}
     />
