@@ -1,5 +1,6 @@
 import { MessageInstance, TypeOpen } from 'antd/es/message/interface';
 
+import { UIDotLoading } from '../UISpin';
 import './index.less';
 
 type MessageMethods = {
@@ -7,11 +8,17 @@ type MessageMethods = {
   success: TypeOpen;
   error: TypeOpen;
   warning: TypeOpen;
+  loading: TypeOpen;
   destroy: (key?: React.Key) => void;
 };
 
-const MessageTypes = ['info', 'success', 'error', 'warning'] as const;
-
+const MessageTypes = [
+  'info',
+  'success',
+  'error',
+  'warning',
+  'loading',
+] as const;
 export const MessageInsRef = {
   current: null as unknown as MessageInstance,
 };
@@ -19,8 +26,39 @@ export const MessageInsRef = {
 export const UIMessage = {} as MessageMethods;
 
 MessageTypes.forEach((key) => {
-  UIMessage[key] = (...args) => {
-    const ins = MessageInsRef.current?.[key](...args);
-    return ins;
-  };
+  if (key === 'loading') {
+    UIMessage[key] = (content, ...args) => {
+      const contentJson = (() => {
+        if (
+          typeof content === 'object' &&
+          content !== null &&
+          'content' in content
+        ) {
+          return content;
+        } else {
+          return { content };
+        }
+      })();
+
+      const ins = MessageInsRef.current?.[key](
+        {
+          ...contentJson,
+          icon: (
+            <UIDotLoading
+              style={{
+                marginRight: 8,
+              }}
+            />
+          ),
+        },
+        ...args,
+      );
+      return ins;
+    };
+  } else {
+    UIMessage[key] = (...args) => {
+      const ins = MessageInsRef.current?.[key](...args);
+      return ins;
+    };
+  }
 });

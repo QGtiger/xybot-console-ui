@@ -54,6 +54,13 @@ export default () => {
         <UIButton onClick={success}>Success</UIButton>
         <UIButton onClick={error}>Error</UIButton>
         <UIButton onClick={warning}>Warning</UIButton>
+        <UIButton
+          onClick={() => {
+            UIMessage.loading({ content: 'Loading...' });
+          }}
+        >
+          Loading
+        </UIButton>
       </Space>
     </div>
   );

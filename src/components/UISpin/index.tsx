@@ -47,7 +47,16 @@ export function UIDotLoading(
   };
 
   return (
-    <Lottie {...rest} size={sizeMap[size]} animationData={getSrcByType(type)} />
+    <Lottie
+      {...rest}
+      style={{
+        width: sizeMap[size],
+        height: sizeMap[size],
+        ...rest.style,
+      }}
+      size={sizeMap[size]}
+      animationData={getSrcByType(type)}
+    />
   );
 }
 
