@@ -5,8 +5,8 @@ import { MessageOutlineIcon } from '@/common/icons/MessageOutlineIcon';
 import { UIButton, UILink } from '@/components';
 import { formatRelativeTime } from '@/utils/date';
 import { useBoolean, useRequest } from 'ahooks';
-import { Avatar } from 'antd';
 import { ContentType, TipTapEditor, TipTapEditorProps } from '../TipTapEditor';
+import { UIAvatar } from '../UIAvatar';
 import './index.less';
 
 type CommentItemType<E> = {
@@ -83,7 +83,9 @@ function CommentItem<E>(props: { item: CommentItemType<E> }) {
             {renderAvatar ? (
               renderAvatar(props.item)
             ) : (
-              <Avatar src={avatar}>{name.charAt(0)}</Avatar>
+              <UIAvatar size={20} src={avatar}>
+                {name.charAt(0)}
+              </UIAvatar>
             )}
           </div>
         </div>
