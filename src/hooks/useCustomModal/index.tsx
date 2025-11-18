@@ -60,7 +60,7 @@ export interface CustomModalContentProps {
 
   width?: number;
 
-  originalMoalProps?: Omit<
+  originalModalProps?: Omit<
     UIModalFuncProps,
     'content' | 'width' | 'icon' | 'footer' | 'styles' | 'className'
   >;
@@ -326,7 +326,7 @@ export function useCustomModal() {
         />
       ),
       width: props.width || 520,
-      ...props.originalMoalProps,
+      ...props.originalModalProps,
     });
     return ins;
   };
