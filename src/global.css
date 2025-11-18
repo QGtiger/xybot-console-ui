@@ -13,6 +13,8 @@ body {
 }
 
 :root {
+  --green-700: rgba(40, 194, 112, 1);
+
   /* new */
   --bg-base-container: rgba(255, 255, 255, 1);
   --bg-base-container-secondary: rgba(249, 249, 251, 1);
@@ -50,7 +52,7 @@ body {
   --bg-info-default: rgba(20, 116, 242, 0.05);
 
   --bg-success-spotlight: rgba(20, 174, 92, 1);
-  --bg-success-spotlight-secondary: rgba(62, 206, 110, 1);
+  --bg-success-spotlight-secondary: var(--green-700);
   --bg-success-quaternary: rgba(20, 174, 92, 0.25);
   --bg-success-tertiary: rgba(20, 174, 92, 0.15);
   --bg-success-secondary: rgba(20, 174, 92, 0.1);
@@ -94,7 +96,7 @@ body {
   --text-info-tertiary: rgba(20, 116, 242, 0.25);
 
   --text-success-default: rgba(20, 174, 92, 1);
-  --text-success-default-hover: rgba(62, 206, 110, 1);
+  --text-success-default-hover: var(--green-700);
   --text-success-secondary: rgba(20, 174, 92, 0.4);
   --text-success-tertiary: rgba(20, 174, 92, 0.25);
 
@@ -199,7 +201,7 @@ body {
   --bg-info-secondary: rgba(20, 116, 242, 0.25);
   --bg-info-default: rgba(20, 116, 242, 0.1);
 
-  --bg-success-spotlight: rgba(62, 206, 110, 1);
+  --bg-success-spotlight: var(--green-700);
   --bg-success-spotlight-secondary: rgba(20, 174, 92, 1);
   --bg-success-quaternary: rgba(20, 174, 92, 0.5);
   --bg-success-tertiary: rgba(20, 174, 92, 0.35);
@@ -243,7 +245,7 @@ body {
   --text-info-secondary: rgba(20, 116, 242, 0.5);
   --text-info-tertiary: rgba(20, 116, 242, 0.35);
 
-  --text-success-default: rgba(62, 206, 110, 1);
+  --text-success-default: var(--green-700);
   --text-success-default-hover: rgba(20, 174, 92, 1);
   --text-success-secondary: rgba(20, 174, 92, 0.5);
   --text-success-tertiary: rgba(20, 174, 92, 0.35);

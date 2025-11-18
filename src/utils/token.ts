@@ -1,3 +1,7 @@
+export const colorMap = {
+  green700: 'rgba(40, 194, 112, 1)',
+};
+
 // 定义所有 Token 枚举
 export enum DesignToken {
   // Background Base
@@ -298,10 +302,10 @@ const TOKEN_VALUES: Record<DesignToken, { light: string; dark: string }> = {
   // Background Success
   [DesignToken.BG_SUCCESS_SPOTLIGHT]: {
     light: 'rgba(20, 174, 92, 1)',
-    dark: 'rgba(20, 174, 92, 1)',
+    dark: colorMap.green700,
   },
   [DesignToken.BG_SUCCESS_SPOTLIGHT_SECONDARY]: {
-    light: 'rgba(62, 206, 110, 1)',
+    light: colorMap.green700,
     dark: 'rgba(62, 206, 110, 1)',
   },
   [DesignToken.BG_SUCCESS_QUATERNARY]: {
@@ -462,10 +466,10 @@ const TOKEN_VALUES: Record<DesignToken, { light: string; dark: string }> = {
   // Text Success
   [DesignToken.TEXT_SUCCESS_DEFAULT]: {
     light: 'rgba(20, 174, 92, 1)',
-    dark: 'rgba(20, 174, 92, 1)',
+    dark: colorMap.green700,
   },
   [DesignToken.TEXT_SUCCESS_DEFAULT_HOVER]: {
-    light: 'rgba(62, 206, 110, 1)',
+    light: colorMap.green700,
     dark: 'rgba(62, 206, 110, 1)',
   },
   [DesignToken.TEXT_SUCCESS_SECONDARY]: {
