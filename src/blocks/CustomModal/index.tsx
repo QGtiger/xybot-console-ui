@@ -1,15 +1,17 @@
 import { CustomModalContent, CustomModalContentProps } from '@/hooks';
 import { Modal, ModalProps } from 'antd';
+import classNames from 'classnames';
 
 export type CustomModalProps = Omit<
   ModalProps,
   'onCancel' | 'footer' | 'title' | 'onOk' | 'closable' | 'closeIcon'
 > & {
   customModalProps: CustomModalContentProps;
+  fullScreen?: boolean;
 };
 
 export function CustomModal(props: CustomModalProps) {
-  const { customModalProps, children, ...rest } = props;
+  const { customModalProps, children, fullScreen, ...rest } = props;
   return (
     <Modal
       {...rest}
@@ -22,7 +24,10 @@ export function CustomModal(props: CustomModalProps) {
           padding: 0,
         },
       }}
-      className="ui-custom-modal-wrapper"
+      className={classNames(
+        'ui-custom-modal-wrapper',
+        fullScreen && 'full-screen',
+      )}
       prefixCls="ui-modal"
     >
       <CustomModalContent

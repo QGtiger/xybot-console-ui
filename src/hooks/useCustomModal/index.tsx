@@ -1,12 +1,11 @@
 import React, { useMemo, useRef, useState } from 'react';
 
 import { ScrollArea } from '@/blocks';
-import { UIModalFuncProps } from '@/components';
+import { UIModalFuncProps, useUIModal } from '@/components';
 import { ThemeModel } from '@/components/ThemeProvider';
 import { UIButton, UIButtonProps } from '@/components/UIButton';
 import { CloseOutlined } from '@ant-design/icons';
 import { useBoolean, useSize } from 'ahooks';
-import { Modal } from 'antd';
 import classNames from 'classnames';
 import './index.less';
 
@@ -21,6 +20,9 @@ export type ControlContentProps = {
 };
 
 export interface CustomModalContentProps {
+  // 是否全屏
+  fullScreen?: boolean;
+
   title: React.ReactNode;
   subTitle?:
     | React.ReactNode
@@ -316,7 +318,10 @@ export function useCustomModal() {
           padding: 0,
         },
       },
-      className: 'ui-custom-modal-wrapper',
+      className: classNames(
+        'ui-custom-modal-wrapper',
+        props.fullScreen && 'full-screen',
+      ),
       content: (
         <CustomModalContent
           {...props}
@@ -336,10 +341,9 @@ export function useCustomModal() {
 }
 
 export function useCustomModalWithHolder() {
-  const [modal, contextHolder] = Modal.useModal();
+  const { modal, modalHolder } = useUIModal();
 
   const showCustomModal = (props: CustomModalContentProps) => {
-    // @ts-expect-error originalModalProps 类型错误
     const ins = modal.confirm({
       icon: null,
       footer: null,
@@ -348,7 +352,10 @@ export function useCustomModalWithHolder() {
           padding: 0,
         },
       },
-      className: 'ui-custom-modal-wrapper',
+      className: classNames(
+        'ui-custom-modal-wrapper',
+        props.fullScreen && 'full-screen',
+      ),
       content: (
         <CustomModalContent
           {...props}
@@ -364,5 +371,5 @@ export function useCustomModalWithHolder() {
     return ins;
   };
 
-  return { showCustomModal, contextHolder };
+  return { showCustomModal, modalHolder };
 }

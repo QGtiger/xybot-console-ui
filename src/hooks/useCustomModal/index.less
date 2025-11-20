@@ -1,107 +1,125 @@
 @import '../../variables.less';
 
-.ui-custom-modal {
-  position: relative;
-  max-height: calc(100vh - 128px);
-  overflow: hidden;
-  .ui-custom-modal-scroll-area {
-    max-height: calc(100vh - calc(128px + calc(var(--fh) * 1px)));
-  }
-  // &.exceed-height {
-  //   .ui-custom-modal-scroll-area {
-  //     height: 200px;
-  //     flex: 1;
-  //   }
-  // }
-
-  &-wrapper {
-    .ui-modal-confirm-paragraph {
-      max-width: 100%;
-    }
+.ui-custom-modal-wrapper {
+  --top: 64px;
+  .ui-modal-confirm-paragraph {
+    max-width: 100%;
   }
 
-  &-header {
-    padding: @space-600 @space-400 @space-200;
-    display: flex;
-    gap: @space-200;
-    align-items: center;
-    .logo-wrapper {
-      display: flex;
-      width: 44px;
-      height: 44px;
-      justify-content: center;
-      align-items: center;
-      border-radius: @radius-200;
-      flex-shrink: 0;
-      background-color: @bg-base-layout-secondary;
-    }
-    .logo {
-    }
-    .title-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      .title {
-        color: @text-base-default;
-        font-size: 14px;
-        font-weight: 520;
-        line-height: 20px;
+  &.full-screen {
+    width: 100% !important;
+    max-height: 100% !important;
+
+    --top: 16px;
+
+    .ui-custom-modal {
+      height: calc(100vh - calc(var(--top) * 2));
+      .ui-custom-modal-scroll-area {
+        height: calc(100vh - calc(var(--top) * 2 + calc(var(--fh) * 1px)));
       }
-      .sub {
-        font-size: 13px;
+    }
+  }
+
+  max-width: calc(100vw - calc(var(--top) * 2));
+  max-height: calc(100vh - calc(var(--top) * 2));
+
+  .ui-custom-modal {
+    position: relative;
+    max-height: calc(100vh - calc(var(--top) * 2));
+    overflow: hidden;
+    .ui-custom-modal-scroll-area {
+      max-height: calc(100vh - calc(var(--top) * 2 + calc(var(--fh) * 1px)));
+    }
+    // &.exceed-height {
+    //   .ui-custom-modal-scroll-area {
+    //     height: 200px;
+    //     flex: 1;
+    //   }
+    // }
+
+    &-header {
+      padding: @space-600 @space-400 @space-200;
+      display: flex;
+      gap: @space-200;
+      align-items: center;
+      .logo-wrapper {
         display: flex;
+        width: 44px;
+        height: 44px;
+        justify-content: center;
         align-items: center;
+        border-radius: @radius-200;
+        flex-shrink: 0;
+        background-color: @bg-base-layout-secondary;
+      }
+      .logo {
+      }
+      .title-wrapper {
+        display: flex;
+        flex-direction: column;
         gap: 4px;
-        .sub-title {
-          color: @text-base-secondary;
-          font-weight: 330;
+        .title {
+          color: @text-base-default;
+          font-size: 14px;
+          font-weight: 520;
           line-height: 20px;
         }
-        .extra-toggle {
-          color: @text-info-default;
+        .sub {
+          font-size: 13px;
           display: flex;
           align-items: center;
-          gap: 2px;
-          cursor: pointer;
+          gap: 4px;
+          .sub-title {
+            color: @text-base-secondary;
+            font-weight: 330;
+            line-height: 20px;
+          }
+          .extra-toggle {
+            color: @text-info-default;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            cursor: pointer;
+          }
         }
       }
     }
-  }
 
-  &-footer {
-    padding: @space-400;
-    .actions {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: @space-200;
-    }
-  }
-
-  .rt-cont {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    .act-btn {
-      font-size: 14px;
-      height: 28px;
-      width: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 4px;
-      cursor: pointer;
-      color: @text-base-secondary;
-      transition: all 0.2s ease-in-out;
-      &:hover {
-        background-color: @bg-base-layout-secondary;
-        color: @text-base-default;
+    &-footer {
+      padding: @space-400;
+      .actions {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: @space-200;
       }
     }
-    .close-btn {
+
+    .rt-cont {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      .act-btn {
+        font-size: 14px;
+        height: 28px;
+        width: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        cursor: pointer;
+        color: @text-base-secondary;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          background-color: @bg-base-layout-secondary;
+          color: @text-base-default;
+        }
+      }
+      .close-btn {
+      }
     }
   }
 }
