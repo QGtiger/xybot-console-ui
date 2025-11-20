@@ -1,6 +1,4 @@
 import { IconFont } from '@/common';
-import { UITabs, UITabsProps } from '@/components';
-import { useReactive } from 'ahooks';
 import { Upload } from 'antd';
 import { useMenuEdtior } from '../hooks';
 
@@ -45,23 +43,23 @@ function ImgFileUpload(props: CommonPopoverContentProps) {
 }
 
 export function ImagePopoverContent(props: CommonPopoverContentProps) {
-  const viewModel = useReactive({
-    tab: 'file' as 'file' | 'url',
-  });
-  const { tab } = viewModel;
+  // const viewModel = useReactive({
+  //   tab: 'file' as 'file' | 'url',
+  // });
+  // const { tab } = viewModel;
 
-  const items: UITabsProps['items'] = [
-    {
-      label: '上传图片',
-      key: 'file',
-      children: <ImgFileUpload {...props} />,
-    },
-    {
-      label: '图片链接',
-      key: 'url',
-      children: <div className="mt-2">图片链接功能待开发</div>,
-    },
-  ];
+  // const items: UITabsProps['items'] = [
+  //   {
+  //     label: '上传图片',
+  //     key: 'file',
+  //     children: <ImgFileUpload {...props} />,
+  //   },
+  //   {
+  //     label: '图片链接',
+  //     key: 'url',
+  //     children: <div className="mt-2">图片链接功能待开发</div>,
+  //   },
+  // ];
 
   return (
     <div className=" w-[360px] px-2 py-1">
@@ -69,7 +67,10 @@ export function ImagePopoverContent(props: CommonPopoverContentProps) {
         <IconFont type="Image-sm" />
         插入图片
       </div>
-      <UITabs
+      <div className="mt-2">
+        <ImgFileUpload {...props} />
+      </div>
+      {/* <UITabs
         type="segment"
         activeKey={tab}
         items={items}
@@ -80,7 +81,7 @@ export function ImagePopoverContent(props: CommonPopoverContentProps) {
           block: true,
         }}
         className="mt-2"
-      />
+      /> */}
     </div>
   );
 }

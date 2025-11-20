@@ -326,6 +326,7 @@ export function useCustomModal() {
         />
       ),
       width: props.width || 520,
+      centered: true,
       ...props.originalModalProps,
     });
     return ins;
@@ -338,6 +339,7 @@ export function useCustomModalWithHolder() {
   const [modal, contextHolder] = Modal.useModal();
 
   const showCustomModal = (props: CustomModalContentProps) => {
+    // @ts-expect-error originalModalProps 类型错误
     const ins = modal.confirm({
       icon: null,
       footer: null,
@@ -356,6 +358,8 @@ export function useCustomModalWithHolder() {
         />
       ),
       width: props.width || 520,
+      centered: true,
+      ...props.originalModalProps,
     });
     return ins;
   };
