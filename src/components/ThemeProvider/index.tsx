@@ -15,9 +15,9 @@ import {
 import { ModalRef, UIModalFns, useUIModal } from '../UIModal';
 
 import type { ThemeMode, ThemeType } from 'ahooks/lib/useTheme';
-import { UIButtonProps } from '../UIButton';
+import type { UIButtonProps } from '../UIButton';
 import type { UIInputProps } from '../UIInput/input';
-import { UILinkProps } from '../UILink';
+import type { UILinkProps } from '../UILink';
 import type { UISelectProps } from '../UISelect';
 import { darkTheme, lightTheme } from './theme';
 
