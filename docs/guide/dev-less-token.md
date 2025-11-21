@@ -1,0 +1,199 @@
+---
+order: 2
+title: less token 配置
+group: 开发
+---
+
+:::info
+支持 less token 的 导出
+:::
+
+默认引入方式
+
+```typescript
+import '@xybot/ui/variables.less';
+```
+
+具体 token 如下
+
+```less
+@radius-100: 4px;
+@radius-150: 6px;
+@radius-200: 8px;
+@radius-300: 12px;
+@radius-400: 16px;
+@radius-full: 9999px;
+
+@space-50: 2px;
+@space-100: 4px;
+@space-150: 6px;
+@space-200: 8px;
+@space-250: 10px;
+@space-300: 12px;
+@space-400: 16px;
+@space-500: 20px;
+@space-600: 24px;
+@space-700: 28px;
+@space-800: 32px;
+@space-900: 36px;
+@space-1000: 40px;
+@space-1200: 48px;
+@space-1400: 56px;
+@space-1600: 64px;
+@space-1800: 72px;
+@space-2000: 80px;
+@space-2400: 96px;
+
+@drop-shadow-50: 0 2px 4px -2px var(--effect-shadow-default, rgba(15, 17, 24, 0.1));
+@drop-shadow-100: 0 8px 16px -4px var(--effect-shadow-default, rgba(15, 17, 24, 0.1));
+@drop-shadow-200: 0 16px 48px -8px var(--effect-shadow-default, rgba(15, 17, 24, 0.1)),
+  0 4px 8px 0 var(--effect-shadow-secondary, rgba(15, 17, 24, 0.07));
+
+@bg-base-container: var(--bg-base-container);
+@bg-base-container-secondary: var(--bg-base-container-secondary);
+@bg-base-layout: var(--bg-base-layout);
+@bg-base-layout-secondary: var(--bg-base-layout-secondary);
+@bg-base-spotlight: var(--bg-base-spotlight);
+@bg-base-spotlight-secondary: var(--bg-base-spotlight-secondary);
+@bg-base-mask: var(--bg-base-mask);
+
+// 0924 替换 bg-fill => bg-fill-deep
+@bg-fill-deep-quinary: var(--bg-fill-deep-quinary);
+@bg-fill-deep-quaternary: var(--bg-fill-deep-quaternary);
+@bg-fill-deep-tertiary: var(--bg-fill-deep-tertiary);
+@bg-fill-deep-secondary: var(--bg-fill-deep-secondary);
+@bg-fill-deep-default: var(--bg-fill-deep-default);
+
+@bg-fill-shallow-quinary: var(--bg-fill-shallow-quinary);
+@bg-fill-shallow-quaternary: var(--bg-fill-shallow-quaternary);
+@bg-fill-shallow-tertiary: var(--bg-fill-shallow-tertiary);
+@bg-fill-shallow-secondary: var(--bg-fill-shallow-secondary);
+@bg-fill-shallow-default: var(--bg-fill-shallow-default);
+
+@bg-primary-spotlight: var(--bg-primary-spotlight);
+@bg-primary-spotlight-secondary: var(--bg-primary-spotlight-secondary);
+@bg-primary-quaternary: var(--bg-primary-quaternary);
+@bg-primary-tertiary: var(--bg-primary-tertiary);
+@bg-primary-secondary: var(--bg-primary-secondary);
+@bg-primary-default: var(--bg-primary-default);
+
+@bg-info-spotlight: var(--bg-info-spotlight);
+@bg-info-spotlight-secondary: var(--bg-info-spotlight-secondary);
+@bg-info-quaternary: var(--bg-info-quaternary);
+@bg-info-tertiary: var(--bg-info-tertiary);
+@bg-info-secondary: var(--bg-info-secondary);
+@bg-info-default: var(--bg-info-default);
+
+@bg-success-spotlight: var(--bg-success-spotlight);
+@bg-success-spotlight-secondary: var(--bg-success-spotlight-secondary);
+@bg-success-quaternary: var(--bg-success-quaternary);
+@bg-success-tertiary: var(--bg-success-tertiary);
+@bg-success-secondary: var(--bg-success-secondary);
+@bg-success-default: var(--bg-success-default);
+
+@bg-warning-spotlight: var(--bg-warning-spotlight);
+@bg-warning-spotlight-secondary: var(--bg-warning-spotlight-secondary);
+@bg-warning-quaternary: var(--bg-warning-quaternary);
+@bg-warning-tertiary: var(--bg-warning-tertiary);
+@bg-warning-secondary: var(--bg-warning-secondary);
+@bg-warning-default: var(--bg-warning-default);
+
+@bg-error-spotlight: var(--bg-error-spotlight);
+@bg-error-spotlight-secondary: var(--bg-error-spotlight-secondary);
+@bg-error-quaternary: var(--bg-error-quaternary);
+@bg-error-tertiary: var(--bg-error-tertiary);
+@bg-error-secondary: var(--bg-error-secondary);
+@bg-error-default: var(--bg-error-default);
+
+@bg-magic-spotlight: var(--bg-magic-spotlight);
+@bg-magic-spotlight-secondary: var(--bg-magic-spotlight-secondary);
+@bg-magic-quaternary: var(--bg-magic-quaternary);
+@bg-magic-tertiary: var(--bg-magic-tertiary);
+@bg-magic-secondary: var(--bg-magic-secondary);
+@bg-magic-default: var(--bg-magic-default);
+
+@text-base-default: var(--text-base-default);
+@text-base-secondary: var(--text-base-secondary);
+@text-base-tertiary: var(--text-base-tertiary);
+@text-base-quaternary: var(--text-base-quaternary);
+@text-base-in-gray-default: var(--text-base-in-gray-default);
+@text-base-in-gray-secondary: var(--text-base-in-gray-secondary);
+@text-base-in-gray-tertiary: var(--text-base-in-gray-tertiary);
+@text-base-in-gray-disable: var(--text-base-in-gray-disable);
+@text-base-in-coloer-default: var(--text-base-in-coloer-default);
+@text-base-in-coloer-secondary: var(--text-base-in-coloer-secondary);
+@text-base-in-coloer-tertiary: var(--text-base-in-coloer-tertiary);
+@text-base-in-coloer-disable: var(--text-base-in-coloer-disable);
+
+@text-primary-default: var(--text-primary-default);
+@text-primary-default-hover: var(--text-primary-default-hover);
+@text-primary-secondary: var(--text-primary-secondary);
+@text-primary-tertiary: var(--text-primary-tertiary);
+
+@text-info-default: var(--text-info-default);
+@text-info-default-hover: var(--text-info-default-hover);
+@text-info-secondary: var(--text-info-secondary);
+@text-info-tertiary: var(--text-info-tertiary);
+@text-info-disable: var(--text-info-disable);
+
+@text-success-default: var(--text-success-default);
+@text-success-default-hover: var(--text-success-default-hover);
+@text-success-secondary: var(--text-success-secondary);
+@text-success-tertiary: var(--text-success-tertiary);
+@text-success-disable: var(--text-success-disable);
+
+@text-warning-default: var(--text-warning-default);
+@text-warning-default-hover: var(--text-warning-default-hover);
+@text-warning-secondary: var(--text-warning-secondary);
+@text-warning-tertiary: var(--text-warning-tertiary);
+@text-warning-disable: var(--text-warning-disable);
+
+@text-error-default: var(--text-error-default);
+@text-error-default-hover: var(--text-error-default-hover);
+@text-error-secondary: var(--text-error-secondary);
+@text-error-tertiary: var(--text-error-tertiary);
+@text-error-disable: var(--text-error-disable);
+
+@text-magic-default: var(--text-magic-default);
+@text-magic-default-hover: var(--text-magic-default-hover);
+@text-magic-secondary: var(--text-magic-secondary);
+@text-magic-tertiary: var(--text-magic-tertiary);
+
+@border-base-default: var(--border-base-default);
+@border-base-secondary: var(--border-base-secondary);
+@border-base-tertiary: var(--border-base-tertiary);
+@border-base-quaternary: var(--border-base-quaternary);
+
+@border-specular-default: var(--border-specular-default);
+@border-specular-secondary: var(--border-specular-secondary);
+@border-specular-tertiary: var(--border-specular-tertiary);
+@border-specular-quaternary: var(--border-specular-quaternary);
+
+@border-primary-default: var(--border-primary-default);
+@border-primary-secondary: var(--border-primary-secondary);
+@border-primary-tertiary: var(--border-primary-tertiary);
+@border-primary-quaternary: var(--border-primary-quaternary);
+
+@border-info-default: var(--border-info-default);
+@border-info-secondary: var(--border-info-secondary);
+@border-info-tertiary: var(--border-info-tertiary);
+@border-info-quaternary: var(--border-info-quaternary);
+
+@border-success-default: var(--border-success-default);
+@border-success-secondary: var(--border-success-secondary);
+@border-success-tertiary: var(--border-success-tertiary);
+@border-success-quaternary: var(--border-success-quaternary);
+
+@border-warning-default: var(--border-warning-default);
+@border-warning-secondary: var(--border-warning-secondary);
+@border-warning-tertiary: var(--border-warning-tertiary);
+@border-warning-quaternary: var(--border-warning-quaternary);
+
+@border-error-default: var(--border-error-default);
+@border-error-secondary: var(--border-error-secondary);
+@border-error-tertiary: var(--border-error-tertiary);
+@border-error-quaternary: var(--border-error-quaternary);
+
+@effect-shadow-default: var(--effect-shadow-default);
+@effect-shadow-secondary: var(--effect-shadow-secondary);
+```

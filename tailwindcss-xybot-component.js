@@ -92,6 +92,14 @@ module.exports = plugin(
             secondary: 'var(--bg-warning-secondary)',
             default: 'var(--bg-warning-default)',
           },
+          bgMagic: {
+            spotlight: 'var(--bg-magic-spotlight)',
+            spotlightSecondary: 'var(--bg-magic-spotlight-secondary)',
+            quaternary: 'var(--bg-magic-quaternary)',
+            tertiary: 'var(--bg-magic-tertiary)',
+            secondary: 'var(--bg-magic-secondary)',
+            default: 'var(--bg-magic-default)',
+          },
           bgError: {
             spotlight: 'var(--bg-error-spotlight)',
             spotlightSecondary: 'var(--bg-error-spotlight-secondary)',
@@ -143,6 +151,12 @@ module.exports = plugin(
             defaultHover: 'var(--text-error-default-hover)',
             secondary: 'var(--text-error-secondary)',
             tertiary: 'var(--text-error-tertiary)',
+          },
+          textMagic: {
+            default: 'var(--text-magic-default)',
+            defaultHover: 'var(--text-magic-default-hover)',
+            secondary: 'var(--text-magic-secondary)',
+            tertiary: 'var(--text-magic-tertiary)',
           },
           borderBase: {
             default: 'var(--border-base-default)',
