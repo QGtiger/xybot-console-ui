@@ -9,10 +9,11 @@ type LinkType = 'default' | 'info' | 'secondary';
 export interface UILinkProps extends React.HTMLAttributes<HTMLElement> {
   color?: LinkType;
   disabled?: boolean;
+  icon?: React.ReactNode;
 }
 
 export function UILink(props: PropsWithChildren<UILinkProps>) {
-  const { color = 'default', ...rest } = useDefaultProps(props, 'uiLink');
+  const { color = 'default', icon, ...rest } = useDefaultProps(props, 'uiLink');
 
   return (
     <button
@@ -20,6 +21,7 @@ export function UILink(props: PropsWithChildren<UILinkProps>) {
       {...rest}
       className={classNames(`ui-link ui-link-${color}`, props.className)}
     >
+      {icon && <span className="ui-link-icon">{icon}</span>}
       {props.children}
     </button>
   );

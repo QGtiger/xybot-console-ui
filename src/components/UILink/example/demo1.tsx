@@ -1,4 +1,4 @@
-import { ThemeModel, UILink } from '@xybot/ui';
+import { IconFont, ThemeModel, UILink } from '@xybot/ui';
 
 export default () => {
   const { isDarkMode } = ThemeModel.useModel();
@@ -11,7 +11,7 @@ export default () => {
         padding: '16px',
       }}
     >
-      <UILink>Default UILink</UILink>
+      <UILink icon={<IconFont type="Image-sm" />}>Default UILink</UILink>
       <UILink color="info">Info UILink</UILink>
       <UILink color="secondary">Secondary UILink</UILink>
     </div>
