@@ -12,6 +12,7 @@ type UIButtonType =
   | 'primary'
   | 'danger'
   | 'secondary';
+// | 'magic';
 
 export type UIButtonProps = Omit<
   AntdButtonProps,

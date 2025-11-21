@@ -53,36 +53,47 @@ export default () => {
           >
             {item.label} ({item.size})
           </span>
-          <UIButton
-            icon={<PrefixIconDemo />}
-            size={item.size as any}
-            type="border"
-          ></UIButton>
-          <UIButton
-            icon={<PrefixIconDemo />}
-            size={item.size as any}
-            type="text"
-          ></UIButton>
-          <UIButton
-            icon={<PrefixIconDemo />}
-            size={item.size as any}
-            type="base"
-          ></UIButton>
-          <UIButton
-            icon={<PrefixIconDemo />}
-            size={item.size as any}
-            type="primary"
-          ></UIButton>
-          <UIButton
-            icon={<PrefixIconDemo />}
-            size={item.size as any}
-            type="danger"
-          ></UIButton>
-          <UIButton
-            icon={<PrefixIconDemo />}
-            size={item.size as any}
-            type="secondary"
-          ></UIButton>
+          {(['circle', 'round', 'default'] as const).map((shape) => {
+            return (
+              <>
+                <UIButton
+                  icon={<PrefixIconDemo />}
+                  size={item.size as any}
+                  type="border"
+                ></UIButton>
+                <UIButton
+                  icon={<PrefixIconDemo />}
+                  size={item.size as any}
+                  type="text"
+                  shape={shape}
+                ></UIButton>
+                <UIButton
+                  icon={<PrefixIconDemo />}
+                  size={item.size as any}
+                  type="base"
+                  shape={shape}
+                ></UIButton>
+                <UIButton
+                  icon={<PrefixIconDemo />}
+                  size={item.size as any}
+                  type="primary"
+                  shape={shape}
+                ></UIButton>
+                <UIButton
+                  icon={<PrefixIconDemo />}
+                  size={item.size as any}
+                  type="danger"
+                  shape={shape}
+                ></UIButton>
+                <UIButton
+                  icon={<PrefixIconDemo />}
+                  size={item.size as any}
+                  type="secondary"
+                  shape={shape}
+                ></UIButton>
+              </>
+            );
+          })}
         </div>
       ))}
     </div>

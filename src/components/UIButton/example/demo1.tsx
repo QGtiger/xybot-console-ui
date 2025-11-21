@@ -103,6 +103,13 @@ export default () => {
           >
             Click Me
           </UIButton>
+          {/* <UIButton
+            icon={<PrefixIconDemo />}
+            size={item.size as any}
+            type="magic"
+          >
+            Click Me
+          </UIButton> */}
         </div>
       ))}
     </div>
