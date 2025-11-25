@@ -135,6 +135,7 @@ export function useUIModal() {
             {
               ...config,
               type,
+              centered: true,
             },
             () => {
               modalRef.destroy();

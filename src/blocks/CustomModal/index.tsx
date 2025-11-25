@@ -29,6 +29,7 @@ export function CustomModal(props: CustomModalProps) {
         fullScreen && 'full-screen',
       )}
       prefixCls="ui-modal"
+      centered
     >
       <CustomModalContent
         content={children}
