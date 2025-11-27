@@ -88,15 +88,15 @@ body {
   --pewter-1000: rgba(32, 33, 39, 1);
 
   /* Green */
-  --green-50: rgba(20, 174, 92, 0.05);
-  --green-100: rgba(20, 174, 92, 0.1);
-  --green-150: rgba(20, 174, 92, 0.15);
-  --green-200: rgba(20, 174, 92, 0.2);
-  --green-250: rgba(20, 174, 92, 0.25);
-  --green-300: rgba(20, 174, 92, 0.3);
-  --green-400: rgba(20, 174, 92, 0.4);
-  --green-500: rgba(20, 174, 92, 0.5);
-  --green-600: rgba(20, 174, 92, 1);
+  --green-50: rgba(13, 158, 81, 0.05);
+  --green-100: rgba(13, 158, 81, 0.1);
+  --green-150: rgba(13, 158, 81, 0.15);
+  --green-200: rgba(13, 158, 81, 0.2);
+  --green-250: rgba(13, 158, 81, 0.25);
+  --green-300: rgba(13, 158, 81, 0.3);
+  --green-400: rgba(13, 158, 81, 0.4);
+  --green-500: rgba(13, 158, 81, 0.5);
+  --green-600: rgba(13, 158, 81, 1);
   --green-700: rgba(40, 194, 112, 1);
   --green-800: rgba(135, 220, 175, 1);
   --green-900: rgba(196, 245, 201, 1);
@@ -234,12 +234,12 @@ body {
   --bg-info-secondary: rgba(20, 116, 242, 0.1);
   --bg-info-default: rgba(20, 116, 242, 0.05);
 
-  --bg-success-spotlight: rgba(20, 174, 92, 1);
+  --bg-success-spotlight: var(--green-600);
   --bg-success-spotlight-secondary: var(--green-700);
-  --bg-success-quaternary: rgba(20, 174, 92, 0.25);
-  --bg-success-tertiary: rgba(20, 174, 92, 0.15);
-  --bg-success-secondary: rgba(20, 174, 92, 0.1);
-  --bg-success-default: rgba(20, 174, 92, 0.05);
+  --bg-success-quaternary: var(--green-250);
+  --bg-success-tertiary: var(--green-150);
+  --bg-success-secondary: var(--green-100);
+  --bg-success-default: var(--green-50);
 
   --bg-warning-spotlight: rgba(236, 103, 31, 1);
   --bg-warning-spotlight-secondary: rgba(251, 147, 86, 1);
@@ -285,10 +285,10 @@ body {
   --text-info-secondary: rgba(20, 116, 242, 0.4);
   --text-info-tertiary: rgba(20, 116, 242, 0.25);
 
-  --text-success-default: rgba(20, 174, 92, 1);
+  --text-success-default: var(--green-600);
   --text-success-default-hover: var(--green-700);
-  --text-success-secondary: rgba(20, 174, 92, 0.4);
-  --text-success-tertiary: rgba(20, 174, 92, 0.25);
+  --text-success-secondary: var(--green-400);
+  --text-success-tertiary: var(--green-250);
 
   --text-warning-default: rgba(236, 103, 31, 1);
   --text-warning-default-hover: rgba(251, 147, 86, 1);
@@ -325,15 +325,15 @@ body {
   --border-info-tertiary: rgba(20, 116, 242, 0.15);
   --border-info-quaternary: rgba(20, 116, 242, 0.1);
 
-  --border-success-default: rgba(20, 174, 92, 1);
-  --border-success-secondary: rgba(20, 174, 92, 0.25);
-  --border-success-tertiary: rgba(20, 174, 92, 0.15);
-  --border-success-quaternary: rgba(20, 174, 92, 0.1);
+  --border-success-default: var(--green-600);
+  --border-success-secondary: var(--green-250);
+  --border-success-tertiary: var(--green-150);
+  --border-success-quaternary: var(--green-100);
 
-  --border-warning-default: rgba(236, 103, 31, 1);
-  --border-warning-secondary: rgba(236, 103, 31, 0.25);
-  --border-warning-tertiary: rgba(236, 103, 31, 0.15);
-  --border-warning-quaternary: rgba(236, 103, 31, 0.1);
+  --border-warning-default: var(--orange-600);
+  --border-warning-secondary: var(--orange-250);
+  --border-warning-tertiary: var(--orange-150);
+  --border-warning-quaternary: var(--orange-100);
 
   --border-error-default: rgba(220, 40, 70, 1);
   --border-error-secondary: rgba(220, 40, 70, 0.25);
@@ -397,11 +397,11 @@ body {
   --bg-info-default: rgba(20, 116, 242, 0.1);
 
   --bg-success-spotlight: var(--green-700);
-  --bg-success-spotlight-secondary: rgba(20, 174, 92, 1);
-  --bg-success-quaternary: rgba(20, 174, 92, 0.5);
-  --bg-success-tertiary: rgba(20, 174, 92, 0.35);
-  --bg-success-secondary: rgba(20, 174, 92, 0.25);
-  --bg-success-default: rgba(20, 174, 92, 0.1);
+  --bg-success-spotlight-secondary: var(--green-600);
+  --bg-success-quaternary: var(--green-550);
+  --bg-success-tertiary: var(--green-350);
+  --bg-success-secondary: var(--green-250);
+  --bg-success-default: var(--green-100);
 
   --bg-warning-spotlight: rgba(251, 147, 86, 1);
   --bg-warning-spotlight-secondary: rgba(236, 103, 31, 1);
@@ -448,9 +448,9 @@ body {
   --text-info-tertiary: rgba(20, 116, 242, 0.35);
 
   --text-success-default: var(--green-700);
-  --text-success-default-hover: rgba(20, 174, 92, 1);
-  --text-success-secondary: rgba(20, 174, 92, 0.5);
-  --text-success-tertiary: rgba(20, 174, 92, 0.35);
+  --text-success-default-hover: var(--green-600);
+  --text-success-secondary: var(--green-500);
+  --text-success-tertiary: var(--green-350);
 
   --text-warning-default: rgba(251, 147, 86, 1);
   --text-warning-default-hover: rgba(236, 103, 31, 1);
@@ -487,10 +487,10 @@ body {
   --border-info-tertiary: rgba(20, 116, 242, 0.15);
   --border-info-quaternary: rgba(20, 116, 242, 0.1);
 
-  --border-success-default: rgba(20, 174, 92, 1);
-  --border-success-secondary: rgba(20, 174, 92, 0.25);
-  --border-success-tertiary: rgba(20, 174, 92, 0.15);
-  --border-success-quaternary: rgba(20, 174, 92, 0.1);
+  --border-success-default: var(--green-600);
+  --border-success-secondary: var(--green-250);
+  --border-success-tertiary: var(--green-150);
+  --border-success-quaternary: var(--green-100);
 
   --border-warning-default: rgba(236, 103, 31, 1);
   --border-warning-secondary: rgba(236, 103, 31, 0.25);

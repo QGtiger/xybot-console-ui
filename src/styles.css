@@ -202,7 +202,7 @@
     background-color: var(--border-base-default)
 }
 .bg-white-1000 {
-    background-color: rgba(255, 255, 255, 1)
+    background-color: var(--white-1000)
 }
 .object-contain {
     -o-object-fit: contain;
@@ -255,7 +255,7 @@
     color: var(--text-success-default)
 }
 .text-white-1000 {
-    color: rgba(255, 255, 255, 1)
+    color: var(--white-1000)
 }
 .underline {
     text-decoration-line: underline

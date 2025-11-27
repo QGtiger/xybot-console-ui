@@ -1,20 +1,31 @@
 @import '../../variables.less';
 
 .ui-tabs {
-  font-weight: 400;
+  font-weight: 330;
   .ui-tabs-tab-btn {
     font-size: 12px;
   }
 
+  &-small {
+    .ui-tabs-tab-active {
+      font-weight: 450;
+    }
+  }
+
   &-middle {
-    font-weight: 450;
+    .ui-tabs-tab-active {
+      font-weight: 450;
+    }
     .ui-tabs-tab-btn {
       font-size: 13px;
     }
   }
 
   &-large {
-    font-weight: 520;
+    font-weight: 450;
+    .ui-tabs-tab-active {
+      font-weight: 520;
+    }
     .ui-tabs-tab-btn {
       font-size: 16px;
     }
