@@ -1,4 +1,4 @@
-import { Tabs, TabsProps, ThemeModel } from '@xybot/ui';
+import { TabsProps, ThemeModel, UITabs } from '@xybot/ui';
 
 const items: TabsProps['items'] = [
   {
@@ -30,9 +30,9 @@ export default () => {
         padding: '16px',
       }}
     >
-      <Tabs size="small" items={items} type="card" />
-      <Tabs size="middle" items={items} type="card" />
-      <Tabs size="large" items={items} type="editable-card" hideAdd />
+      <UITabs size="small" items={items} type="card" />
+      <UITabs size="middle" items={items} type="card" />
+      <UITabs size="large" items={items} type="editable-card" hideAdd />
     </div>
   );
 };
