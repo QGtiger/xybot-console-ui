@@ -1,4 +1,4 @@
-import { Button as AntdButton, ButtonProps as AntdButtonProps } from 'antd';
+import { ButtonProps as AntdButtonProps, Button } from 'antd';
 import classNames from 'classnames';
 
 import { useDefaultProps } from '../ThemeProvider';
@@ -11,8 +11,9 @@ type UIButtonType =
   | 'base'
   | 'primary'
   | 'danger'
-  | 'secondary';
-// | 'magic';
+  | 'secondary'
+  | 'magic-light'
+  | 'magic-primary';
 
 export type UIButtonProps = Omit<
   AntdButtonProps,
@@ -69,7 +70,7 @@ export function UIButton(props: UIButtonProps) {
   })();
 
   return (
-    <AntdButton
+    <Button
       {...rest}
       prefixCls="ui-btn"
       type="default"

@@ -73,6 +73,9 @@
 .flex {
     display: flex
 }
+.inline-flex {
+    display: inline-flex
+}
 .contents {
     display: contents
 }
