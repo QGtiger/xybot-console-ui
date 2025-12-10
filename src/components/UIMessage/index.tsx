@@ -18,6 +18,7 @@ const MessageTypes = [
   'error',
   'warning',
   'loading',
+  'destroy',
 ] as const;
 export const MessageInsRef = {
   current: null as unknown as MessageInstance,
@@ -54,6 +55,10 @@ MessageTypes.forEach((key) => {
         ...args,
       );
       return ins;
+    };
+  } else if (key === 'destroy') {
+    UIMessage[key] = (key) => {
+      MessageInsRef.current?.destroy(key);
     };
   } else {
     UIMessage[key] = (...args) => {
