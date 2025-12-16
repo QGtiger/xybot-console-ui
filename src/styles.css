@@ -58,6 +58,12 @@
 .mt-4 {
     margin-top: 1rem
 }
+.-ml-2 {
+    margin-left: -0.5rem
+}
+.-ml-\[6px\] {
+    margin-left: -6px
+}
 .box-border {
     box-sizing: border-box
 }
@@ -218,6 +224,10 @@
 .py-1 {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem
+}
+.px-\[6px\] {
+    padding-left: 6px;
+    padding-right: 6px
 }
 .\!text-xs {
     font-size: 0.75rem !important;

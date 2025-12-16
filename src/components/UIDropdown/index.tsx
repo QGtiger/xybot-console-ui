@@ -39,7 +39,7 @@ export function UIDropdown(props: UIDropdownProps) {
             }}
           >
             <ScrollArea
-              className=" w-full"
+              className=" w-full -ml-[6px] px-[6px]"
               style={{
                 maxHeight: props.maxHeight || 'auto',
               }}
