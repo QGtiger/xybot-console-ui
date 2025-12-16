@@ -61,7 +61,7 @@ export function UITag(props: PropsWithChildren<UITagProps>) {
       {props.children}
       {closable && (
         <span
-          className="ui-tag-close"
+          className="ui-tag-close opacity-50"
           onClick={(e) => {
             e.stopPropagation();
             e.preventDefault();
