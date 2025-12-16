@@ -48,7 +48,7 @@ export function UIDropdown(props: UIDropdownProps) {
             </ScrollArea>
             {footer && (
               <>
-                <div className="h-[1px] bg-borderBase-default my-1 mx-2"></div>
+                <div className="h-[1px] bg-borderBase-default my-2 mx-2"></div>
                 <div>{props.footer}</div>
               </>
             )}
