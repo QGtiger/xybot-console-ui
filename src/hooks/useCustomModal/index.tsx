@@ -87,7 +87,7 @@ export function CustomModalContent(
     footerStyle,
     footer,
     okButtonProps,
-    okText = '确认',
+    okText = '确定',
     cancelButtonProps,
     cancelText = '取消',
     onOk,

@@ -55,7 +55,7 @@ export type UIModalStaticFunctions = Record<
 
 function getModalInvokeOptions(config: UIModalFuncProps, close: () => void) {
   const {
-    okText = '确认',
+    okText = '确定',
     cancelText = '取消',
     onOk,
     onCancel,
@@ -103,7 +103,7 @@ function getModalInvokeOptions(config: UIModalFuncProps, close: () => void) {
           );
 
           const originNode = (
-            <div className="flex justify-end gap-1">
+            <div className="flex justify-end gap-1.5">
               <OkBtn />
               {type === 'confirm' && <CancelBtn />}
             </div>
@@ -159,7 +159,7 @@ function UIOriginModal(
     CustomModalProps,
 ) {
   const {
-    okText = '确认',
+    okText = '确定',
     cancelText = '取消',
     onOk,
     onCancel,
