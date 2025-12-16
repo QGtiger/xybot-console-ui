@@ -15,6 +15,11 @@
 }
 
 .ui-checkbox-wrapper {
+  .ui-checkbox-label {
+    padding-inline-start: @space-100;
+    padding-inline-end: @space-100;
+  }
+
   .checkboxRules(
     {
       border-color: @border-base-secondary;
@@ -22,7 +27,9 @@
       height: 14px;
       &::after {
         border-color: #ffffff;
-        inset-inline-start: 22%
+        inset-inline-start: 22%;
+        border-width: 1px;
+        top: 48%;
       }
     }
   );
@@ -35,6 +42,7 @@
         height: 1px;
         background-color: #ffffff;
         inset-inline-start: 50%;
+        top: 50%;
       }
     }
   }

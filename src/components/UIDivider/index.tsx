@@ -23,7 +23,11 @@ export function UIDivider(props: UIDividerProps) {
         {...props}
         size="middle"
         prefixCls="ui-divider"
-        className={classNames(`ui-divider-preset-${preset}`, props.className)}
+        className={classNames(
+          `ui-divider-preset-${preset}`,
+          `ui-divider-size-${size}`,
+          props.className,
+        )}
       />
     </ConfigProvider>
   );

@@ -23,7 +23,7 @@ export default () => {
       <UIDivider preset="light" size="lg" />
       <UIDivider preset="medium" size="lg" />
       <UIDivider preset="dark" size="lg" />
-      <UIDivider preset="blackhole" size="lg" variant="dashed" />
+      <UIDivider preset="blackhole" size="lg" variant="dashed"></UIDivider>
     </div>
   );
 };

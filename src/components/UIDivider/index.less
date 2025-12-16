@@ -1,5 +1,10 @@
 @import '../../variables.less';
 
+// 虚线参数：虚线段长度和间隔
+@dash-length: 4px;
+@dash-gap-md: 2px;
+@dash-gap-lg: 4px;
+
 .ui-divider {
   &-preset {
     &-light {
@@ -14,5 +19,77 @@
     &-blackhole {
       border-color: @border-base-quaternary;
     }
+  }
+
+  // 虚线样式 - 使用 background 渐变实现可控间距
+  &-dashed&-horizontal {
+    border-style: none;
+
+    // md 尺寸
+    &.ui-divider-size-md {
+      height: 1px;
+      background: repeating-linear-gradient(
+        to right,
+        currentColor,
+        currentColor @dash-length,
+        transparent @dash-length,
+        transparent calc(@dash-length + @dash-gap-md)
+      );
+    }
+
+    // lg 尺寸
+    &.ui-divider-size-lg {
+      height: 2px;
+      background: repeating-linear-gradient(
+        to right,
+        currentColor,
+        currentColor @dash-length,
+        transparent @dash-length,
+        transparent calc(@dash-length + @dash-gap-lg)
+      );
+    }
+  }
+
+  // 垂直虚线
+  &-dashed&-vertical {
+    border-style: none;
+
+    // md 尺寸
+    &.ui-divider-size-md {
+      width: 1px;
+      background: repeating-linear-gradient(
+        to bottom,
+        currentColor,
+        currentColor @dash-length,
+        transparent @dash-length,
+        transparent calc(@dash-length + @dash-gap-md)
+      );
+    }
+
+    // lg 尺寸
+    &.ui-divider-size-lg {
+      width: 2px;
+      background: repeating-linear-gradient(
+        to bottom,
+        currentColor,
+        currentColor @dash-length,
+        transparent @dash-length,
+        transparent calc(@dash-length + @dash-gap-lg)
+      );
+    }
+  }
+
+  // 设置颜色（用于 background 渐变中的 currentColor）
+  &-preset-light&-dashed {
+    color: @border-base-default;
+  }
+  &-preset-medium&-dashed {
+    color: @border-base-secondary;
+  }
+  &-preset-dark&-dashed {
+    color: @border-base-tertiary;
+  }
+  &-preset-blackhole&-dashed {
+    color: @border-base-quaternary;
   }
 }
