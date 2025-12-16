@@ -1,4 +1,4 @@
-import { message, Space, ThemeModel, UIButton, UIMessage } from '@xybot/ui';
+import { Space, ThemeModel, UIButton, UIMessage } from '@xybot/ui';
 
 export default () => {
   const { isDarkMode } = ThemeModel.useModel();
@@ -10,9 +10,7 @@ export default () => {
     //   duration: 1000,
     // });
 
-    UIMessage.info('This is a success message from UIMessage', 2, () => {
-      message.success('This is a success message', 10000);
-    });
+    UIMessage.info('This is a success message from UIMessage', 20);
   };
 
   const success = () => {
