@@ -14,6 +14,7 @@ export function CustomModal(props: CustomModalProps) {
   const { customModalProps, children, fullScreen, ...rest } = props;
   return (
     <Modal
+      centered
       {...rest}
       closable={false}
       closeIcon={null}
@@ -29,7 +30,6 @@ export function CustomModal(props: CustomModalProps) {
         fullScreen && 'full-screen',
       )}
       prefixCls="ui-modal"
-      centered
     >
       <CustomModalContent
         content={children}

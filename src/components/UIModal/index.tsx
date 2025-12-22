@@ -133,9 +133,9 @@ export function useUIModal() {
           // @ts-expect-error 复写了 okButtonProps cancelButtonProps 属性
           getModalInvokeOptions(
             {
+              centered: true,
               ...config,
               type,
-              centered: true,
             },
             () => {
               modalRef.destroy();
