@@ -18,6 +18,7 @@ body {
   --brand-100: rgba(247, 63, 75, 0.1);
   --brand-150: rgba(247, 63, 75, 0.15);
   --brand-250: rgba(247, 63, 75, 0.25);
+  --brand-350: rgba(247, 63, 75, 0.35);
   --brand-400: rgba(247, 63, 75, 0.4);
   --brand-500: rgba(247, 63, 75, 1);
   --brand-600: rgba(255, 88, 99, 1);
@@ -68,6 +69,7 @@ body {
   --gray-200: rgba(11, 11, 12, 0.2);
   --gray-250: rgba(11, 11, 12, 0.25);
   --gray-300: rgba(11, 11, 12, 0.3);
+  --gray-350: rgba(11, 11, 12, 0.35);
   --gray-400: rgba(11, 11, 12, 0.4);
   --gray-500: rgba(11, 11, 12, 0.5);
   --gray-600: rgba(11, 11, 12, 0.6);
@@ -217,25 +219,25 @@ body {
   --bg-fill-deep-secondary: var(--gray-50);
   --bg-fill-deep-default: var(--gray-30);
 
-  --bg-fill-shallow-quinary: rgba(255, 255, 255, 0.9);
-  --bg-fill-shallow-quaternary: rgba(255, 255, 255, 0.6);
-  --bg-fill-shallow-tertiary: rgba(255, 255, 255, 0.4);
-  --bg-fill-shallow-secondary: rgba(255, 255, 255, 0.2);
-  --bg-fill-shallow-default: rgba(255, 255, 255, 0.1);
+  --bg-fill-shallow-quinary: var(--white-900);
+  --bg-fill-shallow-quaternary: var(--white-600);
+  --bg-fill-shallow-tertiary: var(--white-400);
+  --bg-fill-shallow-secondary: var(--white-200);
+  --bg-fill-shallow-default: var(--white-100);
 
-  --bg-primary-spotlight: rgba(247, 63, 75, 1);
-  --bg-primary-spotlight-secondary: rgba(255, 88, 99, 1);
-  --bg-primary-quaternary: rgba(247, 63, 75, 0.25);
-  --bg-primary-tertiary: rgba(247, 63, 75, 0.15);
-  --bg-primary-secondary: rgba(247, 63, 75, 0.1);
-  --bg-primary-default: rgba(247, 63, 75, 0.05);
+  --bg-primary-spotlight: var(--brand-600);
+  --bg-primary-spotlight-secondary: var(--brand-700);
+  --bg-primary-quaternary: var(--brand-250);
+  --bg-primary-tertiary: var(--brand-150);
+  --bg-primary-secondary: var(--brand-100);
+  --bg-primary-default: var(--brand-50);
 
-  --bg-info-spotlight: rgba(20, 116, 242, 1);
-  --bg-info-spotlight-secondary: rgba(57, 139, 255, 1);
-  --bg-info-quaternary: rgba(20, 116, 242, 0.25);
-  --bg-info-tertiary: rgba(20, 116, 242, 0.15);
-  --bg-info-secondary: rgba(20, 116, 242, 0.1);
-  --bg-info-default: rgba(20, 116, 242, 0.05);
+  --bg-info-spotlight: var(--blue-600);
+  --bg-info-spotlight-secondary: var(--blue-700);
+  --bg-info-quaternary: var(--blue-250);
+  --bg-info-tertiary: var(--blue-150);
+  --bg-info-secondary: var(--blue-100);
+  --bg-info-default: var(--blue-50);
 
   --bg-success-spotlight: var(--green-600);
   --bg-success-spotlight-secondary: var(--green-700);
@@ -244,19 +246,19 @@ body {
   --bg-success-secondary: var(--green-100);
   --bg-success-default: var(--green-50);
 
-  --bg-warning-spotlight: rgba(236, 103, 31, 1);
-  --bg-warning-spotlight-secondary: rgba(251, 147, 86, 1);
-  --bg-warning-quaternary: rgba(236, 103, 31, 0.25);
-  --bg-warning-tertiary: rgba(236, 103, 31, 0.15);
-  --bg-warning-secondary: rgba(236, 103, 31, 0.1);
-  --bg-warning-default: rgba(236, 103, 31, 0.05);
+  --bg-warning-spotlight: var(--orange-600);
+  --bg-warning-spotlight-secondary: var(--orange-700);
+  --bg-warning-quaternary: var(--orange-250);
+  --bg-warning-tertiary: var(--orange-150);
+  --bg-warning-secondary: var(--orange-100);
+  --bg-warning-default: var(--orange-50);
 
-  --bg-error-spotlight: rgba(220, 40, 70, 1);
-  --bg-error-spotlight-secondary: rgba(231, 71, 105, 1);
-  --bg-error-quaternary: rgba(220, 40, 70, 0.25);
-  --bg-error-tertiary: rgba(220, 40, 70, 0.15);
-  --bg-error-secondary: rgba(220, 40, 70, 0.1);
-  --bg-error-default: rgba(220, 40, 70, 0.05);
+  --bg-error-spotlight: var(--red-600);
+  --bg-error-spotlight-secondary: var(--red-700);
+  --bg-error-quaternary: var(--red-250);
+  --bg-error-tertiary: var(--red-150);
+  --bg-error-secondary: var(--red-100);
+  --bg-error-default: var(--red-50);
 
   --bg-magic-spotlight: var(--violet-600);
   --bg-magic-spotlight-secondary: var(--violet-700);
@@ -278,70 +280,70 @@ body {
   --text-base-in-coloer-tertiary: var(--white-400);
   --text-base-in-coloer-disable: var(--white-250);
 
-  --text-primary-default: rgba(247, 63, 75, 1);
-  --text-primary-default-hover: rgba(255, 88, 99, 1);
-  --text-primary-secondary: rgba(247, 63, 75, 0.4);
-  --text-primary-tertiary: rgba(247, 63, 75, 0.25);
+  --text-primary-default: var(--brand-600);
+  --text-primary-default-hover: var(--brand-700);
+  --text-primary-secondary: var(--brand-400);
+  --text-primary-tertiary: var(--brand-250);
 
-  --text-info-default: rgba(20, 116, 242, 1);
-  --text-info-default-hover: rgba(57, 139, 255, 1);
-  --text-info-secondary: rgba(20, 116, 242, 0.4);
-  --text-info-tertiary: rgba(20, 116, 242, 0.25);
+  --text-info-default: var(--blue-600);
+  --text-info-default-hover: var(--blue-700);
+  --text-info-secondary: var(--blue-400);
+  --text-info-tertiary: var(--blue-250);
 
   --text-success-default: var(--green-600);
   --text-success-default-hover: var(--green-700);
   --text-success-secondary: var(--green-400);
   --text-success-tertiary: var(--green-250);
 
-  --text-warning-default: rgba(236, 103, 31, 1);
-  --text-warning-default-hover: rgba(251, 147, 86, 1);
-  --text-warning-secondary: rgba(236, 103, 31, 0.4);
-  --text-warning-tertiary: rgba(236, 103, 31, 0.25);
+  --text-warning-default: var(--orange-600);
+  --text-warning-default-hover: var(--orange-700);
+  --text-warning-secondary: var(--orange-400);
+  --text-warning-tertiary: var(--orange-250);
 
-  --text-error-default: rgba(220, 40, 70, 1);
-  --text-error-default-hover: rgba(231, 71, 105, 1);
-  --text-error-secondary: rgba(220, 40, 70, 0.4);
-  --text-error-tertiary: rgba(220, 40, 70, 0.25);
+  --text-error-default: var(--red-600);
+  --text-error-default-hover: var(--red-700);
+  --text-error-secondary: var(--red-400);
+  --text-error-tertiary: var(--red-250);
 
   --text-magic-default: var(--violet-600);
   --text-magic-default-hover: var(--violet-700);
   --text-magic-secondary: var(--violet-400);
   --text-magic-tertiary: var(--violet-250);
 
-  --border-base-default: rgba(15, 17, 24, 0.05);
-  --border-base-secondary: rgba(15, 17, 24, 0.1);
-  --border-base-tertiary: rgba(15, 17, 24, 0.15);
-  --border-base-quaternary: rgba(15, 17, 24, 0.8);
+  --border-base-default: var(--gray-50);
+  --border-base-secondary: var(--gray-100);
+  --border-base-tertiary: var(--gray-150);
+  --border-base-quaternary: var(--gray-800);
 
-  --border-specular-default: rgba(255, 255, 255, 0.1);
-  --border-specular-secondary: rgba(255, 255, 255, 0.4);
-  --border-specular-tertiary: rgba(255, 255, 255, 0.8);
-  --border-specular-quaternary: rgba(255, 255, 255, 1);
+  --border-specular-default: var(--white-100);
+  --border-specular-secondary: var(--white-400);
+  --border-specular-tertiary: var(--white-800);
+  --border-specular-quaternary: var(--white-1000);
 
-  --border-primary-default: rgba(247, 63, 75, 1);
-  --border-primary-secondary: rgba(247, 63, 75, 0.25);
-  --border-primary-tertiary: rgba(247, 63, 75, 0.15);
-  --border-primary-quaternary: rgba(247, 63, 75, 0.1);
+  --border-primary-quaternary: var(--brand-100);
+  --border-primary-tertiary: var(--brand-150);
+  --border-primary-secondary: var(--brand-250);
+  --border-primary-default: var(--brand-600);
 
-  --border-info-default: rgba(20, 116, 242, 1);
-  --border-info-secondary: rgba(20, 116, 242, 0.25);
-  --border-info-tertiary: rgba(20, 116, 242, 0.15);
-  --border-info-quaternary: rgba(20, 116, 242, 0.1);
+  --border-info-quaternary: var(--blue-100);
+  --border-info-tertiary: var(--blue-150);
+  --border-info-secondary: var(--blue-250);
+  --border-info-default: var(--blue-600);
 
-  --border-success-default: var(--green-600);
-  --border-success-secondary: var(--green-250);
-  --border-success-tertiary: var(--green-150);
   --border-success-quaternary: var(--green-100);
+  --border-success-tertiary: var(--green-150);
+  --border-success-secondary: var(--green-250);
+  --border-success-default: var(--green-600);
 
-  --border-warning-default: var(--orange-600);
-  --border-warning-secondary: var(--orange-250);
-  --border-warning-tertiary: var(--orange-150);
   --border-warning-quaternary: var(--orange-100);
+  --border-warning-tertiary: var(--orange-150);
+  --border-warning-secondary: var(--orange-250);
+  --border-warning-default: var(--orange-600);
 
-  --border-error-default: rgba(220, 40, 70, 1);
-  --border-error-secondary: rgba(220, 40, 70, 0.25);
-  --border-error-tertiary: rgba(220, 40, 70, 0.15);
-  --border-error-quaternary: rgba(220, 40, 70, 0.1);
+  --border-error-default: var(--red-600);
+  --border-error-secondary: var(--red-250);
+  --border-error-tertiary: var(--red-150);
+  --border-error-quaternary: var(--red-100);
 
   --border-magic-default: var(--violet-600);
   --border-magic-secondary: var(--violet-250);
@@ -391,25 +393,25 @@ body {
   --bg-fill-deep-secondary: var(--white-100);
   --bg-fill-deep-default: var(--white-50);
 
-  --bg-fill-shallow-quinary: rgba(15, 17, 24, 0.7);
-  --bg-fill-shallow-quaternary: rgba(15, 17, 24, 0.5);
-  --bg-fill-shallow-tertiary: rgba(15, 17, 24, 0.35);
-  --bg-fill-shallow-secondary: rgba(15, 17, 24, 0.2);
-  --bg-fill-shallow-default: rgba(15, 17, 24, 0.1);
+  --bg-fill-shallow-quinary: var(--gray-700);
+  --bg-fill-shallow-quaternary: var(--gray-500);
+  --bg-fill-shallow-tertiary: var(--gray-350);
+  --bg-fill-shallow-secondary: var(--gray-200);
+  --bg-fill-shallow-default: var(--gray-100);
 
-  --bg-primary-spotlight: rgba(255, 88, 99, 1);
-  --bg-primary-spotlight-secondary: rgba(247, 63, 75, 1);
-  --bg-primary-quaternary: rgba(247, 63, 75, 0.5);
-  --bg-primary-tertiary: rgba(247, 63, 75, 0.35);
-  --bg-primary-secondary: rgba(247, 63, 75, 0.25);
-  --bg-primary-default: rgba(247, 63, 75, 0.1);
+  --bg-primary-spotlight: var(--brand-700);
+  --bg-primary-spotlight-secondary: var(--brand-600);
+  --bg-primary-quaternary: var(--brand-500);
+  --bg-primary-tertiary: var(--brand-350);
+  --bg-primary-secondary: var(--brand-250);
+  --bg-primary-default: var(--brand-100);
 
-  --bg-info-spotlight: rgba(57, 139, 255, 1);
-  --bg-info-spotlight-secondary: rgba(20, 116, 242, 1);
-  --bg-info-quaternary: rgba(20, 116, 242, 0.5);
-  --bg-info-tertiary: rgba(20, 116, 242, 0.35);
-  --bg-info-secondary: rgba(20, 116, 242, 0.25);
-  --bg-info-default: rgba(20, 116, 242, 0.1);
+  --bg-info-spotlight: var(--blue-700);
+  --bg-info-spotlight-secondary: var(--blue-600);
+  --bg-info-quaternary: var(--blue-500);
+  --bg-info-tertiary: var(--blue-350);
+  --bg-info-secondary: var(--blue-250);
+  --bg-info-default: var(--blue-100);
 
   --bg-success-spotlight: var(--green-700);
   --bg-success-spotlight-secondary: var(--green-600);
@@ -418,19 +420,19 @@ body {
   --bg-success-secondary: var(--green-250);
   --bg-success-default: var(--green-100);
 
-  --bg-warning-spotlight: rgba(251, 147, 86, 1);
-  --bg-warning-spotlight-secondary: rgba(236, 103, 31, 1);
-  --bg-warning-quaternary: rgba(236, 103, 31, 0.5);
-  --bg-warning-tertiary: rgba(236, 103, 31, 0.35);
-  --bg-warning-secondary: rgba(236, 103, 31, 0.25);
-  --bg-warning-default: rgba(236, 103, 31, 0.1);
+  --bg-warning-spotlight: var(--orange-700);
+  --bg-warning-spotlight-secondary: var(--orange-600);
+  --bg-warning-quaternary: var(--orange-500);
+  --bg-warning-tertiary: var(--orange-350);
+  --bg-warning-secondary: var(--orange-250);
+  --bg-warning-default: var(--orange-100);
 
-  --bg-error-spotlight: rgba(231, 71, 105, 1);
-  --bg-error-spotlight-secondary: rgba(220, 40, 70, 1);
-  --bg-error-quaternary: rgba(220, 40, 70, 0.5);
-  --bg-error-tertiary: rgba(220, 40, 70, 0.35);
-  --bg-error-secondary: rgba(220, 40, 70, 0.25);
-  --bg-error-default: rgba(220, 40, 70, 0.1);
+  --bg-error-spotlight: var(--red-700);
+  --bg-error-spotlight-secondary: var(--red-600);
+  --bg-error-quaternary: var(--red-500);
+  --bg-error-tertiary: var(--red-350);
+  --bg-error-secondary: var(--red-250);
+  --bg-error-default: var(--red-100);
 
   --bg-magic-spotlight: var(--violet-700);
   --bg-magic-spotlight-secondary: var(--violet-600);
@@ -452,70 +454,70 @@ body {
   --text-base-in-coloer-tertiary: var(--white-400);
   --text-base-in-coloer-disable: var(--white-250);
 
-  --text-primary-default: rgba(255, 88, 99, 1);
-  --text-primary-default-hover: rgba(247, 63, 75, 1);
-  --text-primary-secondary: rgba(247, 63, 75, 0.5);
-  --text-primary-tertiary: rgba(247, 63, 75, 0.35);
+  --text-primary-default: var(--brand-700);
+  --text-primary-default-hover: var(--brand-600);
+  --text-primary-secondary: var(--brand-500);
+  --text-primary-tertiary: var(--brand-350);
 
-  --text-info-default: rgba(57, 139, 255, 1);
-  --text-info-default-hover: rgba(20, 116, 242, 1);
-  --text-info-secondary: rgba(20, 116, 242, 0.5);
-  --text-info-tertiary: rgba(20, 116, 242, 0.35);
+  --text-info-default: var(--blue-700);
+  --text-info-default-hover: var(--blue-600);
+  --text-info-secondary: var(--blue-500);
+  --text-info-tertiary: var(--blue-350);
 
   --text-success-default: var(--green-700);
   --text-success-default-hover: var(--green-600);
   --text-success-secondary: var(--green-500);
   --text-success-tertiary: var(--green-350);
 
-  --text-warning-default: rgba(251, 147, 86, 1);
-  --text-warning-default-hover: rgba(236, 103, 31, 1);
-  --text-warning-secondary: rgba(236, 103, 31, 0.5);
-  --text-warning-tertiary: rgba(236, 103, 31, 0.35);
+  --text-warning-default: var(--orange-700);
+  --text-warning-default-hover: var(--orange-600);
+  --text-warning-secondary: var(--orange-500);
+  --text-warning-tertiary: var(--orange-350);
 
-  --text-error-default: rgba(231, 71, 105, 1);
-  --text-error-default-hover: rgba(220, 40, 70, 1);
-  --text-error-secondary: rgba(220, 40, 70, 0.5);
-  --text-error-tertiary: rgba(220, 40, 70, 0.35);
+  --text-error-default: var(--red-700);
+  --text-error-default-hover: var(--red-600);
+  --text-error-secondary: var(--red-500);
+  --text-error-tertiary: var(--red-350);
 
   --text-magic-default: var(--violet-700);
   --text-magic-default-hover: var(--violet-600);
   --text-magic-secondary: var(--violet-500);
   --text-magic-tertiary: var(--violet-350);
 
-  --border-base-default: rgba(255, 255, 255, 0.05);
-  --border-base-secondary: rgba(255, 255, 255, 0.1);
-  --border-base-tertiary: rgba(255, 255, 255, 0.15);
-  --border-base-quaternary: rgba(255, 255, 255, 0.8);
+  --border-base-default: var(--white-50);
+  --border-base-secondary: var(--white-100);
+  --border-base-tertiary: var(--white-200);
+  --border-base-quaternary: var(--white-800);
 
-  --border-specular-default: rgba(255, 255, 255, 0.03);
-  --border-specular-secondary: rgba(255, 255, 255, 0.1);
-  --border-specular-tertiary: rgba(255, 255, 255, 0.15);
-  --border-specular-quaternary: rgba(255, 255, 255, 0.2);
+  --border-specular-default: var(--white-30);
+  --border-specular-secondary: var(--white-100);
+  --border-specular-tertiary: var(--white-150);
+  --border-specular-quaternary: var(--white-200);
 
-  --border-primary-default: rgba(247, 63, 75, 1);
-  --border-primary-secondary: rgba(247, 63, 75, 0.25);
-  --border-primary-tertiary: rgba(247, 63, 75, 0.15);
-  --border-primary-quaternary: rgba(247, 63, 75, 0.1);
+  --border-primary-default: var(--brand-600);
+  --border-primary-secondary: var(--brand-250);
+  --border-primary-tertiary: var(--brand-150);
+  --border-primary-quaternary: var(--brand-100);
 
-  --border-info-default: rgba(20, 116, 242, 1);
-  --border-info-secondary: rgba(20, 116, 242, 0.25);
-  --border-info-tertiary: rgba(20, 116, 242, 0.15);
-  --border-info-quaternary: rgba(20, 116, 242, 0.1);
+  --border-info-default: var(--blue-600);
+  --border-info-secondary: var(--blue-250);
+  --border-info-tertiary: var(--blue-150);
+  --border-info-quaternary: var(--blue-100);
 
   --border-success-default: var(--green-600);
   --border-success-secondary: var(--green-250);
   --border-success-tertiary: var(--green-150);
   --border-success-quaternary: var(--green-100);
 
-  --border-warning-default: rgba(236, 103, 31, 1);
-  --border-warning-secondary: rgba(236, 103, 31, 0.25);
-  --border-warning-tertiary: rgba(236, 103, 31, 0.15);
-  --border-warning-quaternary: rgba(236, 103, 31, 0.1);
+  --border-warning-default: var(--orange-600);
+  --border-warning-secondary: var(--orange-250);
+  --border-warning-tertiary: var(--orange-150);
+  --border-warning-quaternary: var(--orange-100);
 
-  --border-error-default: rgba(220, 40, 70, 1);
-  --border-error-secondary: rgba(220, 40, 70, 0.25);
-  --border-error-tertiary: rgba(220, 40, 70, 0.15);
-  --border-error-quaternary: rgba(220, 40, 70, 0.1);
+  --border-error-default: var(--red-600);
+  --border-error-secondary: var(--red-250);
+  --border-error-tertiary: var(--red-150);
+  --border-error-quaternary: var(--red-100);
 
   --border-magic-default: var(--violet-600);
   --border-magic-secondary: var(--violet-250);
