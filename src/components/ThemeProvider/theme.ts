@@ -15,7 +15,7 @@ const commonComponetsTokens: ThemeConfig['components'] = {
     itemHoverColor: 'var(--text-base-secondary)',
     itemHoverBg: 'transparent',
     itemSelectedBg: 'var(--bg-base-container)',
-    trackBg: 'var(--bg-fill-deep-secondary)',
+    trackBg: 'var(--bg-base-mask-tertiary)',
   },
   Input: {
     colorTextPlaceholder: 'var(--text-base-tertiary)',

@@ -60,20 +60,21 @@ body {
   --black-1000: rgba(0, 0, 0, 1);
 
   /* Gray */
-  --gray-30: rgba(15, 17, 24, 0.03);
-  --gray-50: rgba(15, 17, 24, 0.05);
-  --gray-100: rgba(15, 17, 24, 0.1);
-  --gray-150: rgba(15, 17, 24, 0.15);
-  --gray-200: rgba(15, 17, 24, 0.2);
-  --gray-250: rgba(15, 17, 24, 0.25);
-  --gray-300: rgba(15, 17, 24, 0.3);
-  --gray-400: rgba(15, 17, 24, 0.4);
-  --gray-500: rgba(15, 17, 24, 0.5);
-  --gray-600: rgba(15, 17, 24, 0.6);
-  --gray-700: rgba(15, 17, 24, 0.7);
-  --gray-800: rgba(15, 17, 24, 0.8);
-  --gray-900: rgba(15, 17, 24, 0.9);
-  --gray-1000: rgba(15, 17, 24, 1);
+  --gray-30: rgba(11, 11, 12, 0.03);
+  --gray-50: rgba(11, 11, 12, 0.05);
+  --gray-70: rgba(11, 11, 12, 0.07);
+  --gray-100: rgba(11, 11, 12, 0.1);
+  --gray-150: rgba(11, 11, 12, 0.15);
+  --gray-200: rgba(11, 11, 12, 0.2);
+  --gray-250: rgba(11, 11, 12, 0.25);
+  --gray-300: rgba(11, 11, 12, 0.3);
+  --gray-400: rgba(11, 11, 12, 0.4);
+  --gray-500: rgba(11, 11, 12, 0.5);
+  --gray-600: rgba(11, 11, 12, 0.6);
+  --gray-700: rgba(11, 11, 12, 0.7);
+  --gray-800: rgba(11, 11, 12, 0.8);
+  --gray-900: rgba(11, 11, 12, 0.9);
+  --gray-1000: rgba(11, 11, 12, 1);
 
   /* Pewter */
   --pewter-100: rgba(249, 249, 251, 1);
@@ -83,9 +84,9 @@ body {
   --pewter-500: rgba(131, 134, 145, 1);
   --pewter-600: rgba(107, 110, 123, 1);
   --pewter-700: rgba(85, 89, 100, 1);
-  --pewter-800: rgba(45, 46, 53, 1);
-  --pewter-900: rgba(37, 38, 43, 1);
-  --pewter-1000: rgba(32, 33, 39, 1);
+  --pewter-800: rgba(30, 30, 32, 1);
+  --pewter-900: rgba(23, 23, 25, 1);
+  --pewter-1000: rgba(18, 18, 20, 1);
 
   /* Green */
   --green-50: rgba(13, 158, 81, 0.05);
@@ -205,14 +206,16 @@ body {
   --bg-base-layout-secondary: rgba(236, 237, 241, 1);
   --bg-base-spotlight: rgba(37, 38, 43, 1);
   --bg-base-spotlight-secondary: rgba(85, 89, 100, 1);
-  --bg-base-mask: rgba(15, 17, 24, 0.8);
+  --bg-base-mask: var(--gray-800);
+  --bg-base-mask-secondary: var(--gray-300);
+  --bg-base-mask-tertiary: var(--gray-50);
 
   // 0924 替换 bg-fill => bg-fill-deep
-  --bg-fill-deep-quinary: rgba(15, 17, 24, 0.25);
-  --bg-fill-deep-quaternary: rgba(15, 17, 24, 0.15);
-  --bg-fill-deep-tertiary: rgba(15, 17, 24, 0.1);
-  --bg-fill-deep-secondary: rgba(15, 17, 24, 0.05);
-  --bg-fill-deep-default: rgba(15, 17, 24, 0.03);
+  --bg-fill-deep-quinary: var(--gray-250);
+  --bg-fill-deep-quaternary: var(--gray-150);
+  --bg-fill-deep-tertiary: var(--gray-100);
+  --bg-fill-deep-secondary: var(--gray-50);
+  --bg-fill-deep-default: var(--gray-30);
 
   --bg-fill-shallow-quinary: rgba(255, 255, 255, 0.9);
   --bg-fill-shallow-quaternary: rgba(255, 255, 255, 0.6);
@@ -262,18 +265,18 @@ body {
   --bg-magic-secondary: var(--violet-100);
   --bg-magic-default: var(--violet-50);
 
-  --text-base-default: rgba(15, 17, 24, 1);
-  --text-base-secondary: rgba(15, 17, 24, 0.7);
-  --text-base-tertiary: rgba(15, 17, 24, 0.4);
-  --text-base-quaternary: rgba(15, 17, 24, 0.25);
-  --text-base-in-gray-default: rgba(255, 255, 255, 1);
-  --text-base-in-gray-secondary: rgba(255, 255, 255, 0.7);
-  --text-base-in-gray-tertiary: rgba(255, 255, 255, 0.4);
-  --text-base-in-gray-disable: rgba(255, 255, 255, 0.25);
-  --text-base-in-coloer-default: rgba(255, 255, 255, 1);
-  --text-base-in-coloer-secondary: rgba(255, 255, 255, 0.7);
-  --text-base-in-coloer-tertiary: rgba(255, 255, 255, 0.4);
-  --text-base-in-coloer-disable: rgba(255, 255, 255, 0.25);
+  --text-base-default: var(--gray-1000);
+  --text-base-secondary: var(--gray-700);
+  --text-base-tertiary: var(--gray-500);
+  --text-base-quaternary: var(--gray-300);
+  --text-base-in-gray-default: var(var(--white-1000));
+  --text-base-in-gray-secondary: var(--white-700);
+  --text-base-in-gray-tertiary: var(--white-400);
+  --text-base-in-gray-disable: var(--white-250);
+  --text-base-in-coloer-default: var(--white-1000);
+  --text-base-in-coloer-secondary: var(--white-700);
+  --text-base-in-coloer-tertiary: var(--white-400);
+  --text-base-in-coloer-disable: var(--white-250);
 
   --text-primary-default: rgba(247, 63, 75, 1);
   --text-primary-default-hover: rgba(255, 88, 99, 1);
@@ -350,8 +353,8 @@ body {
   --border-wonder-tertiary: var(--blueness-150);
   --border-wonder-quaternary: var(--blueness-100);
 
-  --effect-shadow-default: rgba(15, 17, 24, 0.1);
-  --effect-shadow-secondary: rgba(15, 17, 24, 0.05);
+  --effect-shadow-default: var(--gray-100);
+  --effect-shadow-secondary: var(--gray-70);
 
   /* size */
   --sds-size-depth-0: 0;
@@ -378,13 +381,15 @@ body {
   --bg-base-layout-secondary: rgba(15, 17, 24, 1);
   --bg-base-spotlight: rgba(236, 237, 241, 1);
   --bg-base-spotlight-secondary: rgba(255, 255, 255, 1);
-  --bg-base-mask: rgba(0, 0, 0, 0.8);
+  --bg-base-mask: var(--black-800);
+  --bg-base-mask-secondary: var(--black-500);
+  --bg-base-mask-tertiary: var(--black-250);
 
-  --bg-fill-deep-quinary: rgba(0, 0, 0, 0.5);
-  --bg-fill-deep-quaternary: rgba(0, 0, 0, 0.4);
-  --bg-fill-deep-tertiary: rgba(0, 0, 0, 0.3);
-  --bg-fill-deep-secondary: rgba(0, 0, 0, 0.2);
-  --bg-fill-deep-default: rgba(0, 0, 0, 0.15);
+  --bg-fill-deep-quinary: var(--white-300);
+  --bg-fill-deep-quaternary: var(--white-200);
+  --bg-fill-deep-tertiary: var(--white-150);
+  --bg-fill-deep-secondary: var(--white-100);
+  --bg-fill-deep-default: var(--white-50);
 
   --bg-fill-shallow-quinary: rgba(15, 17, 24, 0.7);
   --bg-fill-shallow-quaternary: rgba(15, 17, 24, 0.5);
@@ -434,18 +439,18 @@ body {
   --bg-magic-secondary: var(--violet-250);
   --bg-magic-default: var(--violet-100);
 
-  --text-base-default: rgba(255, 255, 255, 0.8);
-  --text-base-secondary: rgba(255, 255, 255, 0.5);
-  --text-base-tertiary: rgba(255, 255, 255, 0.3);
-  --text-base-quaternary: rgba(255, 255, 255, 0.15);
-  --text-base-in-gray-default: rgba(15, 17, 24, 1);
-  --text-base-in-gray-secondary: rgba(15, 17, 24, 0.7);
-  --text-base-in-gray-tertiary: rgba(15, 17, 24, 0.4);
-  --text-base-in-gray-disable: rgba(15, 17, 24, 0.25);
-  --text-base-in-coloer-default: rgba(255, 255, 255, 1);
-  --text-base-in-coloer-secondary: rgba(255, 255, 255, 0.7);
-  --text-base-in-coloer-tertiary: rgba(255, 255, 255, 0.4);
-  --text-base-in-coloer-disable: rgba(255, 255, 255, 0.25);
+  --text-base-default: var(--white-800);
+  --text-base-secondary: var(--white-600);
+  --text-base-tertiary: var(--white-400);
+  --text-base-quaternary: var(--white-200);
+  --text-base-in-gray-default: var(--gray-1000);
+  --text-base-in-gray-secondary: var(--white-700);
+  --text-base-in-gray-tertiary: var(--white-400);
+  --text-base-in-gray-disable: var(--white-250);
+  --text-base-in-coloer-default: var(--white-1000);
+  --text-base-in-coloer-secondary: var(--white-700);
+  --text-base-in-coloer-tertiary: var(--white-400);
+  --text-base-in-coloer-disable: var(--white-250);
 
   --text-primary-default: rgba(255, 88, 99, 1);
   --text-primary-default-hover: rgba(247, 63, 75, 1);
@@ -522,8 +527,8 @@ body {
   --border-wonder-tertiary: var(--blueness-150);
   --border-wonder-quaternary: var(--blueness-100);
 
-  --effect-shadow-default: rgba(0, 0, 0, 0.3);
-  --effect-shadow-secondary: rgba(0, 0, 0, 0.15);
+  --effect-shadow-default: var(--black-400);
+  --effect-shadow-secondary: var(--black-250);
 
   /* size */
   --sds-size-depth-0: 0;
