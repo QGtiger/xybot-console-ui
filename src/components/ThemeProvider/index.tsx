@@ -1,10 +1,4 @@
-import {
-  createContext,
-  PropsWithChildren,
-  useContext,
-  useEffect,
-  useMemo,
-} from 'react';
+import { createContext, PropsWithChildren, useContext, useMemo } from 'react';
 
 import {
   theme as AntdTheme,
@@ -24,6 +18,7 @@ import { darkTheme, lightTheme } from './theme';
 import { createCustomModel } from '@/utils/model';
 
 import '@/common/iconfont/iconfont.css';
+import { useCreation } from 'ahooks';
 import '../../global.less';
 import '../../styles.css';
 import { MessageInsRef } from '../UIMessage';
@@ -69,7 +64,7 @@ export function ThemeProvider(
 
   const commonTheme = theme === 'dark' ? darkTheme : lightTheme;
 
-  useEffect(() => {
+  useCreation(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark');
   }, [theme]);
 
