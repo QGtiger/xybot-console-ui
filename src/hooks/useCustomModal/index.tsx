@@ -292,7 +292,7 @@ export function CustomModalContent(
         <div className="rt-cont">
           {rtRender(
             <div
-              className="act-btn close-btn"
+              className="ui-modal-close"
               onClick={() => {
                 Promise.resolve(onCancel?.()).then(onClose);
               }}
