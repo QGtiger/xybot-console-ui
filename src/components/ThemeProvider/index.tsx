@@ -50,16 +50,20 @@ export function ThemeProvider(
     Omit<ThemeModelProps, 'modal'> & {
       theme?: ThemeType;
       isUseAntdTheme?: boolean;
+      isUseAntdOriginModal?: boolean;
     },
 ) {
-  const { theme = 'light', isUseAntdTheme } = props;
+  const { theme = 'light', isUseAntdTheme, isUseAntdOriginModal } = props;
 
   const [messageApi, messsageApiHolder] = message.useMessage({
     prefixCls: 'ui-message',
   });
   const { modal, modalHolder } = useUIModal();
 
-  ModalRef.current = modal;
+  if (!isUseAntdOriginModal) {
+    ModalRef.current = modal;
+  }
+
   MessageInsRef.current = messageApi;
 
   const commonTheme = theme === 'dark' ? darkTheme : lightTheme;
