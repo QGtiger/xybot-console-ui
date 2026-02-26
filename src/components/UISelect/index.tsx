@@ -29,7 +29,6 @@ export const UISelect = forwardRef<RefSelectProps, UISelectProps>(
 
     return (
       <AntdSelect
-        allowClear
         prefixCls="ui-select"
         ref={selectRef}
         className={classNames(
