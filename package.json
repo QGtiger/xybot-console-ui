@@ -1,6 +1,6 @@
 {
   "name": "@xybot/ui",
-  "version": "1.0.1-beta.4",
+  "version": "1.0.1-beta.5",
   "description": "xybot console ui",
   "homepage": "https://www.yingdao.com",
   "license": "MIT",
@@ -129,7 +129,7 @@
   },
   "peerDependencies": {
     "@ant-design/icons": "^6.0.2",
-    "antd": "^5.27.4",
+    "antd": "5.27.4",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },
