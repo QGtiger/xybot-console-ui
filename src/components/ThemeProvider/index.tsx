@@ -1,11 +1,6 @@
 import { createContext, PropsWithChildren, useContext, useMemo } from 'react';
 
-import {
-  theme as AntdTheme,
-  ConfigProvider,
-  ConfigProviderProps,
-  message,
-} from 'antd';
+import { theme as AntdTheme, ConfigProvider, ConfigProviderProps } from 'antd';
 import { ModalRef, UIModalFns, useUIModal } from '../UIModal';
 
 import type { ThemeMode, ThemeType } from 'ahooks/lib/useTheme';
@@ -21,7 +16,6 @@ import '@/common/iconfont/iconfont.css';
 import { useCreation } from 'ahooks';
 import '../../global.less';
 import '../../styles.css';
-import { MessageInsRef } from '../UIMessage';
 import './index.less';
 
 export { ThemeMode, ThemeType };
@@ -55,16 +49,11 @@ export function ThemeProvider(
 ) {
   const { theme = 'light', isUseAntdTheme, isUseAntdOriginModal } = props;
 
-  const [messageApi, messsageApiHolder] = message.useMessage({
-    prefixCls: 'ui-message',
-  });
   const { modal, modalHolder } = useUIModal();
 
   if (!isUseAntdOriginModal) {
     ModalRef.current = modal;
   }
-
-  MessageInsRef.current = messageApi;
 
   const commonTheme = theme === 'dark' ? darkTheme : lightTheme;
 
@@ -107,7 +96,6 @@ export function ThemeProvider(
         <ComponentConfigContext.Provider value={props.componentConfig || {}}>
           {props.children}
           {modalHolder}
-          {messsageApiHolder}
         </ComponentConfigContext.Provider>
       </ThemeModel.Provider>
     </ConfigProvider>
