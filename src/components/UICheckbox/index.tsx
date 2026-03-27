@@ -1,3 +1,4 @@
+import type { OmitPrefixCls } from '@/types';
 import { Checkbox, CheckboxProps } from 'antd';
 import { CheckboxGroupProps } from 'antd/es/checkbox';
 import './index.less';

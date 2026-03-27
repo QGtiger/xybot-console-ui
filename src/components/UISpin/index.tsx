@@ -1,3 +1,4 @@
+import type { OmitPrefixCls } from '@/types';
 import { Spin, SpinProps } from 'antd';
 import Lottie, { LottieComponentProps } from 'lottie-react';
 

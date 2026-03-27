@@ -1,3 +1,4 @@
+import type { OmitPrefixCls } from '@/types';
 import { Radio, RadioGroupProps, RadioProps } from 'antd';
 
 import './index.less';

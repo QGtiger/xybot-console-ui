@@ -1,3 +1,4 @@
+import type { OmitPrefixCls } from '@/types';
 import { Popover, PopoverProps } from 'antd';
 
 import './index.less';

@@ -1,3 +1,4 @@
+import type { OmitPrefixCls } from '@/types';
 import { Tooltip, TooltipProps } from 'antd';
 
 import './index.less';

@@ -1,4 +1,5 @@
 import { ScrollArea } from '@/blocks';
+import type { OmitPrefixCls } from '@/types';
 import { Dropdown, DropdownProps } from 'antd';
 import classNames from 'classnames';
 import React from 'react';

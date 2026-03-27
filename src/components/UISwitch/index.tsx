@@ -1,3 +1,4 @@
+import type { OmitPrefixCls } from '@/types';
 import { Switch, SwitchProps } from 'antd';
 
 import './index.less';

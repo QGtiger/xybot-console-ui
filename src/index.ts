@@ -1,3 +1,5 @@
+export type { OmitPrefixCls } from './types';
+
 export * from './components';
 
 export * from './blocks';
