@@ -77,3 +77,7 @@ npx xybotui demo UIDropdown --json
 ```
 
 将三段输出依次提供给 LLM，即可覆盖：**名称空间、API、示例代码**。
+
+## 与 figma-codegen
+
+从 Figma AST 按 [figma-codegen 的 ui-components 映射表](../figma-codegen/references/ui-components.md) 得到组件名后，对每一个名执行 **`info` + `demo`** 即可替代旧的静态 examples 片段。
