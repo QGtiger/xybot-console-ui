@@ -82,22 +82,13 @@ const items: MenuItem[] = [
   },
 ];
 
-const App: React.FC = () => {
-  const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
-  };
-
-  return (
-    <UIMenu
-      onClick={onClick}
-      style={{ width: 256 }}
-      defaultSelectedKeys={['1']}
-      defaultOpenKeys={['sub1']}
-      // mode="inline"
-      items={items}
-      size="xxl"
-    />
-  );
-};
-
-export default App;
+/** 完整 items 结构：分组、子菜单、分割线、禁用项 */
+export default () => (
+  <UIMenu
+    style={{ width: 256 }}
+    defaultSelectedKeys={['1']}
+    defaultOpenKeys={['sub1']}
+    items={items}
+    size="xl"
+  />
+);
