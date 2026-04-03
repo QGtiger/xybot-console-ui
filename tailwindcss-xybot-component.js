@@ -108,6 +108,14 @@ module.exports = plugin(
             secondary: 'var(--bg-error-secondary)',
             default: 'var(--bg-error-default)',
           },
+          bgWonder: {
+            spotlight: 'var(--bg-wonder-spotlight)',
+            spotlightSecondary: 'var(--bg-wonder-spotlight-secondary)',
+            quaternary: 'var(--bg-wonder-quaternary)',
+            tertiary: 'var(--bg-wonder-tertiary)',
+            secondary: 'var(--bg-wonder-secondary)',
+            default: 'var(--bg-wonder-default)',
+          },
           textBase: {
             default: 'var(--text-base-default)',
             secondary: 'var(--text-base-secondary)',
@@ -158,6 +166,12 @@ module.exports = plugin(
             secondary: 'var(--text-magic-secondary)',
             tertiary: 'var(--text-magic-tertiary)',
           },
+          textWonder: {
+            default: 'var(--text-wonder-default)',
+            defaultHover: 'var(--text-wonder-default-hover)',
+            secondary: 'var(--text-wonder-secondary)',
+            tertiary: 'var(--text-wonder-tertiary)',
+          },
           borderBase: {
             default: 'var(--border-base-default)',
             secondary: 'var(--border-base-secondary)',
@@ -199,6 +213,18 @@ module.exports = plugin(
             secondary: 'var(--border-error-secondary)',
             tertiary: 'var(--border-error-tertiary)',
             quaternary: 'var(--border-error-quaternary)',
+          },
+          borderMagic: {
+            default: 'var(--border-magic-default)',
+            secondary: 'var(--border-magic-secondary)',
+            tertiary: 'var(--border-magic-tertiary)',
+            quaternary: 'var(--border-magic-quaternary)',
+          },
+          borderWonder: {
+            default: 'var(--border-wonder-default)',
+            secondary: 'var(--border-wonder-secondary)',
+            tertiary: 'var(--border-wonder-tertiary)',
+            quaternary: 'var(--border-wonder-quaternary)',
           },
           effectShadow: {
             default: 'var(--effect-shadow-default)',

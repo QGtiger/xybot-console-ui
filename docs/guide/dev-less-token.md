@@ -46,7 +46,7 @@ import '@xybot/ui/variables.less';
 
 @drop-shadow-50: 0 2px 4px -2px var(--effect-shadow-default, rgba(15, 17, 24, 0.1));
 @drop-shadow-100: 0 8px 16px -4px var(--effect-shadow-default, rgba(15, 17, 24, 0.1));
-@drop-shadow-200: 0 16px 48px -8px var(--effect-shadow-default, rgba(15, 17, 24, 0.1)),
+@drop-shadow-200: 0 16px 48px -8px var(--effect-shadow-default, rgba(18, 37, 104, 0.1)),
   0 4px 8px 0 var(--effect-shadow-secondary, rgba(15, 17, 24, 0.07));
 
 @bg-base-container: var(--bg-base-container);
@@ -56,6 +56,8 @@ import '@xybot/ui/variables.less';
 @bg-base-spotlight: var(--bg-base-spotlight);
 @bg-base-spotlight-secondary: var(--bg-base-spotlight-secondary);
 @bg-base-mask: var(--bg-base-mask);
+@bg-base-mask-secondary: var(--bg-base-mask-secondary);
+@bg-base-mask-tertiary: var(--bg-base-mask-tertiary);
 
 // 0924 替换 bg-fill => bg-fill-deep
 @bg-fill-deep-quinary: var(--bg-fill-deep-quinary);
@@ -112,6 +114,13 @@ import '@xybot/ui/variables.less';
 @bg-magic-secondary: var(--bg-magic-secondary);
 @bg-magic-default: var(--bg-magic-default);
 
+@bg-wonder-spotlight: var(--bg-wonder-spotlight);
+@bg-wonder-spotlight-secondary: var(--bg-wonder-spotlight-secondary);
+@bg-wonder-quaternary: var(--bg-wonder-quaternary);
+@bg-wonder-tertiary: var(--bg-wonder-tertiary);
+@bg-wonder-secondary: var(--bg-wonder-secondary);
+@bg-wonder-default: var(--bg-wonder-default);
+
 @text-base-default: var(--text-base-default);
 @text-base-secondary: var(--text-base-secondary);
 @text-base-tertiary: var(--text-base-tertiary);
@@ -159,6 +168,11 @@ import '@xybot/ui/variables.less';
 @text-magic-secondary: var(--text-magic-secondary);
 @text-magic-tertiary: var(--text-magic-tertiary);
 
+@text-wonder-default: var(--text-wonder-default);
+@text-wonder-default-hover: var(--text-wonder-default-hover);
+@text-wonder-secondary: var(--text-wonder-secondary);
+@text-wonder-tertiary: var(--text-wonder-tertiary);
+
 @border-base-default: var(--border-base-default);
 @border-base-secondary: var(--border-base-secondary);
 @border-base-tertiary: var(--border-base-tertiary);
@@ -193,6 +207,16 @@ import '@xybot/ui/variables.less';
 @border-error-secondary: var(--border-error-secondary);
 @border-error-tertiary: var(--border-error-tertiary);
 @border-error-quaternary: var(--border-error-quaternary);
+
+@border-magic-default: var(--border-magic-default);
+@border-magic-secondary: var(--border-magic-secondary);
+@border-magic-tertiary: var(--border-magic-tertiary);
+@border-magic-quaternary: var(--border-magic-quaternary);
+
+@border-wonder-default: var(--border-wonder-default);
+@border-wonder-secondary: var(--border-wonder-secondary);
+@border-wonder-tertiary: var(--border-wonder-tertiary);
+@border-wonder-quaternary: var(--border-wonder-quaternary);
 
 @effect-shadow-default: var(--effect-shadow-default);
 @effect-shadow-secondary: var(--effect-shadow-secondary);
