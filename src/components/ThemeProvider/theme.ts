@@ -28,6 +28,11 @@ const commonComponetsTokens: ThemeConfig['components'] = {
   Tabs: {
     itemActiveColor: 'inherit',
   },
+  Dropdown: {
+    paddingBlock: 6,
+    controlPaddingHorizontal: 8,
+    borderRadiusSM: 6,
+  },
 };
 
 export const darkTheme: ThemeConfig = {
