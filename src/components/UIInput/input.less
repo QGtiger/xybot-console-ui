@@ -56,17 +56,24 @@ textarea.ui-input {
     padding: 0;
   }
 
-  &.ui-input-textarea-affix-wrapper {
-    height: auto;
+  &.ui-input-textarea {
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    padding: 8px 10px;
+    position: relative;
+    .ui-input-textarea-inner {
+      background: none !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
 
-    &.ui-input-textarea-show-count {
-      textarea {
-        padding-bottom: 30px;
-      }
-      .ui-input-data-count {
-        bottom: 5px;
-        right: 10px;
-      }
+    textarea {
+      padding: 0;
+      resize: none;
+    }
+
+    &.ui-input-textarea-showcount {
+      padding-bottom: 28px;
     }
   }
 
@@ -149,6 +156,15 @@ textarea.ui-input {
       padding-right: 0 !important;
       border-color: transparent !important;
       background-color: transparent !important;
+
+      &.ui-input-textarea {
+        &:focus-within {
+          &::after {
+            width: 100%; /* 展开到 full width */
+            left: 0; /* 回到左侧起点 */
+          }
+        }
+      }
 
       .notInputDisabledHover({
         input::placeholder {

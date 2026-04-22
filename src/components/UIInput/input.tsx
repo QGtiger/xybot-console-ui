@@ -75,16 +75,22 @@ export const UIInputTextArea = forwardRef<
 >((props, ref) => {
   const { type = 'border', ...rest } = useDefaultProps(props, 'uiInput');
   return (
-    <AntdInput.TextArea
-      ref={ref}
-      {...rest}
-      variant="outlined"
+    <span
       className={classNames(
-        props.className,
         'ui-input',
         `ui-input-textarea`,
         `ui-input-type-${type}`,
+        {
+          'ui-input-textarea-showcount': rest.showCount,
+        },
       )}
-    />
+    >
+      <AntdInput.TextArea
+        ref={ref}
+        {...rest}
+        variant="outlined"
+        className={classNames(props.className, 'ui-input-textarea-inner')}
+      />
+    </span>
   );
 });

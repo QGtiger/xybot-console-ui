@@ -117,6 +117,7 @@ export default () => {
         maxLength={20}
         type="filledsecondary"
       />
+      <UIInputTextArea placeholder="ui input text area" type="border" />
       <UIInput.Number type="borderless" controls={false} />
       <UIInput
         placeholder="border 请输入"
