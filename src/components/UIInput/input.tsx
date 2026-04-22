@@ -75,7 +75,7 @@ export const UIInputTextArea = forwardRef<
 >((props, ref) => {
   const { type = 'border', ...rest } = useDefaultProps(props, 'uiInput');
   return (
-    <span
+    <div
       className={classNames(
         'ui-input',
         `ui-input-textarea`,
@@ -91,6 +91,6 @@ export const UIInputTextArea = forwardRef<
         variant="outlined"
         className={classNames(props.className, 'ui-input-textarea-inner')}
       />
-    </span>
+    </div>
   );
 });
