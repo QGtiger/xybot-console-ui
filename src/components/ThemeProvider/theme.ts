@@ -40,8 +40,13 @@ export const darkTheme: ThemeConfig = {
     colorBgContainer: 'rgba(45, 46, 53, 1)',
     colorBgElevated: 'rgba(45, 46, 53, 1)',
     controlItemBgHover: 'rgba(0, 0, 0, 0.15)',
+    controlItemBgActive: 'rgba(255, 255, 255, 0.1)',
+    controlItemBgActiveHover: 'rgba(0, 0, 0, 0.15)',
+
     colorSplit: 'rgba(255, 255, 255, 0.2)',
     colorText: 'rgba(255, 255, 255, 0.8)',
+
+    colorPrimary: 'rgba(255, 255, 255, 0.8)',
 
     fontSize: 13,
     colorSuccessBg: 'var(--bg-success-default)',
@@ -60,9 +65,13 @@ export const lightTheme: ThemeConfig = {
     colorBgElevated: 'rgba(255, 255, 255, 1)',
     // 下拉菜单选中
     controlItemBgHover: 'rgba(15, 17, 24, 0.03)',
+    controlItemBgActive: 'rgba(11, 11, 12, 0.05)',
+    controlItemBgActiveHover: 'rgba(15, 17, 24, 0.03)',
     // 分割线
     colorSplit: 'rgba(15, 17, 24, 0.15)',
     colorText: 'rgba(15, 17, 24, 1)',
+
+    colorPrimary: 'rgba(15, 17, 24, 1)',
 
     fontSize: 13,
     colorSuccessBg: 'var(--bg-success-default)',

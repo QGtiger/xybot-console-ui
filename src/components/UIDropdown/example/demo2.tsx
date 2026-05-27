@@ -1,7 +1,6 @@
 import { SettingOutlined } from '@ant-design/icons';
 import { DropDownItem, UIButton, UIDropdown } from '@xybot/ui';
 import type { MenuProps } from 'antd';
-import React from 'react';
 
 const baseItems: MenuProps['items'] = [
   {
@@ -47,7 +46,7 @@ export default () => (
         useCustomStyle：ScrollArea + 底部 footer
       </span>
       <UIDropdown
-        menu={{ items: manyItems }}
+        menu={{ items: manyItems, selectedKeys: ['row-1'] }}
         trigger={['click']}
         placement="bottomLeft"
         useCustomStyle
