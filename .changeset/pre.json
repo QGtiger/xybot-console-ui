@@ -1,0 +1,10 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@xybot/ui": "1.0.1"
+  },
+  "changesets": [
+    "long-eagles-walk"
+  ]
+}
