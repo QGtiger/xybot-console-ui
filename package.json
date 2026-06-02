@@ -1,6 +1,6 @@
 {
   "name": "@xybot/ui",
-  "version": "1.0.1-beta.15",
+  "version": "1.0.1",
   "description": "xybot console ui",
   "homepage": "https://www.yingdao.com",
   "license": "MIT",
@@ -41,6 +41,8 @@
   "scripts": {
     "build": "father build && cp ./tailwindcss-xybot-component.js ./dist && node ./scripts/generate-component-manifest.mjs && node ./scripts/build-cli.mjs",
     "build:watch": "father dev",
+    "changeset": "changeset",
+    "changeset:version": "changeset version",
     "dev": "npm-run-all --parallel dev:css dev:dumi",
     "dev:css": "postcss ./src/input.css -o ./src/styles.css --watch",
     "dev:dumi": "dumi dev",
@@ -50,9 +52,16 @@
     "lint": "npm run lint:es && npm run lint:css",
     "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
     "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
+    "pre:alpha": "changeset pre enter alpha",
+    "pre:beta": "changeset pre enter beta",
+    "pre:rc": "changeset pre enter rc",
     "prepare": "husky install && dumi setup",
     "prepublishOnly": "father doctor && npm run build",
-    "start": "npm run dev"
+    "release": "pnpm build && changeset publish",
+    "release:pre": "pnpm version && pnpm release",
+    "release:stable": "changeset pre exit && pnpm version && pnpm release",
+    "start": "npm run dev",
+    "status": "changeset status"
   },
   "commitlint": {
     "extends": [
@@ -105,6 +114,7 @@
     "simplebar-react": "^3.3.2"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.0",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@types/react": "^18.0.0",
