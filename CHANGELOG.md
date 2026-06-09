@@ -1,5 +1,11 @@
 # @xybot/ui
 
+## 1.0.3
+
+### Patch Changes
+
+- 5b7543e: feat(UISwitch): 新增 type 属性，支持 info 和 neutral 两种类型
+
 ## 1.0.2
 
 ### Patch Changes
