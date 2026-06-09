@@ -6,6 +6,12 @@
 .ui-switch {
   border-radius: 6px;
 
+  // CSS 变量，不同 type 覆盖不同值
+  --switch-checked-bg: @bg-info-spotlight;
+  --switch-checked-hover-bg: @bg-info-spotlight-secondary;
+  --switch-checked-disabled-border: @border-info-tertiary;
+  --switch-checked-disabled-handle-bg: @text-info-tertiary;
+
   background-color: @bg-fill-deep-tertiary;
 
   &:not(.ui-switch-disabled):hover {
@@ -19,7 +25,11 @@
   }
 
   &.ui-switch-checked {
-    background-color: @bg-info-spotlight;
+    background-color: var(--switch-checked-bg);
+
+    &:not(.ui-switch-disabled):hover {
+      background-color: var(--switch-checked-hover-bg);
+    }
   }
 
   &.ui-switch-disabled {
@@ -35,11 +45,19 @@
   &.ui-switch-checked.ui-switch-disabled {
     opacity: 1;
     background-color: transparent;
-    .ring(@border-info-tertiary, 1px, true);
+    .ring(var(--switch-checked-disabled-border), 1px, true);
 
     .ui-switch-handle::before {
-      background-color: @text-info-tertiary;
+      background-color: var(--switch-checked-disabled-handle-bg);
     }
+  }
+
+  // neutral 类型
+  &[data-type='neutral'] {
+    --switch-checked-bg: @bg-base-spotlight;
+    --switch-checked-hover-bg: @bg-base-spotlight-secondary;
+    --switch-checked-disabled-border: @border-base-default;
+    --switch-checked-disabled-handle-bg: @text-base-tertiary;
   }
 
   @handle-width: 19px;

@@ -15,9 +15,18 @@ export default () => {
         alignItems: 'flex-start',
       }}
     >
-      <UISwitch />
-      <UISwitch disabled />
-      <UISwitch disabled checked />
+      <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+        <span>info:</span>
+        <UISwitch />
+        <UISwitch disabled />
+        <UISwitch disabled checked />
+      </div>
+      <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+        <span>neutral:</span>
+        <UISwitch type="neutral" />
+        <UISwitch type="neutral" disabled />
+        <UISwitch type="neutral" disabled checked />
+      </div>
       <UISwitch size="small" />
       <UISwitch size="small" disabled />
     </div>

@@ -3,8 +3,12 @@ import { Switch, SwitchProps } from 'antd';
 
 import './index.less';
 
-export type UISwtichProps = OmitPrefixCls<SwitchProps>;
+export type UISwitchType = 'info' | 'neutral';
 
-export function UISwitch(props: UISwtichProps) {
-  return <Switch {...props} prefixCls="ui-switch" />;
+export type UISwtichProps = OmitPrefixCls<SwitchProps> & {
+  type?: UISwitchType;
+};
+
+export function UISwitch({ type = 'info', ...rest }: UISwtichProps) {
+  return <Switch {...rest} prefixCls="ui-switch" data-type={type} />;
 }
