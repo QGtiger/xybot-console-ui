@@ -46,8 +46,6 @@ export const darkTheme: ThemeConfig = {
     colorSplit: 'rgba(255, 255, 255, 0.2)',
     colorText: 'rgba(255, 255, 255, 0.8)',
 
-    colorPrimary: 'rgba(255, 255, 255, 0.8)',
-
     fontSize: 13,
     colorSuccessBg: 'var(--bg-success-default)',
     colorInfoBg: 'var(--bg-info-default)',
@@ -70,8 +68,6 @@ export const lightTheme: ThemeConfig = {
     // 分割线
     colorSplit: 'rgba(15, 17, 24, 0.15)',
     colorText: 'rgba(15, 17, 24, 1)',
-
-    colorPrimary: 'rgba(15, 17, 24, 1)',
 
     fontSize: 13,
     colorSuccessBg: 'var(--bg-success-default)',
