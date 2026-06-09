@@ -1,6 +1,6 @@
 {
   "name": "@xybot/ui",
-  "version": "1.0.2-beta.0",
+  "version": "1.0.2",
   "description": "xybot console ui",
   "homepage": "https://www.yingdao.com",
   "license": "MIT",
@@ -58,8 +58,8 @@
     "prepare": "husky install && dumi setup",
     "prepublishOnly": "father doctor && npm run build",
     "release": "pnpm build && changeset publish",
-    "release:pre": "pnpm version && pnpm release",
-    "release:stable": "changeset pre exit && pnpm version && pnpm release",
+    "release:pre": "pnpm changeset:version && pnpm release",
+    "release:stable": "changeset pre exit && pnpm changeset:version && pnpm release",
     "start": "npm run dev",
     "status": "changeset status"
   },
